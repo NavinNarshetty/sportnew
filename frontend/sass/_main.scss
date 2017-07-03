@@ -5,6 +5,10 @@ $brand-success: #84ce3c !default;
 $brand-warning: #ffec39 !default;
 $brand-danger: #fc483f !default;
 $brand-info: #000072 !default;
+
+$brand-darkblue: #10259c !default;
+$white: #fff;
+$black: #000;
 @import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
 
 /* Bootstrap Variables Goes Here */
@@ -120,9 +124,85 @@ header {
     transform: translateY(-100%);
 }
 
+// COMMON CLASSES
+.m-clear{
+  margin: 0;
+}
+.p-clear{
+  padding: 0;
+}
+.display-inline{
+  display: inline;
+}
+.display-block{
+  display: block;
+}
+.inline-block{
+  display: inline-block;
+}
+.v-top{
+  vertical-align: top;
+}
+.v-mid{
+  vertical-align: middle;
+}
+.v-bottom{
+  vertical-align: bottom;
+}
+.text-capitalise{
+  text-transform: capitalize;
+}
+.no-textdecoration{
+  text-decoration: none;
+}
+.get-center{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  @include transform(translate(-50%,-50%));
+}
+.absolute{
+  position: absolute;
+}
+.relate{
+  position: relative;
+}
+.static{
+  position: static;
+}
+.fixed{
+  position: fixed;
+}
+
+// COMMON CLASSES END
+
 // ATHELETE PAGE START
 .atheleteprofile-page{
-    background-color: red;
-    height: 100vh;
+  min-height: 100vh;
+}
+.atheleteprofile-mainsection{
+}
+
+.atheleteprofile-card{
+  padding: 20px;
+  border: 1px solid red;
+  // text-align: center;
+}
+
+.atheleteprofile-picture{
+  display: inline-block;
+  vertical-align: top;
+}
+.athelete-picholder{
+  width: 150px;
+  height: 150px;
+  border-radius: 100%;
+  margin: 0px 10px;
+  overflow: hidden;
+}
+.atheleteprofile-details{
+  display: inline-block;
+  text-align: left;
+  vertical-align: top;
 }
 // ATHELETE PAGE END

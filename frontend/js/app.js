@@ -34,6 +34,11 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
             url: "/grid",
             templateUrl: tempateURL,
             controller: 'GridCtrl'
+        })
+        .state('atheleteprofile', {
+            url: "/atheleteprofile",
+            templateUrl: tempateURL,
+            controller: 'AtheleteProfileCtrl'
         });
     $urlRouterProvider.otherwise("/");
     $locationProvider.html5Mode(isproduction);

@@ -39,6 +39,11 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
             url: "/atheleteprofile",
             templateUrl: tempateURL,
             controller: 'AtheleteProfileCtrl'
+        })
+        .state('schoolprofile', {
+            url: "/schoolprofile",
+            templateUrl: tempateURL,
+            controller: 'SchoolProfileCtrl'
         });
     $urlRouterProvider.otherwise("/");
     $locationProvider.html5Mode(isproduction);

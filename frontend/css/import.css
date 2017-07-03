@@ -9534,6 +9534,39 @@ header {
   text-align: left;
   vertical-align: top; }
 
+.display-inlineblock {
+  display: inline-block; }
+
+.schoolprofile-page {
+  min-height: 100vh; }
+  .schoolprofile-page .school-head {
+    margin: 30px; }
+  .schoolprofile-page h3 {
+    color: #0a1a72; }
+  .schoolprofile-page .schoolprofilecard .school-image {
+    width: 190px;
+    height: auto;
+    margin: 0 auto; }
+    .schoolprofile-page .schoolprofilecard .school-image img {
+      border-radius: 50%; }
+  .schoolprofile-page .schoolprofilecard .schoolsports-played p {
+    border: 1px solid gray;
+    padding: 5px; }
+  .schoolprofile-page .schoolprofilecard .school-total {
+    margin-right: 5px; }
+  .schoolprofile-page .schoolprofilecard .school-medals {
+    margin-left: 5px; }
+
+.school-navigation {
+  border-top: 2px solid gray;
+  padding-top: 10px; }
+  .school-navigation ul li {
+    padding: 5px 10px;
+    margin: 5px;
+    font-size: 16px; }
+    .school-navigation ul li:active {
+      border-bottom: 3px solid #bcd200; }
+
 #fancybox-loading,
 .fancybox-close,
 .fancybox-next span,

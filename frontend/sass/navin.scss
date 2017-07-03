@@ -1,0 +1,60 @@
+//common class//
+.display-inlineblock {
+    display: inline-block;
+}
+
+//
+//schoolprofile-page
+//school-head
+.schoolprofile-page {
+    min-height: 100vh;
+    .school-head {
+        margin: 30px;
+    }
+    h3 {
+        color: $brand-primary;
+    }
+    .schoolprofilecard {
+        // border: 1px solid red;
+        // padding: 20px;
+        .school-image {
+            width: 190px;
+            height: auto;
+            margin: 0 auto;
+            img {
+                border-radius: 50%;
+            }
+        }
+        .schoolsports-played {
+            p {
+                border: 1px solid gray;
+                padding: 5px;
+            }
+        }
+        .school-total {
+            margin-right: 5px;
+        }
+        .school-medals {
+            margin-left: 5px;
+        }
+    }
+}
+
+//end-school-head
+//school-nav
+.school-navigation {
+    border-top: 2px solid gray;
+    padding-top: 10px;
+    ul {
+        li {
+            padding: 5px 10px;
+            margin: 5px;
+            font-size: 16px;
+            &:active {
+                border-bottom: 3px solid $green;
+            }
+        }
+    }
+}
+
+//end schoolprofile-page

@@ -35,15 +35,27 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
             templateUrl: tempateURL,
             controller: 'GridCtrl'
         })
-        .state('atheleteprofile', {
-            url: "/atheleteprofile",
+        .state('athleteprofile-without', {
+            url: "/athleteprofile",
             templateUrl: tempateURL,
-            controller: 'AtheleteProfileCtrl'
+            controller: 'AthleteProfileCtrl'
         })
-        .state('schoolprofile', {
+        .state('athleteprofile', {
+            url: "/athleteprofile/:name",
+            templateUrl: tempateURL,
+            controller: 'AthleteProfileCtrl',
+            reloadOnSearch: false
+        })
+        .state('schoolprofile-without', {
             url: "/schoolprofile",
             templateUrl: tempateURL,
             controller: 'SchoolProfileCtrl'
+        })
+        .state('schoolprofile', {
+            url: "/schoolprofile/:name",
+            templateUrl: tempateURL,
+            controller: 'SchoolProfileCtrl',
+            reloadOnSearch: false
         });
     $urlRouterProvider.otherwise("/");
     $locationProvider.html5Mode(isproduction);

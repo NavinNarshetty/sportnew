@@ -1,6 +1,6 @@
-myApp.controller('AtheleteProfileCtrl', function ($scope, $state, $stateParams, TemplateService, NavigationService, $timeout, toastr, $http) {
-    $scope.template = TemplateService.getHTML("content/atheleteprofile.html");
-    TemplateService.title = "Athelete Profile"; //This is the Title of the Website
+myApp.controller('AthleteProfileCtrl', function ($scope, $state, $stateParams, TemplateService, NavigationService, $timeout, toastr, $http) {
+    $scope.template = TemplateService.getHTML("content/athleteprofile.html");
+    TemplateService.title = "Athlete Profile"; //This is the Title of the Website
     $scope.navigation = NavigationService.getNavigation();
 
     var allAgentProfile = [ "frontend/views/content/athleteprofile/highlights.html", "frontend/views/content/athleteprofile/statistics.html", "frontend/views/content/athleteprofile/achievements.html", "frontend/views/content/athleteprofile/videos.html"];
@@ -50,7 +50,7 @@ myApp.controller('AtheleteProfileCtrl', function ($scope, $state, $stateParams, 
           url = "highlights";
         break;
       }
-      $state.go("atheleteprofile",{
+      $state.go("athleteprofile",{
         name: url
       },{
         notify: false

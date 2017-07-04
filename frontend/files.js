@@ -49,6 +49,6 @@ module.exports = [
   'frontend/js/controllers/controller.js',
   'frontend/js/controllers/header-controller.js',
   'frontend/js/controllers/language-controller.js',
-  'frontend/js/controllers/atheleteprofile-controller.js',
+  'frontend/js/controllers/athleteprofile-controller.js',
   'frontend/js/controllers/schoolprofile-controller.js',
 ];

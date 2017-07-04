@@ -1,27 +1,21 @@
 /* Bootstrap Variables Goes Here */
-
-$brand-primary: #0a1a72 !default;
-$brand-success: #fc7700 !default;
-$brand-warning: #9f9f9f !default;
-$brand-danger: #fc483f !default;
-$brand-info: #000072 !default;
-$base: #303030 !default;
+$brand-primary: #0a1a72 !default; //blue
+$brand-success: #27B465 !default; //green
+$brand-warning: #fc7700 !default; //yellow
+$brand-danger: #fc483f !default; //red
+$brand-info: #000072 !default; //lighter-blue
+$base: #303030 !default; //black
 $white: #fff !default;
-$dark-grey: #e1e1e1 !default;
+$grey: #e1e1e1 !default;
+$dark-grey: #9f9f9f !default;
 $light-grey: #ebebeb !default;
 $other-blue: #2a45d4 !default;
-$green: #bcd200 !default;
-$font-family-sans-serif: "Titillium Web",
-"Sansation",
-"Built Titling",
-"avenir",
-Arial,
-sans-serif !default;
+$light-green: #bcd200 !default
+$font-family-sans-serif: "Titillium Web", "Sansation", "Built Titling", "avenir", Arial, sans-serif !default;
 @import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
-
 /* Bootstrap Variables Goes Here */
-
 @import "other/font-fix";
+
 body {
     padding-top: 70px;
 }
@@ -50,9 +44,9 @@ nav li:hover .dropdown-menu {
     opacity: 1;
 }
 
-a,
 .btn,
-[ui-sref] {
+[ui-sref],
+a {
     cursor: pointer;
     transition: all ease 300ms;
 }
@@ -61,18 +55,18 @@ footer {
     font-size: 12px;
     background-color: #eee;
     padding: 10px 0;
+
     p {
         margin: 0;
     }
 }
-
 //bootstrap forms
-.input-lg,
-.input-group-lg>.form-control,
-.input-group-lg>.input-group-addon,
-.input-group-lg>.input-group-btn>.btn,
 .btn,
-.form-control {
+.form-control,
+.input-group-lg > .form-control,
+.input-group-lg > .input-group-addon,
+.input-group-lg > .input-group-btn > .btn,
+.input-lg {
     border-radius: 0;
     box-shadow: none;
 }
@@ -89,9 +83,11 @@ footer {
 
 .form-invalid {
     color: $brand-danger;
+
     .form-control {
         border-color: $brand-danger;
         color: $brand-danger;
+
         &::-webkit-input-placeholder {
             color: $brand-danger;
         }
@@ -101,15 +97,16 @@ footer {
 .form-submission {
     min-height: 300px;
 }
-
 //FLEX SLIDER FIXES
 .flex-direction-nav {
     a {
         height: auto;
     }
+
     .flex-prev {
         left: 10px !important;
     }
+
     .flex-next {
         right: 10px !important;
     }
@@ -131,86 +128,157 @@ header {
 .nav-up {
     transform: translateY(-100%);
 }
-
 // COMMON CLASSES
-.m-clear{
-  margin: 0;
-}
-.p-clear{
-  padding: 0;
-}
-.display-inline{
-  display: inline;
-}
-.display-block{
-  display: block;
-}
-.inline-block{
-  display: inline-block;
-}
-.v-top{
-  vertical-align: top;
-}
-.v-mid{
-  vertical-align: middle;
-}
-.v-bottom{
-  vertical-align: bottom;
-}
-.text-capitalise{
-  text-transform: capitalize;
-}
-.no-textdecoration{
-  text-decoration: none;
-}
-.get-center{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  @include transform(translate(-50%,-50%));
-}
-.absolute{
-  position: absolute;
-}
-.relate{
-  position: relative;
-}
-.static{
-  position: static;
-}
-.fixed{
-  position: fixed;
+.m-clear {
+    margin: 0;
 }
 
+.p-clear {
+    padding: 0;
+}
+
+.display-inline {
+    display: inline;
+}
+
+.display-block {
+    display: block;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+.v-top {
+    vertical-align: top;
+}
+
+.v-mid {
+    vertical-align: middle;
+}
+
+.v-bottom {
+    vertical-align: bottom;
+}
+
+.text-capitalise {
+    text-transform: capitalize;
+}
+
+.no-textdecoration {
+    text-decoration: none;
+}
+
+.get-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include transform(translate(-50%,-50%));
+}
+
+.absolute {
+    position: absolute;
+}
+
+.relate {
+    position: relative;
+}
+
+.static {
+    position: static;
+}
+
+.fixed {
+    position: fixed;
+}
+.pointer{
+  cursor: pointer;
+}
 // COMMON CLASSES END
-
-// ATHELETE PAGE START
-.atheleteprofile-page{
-  min-height: 100vh;
-}
-.atheleteprofile-mainsection{
+// athlete PAGE START
+.athleteprofile-page {
+    min-height: 100vh;
 }
 
-.atheleteprofile-card{
-  padding: 20px;
-  border: 1px solid red;
-  // text-align: center;
+.athleteprofile-mainsection {
+    margin: 30px;
 }
 
-.atheleteprofile-picture{
-  display: inline-block;
-  vertical-align: top;
+.athleteprofile-card {
+    padding: 20px;
+    // border: 1px solid red;
 }
-.athelete-picholder{
-  width: 150px;
-  height: 150px;
-  border-radius: 100%;
-  margin: 0px 10px;
-  overflow: hidden;
+
+.athleteprofile-picture {
+    display: inline-block;
+    width: 29%;
+    vertical-align: top;
+    position: relative;
 }
-.atheleteprofile-details{
-  display: inline-block;
-  text-align: left;
-  vertical-align: top;
+
+.athlete-picholder {
+    width: 190px;
+    height: 190px;
+    border: 5px solid $light-grey;
+    border-radius: 100%;
+    margin: 0 auto;
+    overflow: hidden;
 }
-// ATHELETE PAGE END
+
+.athletepic-check {
+    position: absolute;
+    left: 35px;
+    bottom: 5px;
+    width: 25px;
+    height: 25px;
+    border-radius: 100%;
+    background-color: $brand-warning;
+    color: #fff;
+    font-size: 15px;
+    line-height: 25px;
+    text-align: center;
+    z-index: 1;
+}
+
+.athleteprofile-details {
+    display: inline-block;
+    width: 70%;
+    vertical-align: top;
+}
+
+.athletedetail-name {
+    color: $brand-primary;
+    word-break: break-all;
+}
+
+.athletedetail-sportlist {
+    padding: 0 10px;
+    border: 1px solid $light-grey;
+}
+
+.athletedetails-stats {
+    margin: 10px 0;
+}
+
+.athletedetails-medals {
+    margin-left: 5px;
+}
+
+.athletedetails-ratio {
+    margin-right: 5px;
+}
+
+.athleteprofile-nav {
+    border-top: 2px solid $dark-grey;
+
+    .athletenav-option {
+        padding: 5px 10px;
+        margin: 5px;
+        font-size: 18px;
+        @extend .pointer;
+        &.active{
+          border-bottom: 3px solid $brand-success;
+        }
+    }
+}
+// athlete PAGE END

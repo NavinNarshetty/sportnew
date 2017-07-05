@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8 col-xs-12">
                     <div class="schoolprofilecard">
-                        <div class="inline-block v-top">
+                        <div class="inline-block v-top schoolpicholder">
                             <div class="">
                                 <div class="school-image">
                                     <img src="img/dishapatani1.jpg" class="img-responsive">
@@ -13,7 +13,7 @@
                             </div>
                         </div>
 
-                        <div class="inline-block">
+                        <div class="inline-block schooldetail-holder">
                             <div class="schoolprofilecard-head">
                                 <h3>Dr. Sarvepalli Radhakrishnan Hindi<br/>Secondary School ( Andheri )</h3>
                             </div>
@@ -72,21 +72,21 @@
                                             <li>
                                                 <div class="inline-block">
 
-                                                    <img src="img/sf-gold-sec.png " class="img-responsive ">
+                                                    <img src="img/sf-silver-sec.png " class="img-responsive ">
                                                 </div>
                                                 <div class="inline-block">
                                                     <span>999</span><br/>
-                                                    <span>Gold</span>
+                                                    <span>Silver</span>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div class="inline-block">
 
-                                                    <img src="img/sf-gold-sec.png " class="img-responsive ">
+                                                    <img src="img/sf-bronze-sec.png " class="img-responsive ">
                                                 </div>
                                                 <div class="inline-block">
                                                     <span>999</span><br/>
-                                                    <span>Gold</span>
+                                                    <span>Bronze</span>
                                                 </div>
                                             </li>
 
@@ -123,12 +123,15 @@
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="text-uppercase">
                             <ul class="list-inline">
-                                <li>HIGHLIGHTS</li>
-                                <li>track record</li>
-                                <li>team</li>
-                                <li>statistics</li>
-                                <li>achievments</li>
-                                <li>video</li>
+
+                                <li ng-click="getTab(0)" ng-class="{'active':schoolprofile.active=='highlights'}">
+                                    HIGHLIGHTS
+                                </li>
+                                <li ng-click="getTab(1)" ng-class="{'active':schoolprofile.active=='trackrecord'}">track record</li>
+                                <li ng-click="getTab(2)" ng-class="{'active':schoolprofile.active=='team'}">team</li>
+                                <li ng-click="getTab(3)" ng-class="{'active':schoolprofile.active=='statistics'}">statistics</li>
+                                <li ng-click="getTab(4)" ng-class="{'active':schoolprofile.active=='achievements'}">achievements</li>
+                                <li ng-click="getTab(5)" ng-class="{'active':schoolprofile.active=='video'}">video</li>
                             </ul>
                         </div>
                     </div>
@@ -139,7 +142,11 @@
 
         </div>
     </div>
-
-
     <!--End School-nav-->
+
+    <div class="schoolprofile-content" ng-include="schoolprofile.innerView">
+
+    </div>
+
+
 </div>

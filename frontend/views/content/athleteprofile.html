@@ -31,19 +31,19 @@
                       <div class="athlete-detailmedal inline-block">
                         <img src="img/sf-gold-sec.png" alt="Gold Medals" class="img-responsive">
                       </div>
-                      <div class="inline-block text-center"> <span> 999 </span><br> <span> Gold </span></div>
+                      <div class="inline-block text-center"> <span class="color-primary"> 999 </span><br> <span> Gold </span></div>
                     </li>
                     <li>
                       <div class="athlete-detailmedal inline-block">
                         <img src="img/sf-silver-sec.png" alt="Silver Medals" class="img-responsive">
                       </div>
-                      <div class="inline-block text-center"> <span> 999 </span><br> <span> Silver </span></div>
+                      <div class="inline-block text-center"> <span class="color-primary"> 999 </span><br> <span> Silver </span></div>
                     </li>
                     <li>
                       <div class="athlete-detailmedal inline-block">
                         <img src="img/sf-bronze-sec.png" alt="Bronze Medals" class="img-responsive">
                       </div>
-                      <div class="inline-block text-center"> <span> 999 </span><br> <span> Bronze </span></div>
+                      <div class="inline-block text-center"> <span class="color-primary"> 999 </span><br> <span> Bronze </span></div>
                     </li>
 
                   </ul>
@@ -64,10 +64,10 @@
         <div class="col-md-12">
           <div class="athlete-navscroll">
             <ul class="list-inline">
-              <li class="athletenav-option" ng-click="getTab(0);">HIGHLIGHTS</li>
-              <li class="athletenav-option" ng-click="getTab(1);">STATISTICS</li>
-              <li class="athletenav-option" ng-click="getTab(2);">ACHIEVEMENTS</li>
-              <li class="athletenav-option" ng-click="getTab(3);">VIDEOS</li>
+              <li class="athletenav-option" ng-click="getTab(0);" ng-class="{'active': athleteprofile.active=='highlights'}">HIGHLIGHTS</li>
+              <li class="athletenav-option" ng-click="getTab(1);" ng-class="{'active': athleteprofile.active=='statistics'}">STATISTICS</li>
+              <li class="athletenav-option" ng-click="getTab(2);" ng-class="{'active': athleteprofile.active=='achievements'}">ACHIEVEMENTS</li>
+              <li class="athletenav-option" ng-click="getTab(3);" ng-class="{'active': athleteprofile.active=='videos'}">VIDEOS</li>
             </ul>
           </div>
         </div>

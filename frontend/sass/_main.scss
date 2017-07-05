@@ -129,6 +129,14 @@ header {
     transform: translateY(-100%);
 }
 // COMMON CLASSES
+.d {
+  width: 100%;
+  height: 200px;
+  background-color: $brand-danger;
+}
+.color-primary{
+  color: $brand-primary
+}
 .m-clear {
     margin: 0;
 }
@@ -274,11 +282,52 @@ header {
     .athletenav-option {
         padding: 5px 10px;
         margin: 5px;
-        font-size: 18px;
+        font-size: 15px;
         @extend .pointer;
         &.active{
           border-bottom: 3px solid $brand-success;
         }
     }
 }
+// HIGHLIGHTS PAGE
+.sportslidetable-element{
+  width: 24%;
+  display: inline-block;
+  text-align: center;
+}
+.sportslide-header {
+    text-align: right;
+    color: #fff;
+    border: 1px solid red;
+}
+.sportslide-content {
+    border: 1px solid lightgray;
+    border-top: none;
+    padding: 10px 20px;
+    ul{
+      font-size: 12px;
+    }
+}
+.sportslide-table {
+    margin: 10px 0 5px;
+}
+.sportslide-sportname{
+  font-size: 21px;
+  line-height: 1;
+}
+.sportslide-headertitle{
+  position: relative;
+  display: inline-block;
+  padding: 10px;
+  background-color: $brand-success;
+  &:after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -10px;
+    border-left: 10px solid transparent;
+    border-bottom: 40px solid $brand-success;
+  }
+}
+// HIGHLIGHTS PAGE END
 // athlete PAGE END

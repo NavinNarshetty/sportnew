@@ -7,7 +7,7 @@
             <h3>YEAR-ON-YEAR TRACK RECORD</h3>
             <p>A year-on-year summary of the school's overall performance at SFA Championships.
             </p>
-            <div class="schooltrackrecord-table">
+            <!--<div class="schooltrackrecord-table">
               <table class=" table ">
                 <thead>
                   <tr>
@@ -45,11 +45,162 @@
 
                 </tbody>
               </table>
-            </div>
-
+            </div>-->
           </div>
         </div>
       </div>
+      <!--DetailTeam-Statistics-->
+      <div class="detailteam-statistics">
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="detailstatistics-head">
+              <h3>
+                DETAILED TEAM STATITICS
+              </h3>
+            </div>
+            <div class="detailstatistics-content">
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit modi deserunt quam sunt soluta. Esse ducimus
+                deleniti pariatur cumque. Autem dolorum, ea eaque nemo consectetur officia voluptate ullam commodi recusandae.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="trackrecord-filter">
+          <div class="row">
+            <div class="col-md-3 col-sm-4 co-xs-12">
+              <div class="inline-block">
+                <label for="">View for sports</label>
+              </div>
+              <div class="inline-block">
+                <select name="" id="" class="form-control">
+                <option value=""> Football</option>
+                <option value=""> Football</option>
+                <option value=""> Football</option>
+              </select>
+              </div>
+
+            </div>
+            <div class="col-md-3 col-sm-4 co-xs-12">
+              <div class="inline-block">
+                <label for="">View for sports</label>
+              </div>
+              <div class="inline-block">
+                <select name="" id="" class="form-control">
+                <option value=""> Football</option>
+                <option value=""> Football</option>
+                <option value=""> Football</option>
+              </select>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-4 co-xs-12">
+              <div class="inline-block">
+                <label for="">View for sports</label>
+              </div>
+              <div class="inline-block">
+                <select name="" id="" class="form-control">
+                <option value=""> Football</option>
+                <option value=""> Football</option>
+                <option value=""> Football</option>
+              </select>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="trackrecord-year">
+          <div class="row">
+            <div class="col-md-1">
+              <p class="m-clear">2017</p>
+            </div>
+            <div class="col-md-11">
+              <div class="trackrecord-detail">
+                <ul class="list-inline">
+                  <li class="f18">
+                    <span>School Rank</span> <span>120/300</span>
+                  </li>
+                  <li class="f18">
+                    <div class="inline-block">
+
+                      <span>CONTINGENT</span> <span>200</span>
+                    </div>
+                    <div class="inline-block f18">
+                      <ul class="list-inline">
+                        <!--<li>(</li>-->
+                        <li>(<img src="img/sf-boys-blue.png"> <span>200</span></li>
+                        <li><img src="img/sf-boys-blue.png"><span>200)</span></li>
+                        <!--<li>)</li>-->
+                      </ul>
+
+                    </div>
+
+                  </li>
+                  <li>
+                    <ul class="list-inline f14">
+                      <li>
+                        <div class="inline-block v-bottom">
+
+                          <img src="img/sf-gold-sec.png " class="img-responsive ">
+                        </div>
+                        <div class="inline-block ">
+                          <span>999</span>
+                          <span>Gold</span>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="inline-block v-bottom">
+
+                          <img src="img/sf-silver-sec.png " class="img-responsive ">
+                        </div>
+                        <div class="inline-block">
+                          <span>999</span>
+                          <span>Silver</span>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="inline-block v-bottom">
+
+                          <img src="img/sf-bronze-sec.png " class="img-responsive ">
+                        </div>
+                        <div class="inline-block">
+                          <span>999</span>
+                          <span>Bronze</span>
+                        </div>
+                      </li>
+
+
+
+
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="text-center">
+              <div class="sporttrack-sportlistcard" ng-repeat="s in customCards track by $index">
+                <sport-card></sport-card>
+              </div>
+            </div>
+            <uib-accordion close-others="oneAtATime">
+              <div uib-accordion-group class="panel-default" is-open="status.open">
+                <uib-accordion-heading>
+                  I can have markup, too! <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+                </uib-accordion-heading>
+                This is just some content to illustrate fancy headings.
+              </div>
+            </uib-accordion>
+
+          </div>
+        </div>
+
+      </div>
+
     </div>
   </div>
 

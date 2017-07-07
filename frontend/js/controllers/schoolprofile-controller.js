@@ -57,14 +57,20 @@ myApp.controller('SchoolProfileCtrl', function ($scope, $state, $stateParams, Te
         }
     ]
 
+    $scope.schoolTrackTable = [{
+
+    }]
+
     $scope.mySlides = [
-        '/img/bl-inner.jpg',
-        '/img/bl-inner.jpg',
-        '/img/bl-inner.jpg',
-        '/img/bl-inner.jpg'
+        '/img/day-03.png',
+        '/img/day-04.png',
+        '/img/oldSfa/bg-draw.jpg',
+        '/img/day-04.png'
     ];
 
     $scope.customCards = [{
+        img: '/img/bl-inner.jpg'
+    }, {
         img: '/img/bl-inner.jpg'
     }, {
         img: '/img/bl-inner.jpg'

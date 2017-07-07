@@ -1,0 +1,56 @@
+<div class="schoolprofile-trackrecord">
+  <div class="">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="schooltrackrecord-content">
+            <h3>YEAR-ON-YEAR TRACK RECORD</h3>
+            <p>A year-on-year summary of the school's overall performance at SFA Championships.
+            </p>
+            <div class="schooltrackrecord-table">
+              <table class=" table ">
+                <thead>
+                  <tr>
+                    <th>
+                      <div>
+                        SFA Champions
+                      </div>
+                    </th>
+                    <th>
+                      <div>
+                        2017
+                      </div>
+                    </th>
+                    <th>
+                      <div class="">
+                        2016
+                      </div>
+                    </th>
+                    <th>
+                      <div class="">
+                        2015
+                      </div>
+                    </th>
+
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="item in schoolTrackTable track by $index">
+                    <td>{{$index+1}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.gold}} </td>
+                    <td>{{item.silver}} </td>
+
+                  </tr>
+
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

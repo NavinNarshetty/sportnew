@@ -2,6 +2,78 @@ myApp.controller('SchoolProfileCtrl', function ($scope, $state, $stateParams, Te
     $scope.template = TemplateService.getHTML("content/schoolprofile.html");
     TemplateService.title = "School Profile"; //This is the Title of the Website
     $scope.navigation = NavigationService.getNavigation();
+    // $(window).load(function () {
+    //     $('.flexslider').flexslider({
+    //         animation: "slide",
+    //         animationLoop: false,
+    //         itemWidth: 358,
+    //         itemMargin: 5,
+    //         minItems: 2
+    //     });
+    // });
+    $scope.schoolRankTable = [{
+            name: "Jamnabai Narsee International School",
+            gold: "20",
+            silver: "18",
+            bronze: "19",
+            points: "30"
+        }, {
+            name: "Jamnabai Narsee International School",
+            gold: "20",
+            silver: "18",
+            bronze: "19",
+            points: "30"
+        }, {
+            name: "Jamnabai Narsee International School",
+            gold: "20",
+            silver: "18",
+            bronze: "19",
+            points: "30"
+        },
+        {
+            name: "Jamnabai Narsee International School",
+            gold: "20",
+            silver: "18",
+            bronze: "19",
+            points: "30"
+        }, {
+            name: "Jamnabai Narsee International School",
+            gold: "20",
+            silver: "18",
+            bronze: "19",
+            points: "30"
+        }, {
+            name: "Jamnabai Narsee International School",
+            gold: "20",
+            silver: "18",
+            bronze: "19",
+            points: "30"
+        }, {
+            name: "Jamnabai Narsee International School",
+            gold: "20",
+            silver: "18",
+            bronze: "19",
+            points: "30"
+        }
+    ]
+
+    $scope.mySlides = [
+        '/img/bl-inner.jpg',
+        '/img/bl-inner.jpg',
+        '/img/bl-inner.jpg',
+        '/img/bl-inner.jpg'
+    ];
+
+    $scope.customCards = [{
+        img: '/img/bl-inner.jpg'
+    }, {
+        img: '/img/bl-inner.jpg'
+    }, {
+        img: '/img/bl-inner.jpg'
+    }, {
+        img: '/img/bl-inner.jpg'
+    }];
+
     var allSchoolProfile = ["frontend/views/content/schoolprofile/highlights.html", "frontend/views/content/schoolprofile/trackrecord.html",
         "frontend/views/content/schoolprofile/team.html",
         "frontend/views/content/schoolprofile/statistics.html",

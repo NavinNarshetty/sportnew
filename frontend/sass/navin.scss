@@ -1,5 +1,22 @@
+//Ad-Space
+.highlight-adspace {
+    background-color: #ddd;
+    height: 130px;
+    margin: 50px 0 30px 0px;
+}
+
+.side-adspace {
+    background-color: #ddd;
+    height: 323px;
+}
+
+// end Ad-space
 //schoolprofile-page
 //school-head
+.br100 {
+    border-radius: 100%;
+}
+
 .schoolprofile-page {
     min-height: 100vh;
     .school-head {
@@ -7,6 +24,7 @@
     }
     h3 {
         color: $brand-primary;
+        font-family: Futura Std Bold Condensed;
     }
     .schoolprofilecard {
         // border: 1px solid red;
@@ -59,6 +77,13 @@
 
 //end school-nav
 //school-highlight
+.schoolhighlight-title {
+    font-family: Futura Std Bold Condensed;
+    font-size: 18px;
+    color: $white;
+    font-weight: 600; // letter-spacing: 1px;
+}
+
 .schoolprofile-highlight {
     .schoolchampions {
         text-align: center;
@@ -74,6 +99,7 @@
     padding: 15px;
 }
 
+// end-all-head-tab
 .schoolchampions-content {
     border: 1px solid #ddd;
     padding: 10px 15px;
@@ -88,30 +114,302 @@
     }
 }
 
-// tab2
-.performaceimage-holder {
-    width: 100px;
-    height: 100px;
+// schoolprofile-card
+.schoolprofile-card {
+    // padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-left: 3px solid #ffb026;
+}
+
+.schoolprofile-cardimgholder {
+    width: 29%;
+    padding: 10px;
+    padding-right: 0px;
+}
+
+.schoolprofileimage-holder {
+    width: 90px;
+    height: 90px;
     border-radius: 100%;
     overflow: hidden;
     border: 5px solid #ddd;
 }
 
-.performace-content {
-    padding: 10px 15px;
-    border: 1px solid #ddd;
-    border-left: 3px solid #ffb026;
+.schoolprofile-cardcontent {
+    width: 69%;
+    padding: 10px;
+    padding-left: 0px;
 }
 
-// end-tab2
+.schoolprofile-schoolname {
+    font-size: 14px;
+    color: $brand-primary;
+    font-weight: 600;
+}
+
+.schoolprofile-schoolid {
+    font-size: 12px;
+}
+
+// schoolprofile-card END
 // tab3
 .imagegallery-content {
     border: 1px solid #ddd;
     .imagegallery-picholder {
         min-height: 152px;
     }
+    .imagegallery-pic {
+        .flexslider {
+            margin: 0px;
+            border: none;
+            .flex-control-nav {
+                z-index: 2;
+                bottom: 0px;
+            }
+        }
+    }
 }
 
 // end-tab3
+// athleteprofile-card
+.profileathlete-card {
+    // padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-left: 3px solid #ffb026;
+}
+
+.profileathlete-cardimgholder {
+    width: 29%;
+    padding: 10px;
+    padding-right: 0px;
+}
+
+.profileathleteimage-holder {
+    width: 90px;
+    height: 90px;
+    border-radius: 100%;
+    overflow: hidden;
+    border: 5px solid #ddd;
+}
+
+.profileathlete-cardcontent {
+    width: 69%;
+    padding: 10px;
+    padding-left: 0px;
+}
+
+.profileathlete-athletename {
+    font-size: 15px;
+    color: $brand-primary;
+    font-weight: 600;
+    word-break: break-word;
+}
+
+.profileathlete-athleteschool {
+    font-size: 12px;
+    color: #646464;
+    word-break: break-word;
+}
+
+// profileathlete-card END
+// team-card
+.team-card {
+    // padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-left: 3px solid #ffb026;
+}
+
+.team-cardimgholder {
+    width: 29%;
+    padding: 10px;
+    padding-right: 0px;
+}
+
+.teamimage-holder {
+    width: 90px;
+    height: 90px;
+    border-radius: 100%;
+    overflow: hidden;
+    border: 5px solid #ddd;
+}
+
+.team-cardcontent {
+    width: 69%;
+    padding: 10px;
+    padding-left: 0px;
+}
+
+.team-schoolname {
+    font-size: 14px;
+    color: $brand-primary;
+    font-weight: 600;
+    word-break: break-word;
+    margin-bottom: 3px;
+}
+
+.team-schoolsports {
+    font-size: 13px;
+}
+
+.teamschool-id {
+    left: 0px;
+    bottom: 0px;
+    font-size: 10px;
+    padding: 0px 5px;
+}
+
+// end team-card
+// medal-card
+.medal-card {
+    border: 1px solid #ddd;
+    padding: 10px 10px;
+    border-bottom: 3px solid #ffb026;
+}
+
+.medal-imgholder {
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.medal-athletename {
+    color: $brand-primary;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+// end medal-card
+// sport-card
+.sport-imgholder {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+    margin-top: -25px;
+}
+
+.sport-card-content {
+    border: 1px solid #ddd;
+}
+
+.sport-card {
+    margin-top: 40px;
+}
+
+.sport-sportname {
+    margin-top: 15px;
+}
+
+.sport-malefemale {
+    background: #fff;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    padding: 2px 0;
+    width: 150px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+.sport-rankschool {
+    border: 1px solid #464646;
+    background-color: #464646;
+    padding: 2px;
+    color: #fff;
+    font-weight: 600;
+}
+
+.sport-sportname {
+    font-size: 18px;
+    color: $brand-primary;
+    font-weight: 600;
+}
+
+// end sport-card
+// video card
+.video-playbtn {
+    right: 0px;
+    bottom: 0px;
+}
+
+.video-imgholder {
+    margin-bottom: 10px;
+}
+
+.video-sportname {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.video-sportnamecontent {
+    font-size: 12px;
+}
+
+.vide-customplay {
+    border: 1px solid #da495b;
+    background-color: #da495b;
+    padding: 4px 10px;
+    color: #fff;
+}
+
+// end video-card
+.performanceathlete-slider {
+    .flex-control-nav {
+        display: none;
+    }
+}
+
+// school-table
+.schooltable-image {
+    background-image: url("/img/drone-video.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.schooltable-holder {
+    color: #fff;
+    .schooltable-content {
+        padding: 10px;
+    }
+    .table {
+        border: 1px solid #fff;
+        margin-bottom: 0px;
+        .bag-blue {
+            background-color: $brand-primary;
+        }
+        .schoolmedal-points {
+            font-size: 10px;
+        }
+        .schooltable-head {
+            font-size: 16px;
+            text-align: center;
+        }
+    }
+    .table>thead>tr>th {
+        border-bottom: none;
+        padding: 0px 8px;
+        vertical-align: middle;
+    }
+    .table>tbody>tr>td {
+        border-top: none;
+    }
+}
+
+.content-flex {
+    flex: 1;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+    width: 20%;
+}
+
+.wd20 {
+    width: 19%;
+}
+
+// end school-table
 //end school-highlight
 //end schoolprofile-page

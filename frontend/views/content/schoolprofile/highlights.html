@@ -3,11 +3,11 @@
     <div class="container">
       <div class="row">
         <!--tab-1-->
-        <div class="col-md-4 col-sm-4 col-xs-12">
+        <div class="col-md-4 col-sm-6 col-xs-12">
           <div class="schoolchampions">
-            <div class="schoolchampions-head">
+            <div class="schoolchampions-head text-uppercase">
 
-              <p class="m-clear">SFA Championship 2017</p>
+              <p class="m-clear schoolhighlight-title ">SFA Championship 2017</p>
             </div>
             <div class="schoolchampions-content">
               <div class="">
@@ -68,89 +68,225 @@
         </div>
         <!--end tab-1-->
         <!--tab-2-->
-        <div class="col-md-4">
+        <div class="col-md-4 col-sm-6 col-xs-12">
           <div class="performance">
-            <div class="performance-head">
-              <p class="m-clear">Top Performace School</p>
+            <div class="performance-head text-uppercase">
+              <p class="m-clear text-center schoolhighlight-title">Top Performace School</p>
             </div>
-            <div class="performace-content">
-              <div class="">
-                <div class="inline-block v-top">
-                  <div class="performaceimage-holder">
-                    <div class="performance-image">
-                      <img src="img/dishapatani1.jpg" class="img-responsive">
-                    </div>
-                  </div>
-                </div>
-                <div class="inline-block v-top">
-                  <div class="">
-                    <div class="">
-                      <p>Dr. Sarvepalli Radhakrishnan Hindi<br/>Secondary School ( Andheri )</p>
-                      <p>SFA Rank :20</p>
-                    </div>
-                    <div class="">
-                      <ul class="list-inline">
-                        <li>
-                          <div class="inline-block">
-
-                            <img src="img/sf-gold-sec.png " class="img-responsive ">
-                          </div>
-                          <div class="inline-block">
-                            <span>999</span><br/>
-                            <span>Gold</span>
-                          </div>
-                        </li>
-                        <li>
-                          <div class="inline-block">
-
-                            <img src="img/sf-silver-sec.png " class="img-responsive ">
-                          </div>
-                          <div class="inline-block">
-                            <span>999</span><br/>
-                            <span>Gold</span>
-                          </div>
-                        </li>
-                        <li>
-                          <div class="inline-block">
-
-                            <img src="img/sf-bronze-sec.png " class="img-responsive ">
-                          </div>
-                          <div class="inline-block">
-                            <span>999</span><br/>
-                            <span>Gold</span>
-                          </div>
-                        </li>
-
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-
-            </div>
+            <school-profile-card></school-profile-card>
           </div>
         </div>
         <!--end tab-2-->
 
         <!--tab-3-->
-        <div class="col-md-4">
+        <div class="col-md-4 col-sm-6 col-xs-12">
           <div class="imagegallery">
-            <div class="imagegallery-head text-center">
-              <p class="m-clear">Media gallery</p>
+            <div class="imagegallery-head text-center text-uppercase">
+              <p class="m-clear schoolhighlight-title">Image gallery</p>
             </div>
             <div class="imagegallery-content">
               <div class="imagegallery-picholder">
                 <div class="imagegallery-pic">
-                  <img src="img/bl-inner.jpg" class="img-responsive">
+                  <!--<img src="img/bl-inner.jpg" class="img-responsive">-->
+                  <flex-slider flex-slide="s in mySlides track by $index" prev-text="" next-text="">
+                    <li>
+                      <img ng-src="{{s}}" class="img-full">
+                    </li>
+                  </flex-slider>
                 </div>
               </div>
             </div>
           </div>
         </div>
         <!--end-tab-3-->
+
+        <!--Ad-Space-->
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="highlight-adspace">
+            <p>
+              ADD SPACE
+            </p>
+          </div>
+
+        </div>
+        <!--End-adspace-->
+
+        <!--school-->
+        <div class="performteam-school">
+          <h3>
+            TOP PERFORMING TEAMS FROM YOUR SCHOOL
+          </h3>
+
+          <div class="performteam-content">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque reiciendis odit quia, eligendi voluptas ipsum
+              sunt aliquid id cupiditate inventore beatae! Ut deserunt ad est laborum eveniet, quae culpa aut?</p>
+          </div>
+          <div class="performteam-slider">
+            <flex-slider flex-slide="s in mySlides track by $index" prev-text="" next-text="">
+              <li>
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                  <team-card></team-card>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                  <team-card></team-card>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                  <team-card></team-card>
+                </div>
+
+              </li>
+              <li>
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                  <team-card></team-card>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                  <team-card></team-card>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                  <team-card></team-card>
+                </div>
+
+              </li>
+              <li>
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                  <team-card></team-card>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                  <team-card></team-card>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                  <team-card></team-card>
+                </div>
+
+              </li>
+
+            </flex-slider>
+          </div>
+
+        </div>
+        <!--end-school-->
+        <!--Athlete-->
+        <div class="performance-athlete">
+          <h3>
+            TOP PERFORMING ATHLETES FROM YOUR SCHOOL
+          </h3>
+          <div class="performathlete-content">
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dignissimos ut facere natus beatae reiciendis fuga
+              excepturi consequatur necessitatibus, officia quaerat neque, accusantium adipisci, assumenda et nemo incidunt
+              corporis illum omnis!</p>
+          </div>
+          <div class="performanceathlete-slider">
+            <!--item-width="30" item-margin="25" min-items="2"-->
+            <flex-slider flex-slide="n in customCards track by $index" prev-text="" next-text="" item-width="358" item-margin="10">
+              <li>
+                <team-card></team-card>
+
+
+              </li>
+            </flex-slider>
+
+          </div>
+        </div>
+        <!--end-Athlete-->
+        <!--schooltable-->
+        <div class="schoolrank-table">
+          <h3 class="text-uppercase">
+            School Rank table
+          </h3>
+          <div class="col-md-7 col-sm-12 col-xs-12">
+            <div class="schooltable-image">
+              <div class="schooltable-holder">
+                <div class="schooltable-content table-responsive">
+                  <table class=" table ">
+                    <thead>
+                      <tr class="bag-blue">
+                        <th>
+                          <div class="schooltable-head">
+                            Rank
+                          </div>
+                        </th>
+                        <th>
+                          <div class="schooltable-head">
+                            School Name
+                          </div>
+                        </th>
+                        <th>
+                          <div class="table-medalimage">
+                            <img src="img/sf-gold-sec.png" alt="">
+                            <p class="schoolmedal-points m-clear">5 points</p>
+                          </div>
+                        </th>
+                        <th>
+                          <div class="table-medalimage">
+                            <img src="img/sf-silver-sec.png" alt="">
+                            <p class="schoolmedal-points m-clear">3 points</p>
+                          </div>
+                        </th>
+                        <th>
+                          <div class="table-medalimage">
+                            <img src="img/sf-bronze-sec.png" alt="">
+                            <p class="schoolmedal-points m-clear">2 points</p>
+                          </div>
+                        </th>
+                        <th>
+                          <div class="schooltable-head">Points</div>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="item in schoolRankTable track by $index">
+                        <td>{{$index+1}}</td>
+                        <td>{{item.name}}</td>
+                        <td>{{item.gold}} </td>
+                        <td>{{item.silver}} </td>
+                        <td>{{item.bronze}} </td>
+                        <td>{{item.points}} </td>
+
+                      </tr>
+
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="col-md-5 col-sm-12 col-xs-12">
+            <div class="side-adspace">
+              <p>Side ad space</p>
+            </div>
+          </div>
+        </div>
+        <!--end school-table-->
+
+        <div class="row">
+          <div class="schoolvideos-head">
+            <h3>Your Match Videos</h3>
+          </div>
+          <div class="schoolvideos-content">
+            <div class="inline-block wd20">
+              <video-card></video-card>
+            </div>
+            <div class="inline-block wd20">
+              <video-card></video-card>
+            </div>
+            <div class="inline-block wd20">
+              <video-card></video-card>
+            </div>
+            <div class="inline-block wd20">
+              <video-card></video-card>
+            </div>
+            <div class="inline-block wd20">
+              <video-card></video-card>
+            </div>
+
+          </div>
+
+
+        </div>
+
       </div>
+
     </div>
   </div>
-
 </div>

@@ -39,7 +39,32 @@ myApp.directive('img', function ($compile, $parse) {
     })
 
 
-    .directive('fancybox', function ($document) {
+    .directive('fancybox', function ($compile, $parse) {
+        return {
+            restrict: 'EA',
+            replace: false,
+            link: function ($scope, element, attrs) {
+                $element = $(element);
+                console.log("Checking Fancybox");
+                setTimeout(function () {
+                    $(".various").fancybox({
+                        maxWidth: 800,
+                        maxHeight: 600,
+                        fitToView: false,
+                        overflow: 'hidden',
+                        width: '80%',
+                        height: '80%',
+                        autoSize: false,
+                        closeClick: false,
+                        openEffect: 'none',
+                        closeEffect: 'none'
+                    });
+                }, 100);
+            }
+        };
+    })
+
+    .directive('fancyboxBox', function ($document) {
         return {
             restrict: 'EA',
             replace: false,
@@ -55,8 +80,8 @@ myApp.directive('img', function ($compile, $parse) {
                 target.fancybox({
                     openEffect: 'fade',
                     closeEffect: 'fade',
+                    overflow: 'hidden',
                     closeBtn: true,
-                    padding: 0,
                     helpers: {
                         media: {}
                     }
@@ -101,6 +126,68 @@ myApp.directive('img', function ($compile, $parse) {
             }
         };
     })
+    // schoolprofile-card
+    .directive('schoolProfileCard', function () {
+        return {
+            restrict: 'E',
+            scope: {},
+            templateUrl: 'views/directive/schoolprofile-card.html',
+            link: function () {}
+        }
+    })
+    // end schoolprofile-card
+    // profileathlete-card
+    .directive('profileAthleteCard', function () {
+        return {
+            restrict: 'E',
+            scope: {},
+            templateUrl: 'views/directive/profileathlete-card.html',
+            link: function () {}
+        }
+    })
+    // end profileathlete-card
 
+    // team-card
+    .directive('teamCard', function () {
+        return {
+            restrict: 'E',
+            scope: {
+                // item: "=value"
+            },
+            templateUrl: 'views/directive/team-card.html',
+            link: function () {}
+        }
+    })
+    // end team-card
+    // medal-card
+    .directive('medalCard', function () {
+        return {
+            restrict: 'E',
+            scope: {},
+            templateUrl: 'views/directive/medal-card.html',
+            link: function () {}
+        }
+    })
+    // end medal-card
+    // sport-card
+    .directive('sportCard', function () {
+        return {
+            restrict: 'E',
+            scope: {},
+            templateUrl: 'views/directive/sport-card.html',
+            link: function () {}
+        }
+    })
+    // end sport-card
+    // video-card
+    .directive('videoCard', function () {
+        return {
+            restrict: 'E',
+            scope: {},
+            templateUrl: 'views/directive/video-card.html',
+            link: function () {}
+        }
+    })
+// end video-card
 
 ;

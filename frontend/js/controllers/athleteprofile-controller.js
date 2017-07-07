@@ -71,4 +71,6 @@ myApp.controller('AthleteProfileCtrl', function ($scope, $state, $stateParams, T
 
     $scope.mySlides = [1,2,3,4,5,6];
 
+    $scope.gallery = ['/img/day-03.png','/img/day-04.png','/img/oldSfa/bg-draw.jpg','/img/oldSfa/banner2.jpg','/img/oldSfa/f4.jpg'];
+
 })

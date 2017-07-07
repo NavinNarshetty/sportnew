@@ -10,8 +10,7 @@ $grey: #e1e1e1 !default;
 $dark-grey: #9f9f9f !default;
 $light-grey: #ebebeb !default;
 $other-blue: #2a45d4 !default;
-$light-green: #bcd200 !default
-$font-family-sans-serif: "Titillium Web", "Sansation", "Built Titling", "avenir", Arial, sans-serif !default;
+$light-green:#bcd200 !default $font-family-sans-serif: "Titillium Web", "Sansation", "Built Titling", "avenir", Arial, sans-serif !default;
 @import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
 /* Bootstrap Variables Goes Here */
 @import "other/font-fix";
@@ -61,6 +60,7 @@ footer {
     }
 }
 //bootstrap forms
+
 .btn,
 .form-control,
 .input-group-lg > .form-control,
@@ -98,6 +98,7 @@ footer {
     min-height: 300px;
 }
 //FLEX SLIDER FIXES
+
 .flex-direction-nav {
     a {
         height: auto;
@@ -129,14 +130,17 @@ header {
     transform: translateY(-100%);
 }
 // COMMON CLASSES
+
 .d {
-  width: 100%;
-  height: 200px;
-  background-color: $brand-danger;
+    width: 100%;
+    height: 200px;
+    background-color: $brand-danger;
 }
-.color-primary{
-  color: $brand-primary
+
+.color-primary {
+    color: $brand-primary;
 }
+
 .m-clear {
     margin: 0;
 }
@@ -199,11 +203,68 @@ header {
 .fixed {
     position: fixed;
 }
-.pointer{
-  cursor: pointer;
+
+.pointer {
+    cursor: pointer;
+}
+
+.sfa-flexslider{
+  .flexslider {
+      .flex-direction-nav {
+        a:before {
+            font-size: 18px;
+        }
+          .flex-prev {
+              left: -15px !important;
+          }
+
+          .flex-next {
+              right: -15px !important;
+          }
+      }
+
+      &:hover {
+          .flex-direction-nav {
+              .flex-prev {
+                  left: -15px !important;
+                  opacity: 1;
+              }
+
+              .flex-next {
+                  right: -15px !important;
+                  opacity: 1;
+              }
+          }
+      }
+  }
+}
+
+.cardheader-green{
+  padding: 10px;
+  background-color: $brand-success;
+  color: #fff;
+  font-size: 15px;
+  text-align: center;
+  text-transform: uppercase;
+  p{
+    margin: 0;
+  }
+}
+
+.atheletehighlight-galleryflexslider{
+  .flexslider{
+    border: none;
+  }
+}
+
+.flexslider-galleryholder{
+  width: 100%;
+  height: 155px;
+  overflow: hidden;
 }
 // COMMON CLASSES END
 // athlete PAGE START
+
 .athleteprofile-page {
     min-height: 100vh;
 }
@@ -284,50 +345,59 @@ header {
         margin: 5px;
         font-size: 15px;
         @extend .pointer;
-        &.active{
-          border-bottom: 3px solid $brand-success;
+
+        &.active {
+            border-bottom: 3px solid $brand-success;
         }
     }
 }
 // HIGHLIGHTS PAGE
-.sportslidetable-element{
-  width: 24%;
-  display: inline-block;
-  text-align: center;
+.sportslidetable-element {
+    width: 24%;
+    display: inline-block;
+    text-align: center;
 }
+
 .sportslide-header {
     text-align: right;
     color: #fff;
     border: 1px solid red;
 }
+
 .sportslide-content {
     border: 1px solid lightgray;
     border-top: none;
-    padding: 10px 20px;
-    ul{
-      font-size: 12px;
+    padding: 15px 20px;
+
+    ul {
+        font-size: 12px;
     }
 }
+
 .sportslide-table {
     margin: 10px 0 5px;
 }
-.sportslide-sportname{
-  font-size: 21px;
-  line-height: 1;
+
+.sportslide-sportname {
+    font-size: 21px;
+    line-height: 1;
 }
-.sportslide-headertitle{
-  position: relative;
-  display: inline-block;
-  padding: 10px;
-  background-color: $brand-success;
-  &:after{
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -10px;
-    border-left: 10px solid transparent;
-    border-bottom: 40px solid $brand-success;
-  }
+
+.sportslide-headertitle {
+    position: relative;
+    display: inline-block;
+    padding: 10px;
+    background-color: $brand-success;
+
+    &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -10px;
+        border-left: 10px solid transparent;
+        border-bottom: 40px solid $brand-success;
+    }
 }
+
 // HIGHLIGHTS PAGE END
 // athlete PAGE END

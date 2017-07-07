@@ -3,7 +3,7 @@
     <div class="highlights-stats">
       <div class="row">
         <div class="col-md-4">
-          <div class="highlights-sporttable">
+          <div class="highlights-sporttable sfa-flexslider">
             <flex-slider flex-slide="s in mySlides"  prev-text="" next-text="" control-nav="false" slideshow="true">
               <li>
                 <div class="highlights-sportslide">
@@ -41,8 +41,30 @@
             </flex-slider>
           </div>
         </div>
-        <div class="col-md-4"></div>
-        <div class="col-md-4"></div>
+        <div class="col-md-4">
+          <div class="atheletehighlight-schoolcheck">
+            <div class="cardheader-green atheletehighlight-schooltitle">
+              <p class="m-clear">Check out your school's profile</p>
+            </div>
+            <school-profile-card></school-profile-card>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="atheletehighlight-sportgallery">
+            <div class="cardheader-green atheletehighlight-gallerytitle">
+              <p class="m-clear">View tennis gallery</p>
+            </div>
+            <div class="sfa-flexslider atheletehighlight-galleryflexslider">
+              <flex-slider flex-slide="s in gallery"  prev-text="" next-text="" control-nav="false" slideshow="true" slideshow-speed="2500">
+                <li>
+                  <div class="flexslider-galleryholder relate" ng-click="">
+                    <img ng-src="{{s}}" class="img-responsive get-center">
+                  </div>
+                </li>
+              </flex-slider>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

@@ -5,7 +5,7 @@
         <!--tab-1-->
         <div class="col-md-4 col-sm-6 col-xs-12">
           <div class="schoolchampions">
-            <div class="schoolchampions-head text-uppercase">
+            <div class="schoolchampions-head cardheader-green text-uppercase">
 
               <p class="m-clear schoolhighlight-title ">SFA Championship 2017</p>
             </div>
@@ -70,7 +70,7 @@
         <!--tab-2-->
         <div class="col-md-4 col-sm-6 col-xs-12">
           <div class="performance">
-            <div class="performance-head text-uppercase">
+            <div class="performance-head cardheader-green text-uppercase">
               <p class="m-clear text-center schoolhighlight-title">Top Performace School</p>
             </div>
             <school-profile-card></school-profile-card>
@@ -81,14 +81,14 @@
         <!--tab-3-->
         <div class="col-md-4 col-sm-6 col-xs-12">
           <div class="imagegallery">
-            <div class="imagegallery-head text-center text-uppercase">
+            <div class="imagegallery-head cardheader-green text-center text-uppercase">
               <p class="m-clear schoolhighlight-title">Image gallery</p>
             </div>
             <div class="imagegallery-content">
               <div class="imagegallery-picholder">
-                <div class="imagegallery-pic">
+                <div class="imagegallery-pic sfa-flexslider">
                   <!--<img src="img/bl-inner.jpg" class="img-responsive">-->
-                  <flex-slider flex-slide="s in mySlides track by $index" prev-text="" next-text="">
+                  <flex-slider flex-slide="s in mySlides track by $index" prev-text="" next-text="" control-nav="false" slideshow="true" slideshow-speed="2500">
                     <li>
                       <div class="flex-customimage relate">
 
@@ -138,18 +138,10 @@
         <div class="row">
           <div class="col-md-12 col-sm-12 col-xs-12">
 
-            <div class="performteam-slider">
-              <flex-slider flex-slide="s in mySlides track by $index" prev-text="" next-text="">
+            <div class="performteam-slider highlightschool-slider sfa-flexslider">
+              <flex-slider flex-slide="s in customCards track by $index" prev-text="" next-text="">
                 <li>
-                  <div class="col-md-4 col-sm-4 col-xs-12">
-                    <team-card></team-card>
-                  </div>
-                  <div class="col-md-4 col-sm-4 col-xs-12">
-                    <team-card></team-card>
-                  </div>
-                  <div class="col-md-4 col-sm-4 col-xs-12">
-                    <team-card></team-card>
-                  </div>
+                  <team-card></team-card>
 
                 </li>
               </flex-slider>
@@ -175,10 +167,10 @@
           </div>
         </div>
         <div class="row">
-          <div class="performanceathlete-slider">
+          <div class="performanceathlete-slider highlightschool-slider sfa-flexslider">
             <flex-slider flex-slide="n in customCards track by $index" prev-text="" next-text="">
               <li>
-                <team-card></team-card>
+                <profile-athlete-card></profile-athlete-card>
               </li>
             </flex-slider>
 

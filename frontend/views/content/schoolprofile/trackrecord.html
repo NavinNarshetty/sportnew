@@ -187,14 +187,40 @@
                 <sport-card></sport-card>
               </div>
             </div>
-            <uib-accordion close-others="oneAtATime">
-              <div uib-accordion-group class="panel-default" is-open="status.open">
-                <uib-accordion-heading>
-                  I can have markup, too! <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
-                </uib-accordion-heading>
-                This is just some content to illustrate fancy headings.
+            <div class="row">
+              <div class="col-md-12 col-sm12 col-xs-12">
+                <div class="schooltrack-sportname">
+                  <h3>Archery</h3>
+                </div>
               </div>
-            </uib-accordion>
+            </div>
+            <div class="schooltrack-accordianholder">
+              <uib-accordion close-others="oneAtATime">
+                <div uib-accordion-group class="panel-default" is-open="s.open" ng-repeat="s in myAccordian track by $index">
+                  <uib-accordion-heading class="clearfix">
+                    <i class="pull-right fa" ng-class="{'fa-minus': s.open, 'fa-plus': !s.open}"></i>
+                    <ul class="list-inline">
+                      <li>{{s.gender}} </li>
+                      <li>|</li>
+                      <li>{{s.agegroup}} </li>
+                      <li>|</li>
+                      <li>{{s.event}} </li>
+                    </ul>
+
+                  </uib-accordion-heading>
+                  <div class="">
+                    <div class="col-md-4 col-sm-6 col-xs-12" ng-repeat="n in s.img track by $index">
+                      <div class="trackrecord-athletelistcard">
+
+                        <profile-athlete-card></profile-athlete-card>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </uib-accordion>
+            </div>
+
 
           </div>
         </div>

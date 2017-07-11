@@ -1,455 +1,576 @@
-//Ad-Space
-.highlight-adspace {
-    background-color: #ddd;
-    height: 130px;
-    margin: 50px 0 30px 0px;
-}
+                //Ad-Space
+                .highlight-adspace {
+                    background-color: #ddd;
+                    height: 130px;
+                    margin: 50px 0 30px 0px;
+                }
 
-.side-adspace {
-    background-color: #ddd;
-    height: 323px;
-}
+                .side-adspace {
+                    background-color: #ddd;
+                    height: 323px;
+                } // end Ad-space
+                //schoolprofile-page
+                //school-head
+                .br100 {
+                    border-radius: 100%;
+                }
 
-// end Ad-space
-//schoolprofile-page
-//school-head
-.br100 {
-    border-radius: 100%;
-}
+                .schoolprofile-page {
+                    min-height: 100vh;
+                    .school-head {
+                        margin: 30px;
+                    }
+                    h3 {
+                        color: $brand-primary;
+                        font-family: Futura Std Bold Condensed;
+                    }
+                    .schoolprofilecard {
+                        // border: 1px solid red;
+                        // padding: 20px;
+                        .schoolpicholder {
+                            width: 29%;
+                        }
+                        .schooldetail-holder {
+                            width: 70%;
+                        }
+                        .school-image {
+                            width: 190px;
+                            height: auto;
+                            margin: 0 auto;
+                            border: 5px solid #ebebeb;
+                            border-radius: 100%;
+                            overflow: hidden;
+                        }
+                        .schoolsports-played {
+                            p {
+                                border: 1px solid gray;
+                                padding: 5px;
+                            }
+                        }
+                        .school-total {
+                            margin-right: 5px;
+                        }
+                        .school-medals {
+                            margin-left: 5px;
+                        }
+                    }
+                } //end-school-head
+                //school-nav
+                .school-navigation {
+                    border-top: 2px solid gray; // padding-top: 10px;
+                    ul {
+                        li {
+                            padding: 5px 10px;
+                            margin: 5px;
+                            font-size: 15px;
+                            @extend .pointer;
+                            &.active {
+                                border-bottom: 3px solid $brand-success;
+                            }
+                        }
+                    }
+                } //end school-nav
+                //school-highlight
+                .schoolhighlight-title {
+                    font-family: Futura Std Bold Condensed;
+                    font-size: 18px;
+                    color: $white;
+                    font-weight: 600; // letter-spacing: 1px;
+                }
 
-.schoolprofile-page {
-    min-height: 100vh;
-    .school-head {
-        margin: 30px;
-    }
-    h3 {
-        color: $brand-primary;
-        font-family: Futura Std Bold Condensed;
-    }
-    .schoolprofilecard {
-        // border: 1px solid red;
-        // padding: 20px;
-        .schoolpicholder {
-            width: 29%;
-        }
-        .schooldetail-holder {
-            width: 70%;
-        }
-        .school-image {
-            width: 190px;
-            height: auto;
-            margin: 0 auto;
-            border: 5px solid #ebebeb;
-            border-radius: 100%;
-            overflow: hidden;
-        }
-        .schoolsports-played {
-            p {
-                border: 1px solid gray;
-                padding: 5px;
-            }
-        }
-        .school-total {
-            margin-right: 5px;
-        }
-        .school-medals {
-            margin-left: 5px;
-        }
-    }
-}
+                .schoolprofile-highlight {
+                    .schoolchampions {
+                        text-align: center;
+                    }
+                } // head-all-tab
+                .schoolchampions-head,
+                .performance-head,
+                .imagegallery-head {
+                    // border: 1px solid #0edb87;
+                    // background-color: #0edb87;
+                    // padding: 15px;
+                } // end-all-head-tab
+                .schoolchampions-content {
+                    border: 1px solid #ddd;
+                    padding: 10px 15px;
+                    min-height: 152px;
+                }
 
-//end-school-head
-//school-nav
-.school-navigation {
-    border-top: 2px solid gray; // padding-top: 10px;
-    ul {
-        li {
-            padding: 5px 10px;
-            margin: 5px;
-            font-size: 15px;
-            @extend .pointer;
-            &.active {
-                border-bottom: 3px solid $brand-success;
-            }
-        }
-    }
-}
+                .schoolperformace-holder {
+                    width: 100px;
+                    border: 5px solid #ddd;
+                    .schoolperformace-image {
+                        border-radius: 100%;
+                    }
+                } // schoolprofile-card
+                .schoolprofile-card {
+                    // padding: 10px 15px;
+                    border: 1px solid #ddd;
+                    border-left: 3px solid #ffb026;
+                    min-height: 155px;
+                }
 
-//end school-nav
-//school-highlight
-.schoolhighlight-title {
-    font-family: Futura Std Bold Condensed;
-    font-size: 18px;
-    color: $white;
-    font-weight: 600; // letter-spacing: 1px;
-}
+                .schoolprofile-cardimgholder {
+                    width: 29%;
+                    padding: 10px;
+                    padding-right: 0px;
+                }
 
-.schoolprofile-highlight {
-    .schoolchampions {
-        text-align: center;
-    }
-}
+                .schoolprofileimage-holder {
+                    width: 90px;
+                    height: 90px;
+                    border-radius: 100%;
+                    overflow: hidden;
+                    border: 5px solid #ddd;
+                }
 
-// head-all-tab
-.schoolchampions-head,
-.performance-head,
-.imagegallery-head {
-    border: 1px solid #0edb87;
-    background-color: #0edb87;
-    padding: 15px;
-}
+                .schoolprofile-cardcontent {
+                    width: 69%;
+                    padding: 10px;
+                    padding-left: 0px;
+                }
 
-// end-all-head-tab
-.schoolchampions-content {
-    border: 1px solid #ddd;
-    padding: 10px 15px;
-    min-height: 152px;
-}
+                .schoolprofile-schoolname {
+                    font-size: 14px;
+                    color: $brand-primary;
+                    font-weight: 600;
+                }
 
-.schoolperformace-holder {
-    width: 100px;
-    border: 5px solid #ddd;
-    .schoolperformace-image {
-        border-radius: 100%;
-    }
-}
+                .schoolprofile-schoolid {
+                    font-size: 12px;
+                } // schoolprofile-card END
+                // tab3
+                .imagegallery-content {
+                    // border: 1px solid #ddd;
+                    .imagegallery-picholder {
+                        min-height: 155px;
+                    }
+                    .imagegallery-pic {
+                        .flexslider {
+                            margin: 0px;
+                            border: none;
+                            .flex-control-nav {
+                                // z-index: 2;
+                                bottom: 0px;
+                                display: none;
+                            }
+                        }
+                    }
+                } // end-tab3
+                // athleteprofile-card
+                .profileathlete-card {
+                    // padding: 10px 15px;
+                    border: 1px solid #ddd;
+                    border-left: 3px solid #ffb026;
+                }
 
-// schoolprofile-card
-.schoolprofile-card {
-    // padding: 10px 15px;
-    border: 1px solid #ddd;
-    border-left: 3px solid #ffb026;
-    min-height: 155px;
-}
+                .profileathlete-cardimgholder {
+                    width: 29%;
+                    padding: 10px;
+                    padding-right: 0px;
+                }
 
-.schoolprofile-cardimgholder {
-    width: 29%;
-    padding: 10px;
-    padding-right: 0px;
-}
+                .profileathleteimage-holder {
+                    width: 90px;
+                    height: 90px;
+                    border-radius: 100%;
+                    overflow: hidden;
+                    border: 5px solid #ddd;
+                }
 
-.schoolprofileimage-holder {
-    width: 90px;
-    height: 90px;
-    border-radius: 100%;
-    overflow: hidden;
-    border: 5px solid #ddd;
-}
+                .profileathlete-cardcontent {
+                    width: 69%;
+                    padding: 10px;
+                    padding-left: 0px;
+                }
 
-.schoolprofile-cardcontent {
-    width: 69%;
-    padding: 10px;
-    padding-left: 0px;
-}
+                .profileathlete-athletename {
+                    font-size: 15px;
+                    color: $brand-primary;
+                    font-weight: 600;
+                    word-break: break-word;
+                }
 
-.schoolprofile-schoolname {
-    font-size: 14px;
-    color: $brand-primary;
-    font-weight: 600;
-}
+                .profileathlete-athleteschool {
+                    font-size: 12px;
+                    color: #646464;
+                    word-break: break-word;
+                }
 
-.schoolprofile-schoolid {
-    font-size: 12px;
-}
+                .profileathlete-athletesports {
+                    font-size: 12px;
+                } // profileathlete-card END
+                // team-card
+                .team-card {
+                    // padding: 10px 15px;
+                    border: 1px solid #ddd;
+                    border-left: 3px solid #ffb026;
+                }
 
-// schoolprofile-card END
-// tab3
-.imagegallery-content {
-    border: 1px solid #ddd;
-    .imagegallery-picholder {
-        min-height: 155px;
-    }
-    .imagegallery-pic {
-        .flexslider {
-            margin: 0px;
-            border: none;
-            .flex-control-nav {
-                // z-index: 2;
-                bottom: 0px;
-                display: none;
-            }
-        }
-    }
-}
+                .team-cardimgholder {
+                    width: 29%;
+                    padding: 10px;
+                    padding-right: 0px;
+                }
 
-// end-tab3
-// athleteprofile-card
-.profileathlete-card {
-    // padding: 10px 15px;
-    border: 1px solid #ddd;
-    border-left: 3px solid #ffb026;
-}
+                .teamimage-holder {
+                    width: 90px;
+                    height: 90px;
+                    border-radius: 100%;
+                    overflow: hidden;
+                    border: 5px solid #ddd;
+                }
 
-.profileathlete-cardimgholder {
-    width: 29%;
-    padding: 10px;
-    padding-right: 0px;
-}
+                .team-cardcontent {
+                    width: 69%;
+                    padding: 10px;
+                    padding-left: 0px;
+                }
 
-.profileathleteimage-holder {
-    width: 90px;
-    height: 90px;
-    border-radius: 100%;
-    overflow: hidden;
-    border: 5px solid #ddd;
-}
+                .team-schoolname {
+                    font-size: 14px;
+                    color: $brand-primary;
+                    font-weight: 600;
+                    word-break: break-word;
+                    margin-bottom: 3px;
+                }
 
-.profileathlete-cardcontent {
-    width: 69%;
-    padding: 10px;
-    padding-left: 0px;
-}
+                .team-schoolsports {
+                    font-size: 13px;
+                }
 
-.profileathlete-athletename {
-    font-size: 15px;
-    color: $brand-primary;
-    font-weight: 600;
-    word-break: break-word;
-}
+                .teamschool-id {
+                    left: 0px;
+                    bottom: 0px;
+                    font-size: 10px;
+                    padding: 0px 5px;
+                } // end team-card
+                // medal-card
+                .medal-card {
+                    border: 1px solid #ddd;
+                    padding: 10px 10px;
+                    border-bottom: 3px solid #ffb026;
+                }
 
-.profileathlete-athleteschool {
-    font-size: 12px;
-    color: #646464;
-    word-break: break-word;
-}
+                .medal-imgholder {
+                    width: 100px;
+                    height: 100px;
+                    border-radius: 100%;
+                    overflow: hidden;
+                    margin: 0 auto;
+                }
 
-// profileathlete-card END
-// team-card
-.team-card {
-    // padding: 10px 15px;
-    border: 1px solid #ddd;
-    border-left: 3px solid #ffb026;
-}
+                .medal-athletename {
+                    color: $brand-primary;
+                    font-size: 14px;
+                    font-weight: 600;
+                } // end medal-card
+                // sport-card
+                .sport-imgholder {
+                    width: 80px;
+                    height: 80px;
+                    margin: 0 auto;
+                    margin-top: -25px;
+                }
 
-.team-cardimgholder {
-    width: 29%;
-    padding: 10px;
-    padding-right: 0px;
-}
+                .sport-card-content {
+                    border: 1px solid #ddd;
+                    padding: 0 10px;
+                }
 
-.teamimage-holder {
-    width: 90px;
-    height: 90px;
-    border-radius: 100%;
-    overflow: hidden;
-    border: 5px solid #ddd;
-}
+                .sport-card {
+                    margin-top: 40px;
+                }
 
-.team-cardcontent {
-    width: 69%;
-    padding: 10px;
-    padding-left: 0px;
-}
+                .sport-sportname {
+                    margin-top: 15px;
+                }
 
-.team-schoolname {
-    font-size: 14px;
-    color: $brand-primary;
-    font-weight: 600;
-    word-break: break-word;
-    margin-bottom: 3px;
-}
+                .sport-malefemale {
+                    background: #fff;
+                    border-radius: 10px;
+                    border: 1px solid #ccc;
+                    padding: 2px 0;
+                    width: 150px;
+                    margin: 0 auto;
+                    margin-bottom: 20px;
+                }
 
-.team-schoolsports {
-    font-size: 13px;
-}
+                .sport-rankschool {
+                    border: 1px solid #464646;
+                    background-color: #464646;
+                    padding: 2px;
+                    color: #fff;
+                    font-weight: 600;
+                }
 
-.teamschool-id {
-    left: 0px;
-    bottom: 0px;
-    font-size: 10px;
-    padding: 0px 5px;
-}
+                .sport-sportname {
+                    font-size: 18px;
+                    color: $brand-primary;
+                    font-weight: 600;
+                } // end sport-card
+                // video card
+                .video-playbtn {
+                    right: 0px;
+                    bottom: 0px;
+                }
 
-// end team-card
-// medal-card
-.medal-card {
-    border: 1px solid #ddd;
-    padding: 10px 10px;
-    border-bottom: 3px solid #ffb026;
-}
+                .video-imgholder {
+                    margin-bottom: 10px;
+                }
 
-.medal-imgholder {
-    width: 100px;
-    height: 100px;
-    border-radius: 100%;
-    overflow: hidden;
-    margin: 0 auto;
-}
+                .video-sportname {
+                    font-size: 18px;
+                    font-weight: 600;
+                    margin-bottom: 5px;
+                }
 
-.medal-athletename {
-    color: $brand-primary;
-    font-size: 14px;
-    font-weight: 600;
-}
+                .video-sportnamecontent {
+                    font-size: 12px;
+                }
 
-// end medal-card
-// sport-card
-.sport-imgholder {
-    width: 80px;
-    height: 80px;
-    margin: 0 auto;
-    margin-top: -25px;
-}
+                .vide-customplay {
+                    border: 1px solid #da495b;
+                    background-color: #da495b;
+                    padding: 4px 10px;
+                    color: #fff;
+                } // end video-card
+                .performanceathlete-slider {
+                    .flex-control-nav {
+                        display: none;
+                    }
+                } // school-table
+                .schooltable-image {
+                    background-image: url("/img/drone-video.png");
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                }
 
-.sport-card-content {
-    border: 1px solid #ddd;
-    padding: 0 10px;
-}
+                .schooltable-holder {
+                    color: #fff;
+                    .schooltable-content {
+                        padding: 10px;
+                    }
+                    .table {
+                        border: 1px solid #fff;
+                        margin-bottom: 0px;
+                        .bag-blue {
+                            background-color: $brand-primary;
+                        }
+                        .schoolmedal-points {
+                            font-size: 10px;
+                        }
+                        .schooltable-head {
+                            font-size: 16px;
+                            text-align: center;
+                        }
+                    }
+                    .table>thead>tr>th {
+                        border-bottom: none;
+                        padding: 0px 8px;
+                        vertical-align: middle;
+                    }
+                    .table>tbody>tr>td {
+                        border-top: none;
+                    }
+                }
 
-.sport-card {
-    margin-top: 40px;
-}
+                .content-flex {
+                    flex: 1;
+                }
 
-.sport-sportname {
-    margin-top: 15px;
-}
+                .flex {
+                    display: flex;
+                    justify-content: space-between;
+                    width: 20%;
+                }
 
-.sport-malefemale {
-    background: #fff;
-    border-radius: 10px;
-    border: 1px solid #ccc;
-    padding: 2px 0;
-    width: 150px;
-    margin: 0 auto;
-    margin-bottom: 20px;
-}
+                .wd20 {
+                    width: 19%;
+                }
 
-.sport-rankschool {
-    border: 1px solid #464646;
-    background-color: #464646;
-    padding: 2px;
-    color: #fff;
-    font-weight: 600;
-}
+                .flex-customimage {
+                    overflow: hidden;
+                    width: 100%;
+                    height: 155px;
+                } // end school-table
+                // school-videos
+                // end school-videos
+                //end school-highlight
+                // trackrecord
+                .f18 {
+                    font-size: 18px;
+                }
 
-.sport-sportname {
-    font-size: 18px;
-    color: $brand-primary;
-    font-weight: 600;
-}
+                .f14 {
+                    font-size: 14px;
+                }
 
-// end sport-card
-// video card
-.video-playbtn {
-    right: 0px;
-    bottom: 0px;
-}
+                .schoolprofile-trackrecord {
+                    .trackrecord-year {
+                        ul>li {
+                            padding-right: 10px;
+                        }
+                    }
+                    .trackrecord-detail {
+                        border: 1px solid;
+                        background: $brand-primary;
+                        color: white;
+                        padding: 0px 10px;
+                    }
+                    .sporttrack-sportlistcard {
+                        // width: 19%;
+                        display: inline-block; // margin-left: -4px;
+                        margin: 5px;
+                    }
+                    .trackrecord-athletelistcard {
+                        margin: 10px 0;
+                    }
+                }
 
-.video-imgholder {
-    margin-bottom: 10px;
-}
+                .schooltrack-accordianholder {
+                    .panel-title>a {
+                        text-decoration: none;
+                    }
+                    .panel-default>.panel-heading {
+                        background-color: #fff;
+                    }
+                    .panel-group .panel-heading+.panel-collapse>.panel-body {
+                        border-top: 0;
+                    }
+                    .panel-default {
+                        border-color: $light-grey;
+                    }
+                } // end-trackrecord
+                // team
+                .schoolprofile-teamsportlist {
+                    display: inline-block;
+                    margin: 5px;
+                }
 
-.video-sportname {
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 5px;
-}
+                .schoolprofileteam-head {
+                    color: #fff;
+                }
 
-.video-sportnamecontent {
-    font-size: 12px;
-}
+                .schoolprofile-teamsportdetails {
+                    .list-inline>li {
+                        padding: 0px 25px;
+                        border-right: 1px solid #ddd;
+                    }
+                    .videotableteam-imgholder {
+                        width: 100px;
+                        height: auto;
+                    }
+                    .teamvideo-customplay {
+                        span {
+                            font-size: 10px;
+                        }
+                        @extend .vide-customplay;
+                        padding: 0px 5px;
+                    }
+                    .schoolprofile-teamsporttable {
+                        .table>tbody>tr>td {
+                            vertical-align: middle; // padding: 5px;
+                        }
+                        .table {
+                            // border: 1px solid #fff;
+                            margin-bottom: 0px;
+                            .bag-blue {
+                                background-color: $brand-primary;
+                            }
+                        }
+                        .table-striped>tbody>tr:nth-of-type(odd) {
+                            background-color: #f2f2f2;
+                        }
+                        .table-striped>tbody>tr:nth-of-type(even) {
+                            background-color: #e5e5e5;
+                        }
+                    }
+                    .opponent-schoolname {
+                        width: calc(100% - 65px);
+                    }
+                    .schoolprofile-teamvideos {
+                        width: calc(100% - 105px);
+                    }
+                }
 
-.vide-customplay {
-    border: 1px solid #da495b;
-    background-color: #da495b;
-    padding: 4px 10px;
-    color: #fff;
-}
+                .selectedsport-medaldetails {
+                    margin: 40px 0px;
+                    border: 1px solid #000;
+                    padding: 8px;
+                    color: #fff;
+                    background: #464646;
+                    text-align: center;
+                    li {
+                        vertical-align: middle
+                    }
+                }
 
-// end video-card
-.performanceathlete-slider {
-    .flex-control-nav {
-        display: none;
-    }
-}
+                .schoolprofile-teamsportimg {
+                    width: 60px;
+                    height: auto;
+                }
 
-// school-table
-.schooltable-image {
-    background-image: url("/img/drone-video.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-}
+                .school-yearsummary {
+                    margin-top: 20px;
+                }
 
-.schooltable-holder {
-    color: #fff;
-    .schooltable-content {
-        padding: 10px;
-    }
-    .table {
-        border: 1px solid #fff;
-        margin-bottom: 0px;
-        .bag-blue {
-            background-color: $brand-primary;
-        }
-        .schoolmedal-points {
-            font-size: 10px;
-        }
-        .schooltable-head {
-            font-size: 16px;
-            text-align: center;
-        }
-    }
-    .table>thead>tr>th {
-        border-bottom: none;
-        padding: 0px 8px;
-        vertical-align: middle;
-    }
-    .table>tbody>tr>td {
-        border-top: none;
-    }
-}
+                .school-yearsummaryimg {
+                    background-image: url("/img/bl-inner.jpg"); // border: 1px solid #000;
+                    margin-left: 100px;
+                    .school-yearsummarycontent {
+                        padding: 10px;
+                        background-color: rgba(0, 0, 0, 0.7);
+                        color: #fff;
+                    }
+                    .school-yearsummarysportimg {
+                        width: 60px;
+                        height: auto;
+                        position: absolute;
+                        top: -19px;
+                        left: -33px;
+                    }
+                    .school-yearsummarycontent {
+                        p {
+                            font-size: 21px;
+                            text-align: center;
+                        }
+                    }
+                }
 
-.content-flex {
-    flex: 1;
-}
-
-.flex {
-    display: flex;
-    justify-content: space-between;
-    width: 20%;
-}
-
-.wd20 {
-    width: 19%;
-}
-
-.flex-customimage {
-    overflow: hidden;
-    width: 100%;
-    height: 155px;
-}
-
-// end school-table
-// school-videos
-// end school-videos
-//end school-highlight
-// trackrecord
-.f18 {
-    font-size: 18px;
-}
-
-.f14 {
-    font-size: 14px;
-}
-
-.schoolprofile-trackrecord {
-    .trackrecord-year {
-        ul>li {
-            padding-right: 10px;
-        }
-    }
-    .trackrecord-detail {
-        border: 1px solid;
-        background: $brand-primary;
-        color: white;
-        padding: 0px 10px;
-    }
-    .sporttrack-sportlistcard {
-        // width: 19%;
-        display: inline-block; // margin-left: -4px;
-        margin: 5px;
-    }
-}
-
-// end-trackrecord
-//end schoolprofile-page
+                .school-yearsummarytable {
+                    .table>thead>tr>th {
+                        border-bottom: none;
+                        text-align: center;
+                    }
+                    .table>thead>tr>th:nth-child(n+2) {
+                        background-color: #ddd;
+                        border-bottom: 1px solid #fff;
+                    }
+                    .table>tbody>tr>td {
+                        border-top: none;
+                    }
+                    .table>tbody>tr>td:nth-child(n+2) {
+                        background-color: #ddd;
+                        border-bottom: 1px solid #fff;
+                        text-align: center;
+                    }
+                    .table>tbody>tr>td:nth-child(1) {
+                        text-align: center;
+                        color: $brand-primary;
+                        font-weight: 600;
+                        font-size: 18px;
+                    }
+                } // end-team
+                //end schoolprofile-page
+                .schoolprofile-tablelist {
+                    .swiper-container {
+                        width: 100%;
+                        height: auto;
+                        margin-left: auto;
+                        margin-right: auto;
+                        .swiper-slide {
+                            width: 380px;
+                        }
+                    }
+                }

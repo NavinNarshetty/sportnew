@@ -11,6 +11,53 @@ myApp.controller('SchoolProfileCtrl', function ($scope, $state, $stateParams, Te
     //         minItems: 2
     //     });
     // });
+
+    // flex-slider
+    setTimeout(function () {
+        $('.highlightschool-slider .flexslider').flexslider({
+            animation: "slide",
+            animationLoop: true,
+            reverse: false,
+            slideshow: true,
+            slideshowSpeed: 4000,
+            controlNav: false,
+            directionNav: true,
+            prevText: "",
+            nextText: "",
+            itemWidth: 350,
+            itemMargin: 10
+        });
+    }, 100);
+
+    // end flex
+
+    // team-flex
+    setTimeout(function () {
+        $('.schoolprofile-tablelist .flexslider').flexslider({
+            animation: "slide",
+            animationLoop: true,
+            reverse: false,
+            slideshow: true,
+            slideshowSpeed: 4000,
+            controlNav: false,
+            directionNav: true,
+            prevText: "",
+            nextText: "",
+            itemWidth: 380,
+            itemMargin: 10
+        });
+    }, 100);
+    // enflex
+
+
+
+
+    $scope.oneAtATime = true;
+    $scope.status = {
+        isCustomHeaderOpen: false,
+        isFirstOpen: true,
+        isFirstDisabled: false
+    };
     $scope.schoolRankTable = [{
             name: "Jamnabai Narsee International School",
             gold: "20",
@@ -56,16 +103,107 @@ myApp.controller('SchoolProfileCtrl', function ($scope, $state, $stateParams, Te
             points: "30"
         }
     ]
+    $scope.summaryTable = [{
+        year: '2017',
+        match: '10',
+        win: '10',
+        loss: '10',
+        draw: '10',
+        wper: '10'
 
-    $scope.schoolTrackTable = [{
+    }, {
+        year: '2016',
+        match: '10',
+        win: '10',
+        loss: '10',
+        draw: '10',
+        wper: '10'
 
+    }, {
+        year: '2015',
+        match: '10',
+        win: '10',
+        loss: '10',
+        draw: '10',
+        wper: '10'
+
+    }]
+
+    $scope.selectedsportTable = [{
+        round: 'Leauge match',
+        schoolname: 'Jamnabai Narsee International School',
+        score: '30-22',
+        result: 'Won',
+        videotext: 'You can also watch match highlights'
+
+    }, {
+        round: 'Leauge match',
+        schoolname: 'Jamnabai Narsee International School',
+        score: '30-22',
+        result: 'Won',
+        videotext: 'You can also watch match highlights'
+
+    }, {
+        round: 'Leauge match',
+        schoolname: 'Jamnabai Narsee International School',
+        score: '30-22',
+        result: 'Won',
+        videotext: 'You can also watch match highlights'
+
+    }, {
+        round: 'Leauge match',
+        schoolname: 'Jamnabai Narsee International School',
+        score: '30-22',
+        result: 'Won',
+        videotext: 'You can also watch match highlights'
+
+    }, {
+        round: 'Leauge match',
+        schoolname: 'Jamnabai Narsee International School',
+        score: '30-22',
+        result: 'Won',
+        videotext: 'You can also watch match highlights'
+
+    }, {
+        round: 'Leauge match',
+        schoolname: 'Jamnabai Narsee International School',
+        score: '30-22',
+        result: 'Won',
+        videotext: 'You can also watch match highlights'
+
+    }]
+
+    $scope.myAccordian = [{
+        gender: 'Boys',
+        agegroup: 'U-10',
+        event: '100M',
+        img: ['/img/day-03.png',
+            '/img/day-04.png',
+            '/img/oldSfa/bg-draw.jpg',
+            '/img/day-03.png',
+            '/img/day-04.png',
+            '/img/oldSfa/bg-draw.jpg'
+        ]
+    }, {
+        gender: 'Girls',
+        agegroup: 'U-8',
+        event: '200M',
+        img: ['/img/day-03.png',
+            '/img/day-04.png',
+            '/img/oldSfa/bg-draw.jpg',
+            '/img/day-03.png',
+            '/img/day-04.png',
+            '/img/oldSfa/bg-draw.jpg'
+        ]
     }]
 
     $scope.mySlides = [
         '/img/day-03.png',
         '/img/day-04.png',
         '/img/oldSfa/bg-draw.jpg',
-        '/img/day-04.png'
+        '/img/day-03.png',
+        '/img/day-04.png',
+        '/img/oldSfa/bg-draw.jpg'
     ];
 
     $scope.customCards = [{
@@ -79,6 +217,38 @@ myApp.controller('SchoolProfileCtrl', function ($scope, $state, $stateParams, Te
     }, {
         img: '/img/bl-inner.jpg'
     }];
+
+    $scope.teamCards = [{
+        img: '/img/bl-inner.jpg'
+    }, {
+        img: '/img/bl-inner.jpg'
+    }, {
+        img: '/img/bl-inner.jpg'
+    }, {
+        img: '/img/bl-inner.jpg'
+    }, {
+        img: '/img/bl-inner.jpg'
+    }, {
+        img: '/img/bl-inner.jpg'
+    }, {
+        img: '/img/bl-inner.jpg'
+    }, {
+        img: '/img/bl-inner.jpg'
+    }];
+
+    $scope.sportDetail = [{
+        games: '19',
+        type: 'Played'
+    }, {
+        games: '18',
+        type: 'Won'
+    }, {
+        games: '17',
+        type: 'Lost'
+    }, {
+        games: '16',
+        type: 'Draw'
+    }]
 
     var allSchoolProfile = ["frontend/views/content/schoolprofile/highlights.html", "frontend/views/content/schoolprofile/trackrecord.html",
         "frontend/views/content/schoolprofile/team.html",

@@ -1,0 +1,310 @@
+<div class="schoolprofile-team">
+  <div class="container">
+    <!--Summary-->
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="schoolprofile-summaryhead">
+          <h3>YEAR-ON-YEAR SUMMARY</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, ipsum sint voluptatum voluptates facilis veritatis
+            ullam esse, totam aliquid eveniet consequuntur. Nostrum possimus nemo vel dolores dolorum molestias officia deserunt.</p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="schoolprofile-tablelist  sfa-flexslider">
+
+        <flex-slider flex-slide="n in customCards track by $index" prev-text="" next-text="">
+          <li>
+            <div>
+              <div class="school-yearsummary">
+                <div class="school-yearsummaryhead">
+                  <div class="school-yearsummaryimg relate">
+                    <div class="school-yearsummarycontent">
+                      <p class="m-clear ">Football</p>
+                    </div>
+                    <div class="school-yearsummarysportimg">
+                      <img src="img/8_Football.png" alt="" class="img-responsive">
+                    </div>
+                  </div>
+                </div>
+                <div class="school-yearsummarytable">
+                  <table class="table">
+                    <thead>
+                      <th></th>
+                      <th>M</th>
+                      <th>W</th>
+                      <th>L</th>
+                      <th>D</th>
+                      <th>W%</th>
+
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="t in summaryTable track by $index">
+                        <td>
+                          <div class="">
+                            {{t.year}}
+                          </div>
+                        </td>
+                        <td>
+                          <div class="">
+                            {{t.match}}
+                          </div>
+                        </td>
+                        <td>
+                          <div class="">
+                            {{t.win}}
+                          </div>
+                        </td>
+                        <td>
+                          <div class="">
+                            {{t.loss}}
+                          </div>
+                        </td>
+                        <td>
+                          <div class="">
+                            {{t.draw}}
+                          </div>
+                        </td>
+                        <td>
+                          <div class="">
+                            {{t.wper}}
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+              </div>
+            </div>
+          </li>
+        </flex-slider>
+
+      </div>
+    </div>
+
+
+
+
+
+    <!--End Summary-->
+
+    <!--STATITICS-->
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="schoolprofile-teamstatitics">
+          <h3>DETAILED TEAM STATITICS</h3>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit ullam sapiente rerum laboriosam et eius ut repellat,
+            minus voluptatem enim modi beatae minima atque, dolores maiores perspiciatis ipsam! Saepe, iure?</p>
+        </div>
+      </div>
+      <div class="schoolprofile-teamfilter">
+        <ul class="list-inline">
+          <li>
+            <p>View by year</p>
+          </li>
+          <li>
+            <div class="dropdown">
+              <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Tutorials
+              <span class="caret"></span></button>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">CSS</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">JavaScript</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+
+      </div>
+    </div><span>vs</span>
+    <!--End-STATITICS-->
+
+    <!--cards-list-->
+    <div class="row">
+      <div class="schoolprofile-teamsportlist" ng-repeat="s in teamCards track by $index">
+        <sport-card></sport-card>
+
+      </div>
+    </div>
+    <!--end cardlist-->
+
+    <!--selected sport with table-->
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="schoolprofile-selectsporthead">
+          <h3>Basketball</h3>
+          <ul class="list-inline">
+            <li>Gender</li>
+            <li>
+              <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Tutorials
+              <span class="caret"></span></button>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">CSS</a></li>
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">JavaScript</a></li>
+                </ul>
+              </div>
+            </li>
+            <li>Age category</li>
+            <li>
+              <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Tutorials
+              <span class="caret"></span></button>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">CSS</a></li>
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">JavaScript</a></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class=" col-md-12  col-sm-12 col-xs-12">
+        <div class="schoolprofile-teamsportdetails">
+          <p><span>Boys</span> | <span>U-8</span> | <span>MT 1113</span></p>
+          <div class="">
+            <ul class="list-inline">
+              <li ng-repeat="s in sportDetail">
+                <p class="m-clear text-center" style="font-size:35px;">{{s.games}} </p>
+                <p>{{s.type}} </p>
+              </li>
+            </ul>
+          </div>
+          <div class="inline-block">
+
+          </div>
+          <!--table-->
+          <div class="schoolprofile-teamsporttable">
+            <table class=" table table-striped">
+              <thead>
+                <tr class="bag-blue text-uppercase">
+                  <th>
+                    <div class="schoolprofileteam-head">
+                      Rank
+                    </div>
+                  </th>
+                  <th></th>
+                  <th>
+                    <div class="schoolprofileteam-head">
+                      Opponent
+                    </div>
+                  </th>
+                  <th>
+                    <div class="schoolprofileteam-head">
+                      score
+
+                    </div>
+                  </th>
+                  <th>
+                    <div class="schoolprofileteam-head">
+
+                      Result
+                    </div>
+                  </th>
+                  <th>
+                    <div class="schoolprofileteam-head">
+
+                      video
+                    </div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="item in selectedsportTable track by $index">
+                  <td>{{item.round}} </td>
+                  <td>
+                    <span>vs</span>
+                  </td>
+                  <td>
+                    <div class="inline-block schoolprofile-teamsportimg v-mid ">
+                      <img src="img/oldSfa/icon/2.png" alt="" class="img-responsive">
+                    </div>
+                    <div class="inline-block opponent-schoolname v-mid">
+                      <p class="m-clear"> {{item.schoolname}}</p>
+                    </div>
+
+                  </td>
+                  <td>{{item.score}} </td>
+                  <td>{{item.result}} </td>
+                  <td>
+                    <div class="inline-block v-mid">
+
+                      <div class="videotableteam-imgholder relate">
+                        <img src="img/day-04.png" class="img-responsive">
+                        <div class="absolute video-playbtn">
+                          <div class="teamvideo-customplay">
+                            <span>
+                          <i class="fa  fa-play" aria-hidden="true"></i>
+                          </span>
+                            <!--<i class="fa fa-play-circle" aria-hidden="true"></i>-->
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                    <div class="inline-block v-mid schoolprofile-teamvideos">
+                      <p>{{item.videotext}} </p>
+                    </div>
+                  </td>
+
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+          <!--End table-->
+        </div>
+        <div class="selectedsport-medaldetails">
+          <ul class="list-inline">
+            <li>
+              <div class="">
+                Football Boys U-16 Champions 2017:
+              </div>
+            </li>
+            <li>
+              <div class="">
+                <div class="inline-block v-top">
+                  <img src="img/sf-gold-sec.png" alt="">
+                </div>
+                <div class="inline-block">
+                  <p class="m-clear">Dr. Sarvepalli Radhakrishnan Hindi</p>
+                  <p class="m-clear"> School (Andheri)</p>
+                </div>
+              </div>
+
+            </li>
+            <li>
+              <div class="">
+                <div class="inline-block v-top">
+                  <img src="img/sf-gold-sec.png" alt="">
+                </div>
+                <div class="inline-block">
+                  <p class="m-clear">Dr. Sarvepalli Radhakrishnan Hindi</p>
+                  <p class="m-clear"> School (Andheri)</p>
+                </div>
+              </div>
+
+            </li>
+            <li>
+              <div class="">
+                <div class="inline-block v-top">
+                  <img src="img/sf-gold-sec.png" alt="">
+                </div>
+                <div class="inline-block">
+                  <p class="m-clear">Dr. Sarvepalli Radhakrishnan Hindi</p>
+                  <p class="m-clear"> School (Andheri)</p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!--end selected sport with table-->
+  </div>
+</div>

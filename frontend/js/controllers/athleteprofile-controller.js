@@ -73,4 +73,63 @@ myApp.controller('AthleteProfileCtrl', function ($scope, $state, $stateParams, T
 
     $scope.gallery = ['/img/day-03.png','/img/day-04.png','/img/oldSfa/bg-draw.jpg','/img/oldSfa/banner2.jpg','/img/oldSfa/f4.jpg'];
 
+
+
+    setTimeout(function () {
+      $('.highlight-knowflexslider .flexslider').flexslider({
+        animation: "slide",
+        animationLoop: true,
+        reverse: false,
+        slideshow: true,
+        slideshowSpeed: 5000,
+        controlNav: false,
+        directionNav: true,
+        prevText: "",
+        nextText: "",
+        itemWidth: 370,
+        itemMargin: 10,
+        pauseOnHover: true
+      });
+    }, 100);
+
+    $scope.schoolRankTable = [{
+            name: "Jamnabai Narsee International School",
+            gold: "20",
+            silver: "18",
+            bronze: "19",
+            points: "30"
+        }, {
+            name: "Jamnabai Narsee International School",
+            gold: "20",
+            silver: "18",
+            bronze: "19",
+            points: "30"
+        }, {
+            name: "Jamnabai Narsee International School",
+            gold: "20",
+            silver: "18",
+            bronze: "19",
+            points: "30"
+        },
+        {
+            name: "Jamnabai Narsee International School",
+            gold: "20",
+            silver: "18",
+            bronze: "19",
+            points: "30"
+        }, {
+            name: "Jamnabai Narsee International School",
+            gold: "20",
+            silver: "18",
+            bronze: "19",
+            points: "30"
+        }, {
+            name: "Jamnabai Narsee International School",
+            gold: "20",
+            silver: "18",
+            bronze: "19",
+            points: "30"
+        }
+    ];
+
 })

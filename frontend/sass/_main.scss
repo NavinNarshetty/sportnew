@@ -210,6 +210,8 @@ header {
 
 .sfa-flexslider{
   .flexslider {
+    border: none;
+    margin: 0;
       .flex-direction-nav {
         a:before {
             font-size: 18px;
@@ -251,7 +253,7 @@ header {
   }
 }
 
-.atheletehighlight-galleryflexslider{
+.athletehighlight-galleryflexslider{
   .flexslider{
     border: none;
   }
@@ -262,6 +264,19 @@ header {
   height: 155px;
   overflow: hidden;
 }
+
+.btn-blue-outline{
+  border: 1px solid $brand-primary;
+  background-color: transparent;
+  color: $brand-primary;
+
+  &:hover, &:active, &:focus{
+    border: 1px solid $brand-primary;
+    background-color: transparent;
+    color: $brand-primary;
+    outline: none;
+  }
+}
 // COMMON CLASSES END
 // athlete PAGE START
 
@@ -271,6 +286,10 @@ header {
 
 .athleteprofile-mainsection {
     margin: 30px;
+}
+
+.athleteprofile-highlights, .athleteprofile-achievements{
+  padding: 20px 0px 50px;
 }
 
 .athleteprofile-card {
@@ -352,6 +371,9 @@ header {
     }
 }
 // HIGHLIGHTS PAGE
+.highlights-stats, .athletehighlights-yourvideo, .athletehighlights-athletes, .athletehighlight-sportranking{
+  margin: 40px 0;
+}
 .sportslidetable-element {
     width: 24%;
     display: inline-block;
@@ -398,6 +420,131 @@ header {
         border-bottom: 40px solid $brand-success;
     }
 }
+.athletehighlights-videoholder{
+  display: inline-block;
+  padding: 5px;
+  width: 20%;
+  margin: 10px 0;
+}
+.athletehighlights-videomore{
+  text-align: right;
+}
+.highlight-sportranking-table{
+  background-image: url("/img/bg-ranktable.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #fff;
 
+  .table {
+      border: 1px solid #fff;
+      margin-bottom: 0px;
+      .bag-blue {
+          background-color: $brand-primary;
+      }
+      .schoolmedal-points {
+          font-size: 10px;
+      }
+      .schooltable-head {
+          font-size: 16px;
+          text-align: center;
+      }
+      tr{
+        // background-color: rgba(0,0,0,0.5);
+        margin: 5px 0;
+      }
+
+      >thead>tr>th{
+          border-bottom: none;
+          padding: 0px 8px;
+          vertical-align: middle;
+      }
+      >tbody>tr>td {
+        padding: 10px 8px;
+        border-top: none;
+      }
+  }
+}
+
+.highlight-sportranking-tableoverlay{
+  padding: 15px 10px;
+  background-color: rgba(0,0,0,0.5);
+}
 // HIGHLIGHTS PAGE END
+// ACHIEVEMENTS PAGE
+.athleteachievement-special, .athleteachievement-excellence, .athleteachievement-participation{
+  margin: 50px 0;
+}
+.athleteachievement-certificate {
+  width: 60%;
+  margin-top: 40px;
+  margin-left: 100px;
+  box-shadow: 0 0 2px #a0a0a0;
+}
+.athletecertificate-logo {
+  width: 90px;
+  position: absolute;
+  top: -27px;
+  left: -90px;
+}
+.athleteachievement-certificatedetail {
+    display: inline-block;
+    width: 70%;
+    vertical-align: top;
+    padding: 20px;
+}
+.athleteachievement-certificatepic {
+    display: inline-block;
+    width: 29%;
+    padding: 20px;
+    text-align: center;
+}
+.athleteachievement-certificateholder {
+    width: 140px;
+    margin: 10px auto;
+}
+.achievementexcellence-certificatedetail{
+  display: inline-block;
+  width: 70%;
+  vertical-align: top;
+  padding: 20px;
+}
+.achievementexcellence-table{
+  display: inline-block;
+  width: 79%;
+  margin: 10px 0;
+}
+.achievementexcellence-tableholder{
+  background-color: $light-grey;
+  text-align: center;
+  .table{
+    margin: 0;
+   tbody> tr> td{
+    border: none;
+  }
+  }
+}
+.achievementexcellence-medal{
+  display: inline-block;
+  width: 19%;
+}
+.achievementexcellence-medalholder{
+  width: 30px;
+  margin: 0 auto;
+}
+.achievementexcellence-certificatepic {
+    display: inline-block;
+    width: 29%;
+    padding: 20px;
+    text-align: center;
+}
+
+.athleteachievement-participationcertificate{
+  display: inline-block;
+  width: 19%;
+  padding: 5px;
+}
+.participation-certificateholder{
+  border: 1px solid $brand-primary;
+}
+// ACHIEVEMENTS PAGE END
 // athlete PAGE END

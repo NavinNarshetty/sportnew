@@ -30,4 +30,16 @@ myApp.filter('indianCurrency', function () {
       return finalNumber;
     }
   }
-});
+})
+
+myApp.filter('truncate', function () {
+  return function (value, limit) {
+    if (value) {
+      if (value.length < limit) {
+        return value;
+      } else {
+        return value.slice(0, limit) + "...";
+      }
+    }
+  }
+});;

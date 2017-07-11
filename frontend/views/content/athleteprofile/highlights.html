@@ -1,12 +1,13 @@
-<div class="atheleteprofile-highlights">
+<div class="athleteprofile-highlights">
   <div class="container">
+    <!-- STATS -->
     <div class="highlights-stats">
       <div class="row">
         <div class="col-md-4">
           <div class="highlights-sporttable sfa-flexslider">
             <flex-slider flex-slide="s in mySlides"  prev-text="" next-text="" control-nav="false" slideshow="true">
               <li>
-                <div class="highlights-sportslide">
+                <div class="highlights-sportslide text-uppercase">
                   <div class="sportslide-header">
                     <div class="sportslide-headertitle">2017</div>
                   </div>
@@ -54,7 +55,7 @@
             <div class="cardheader-green atheletehighlight-gallerytitle">
               <p class="m-clear">View tennis gallery</p>
             </div>
-            <div class="sfa-flexslider atheletehighlight-galleryflexslider">
+            <div class="sfa-flexslider athletehighlight-galleryflexslider">
               <flex-slider flex-slide="s in gallery"  prev-text="" next-text="" control-nav="false" slideshow="true" slideshow-speed="2500">
                 <li>
                   <div class="flexslider-galleryholder relate" ng-click="">
@@ -67,5 +68,160 @@
         </div>
       </div>
     </div>
+    <!-- STATS END -->
+    <!-- AD SPACE -->
+    <div class="adv-space">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="highlight-adspace relate">
+            <h1 class="m-clear get-center text-uppercase">Ad Space</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- AD SPACE END -->
+    <!-- YOUR MATCH VIDEOS -->
+    <div class="athletehighlights-yourvideo">
+      <h4 class="color-primary text-uppercase">YOUR MATCH VIDEOS</h4>
+      <div class="athletehighlights-videosection">
+        <div class="athletehighlights-videoholder" ng-repeat="s in mySlides | limitTo:5">
+          <video-card></video-card>
+        </div>
+        <div class="athletehighlights-videomore">
+          <button class="btn btn-blue-outline">View All</button>
+        </div>
+      </div>
+    </div>
+    <!-- YOUR MATCH VIDEOS END -->
+    <!-- ATHELETES YOU MAY KNOW  -->
+    <div class="athletehighlights-athletes">
+      <div class="athletehighight-knowflexslider sfa-flexslider">
+        <h4 class="color-primary text-uppercase">ATHLETES YOU MAY KNOW</h4>
+        <flex-slider flex-slide="s in mySlides" class="highlight-knowflexslider" >
+          <li>
+            <div class="highlights-athleteslide ">
+              <profile-athlete-card></profile-athlete-card>
+            </div>
+          </li>
+        </flex-slider>
+      </div>
+    </div>
+    <!-- ATHELETES YOU MAY KNOW END  -->
+    <!-- SPORT RANKING TABLE -->
+    <div class="athletehighlight-sportranking">
+      <h4 class="color-primary text-uppercase">Archery ranking table</h4>
+      <div class="row">
+        <div class="col-md-7">
+          <div class="highlight-sportranking-table table-responive">
+            <div class="highlight-sportranking-tableoverlay">
+            <table class="table">
+              <thead>
+                <tr class="bag-blue">
+                  <th>
+                    <div class="schooltable-head">
+                      Rank
+                    </div>
+                  </th>
+                  <th>
+                    <div class="schooltable-head">
+                      School Name
+                    </div>
+                  </th>
+                  <th>
+                    <div class="table-medalimage text-center">
+                      <img src="img/sf-gold-sec.png" alt="">
+                      <p class="schoolmedal-points m-clear">5 points</p>
+                    </div>
+                  </th>
+                  <th>
+                    <div class="table-medalimage text-center">
+                      <img src="img/sf-silver-sec.png" alt="">
+                      <p class="schoolmedal-points m-clear">3 points</p>
+                    </div>
+                  </th>
+                  <th>
+                    <div class="table-medalimage text-center">
+                      <img src="img/sf-bronze-sec.png" alt="">
+                      <p class="schoolmedal-points m-clear">2 points</p>
+                    </div>
+                  </th>
+                  <th>
+                    <div class="schooltable-head text-centers">Points</div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="item in schoolRankTable track by $index">
+                  <td>
+                    <div class="text-center">{{$index+1}}</div>
+                  </td>
+                  <td>
+                    <div class="">{{item.name}}</div>
+                  </td>
+                  <td>
+                    <div class="text-center">{{item.gold}}</div>
+                  </td>
+                  <td>
+                    <div class="text-center">{{item.silver}}</div>
+                  </td>
+                  <td>
+                    <div class="text-center">{{item.bronze}}</div>
+                  </td>
+                  <td>
+                    <div class="text-center">{{item.points}}</div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-5">
+          <div class="side-adspace relate">
+            <h1 class="m-clear get-center text-uppercase">Ad Space</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- SPORT RANKING TABLE END -->
+    <!-- OTHER VIDEOS -->
+    <div class="athletehighlights-yourvideo athletehighlights-othervideo">
+      <h4 class="color-primary text-uppercase">other videos YOU may like</h4>
+      <div class="athletehighlights-videosection">
+        <div class="athletehighlights-videoholder" ng-repeat="s in mySlides | limitTo:5">
+          <video-card></video-card>
+        </div>
+        <div class="athletehighlights-videomore">
+          <button class="btn btn-blue-outline">View All</button>
+        </div>
+      </div>
+    </div>
+    <!-- OTHER VIDEOS END -->
+    <!-- AD SPACE -->
+    <div class="adv-space">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="highlight-adspace relate">
+            <h1 class="m-clear get-center text-uppercase">Ad Space</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- AD SPACE END -->
+    <!-- TOP PERFORMING ATHLETES  -->
+    <div class="athletehighlights-athletes">
+      <div class="athletehighight-knowflexslider sfa-flexslider">
+        <h4 class="color-primary text-uppercase">top performing ATHLETES</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est sunt omnis autem rem odio recusandae at nemo magni, atque reiciendis aut, vitae non, ad quisquam quasi veniam eius. Voluptatibus, dolore.</p>
+        <flex-slider flex-slide="s in mySlides" class="highlight-knowflexslider" >
+          <li>
+            <div class="highlights-athleteslide ">
+              <profile-athlete-card></profile-athlete-card>
+            </div>
+          </li>
+        </flex-slider>
+      </div>
+    </div>
+    <!-- TOP PERFORMING ATHLETES END  -->
   </div>
 </div>

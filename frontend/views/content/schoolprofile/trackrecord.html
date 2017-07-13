@@ -116,20 +116,46 @@
             <div class="col-md-11">
               <div class="trackrecord-detail">
                 <ul class="list-inline">
-                  <li class="f18">
+                  <li class="f18 v-bottom">
                     <span>School Rank</span> <span>120/300</span>
                   </li>
-                  <li class="f18">
+                  <li class="f18 v-bottom">
                     <div class="inline-block">
 
                       <span>CONTINGENT</span> <span>200</span>
                     </div>
-                    <div class="inline-block f18">
+                    <div class="inline-block  f18">
                       <ul class="list-inline">
-                        <!--<li>(</li>-->
-                        <li>(<img src="img/sf-boys-blue.png"> <span>200</span></li>
-                        <li><img src="img/sf-boys-blue.png"><span>200)</span></li>
-                        <!--<li>)</li>-->
+
+                        <!--<li>(<img ng-src="{{'male' | gendericon:'white'}}" alt=""> <span>200</span></li>
+                        <li><img ng-src="{{'male' | gendericon:'white'}}" alt=""><span>200)</span></li>-->
+                        <!--<li>
+                          <span>(</span>
+                        </li>-->
+                        <li>
+                          <div class="inline-block">
+                            <span>(</span>
+                          </div>
+                          <div class="inline-block trackrecordprofile-greygender v-mid">
+                            <img ng-src="{{'male' | gendericon:'white'}}" alt="" class="img-responsive">
+                          </div>
+                          <div class="inline-block v-mid">
+                            <span>200</span>
+                          </div>
+                        </li>
+                        <li>
+
+                          <div class="inline-block trackrecordprofile-greygender v-mid">
+                            <img ng-src="{{'female' | gendericon:'white'}}" alt="" class="img-responsive">
+                          </div>
+                          <div class="inline-block v-mid">
+                            <span>200</span>
+                          </div>
+                          <div class="inline-block">
+                            <span>)</span>
+                          </div>
+                        </li>
+
                       </ul>
 
                     </div>
@@ -137,33 +163,33 @@
                   </li>
                   <li>
                     <ul class="list-inline f14">
-                      <li>
-                        <div class="inline-block v-bottom">
+                      <li class="v-mid">
+                        <div class="inline-block v-bottom profile-bluemedals">
 
-                          <img src="img/sf-gold-sec.png " class="img-responsive ">
+                          <img ng-src="{{'gold' | medalicon:'white'}}" alt="" class="img-responsive">
                         </div>
                         <div class="inline-block ">
-                          <span>999</span>
+                          <span class="color-warning ">999</span>
                           <span>Gold</span>
                         </div>
                       </li>
-                      <li>
-                        <div class="inline-block v-bottom">
+                      <li class="v-mid">
+                        <div class="inline-block v-bottom profile-bluemedals">
 
-                          <img src="img/sf-silver-sec.png " class="img-responsive ">
+                          <img ng-src="{{'silver' | medalicon:'white'}}" alt="" class="img-responsive">
                         </div>
                         <div class="inline-block">
-                          <span>999</span>
+                          <span class="color-warning ">999</span>
                           <span>Silver</span>
                         </div>
                       </li>
-                      <li>
-                        <div class="inline-block v-bottom">
+                      <li class="v-mid">
+                        <div class="inline-block v-bottom profile-bluemedals">
 
-                          <img src="img/sf-bronze-sec.png " class="img-responsive ">
+                          <img ng-src="{{'bronze' | medalicon:'white'}}" alt="" class="img-responsive">
                         </div>
                         <div class="inline-block">
-                          <span>999</span>
+                          <span class="color-warning ">999</span>
                           <span>Bronze</span>
                         </div>
                       </li>
@@ -189,7 +215,7 @@
             </div>
             <div class="row">
               <div class="col-md-12 col-sm12 col-xs-12">
-                <div class="schooltrack-sportname">
+                <div class="schooltrack-sportname text-uppercase">
                   <h3>Archery</h3>
                 </div>
               </div>
@@ -199,7 +225,7 @@
                 <div uib-accordion-group class="panel-default" is-open="s.open" ng-repeat="s in myAccordian track by $index">
                   <uib-accordion-heading class="clearfix">
                     <i class="pull-right fa" ng-class="{'fa-minus': s.open, 'fa-plus': !s.open}"></i>
-                    <ul class="list-inline">
+                    <ul class="list-inline text-uppercase">
                       <li>{{s.gender}} </li>
                       <li>|</li>
                       <li>{{s.agegroup}} </li>

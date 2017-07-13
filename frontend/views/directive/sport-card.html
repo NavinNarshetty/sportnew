@@ -10,10 +10,10 @@
       <p class="m-clear text-uppercase">Athlete</p>
       <div class="sport-malefemale">
 
-        <ul class="list-inline">
-          <li>
+        <!--<ul class="list-inline">
+          <li class="">
             <div class="">
-              <img src="/img/sf-boys-blue.png" class="v-mid"> <span class="v-mid">999</span>
+              <img ng-src="{{'male' |gendericon:'grey'}}" alt="" class="img-responsive"> <span class="v-mid">999</span>
             </div>
           </li>
           <li>
@@ -21,17 +21,38 @@
           </li>
           <li>
             <div class="">
-              <img src="/img/sf-girl-blue.png" class="v-mid"> <span class="v-mid">999</span>
+              <span class="v-mid">999</span>
             </div>
           </li>
 
-        </ul>
+        </ul>-->
+        <div class="inline-block v-mid">
+          <div class="trackrecordprofile-greygender">
+            <img ng-src="{{'male' | gendericon:'grey'}}" alt="" class="img-responsive">
+          </div>
+        </div>
+        <div class="inline-block v-mid pr5">
+          <p class="m-clear">999</p>
+        </div>
+        <div class="inline-block v-mid">
+          <span>|</span>
+        </div>
+        <div class="inline-block v-mid pl5">
+          <div class="trackrecordprofile-greygender">
+            <img ng-src="{{'female' | gendericon:'grey'}}" alt="" class="img-responsive">
+          </div>
+        </div>
+        <div class="inline-block v-mid">
+          <p class="m-clear">999</p>
+        </div>
       </div>
       <div class="sport-medal">
         <ul class="list-inline">
           <li>
-            <div class="inline-block">
-              <img src="img/sf-gold-sec.png " class="img-responsive ">
+            <div class="inline-block trackrecordprofile-bluemedals">
+
+              <img ng-src="{{'gold'| medalicon:'blue'}}" alt="" class="img-responsive">
+
             </div>
             <div class="inline-block">
               <span class="color-primary">999</span><br/>
@@ -39,21 +60,25 @@
             </div>
           </li>
           <li>
-            <div class="inline-block">
-              <img src="img/sf-silver-sec.png " class="img-responsive ">
+            <div class="inline-block trackrecordprofile-bluemedals">
+
+              <img ng-src="{{'silver'| medalicon:'blue'}}" alt="" class="img-responsive">
+
             </div>
             <div class="inline-block">
               <span class="color-primary">999</span><br/>
-              <span>Gold</span>
+              <span>Silver</span>
             </div>
           </li>
           <li>
-            <div class="inline-block">
-              <img src="img/sf-bronze-sec.png " class="img-responsive ">
+            <div class="inline-block trackrecordprofile-bluemedals">
+
+              <img ng-src="{{'bronze'| medalicon:'blue'}}" alt="" class="img-responsive">
+
             </div>
             <div class="inline-block">
               <span class="color-primary">999</span><br/>
-              <span>Gold</span>
+              <span>Bronze</span>
             </div>
           </li>
         </ul>

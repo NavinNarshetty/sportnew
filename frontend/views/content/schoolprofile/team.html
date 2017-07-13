@@ -82,11 +82,6 @@
 
       </div>
     </div>
-
-
-
-
-
     <!--End Summary-->
 
     <!--STATITICS-->
@@ -97,35 +92,39 @@
           <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit ullam sapiente rerum laboriosam et eius ut repellat,
             minus voluptatem enim modi beatae minima atque, dolores maiores perspiciatis ipsam! Saepe, iure?</p>
         </div>
-      </div>
-      <div class="schoolprofile-teamfilter">
-        <ul class="list-inline">
-          <li>
-            <p>View by year</p>
-          </li>
-          <li>
-            <div class="dropdown">
-              <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Tutorials
-              <span class="caret"></span></button>
-              <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
-                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">CSS</a></li>
-                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">JavaScript</a></li>
-              </ul>
-            </div>
-          </li>
-        </ul>
 
+        <div class="schoolprofile-teamfilter">
+          <ul class="list-inline">
+            <li>
+              <p>View by year</p>
+            </li>
+            <li>
+              <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Tutorials
+              <span class="caret"></span></button>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">CSS</a></li>
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">JavaScript</a></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+
+        </div>
       </div>
-    </div><span>vs</span>
+    </div>
     <!--End-STATITICS-->
 
     <!--cards-list-->
     <div class="row">
-      <div class="schoolprofile-teamsportlist" ng-repeat="s in teamCards track by $index">
-        <sport-card></sport-card>
+      <div class="">
+        <div class="schoolprofile-teamsportlist" ng-repeat="s in teamCards track by $index">
+          <sport-card></sport-card>
 
+        </div>
       </div>
+
     </div>
     <!--end cardlist-->
 

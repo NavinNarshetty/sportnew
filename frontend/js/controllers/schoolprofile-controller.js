@@ -24,7 +24,7 @@ myApp.controller('SchoolProfileCtrl', function ($scope, $state, $stateParams, Te
             directionNav: true,
             prevText: "",
             nextText: "",
-            itemWidth: 350,
+            itemWidth: 370,
             itemMargin: 10
         });
     }, 100);
@@ -49,7 +49,52 @@ myApp.controller('SchoolProfileCtrl', function ($scope, $state, $stateParams, Te
     }, 100);
     // enflex
 
-
+    $scope.performMedal = [{
+        medal: "08",
+        name: "gold"
+    }, {
+        medal: "09",
+        name: "silver"
+    }, {
+        medal: "10",
+        name: "bronze"
+    }];
+    $scope.topTable = [{
+        schoolName: "Lady Ratanbai & Sir MathuradasVissanji Academy",
+        criteria: "School Rank (Out of 652)",
+        tperf: "1",
+        yperf: "131"
+    }, {
+        schoolName: "Lady Ratanbai & Sir MathuradasVissanji Academy",
+        criteria: "School Rank (Out of 652)",
+        tperf: "1",
+        yperf: "131"
+    }, {
+        schoolName: "Lady Ratanbai & Sir MathuradasVissanji Academy",
+        criteria: "School Rank (Out of 652)",
+        tperf: "1",
+        yperf: "131"
+    }, {
+        schoolName: "Lady Ratanbai & Sir MathuradasVissanji Academy",
+        criteria: "School Rank (Out of 652)",
+        tperf: "1",
+        yperf: "131"
+    }, {
+        schoolName: "Lady Ratanbai & Sir MathuradasVissanji Academy",
+        criteria: "School Rank (Out of 652)",
+        tperf: "1",
+        yperf: "131"
+    }, {
+        schoolName: "Lady Ratanbai & Sir MathuradasVissanji Academy",
+        criteria: "School Rank (Out of 652)",
+        tperf: "1",
+        yperf: "131"
+    }, {
+        schoolName: "Lady Ratanbai & Sir MathuradasVissanji Academy",
+        criteria: "School Rank (Out of 652)",
+        tperf: "1",
+        yperf: "131"
+    }]
 
 
     $scope.oneAtATime = true;
@@ -205,6 +250,8 @@ myApp.controller('SchoolProfileCtrl', function ($scope, $state, $stateParams, Te
         '/img/day-04.png',
         '/img/oldSfa/bg-draw.jpg'
     ];
+
+    $scope.videos = [1, 2, 3, 4, 5];
 
     $scope.customCards = [{
         img: '/img/bl-inner.jpg'

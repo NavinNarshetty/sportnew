@@ -3,6 +3,11 @@ myApp.controller('AthleteProfileCtrl', function ($scope, $state, $stateParams, T
     TemplateService.title = "Athlete Profile"; //This is the Title of the Website
     $scope.navigation = NavigationService.getNavigation();
 
+    // ARRAY OF SPORT NAMES
+    $scope.sporticon = ['Handball','Basketball','Volleyball','Throwball',
+    'Hockey','Kabaddi','Football','Badminton','Badminton Doubles', 'Tennis','Tennis Doubles','Tennis Mixed Doubles','Table Tennis','Table Tennis Doubles','Squash','Judo','Taekwondo','Boxing','Fencing','Karate','Karate Team Kumite','Sport MMA','Shooting','Shooting Air Rifle Peep Team','Shooting Air Rifle Open Team','Shooting Air Rifle Peep Team', 'Archery', 'Swimming', 'Swimming 4x50m Freestyle Relay', 'Swimming 4x50m Medley Relay', 'Water Polo', 'Carrom','Chess','Athletics','Athletics 4x100m Relay','Athletics 4x50m Relay','Athletics Medley Relay','Kho Kho'];
+    // ARRAY OF SPORT NAMES END
+
     var allAgentProfile = [ "frontend/views/content/athleteprofile/highlights.html", "frontend/views/content/athleteprofile/statistics.html", "frontend/views/content/athleteprofile/achievements.html", "frontend/views/content/athleteprofile/videos.html"];
     $scope.athleteprofile = {
       innerView: allAgentProfile[0],
@@ -73,7 +78,24 @@ myApp.controller('AthleteProfileCtrl', function ($scope, $state, $stateParams, T
 
     $scope.gallery = ['/img/day-03.png','/img/day-04.png','/img/oldSfa/bg-draw.jpg','/img/oldSfa/banner2.jpg','/img/oldSfa/f4.jpg'];
 
-
+    // $scope.$on('$viewContentLoaded', function () {
+    //     setTimeout(function () {
+    //       $('.highlight-knowflexslider .flexslider').flexslider({
+    //         animation: "slide",
+    //         animationLoop: true,
+    //         reverse: false,
+    //         slideshow: true,
+    //         slideshowSpeed: 5000,
+    //         controlNav: false,
+    //         directionNav: true,
+    //         prevText: "",
+    //         nextText: "",
+    //         itemWidth: 370,
+    //         itemMargin: 10,
+    //         pauseOnHover: true
+    //       });
+    //     }, 300);
+    // });
 
     setTimeout(function () {
       $('.highlight-knowflexslider .flexslider').flexslider({
@@ -131,5 +153,4 @@ myApp.controller('AthleteProfileCtrl', function ($scope, $state, $stateParams, T
             points: "30"
         }
     ];
-
 })

@@ -277,6 +277,41 @@ header {
     outline: none;
   }
 }
+
+.progressbar-holder {
+  padding: 10px 0;
+
+  .progress{
+    height: 5px;
+    overflow: visible;
+  }
+
+  .progress-bar{
+    position: relative;
+    background-color: $brand-success;
+  }
+
+  .progress-hovertip {
+    padding: 2px 5px;
+    border-radius: 5px;
+    position: absolute;
+    right: -30px;
+    bottom: -30px;
+    background-color: $brand-success;
+    color: #fff;
+    font-size: 12px;
+    &:after{
+      content: '';
+      border-left: 5px solid transparent;
+      border-bottom: 5px solid $brand-success;
+      border-right: 5px solid transparent;
+      position: absolute;
+      top: -5px;
+      left: 50%;
+      @include transform(translateX(-50%));
+    }
+  }
+}
 // COMMON CLASSES END
 // athlete PAGE START
 
@@ -332,6 +367,40 @@ header {
     display: inline-block;
     width: 70%;
     vertical-align: top;
+    // border: 1px solid red;
+}
+.athletestar-img {
+  width: 24px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.athleteflag-img{
+  width: 30px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.athletestar-title {
+  padding: 0 10px;
+  display: inline-block;
+  position: relative;
+  background: $brand-primary;
+  color: #fff;
+  vertical-align: middle;
+  @extend .text-uppercase;
+  &:after{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -10px;
+    border-top: 20px solid $brand-primary;
+    border-right: 10px solid transparent;
+  }
+}
+.athletelevel-title{
+  background-color: $brand-warning;
+  &:after{
+    border-top: 20px solid $brand-warning;
+  }
 }
 
 .athletedetail-name {
@@ -353,7 +422,7 @@ header {
 }
 
 .athletedetails-ratio {
-    margin-right: 5px;
+  margin-right: 5px;
 }
 
 .athleteprofile-nav {
@@ -474,6 +543,11 @@ header {
 .athleteachievement-special, .athleteachievement-excellence, .athleteachievement-participation{
   margin: 50px 0;
 }
+.achievement-awardyear{
+  margin: 0;
+  font-size: 45px;
+  color: #c0c0c0;
+}
 .athleteachievement-certificate {
   width: 60%;
   margin-top: 40px;
@@ -548,3 +622,14 @@ header {
 }
 // ACHIEVEMENTS PAGE END
 // athlete PAGE END
+
+.img-lol{
+  display: inline-block;
+  width: 250px;
+  padding: 5px;
+  border: 1px solid $brand-danger;
+  margin: 10px;
+  .imghold{
+    width: 200px;
+  }
+}

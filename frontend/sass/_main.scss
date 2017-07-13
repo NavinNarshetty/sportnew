@@ -364,6 +364,13 @@ header {
   }
 }
 
+.profile-imgholder{
+  background-color: $light-grey;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .backdrop{
   display: none;
   position: absolute;
@@ -445,7 +452,6 @@ header {
 
 .athleteprofile-card {
     padding: 20px;
-    // border: 1px solid red;
 }
 
 .athleteprofile-picture {
@@ -462,6 +468,7 @@ header {
     border-radius: 100%;
     margin: 0 auto;
     overflow: hidden;
+    @extend .profile-imgholder;
 }
 
 .athletepic-check {

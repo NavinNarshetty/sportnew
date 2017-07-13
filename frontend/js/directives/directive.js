@@ -188,6 +188,14 @@ myApp.directive('img', function ($compile, $parse) {
             link: function () {}
         }
     })
-// end video-card
+    // end video-card
+    .directive('teamSlider', function(profileAthleteCard){
+      return{
+        restrict: 'E',
+        scope: {},
+        templateUrl: 'views/directive/team-slider.html',
+        link: function(){}
+      }
+    })
 
 ;

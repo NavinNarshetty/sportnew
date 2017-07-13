@@ -1,4 +1,4 @@
-<div class="athleteprofile-page">
+<div class="athleteprofile-page relate">
   <!-- athlete CARD -->
   <div class="athleteprofile-mainsection">
     <div class="container">
@@ -17,7 +17,7 @@
                   <li >
                     <div class="athleteheader-typestar">
                       <div class="athleteflag-img">
-                        <img src="img/oldSfa/banner1.jpg" alt="" class="img-responsive">
+                        <img src="img/icon/flag.png" alt="" class="img-responsive">
                       </div>
                       <div class="athletestar-title athletelevel-title"><span>International</span> <span hidden>National</span> <span hidden>State</span> ATHLETE</div>
                     </div>
@@ -25,7 +25,7 @@
                   <li>
                     <div class="athleteheader-typestar">
                       <div class="athletestar-img">
-                        <img src="img/athletestar.png" alt="" class="img-responsive">
+                        <img src="img/icon/sfa-star.png" alt="" class="img-responsive">
                       </div>
                       <div class="athletestar-title">SFA STAR ATHLETE</div>
                     </div>
@@ -34,11 +34,11 @@
 
               </div>
               <div class="athletedetail-title">
-                <h3 class="m-clear athletedetail-name">Sudharshan A. Anandkamaram</h3>
+                <h3 class="m-clear athletedetail-name opensans-semibold">Sudharshan A. Anandkamaram</h3>
                 <p class="athletedetail-scholname">Dr. Sarvepalli Radhakrishnan Hindi Secondary School (Andheri)</p>
               </div>
               <div class="athlete-details">
-                <p>SFA ID: <span> 23450 </span> | <span> Male </span> | <span> 14 </span> <span>Years</span></p>
+                <p class="m-clear">SFA ID: <span> 23450 </span> | <span> Male </span> | <span> 14 </span> <span>Years</span></p>
                 <p>SFA Championship: <span> 2017 </span></p>
                 <p class="athletedetail-sportlist">SPORTS: <span> TENNIS <span> | </span></span> <span>JUDO</span></p>
               </div>
@@ -57,21 +57,21 @@
                   <ul class="list-inline">
                     <li>
                       <div class="athlete-detailmedal inline-block">
-                        <img src="img/sf-gold-sec.png" alt="Gold Medals" class="img-responsive">
+                        <img src="{{'gold'|medalicon:'blue'}}" alt="Gold Medals" class="img-responsive">
                       </div>
-                      <div class="inline-block text-center"> <span class="color-primary"> 999 </span><br> <span> Gold </span></div>
+                      <div class="inline-block text-center"> <span class="color-primary athlete-medalcount"> 999 </span><br> <span> Gold </span></div>
                     </li>
                     <li>
                       <div class="athlete-detailmedal inline-block">
-                        <img src="img/sf-silver-sec.png" alt="Silver Medals" class="img-responsive">
+                        <img src="{{'silver'|medalicon:'blue'}}" alt="Silver Medals" class="img-responsive">
                       </div>
-                      <div class="inline-block text-center"> <span class="color-primary"> 999 </span><br> <span> Silver </span></div>
+                      <div class="inline-block text-center"> <span class="color-primary athlete-medalcount"> 999 </span><br> <span> Silver </span></div>
                     </li>
                     <li>
                       <div class="athlete-detailmedal inline-block">
-                        <img src="img/sf-bronze-sec.png" alt="Bronze Medals" class="img-responsive">
+                        <img src="{{'bronze'|medalicon:'blue'}}" alt="Bronze Medals" class="img-responsive">
                       </div>
-                      <div class="inline-block text-center"> <span class="color-primary"> 999 </span><br> <span> Bronze </span></div>
+                      <div class="inline-block text-center"> <span class="color-primary athlete-medalcount"> 999 </span><br> <span> Bronze </span></div>
                     </li>
 
                   </ul>
@@ -106,4 +106,27 @@
   <!-- athlete PROFILE CONTENT -->
   <div class="athleteprofile-content" ng-include="athleteprofile.innerView"></div>
   <!-- athlete PROFILE CONTENT ENd -->
+
+  <!-- TEAM SLIDER -->
+  <div class="viewteam-slider {{showTeamClass}}">
+    <div class="close-teamview pointer" ng-click="viewTeamSlider();">
+      <span><i class="fa fa-times"></i></span>
+    </div>
+    <div class="teamsection-athlete">
+      <ul class="p-clear list-unstyled">
+        <li ng-repeat="a in mySlides track by $index">
+          <profile-athlete-card></profile-athlete-card>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- <team-slider></team-slider> -->
+  <!-- TEAM SLIDER END -->
+
+  <!-- BACKDROP DIV -->
+  <div class="backdrop {{backdrop.class}}" ng-click="viewTeamSlider();"></div>
+  <!-- BACKDROP DIV END -->
+
+
 </div>

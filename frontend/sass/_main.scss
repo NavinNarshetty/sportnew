@@ -1,4 +1,6 @@
 /* Bootstrap Variables Goes Here */
+
+// COLOR VARIABLES
 $brand-primary: #0a1a72 !default; //blue
 $brand-success: #27B465 !default; //green
 $brand-warning: #fc7700 !default; //yellow
@@ -10,13 +12,61 @@ $grey: #e1e1e1 !default;
 $dark-grey: #9f9f9f !default;
 $light-grey: #ebebeb !default;
 $other-blue: #2a45d4 !default;
-$light-green:#bcd200 !default $font-family-sans-serif: "Titillium Web", "Sansation", "Built Titling", "avenir", Arial, sans-serif !default;
+$light-green:#bcd200 !default;
+// COLOR VARIABLES END
 @import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
 /* Bootstrap Variables Goes Here */
 @import "other/font-fix";
 
+// FONT VARIABLES
+@font-face {
+  font-family: "Fjalla One";
+  src: url('../fonts/FJALLAONE-REGULAR_1.OTF');
+}
+
+@font-face {
+  font-family: "Opensans Semibold";
+  src: url('../fonts/OPENSANS-SEMIBOLD_3.TTF');
+}
+
+@font-face {
+  font-family: "Opensans Regular";
+  src: url('../fonts/OPENSANS-REGULAR_3.TTF');
+}
+
+@font-face {
+  font-family: "Teko";
+  src: url('../fonts/Teko-Regular_0.ttf');
+}
+
+.fjalla-one{
+  font-family: "Fjalla One";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.opensans-semibold{
+  font-family: "Opensans Semibold";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.opensans-regular{
+  font-family: "Opensans Regular";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.teko{
+  font-family: "Teko";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+// FONT VARIABLES END
+
 body {
     padding-top: 70px;
+    @extend .opensans-regular;
 }
 
 img.loading {
@@ -154,7 +204,7 @@ header {
 }
 
 .display-block {
-    display: block;
+    display: block !important;
 }
 
 .inline-block {
@@ -245,9 +295,10 @@ header {
   padding: 10px;
   background-color: $brand-success;
   color: #fff;
-  font-size: 15px;
+  font-size: 21px;
   text-align: center;
   text-transform: uppercase;
+  @extend .fjalla-one;
   p{
     margin: 0;
   }
@@ -296,8 +347,6 @@ header {
     border-radius: 5px;
     position: absolute;
     right: 0;
-
-    // right: -30px;
     bottom: -30px;
     background-color: $brand-success;
     color: #fff;
@@ -314,8 +363,73 @@ header {
     }
   }
 }
+
+.backdrop{
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0,0,0,0.7);
+  z-index: 1;
+}
 // COMMON CLASSES END
 // athlete PAGE START
+
+// VIEW TEAM SLIDER
+.viewteam-slider{
+  width: 450px;
+  height: 100%;
+  padding: 30px 10px 0 25px;
+  position: fixed;
+  top: 50px;
+  right: -450px;
+  background-color: #fff;
+  box-shadow: 0 0 5px #a0a0a0;
+  @include transition(all 300ms linear);
+
+    ::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background-color: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: $grey;
+    }
+}
+
+.viewteam-slidershow{
+  right: 0;
+  z-index: 5;
+  @include transition(all 300ms linear);
+}
+.teamsection-athlete{
+  max-height: calc(100vh - 120px);
+  position: relative;
+  padding-right: 10px;
+  overflow-y: auto;
+  li{
+    margin: 10px 0;
+  }
+}
+.close-teamview{
+  position: absolute;
+  top: 0;
+  left: -30px;
+  width: 30px;
+  height: 30px;
+  color: white;
+  font-size: 21px;
+  text-align: center;
+  span{
+    line-height: 30px;
+  }
+}
+// VIEW TEAM SLIDER END
 
 .athleteprofile-page {
     min-height: 100vh;
@@ -369,7 +483,6 @@ header {
     display: inline-block;
     width: 70%;
     vertical-align: top;
-    // border: 1px solid red;
 }
 .athletestar-img {
   width: 24px;
@@ -389,6 +502,7 @@ header {
   color: #fff;
   vertical-align: middle;
   @extend .text-uppercase;
+  @extend .fjalla-one;
   &:after{
     content: '';
     position: absolute;
@@ -419,15 +533,25 @@ header {
     margin: 10px 0;
 }
 
+.athlete-detailmedal{
+  width: 20px;
+}
+
 .athletedetails-medals {
     margin-left: 5px;
 }
 
 .athletedetails-ratio {
-  margin-right: 5px;
+  // margin-right: 5px;
   .progress-hovertip{
     right: -30px;
   }
+}
+
+.athlete-medalcount{
+  font-size: 15px;
+  line-height: 1;
+  @extend .opensans-regular;
 }
 
 .athleteprofile-nav {
@@ -441,6 +565,7 @@ header {
 
         &.active {
             border-bottom: 3px solid $brand-success;
+            font-weight: 700;
         }
     }
 }
@@ -484,14 +609,16 @@ header {
     display: inline-block;
     padding: 10px;
     background-color: $brand-success;
+    font-size: 21px;
+    @extend .fjalla-one;
 
     &:after {
         content: '';
         position: absolute;
         top: 0;
-        left: -10px;
-        border-left: 10px solid transparent;
-        border-bottom: 40px solid $brand-success;
+        left: -15px;
+        border-left: 15px solid transparent;
+        border-bottom: 50px solid $brand-success;
     }
 }
 .athletehighlights-videoholder{

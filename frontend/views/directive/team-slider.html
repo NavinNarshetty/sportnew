@@ -1,0 +1,13 @@
+<div class="viewteam-slider viewteam-slidershow">
+  <!-- {{showTeamClass}} -->
+  <div class="close-teamview pointer" ng-click="viewTeamSlider();">
+    <span><i class="fa fa-times"></i></span>
+  </div>
+  <div class="teamsection-athlete">
+    <ul class="p-clear list-unstyled">
+      <li ng-repeat="a in mySlides track by $index">
+        <profile-athlete-card></profile-athlete-card>
+      </li>
+    </ul>
+  </div>
+</div>

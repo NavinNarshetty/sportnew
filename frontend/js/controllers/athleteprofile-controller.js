@@ -3,6 +3,15 @@ myApp.controller('AthleteProfileCtrl', function ($scope, $state, $stateParams, T
     TemplateService.title = "Athlete Profile"; //This is the Title of the Website
     $scope.navigation = NavigationService.getNavigation();
 
+
+    // VARIABLE INITIALISATIONS
+    $scope.oneAtATime = true;
+    $scope.backdrop = {
+      class: "",
+      click: ""
+    }
+    // VARIABLE INITIALISATIONS END
+
     // ARRAY OF SPORT NAMES
     $scope.sporticon = ['Handball','Basketball','Volleyball','Throwball',
     'Hockey','Kabaddi','Football','Badminton','Badminton Doubles', 'Tennis','Tennis Doubles','Tennis Mixed Doubles','Table Tennis','Table Tennis Doubles','Squash','Judo','Taekwondo','Boxing','Fencing','Karate','Karate Team Kumite','Sport MMA','Shooting','Shooting Air Rifle Peep Team','Shooting Air Rifle Open Team','Shooting Air Rifle Peep Team', 'Archery', 'Swimming', 'Swimming 4x50m Freestyle Relay', 'Swimming 4x50m Medley Relay', 'Water Polo', 'Carrom','Chess','Athletics','Athletics 4x100m Relay','Athletics 4x50m Relay','Athletics Medley Relay','Kho Kho'];
@@ -75,6 +84,7 @@ myApp.controller('AthleteProfileCtrl', function ($scope, $state, $stateParams, T
     // ON CLICK END
 
     $scope.mySlides = [1,2,3,4,5,6];
+    $scope.ySlides = [1,2,3];
 
     $scope.gallery = ['/img/day-03.png','/img/day-04.png','/img/oldSfa/bg-draw.jpg','/img/oldSfa/banner2.jpg','/img/oldSfa/f4.jpg'];
 
@@ -119,13 +129,15 @@ myApp.controller('AthleteProfileCtrl', function ($scope, $state, $stateParams, T
             gold: "20",
             silver: "18",
             bronze: "19",
-            points: "30"
+            points: "30",
+            ySlides : [1,2,3]
         }, {
             name: "Jamnabai Narsee International School",
             gold: "20",
             silver: "18",
             bronze: "19",
-            points: "30"
+            points: "30",
+            ySlides : [1,2,3]
         }, {
             name: "Jamnabai Narsee International School",
             gold: "20",
@@ -138,19 +150,44 @@ myApp.controller('AthleteProfileCtrl', function ($scope, $state, $stateParams, T
             gold: "20",
             silver: "18",
             bronze: "19",
-            points: "30"
+            points: "30",
+            ySlides : [1,2,3]
         }, {
             name: "Jamnabai Narsee International School",
             gold: "20",
             silver: "18",
             bronze: "19",
-            points: "30"
+            points: "30",
+            ySlides : [1,2,3]
         }, {
             name: "Jamnabai Narsee International School",
             gold: "20",
             silver: "18",
             bronze: "19",
-            points: "30"
+            points: "30",
+            ySlides : [1,2,3]
         }
     ];
+    $scope.showTeam = false;
+    $scope.showTeamClass = "";
+      console.log($scope.showTeam,$scope.showTeamClass,"when init");
+    $scope.viewTeamSlider = function(){
+      if($scope.showTeam == true){
+        $scope.showTeam = false;
+        $scope.showTeamClass = "";
+        $scope.backdrop = {
+          class: "",
+          click: ""
+        }
+        console.log($scope.showTeam,$scope.showTeamClass,"when true");
+      }else{
+        $scope.showTeam = true;
+        $scope.showTeamClass = "viewteam-slidershow";
+        $scope.backdrop = {
+          class: "display-block",
+          click: "viewTeamSlider()"
+        }
+        console.log($scope.showTeam,$scope.showTeamClass, "when false");
+      }
+    }
 })

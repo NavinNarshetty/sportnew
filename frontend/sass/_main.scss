@@ -295,7 +295,9 @@ header {
     padding: 2px 5px;
     border-radius: 5px;
     position: absolute;
-    right: -30px;
+    right: 0;
+
+    // right: -30px;
     bottom: -30px;
     background-color: $brand-success;
     color: #fff;
@@ -423,6 +425,9 @@ header {
 
 .athletedetails-ratio {
   margin-right: 5px;
+  .progress-hovertip{
+    right: -30px;
+  }
 }
 
 .athleteprofile-nav {

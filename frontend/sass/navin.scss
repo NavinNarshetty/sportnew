@@ -1,3 +1,20 @@
+// color-variable
+$light-blue:#00aaff !default;
+$light-orange:#ffad25 !default;
+// common-class
+.mr5 {
+    margin-right: 5px;
+}
+
+.lh1 {
+    line-height: 1;
+}
+
+.mt40 {
+    margin-top: 40px;
+}
+
+// end common class
 //Ad-Space
 .highlight-adspace {
     background-color: #ddd;
@@ -13,15 +30,18 @@
 // end Ad-space
 // school-common-class
 .yourrank {
-    font-size: 40px;
+    font-size: 50px;
+    letter-spacing: 2px;
     color: $brand-primary;
     font-weight: bold;
+    @extend .teko;
 }
 
 .slashtotal {
-    font-size: 30px;
+    font-size: 35px;
     color: $brand-primary;
     font-weight: bold;
+    @extend .teko;
 }
 
 .profile-bluemedals {
@@ -48,11 +68,20 @@
     color: $brand-warning;
 }
 
+.profiletrophy-image {
+    width: 65px;
+}
+
+.profile-bigmedals {
+    width: 40px;
+}
+
 // school-common-class-end
 //schoolprofile-page
 .schoolprofile-highlight,
 .schoolprofile-team,
-.schoolprofile-trackrecord {
+.schoolprofile-trackrecord,
+.schoolprofile-statistics {
     padding: 20px 0px 50px;
 }
 
@@ -75,7 +104,7 @@
     }
     h3 {
         color: $brand-primary;
-        font-family: Futura Std Bold Condensed;
+        @extend .fjalla-one;
     }
     .schoolprofilecard {
         // border: 1px solid red;
@@ -97,7 +126,6 @@
         .schoolsports-played {
             border: 1px solid gray;
             padding: 5px;
-            font-weight: bold;
         }
         .school-total {
             margin-right: 5px;
@@ -124,18 +152,12 @@
             @extend .pointer;
             &.active {
                 border-bottom: 3px solid $brand-success;
+                font-weight: 700;
             }
         }
     }
 } //end school-nav
 //school-highlight
-.schoolhighlight-title {
-    font-family: Futura Std Bold Condensed;
-    font-size: 18px;
-    color: $white;
-    font-weight: 600; // letter-spacing: 1px;
-}
-
 .schoolprofile-highlight {
     .schoolchampions {
         text-align: center;
@@ -269,7 +291,10 @@
 
 .profileathlete-athletesports {
     font-size: 12px;
-} // profileathlete-card END
+    margin-bottom: 5px;
+}
+
+// profileathlete-card END
 // team-card
 .team-card {
     // padding: 10px 15px;
@@ -678,13 +703,11 @@
         font-size: 16px;
     }
     .statistics-schoolrank {
-        font-size: 40px;
-        font-weight: 600;
+        @extend .yourrank;
     }
     .statistics-schoolslash,
     .statistics-schooltotal {
-        font-size: 25px;
-        font-weight: 600;
+        @extend .slashtotal;
     }
 }
 
@@ -712,6 +735,24 @@
     width: 20px;
 }
 
+.sportreport-genderratio {
+    .sportreport-gendermaleno {
+        font-size: 40px;
+        color: $light-blue;
+        @extend .teko;
+        padding: 0px;
+    }
+    .sportreport-genderfemaleno {
+        font-size: 40px;
+        color: $light-orange;
+        @extend .teko;
+        padding: 0px;
+    }
+    .genderratio-values {
+        font-size: 16px;
+    }
+}
+
 .high25 {
     border: 1px solid #ddd;
     display: inline-block;
@@ -725,24 +766,29 @@
 
 //sport-wise-card
 .sportwise-statisticscard {
+    box-shadow: 2px 3px 8px #e1e1e1;
     margin-top: 30px;
     .statistics-cardhead {
-        padding: 10px;
+        padding: 10px 10px 0px;
         background-color: #464646;
         color: #fff;
         margin-left: 20px;
     }
     .statistics-cardcontent {
-        padding: 10px 18px;
+        padding: 10px 15px;
         border: 1px solid #ddd;
         border-top: none;
     }
     .sportwise-statisticstype {
+        line-height: 1;
         text-transform: uppercase;
         p {
-            font-size: 35px;
+            font-size: 50px;
+            line-height: 1;
+            letter-spacing: 3px;
             color: #757575;
             font-weight: bold;
+            @extend .teko;
         }
     }
 }
@@ -755,23 +801,29 @@
 }
 
 .statisticscard-sporttitle {
-    p {
-        font-size: 22px;
-        padding: 0px 35px;
-    }
+    font-size: 22px;
+    padding: 0px 35px;
+    @extend .fjalla-one;
 }
 
 .statistics-winpercentagewidth {
-    width: 39%;
+    width: 30%;
 }
 
 .statisticscard-sportrank {
     .stats-yourrank {
-        font-size: 22px;
+        font-size: 35px;
+        @extend .teko;
     }
     .stats-outofrank {
-        font-size: 18px;
+        font-size: 25px;
+        @extend .teko;
     }
+}
+
+.statistics-notparticipatehead {
+    padding: 20px;
+    box-shadow: 2px 3px 8px #e1e1e1;
 }
 
 .sportstatistics-matchdetailtable {
@@ -808,7 +860,9 @@
     }
     .male-statisticsimg {
         // float: right;
-        padding-right: 5px;
+        // width: 15px;
+        padding-right: 0px;
+        padding-left: 0px; // font-weight: 700;
     }
     .male-statisticsnumber {
         // float: right;
@@ -827,7 +881,8 @@
         padding-left: 5px;
     }
     .female-statisticsnumber {
-        padding-left: 5px;
+        padding-left: 0px;
+        padding-right: 0px;
         color: $brand-primary;
         font-size: 14px;
         font-weight: bold;
@@ -859,6 +914,11 @@
 }
 
 //   end sport-wise-card
+.statistics-performancesummary,
+.statistics-didnotparticipate {
+    margin: 40px 0px;
+}
+
 .statistics-performancemedal {
     .list-inline>li {
         padding-left: 40px;
@@ -869,16 +929,21 @@
     font-size: 75px;
     color: $brand-primary;
     font-weight: 600;
+    letter-spacing: 2px;
+    @extend .teko;
 }
 
 .statistics-medalcontent {
+    line-height: 1;
     p:nth-child(1) {
         color: $brand-warning;
     }
     p:last-child {
         color: $brand-primary;
         font-weight: 600;
-        font-size: 18px;
+        font-size: 30px;
+        letter-spacing: 2px;
+        @extend .teko;
     }
 }
 

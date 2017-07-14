@@ -1,7 +1,7 @@
 /* Bootstrap Variables Goes Here */
 
 // COLOR VARIABLES
-$brand-primary: #0a1a72 !default; //blue
+$brand-primary: #10259c !default; //blue
 $brand-success: #27B465 !default; //green
 $brand-warning: #fc7700 !default; //yellow
 $brand-danger: #fc483f !default; //red
@@ -343,7 +343,7 @@ header {
   }
 
   .progress-hovertip {
-    padding: 2px 5px;
+    padding: 5px;
     border-radius: 5px;
     position: absolute;
     right: 0;
@@ -351,6 +351,8 @@ header {
     background-color: $brand-success;
     color: #fff;
     font-size: 12px;
+    line-height: 1;
+    @extend .text-uppercase;
     &:after{
       content: '';
       border-left: 5px solid transparent;
@@ -380,6 +382,11 @@ header {
   right: 0;
   background-color: rgba(0,0,0,0.7);
   z-index: 1;
+}
+
+.blue-header-title{
+  color: $brand-primary;
+  @extend .fjalla-one;
 }
 // COMMON CLASSES END
 // athlete PAGE START
@@ -551,7 +558,7 @@ header {
 .athletedetails-ratio {
   // margin-right: 5px;
   .progress-hovertip{
-    right: -30px;
+    right: -35px;
   }
 }
 
@@ -583,7 +590,11 @@ header {
 .sportslidetable-element {
     width: 24%;
     display: inline-block;
+    font-size: 18px;
     text-align: center;
+    p{
+      margin-bottom: 5px;
+    }
 }
 
 .sportslide-header {
@@ -598,7 +609,7 @@ header {
     padding: 15px 20px;
 
     ul {
-        font-size: 12px;
+        font-size: 14px;
     }
 }
 
@@ -607,7 +618,7 @@ header {
 }
 
 .sportslide-sportname {
-    font-size: 21px;
+    font-size: 24px;
     line-height: 1;
 }
 
@@ -718,8 +729,9 @@ header {
 .achievementexcellence-certificatedetail{
   display: inline-block;
   width: 70%;
-  vertical-align: top;
   padding: 20px;
+  padding-right: 0;
+  vertical-align: top;
 }
 .achievementexcellence-table{
   display: inline-block;
@@ -739,6 +751,8 @@ header {
 .achievementexcellence-medal{
   display: inline-block;
   width: 19%;
+  padding-top: 20px;
+  margin-left: 5px;
 }
 .achievementexcellence-medalholder{
   width: 30px;
@@ -760,6 +774,12 @@ header {
   border: 1px solid $brand-primary;
 }
 // ACHIEVEMENTS PAGE END
+
+// STATISTICS PAGE
+.athletestatistics-yearsummary, .athletestatistics-detailsummary{
+  margin: 40px 0;
+}
+// STATISTICS PAGE END
 // athlete PAGE END
 
 .img-lol{

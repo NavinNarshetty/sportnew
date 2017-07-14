@@ -190,4 +190,60 @@ myApp.controller('AthleteProfileCtrl', function ($scope, $state, $stateParams, T
         console.log($scope.showTeam,$scope.showTeamClass, "when false");
       }
     }
+
+    $scope.customCards = [{
+        img: '/img/bl-inner.jpg'
+    }, {
+        img: '/img/bl-inner.jpg'
+    }, {
+        img: '/img/bl-inner.jpg'
+    }, {
+        img: '/img/bl-inner.jpg'
+    }, {
+        img: '/img/bl-inner.jpg'
+    }];
+
+    $scope.summaryTable = [{
+        year: '2017',
+        match: '10',
+        win: '10',
+        loss: '10',
+        draw: '10',
+        wper: '10'
+
+    }, {
+        year: '2016',
+        match: '10',
+        win: '10',
+        loss: '10',
+        draw: '10',
+        wper: '10'
+
+    }, {
+        year: '2015',
+        match: '10',
+        win: '10',
+        loss: '10',
+        draw: '10',
+        wper: '10'
+
+    }];
+
+    // team-flex
+    setTimeout(function () {
+        $('.athletestatistics-summaryslider .flexslider').flexslider({
+            animation: "slide",
+            animationLoop: true,
+            reverse: false,
+            slideshow: true,
+            slideshowSpeed: 4000,
+            controlNav: false,
+            directionNav: true,
+            prevText: "",
+            nextText: "",
+            itemWidth: 380,
+            itemMargin: 10
+        });
+    }, 100);
+    // enflex
 })

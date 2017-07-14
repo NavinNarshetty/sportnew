@@ -1,57 +1,96 @@
 <div class="atheleteprofile-statistics">
-    <h1>statistics</h1>
-
     <div class="container">
-        <div class="">
-            <div class="athlete-detailmedal inline-block">
-                <img ng-src="{{'male'|gendericon:'athlete'}}" class="img-responsive">
-            </div>
-            <div class="athlete-detailmedal inline-block">
-                <img ng-src="{{'male'|gendericon:'team'}}" class="img-responsive">
-            </div>
-            <div class="athlete-detailmedal inline-block">
-                <img ng-src="{{'male'|gendericon:'progress'}}" class="img-responsive">
-            </div>
-            <div class="athlete-detailmedal inline-block">
-                <img ng-src="{{'male'|gendericon:'blue'}}" class="img-responsive">
-            </div>
-            <div class="athlete-detailmedal inline-block">
-                <img ng-src="{{'male'|gendericon:'grey'}}" class="img-responsive">
-            </div>
-            <div class="athlete-detailmedal inline-block">
-                <img ng-src="{{'male'|gendericon:'white'}}" class="img-responsive">
-            </div>
-            <div class="athlete-detailmedal inline-block">
-                <img ng-src="{{'male'|gendericon:'small'}}" class="img-responsive">
-            </div>
-        </div>
+      <!-- YEAR ON YEAR SUMMARY -->
+      <div class="row">
+        <div class="athletestatistics-yearsummary">
+          <div class="athletestatistics-summaryheader">
+            <h3 class="fjalla-one text-uppercase">year on year summary</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias quis, modi ullam aut quam repellat fuga nesciunt impedit, illo, dicta optio soluta laboriosam quo fugit voluptatibus, tenetur ratione mollitia commodi.</p>
+          </div>
+          <div class="athletestatistics-summaryslider sfa-flexslider">
+            <flex-slider flex-slide="n in customCards track by $index" prev-text="" next-text="">
+              <li>
+                <div>
+                  <div class="school-yearsummary">
+                    <div class="school-yearsummaryhead">
+                      <div class="school-yearsummaryimg relate">
+                        <div class="school-yearsummarycontent">
+                          <p class="m-clear ">Football</p>
+                        </div>
+                        <div class="school-yearsummarysportimg">
+                          <img src="img/8_Football.png" alt="" class="img-responsive">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="school-yearsummarytable">
+                      <table class="table">
+                        <thead>
+                          <th></th>
+                          <th>M</th>
+                          <th>W</th>
+                          <th>L</th>
+                          <th>D</th>
+                          <th>W%</th>
 
-        <div class="">
-            <div class="athlete-detailmedal inline-block">
-                <img ng-src="{{'female'|gendericon:'athlete'}}" class="img-responsive">
-            </div>
-            <div class="athlete-detailmedal inline-block">
-                <img ng-src="{{'female'|gendericon:'team'}}" class="img-responsive">
-            </div>
-            <div class="athlete-detailmedal inline-block">
-                <img ng-src="{{'female'|gendericon:'progress'}}" class="img-responsive">
-            </div>
-            <div class="athlete-detailmedal inline-block">
-                <img ng-src="{{'female'|gendericon:'blue'}}" class="img-responsive">
-            </div>
-            <div class="athlete-detailmedal inline-block">
-                <img ng-src="{{'female'|gendericon:'grey'}}" class="img-responsive">
-            </div>
-            <div class="athlete-detailmedal inline-block">
-                <img ng-src="{{'female'|gendericon:'white'}}" class="img-responsive">
-            </div>
-            <div class="athlete-detailmedal inline-block">
-                <img ng-src="{{'female'|gendericon:'small'}}" class="img-responsive">
-            </div>
-
-            <div class="athlete-detailmedal inline-block">
-                <img ng-src="{{'Gold'|medalicon:'big'}}" class="img-responsive">
-            </div>
+                        </thead>
+                        <tbody>
+                          <tr ng-repeat="t in summaryTable track by $index">
+                            <td>
+                              <div class="">
+                                {{t.year}}
+                              </div>
+                            </td>
+                            <td>
+                              <div class="">
+                                {{t.match}}
+                              </div>
+                            </td>
+                            <td>
+                              <div class="">
+                                {{t.win}}
+                              </div>
+                            </td>
+                            <td>
+                              <div class="">
+                                {{t.loss}}
+                              </div>
+                            </td>
+                            <td>
+                              <div class="">
+                                {{t.draw}}
+                              </div>
+                            </td>
+                            <td>
+                              <div class="">
+                                {{t.wper}}
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </flex-slider>
+          </div>
         </div>
+      </div>
+      <!-- YEAR ON YEAR SUMMARY END -->
+      <!-- DETAILED STATISTICS -->
+      <div class="row">
+        <div class="athletestatistics-detailsummary">
+          <div class="athletestatistics-detailheader">
+            <h3 class="fjalla-one text-uppercase">detailed statistics</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora quibusdam quod architecto minima voluptatibus saepe fuga doloribus, asperiores illum itaque possimus ipsam ipsum omnis, nostrum eum, delectus illo, quaerat totam.</p>
+          </div>
+          <div class="athletestatistics-detailfilter">
+            <p>View by sports:</p>
+          </div>
+        </div>
+      </div>
+      <!-- DETAILED STATISTICS END -->
+
+
     </div>
 </div>

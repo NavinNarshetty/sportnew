@@ -246,4 +246,47 @@ myApp.controller('AthleteProfileCtrl', function ($scope, $state, $stateParams, T
         });
     }, 100);
     // enflex
+    $scope.selectedsportTable = [{
+        round: 'Leauge match',
+        schoolname: 'Jamnabai Narsee International School',
+        score: '30-22',
+        result: 'Won',
+        videotext: 'You can also watch match highlights'
+
+    }, {
+        round: 'Leauge match',
+        schoolname: 'Jamnabai Narsee International School',
+        score: '30-22',
+        result: 'Won',
+        videotext: 'You can also watch match highlights'
+
+    }, {
+        round: 'Leauge match',
+        schoolname: 'Jamnabai Narsee International School',
+        score: '30-22',
+        result: 'Won',
+        videotext: 'You can also watch match highlights'
+
+    }, {
+        round: 'Leauge match',
+        schoolname: 'Jamnabai Narsee International School',
+        score: '30-22',
+        result: 'Won',
+        videotext: 'You can also watch match highlights'
+
+    }, {
+        round: 'Leauge match',
+        schoolname: 'Jamnabai Narsee International School',
+        score: '30-22',
+        result: 'Won',
+        videotext: 'You can also watch match highlights'
+
+    }, {
+        round: 'Leauge match',
+        schoolname: 'Jamnabai Narsee International School',
+        score: '30-22',
+        result: 'Won',
+        videotext: 'You can also watch match highlights'
+
+    }];
 })

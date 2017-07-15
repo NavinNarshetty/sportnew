@@ -15,7 +15,7 @@
                     <div class="school-yearsummaryhead">
                       <div class="school-yearsummaryimg relate">
                         <div class="school-yearsummarycontent">
-                          <p class="m-clear ">Football</p>
+                          <p class="m-clear fjalla-one">Football</p>
                         </div>
                         <div class="school-yearsummarysportimg">
                           <img src="img/8_Football.png" alt="" class="img-responsive">
@@ -36,7 +36,7 @@
                         <tbody>
                           <tr ng-repeat="t in summaryTable track by $index">
                             <td>
-                              <div class="">
+                              <div class="teko-semibold">
                                 {{t.year}}
                               </div>
                             </td>
@@ -87,6 +87,169 @@
           <div class="athletestatistics-detailfilter">
             <p>View by sports:</p>
           </div>
+          <!-- Detailed sport summary card -->
+          <div class="athletestatistics-sportcard">
+            <!-- HEADER -->
+            <div class="statisticsport-header">
+                <div class="statisticsport-sporticon">
+                  <img src="{{'Basketball'|sporticon }}" alt="" class="img-responsive">
+                </div>
+                <h3 class="blue-header-title m-clear text-uppercase">Basketball</h3>
+                <h5 class="text-uppercase opensans-semibold m-clear"><span> BOYS </span>  <span> | </span> <span> U-14 </span></h5>
+            </div>
+            <!-- HEADER END -->
+            <!-- CONTENT -->
+            <div class="statisticsport-content">
+              <p class="text-uppercase"><span> Boys </span> <span> | </span> <span> u-8 </span> <span> | </span> <span> Mt 1113 </span></p>
+              <div class="clearfix">
+                <div class="statisticsport-schoolyear">
+                  <p class="schoolyear-year">2017</p>
+                  <p class="schoolyear-school">Dr. Sarvepalli Radhakrishnan Hindi Secondary School (Andheri)</p>
+                </div>
+                <ul class="list-inline statisticsport-contentlist">
+                  <li>
+                    <h2 class="m-clear medalcount-contentlist">999</h2>
+                    <p>Played</p>
+                  </li>
+                  <li>
+                    <h2 class="m-clear medalcount-contentlist">999</h2>
+                    <p>Won</p>
+                  </li>
+                  <li>
+                    <h2 class="m-clear medalcount-contentlist">999</h2>
+                    <p>lost</p>
+                  </li>
+                </ul>
+              </div>
+              <div class="statisticsport-tablecontent">
+                  <table class="table table-striped">
+                    <thead>
+                      <tr class="text-uppercase">
+                        <th>
+                          <div class="schoolprofileteam-head">
+                            Rank
+                          </div>
+                        </th>
+                        <th></th>
+                        <th>
+                          <div class="schoolprofileteam-head">
+                            Opponent
+                          </div>
+                        </th>
+                        <th>
+                          <div class="schoolprofileteam-head">
+                            score
+                          </div>
+                        </th>
+                        <th>
+                          <div class="schoolprofileteam-head">
+                            Result
+                          </div>
+                        </th>
+                        <th>
+                          <div class="schoolprofileteam-head">
+                            video
+                          </div>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="item in selectedsportTable track by $index">
+                        <td>
+                          <div class="">{{item.round}}</div>
+                        </td>
+                        <td>
+                          <div>vs</div>
+                        </td>
+                        <td>
+                          <div class="inline-block schoolprofile-teamsportimg v-mid ">
+                            <img src="img/oldSfa/icon/2.png" alt="" class="img-responsive">
+                          </div>
+                          <div class="inline-block opponent-schoolname v-mid">
+                            <p class="m-clear">{{item.schoolname}}</p>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="">{{item.score}}</div>
+                        </td>
+                        <td>
+                          <div class="text-center">
+                            <p class="m-clear">{{item.result}}</p>
+                            <div class="statisticsport-tablemedal hide">
+                              <img src="{{'gold'|medalicon:'blue'}}" alt="" class="img-responsive">
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="inline-block v-mid">
+                            <div class="videotableteam-imgholder relate">
+                              <img src="img/day-04.png" class="img-responsive">
+                              <div class="video-playbtn">
+                                <span><i class="fa fa-play"></i></span>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="inline-block v-mid schoolprofile-teamvideos">
+                            <p>{{item.videotext}} </p>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+              </div>
+              <div class="statisticsport-certificatebtn">
+                <button type="button" name="button" class="btn btn-blue-outline text-uppercase">view team</button>
+                <button type="button" name="button" class="btn btn-blue-outline text-uppercase">view certificate</button>
+              </div>
+            </div>
+            <!-- CONTENT END -->
+            <!-- FOOTER -->
+            <div class="statisticsport-footer">
+              <div class="statisticsport-medaldetails">
+                <ul class="list-inline">
+                  <li>
+                    <div class="">
+                      Football Boys U-16 Champions 2017:
+                    </div>
+                  </li>
+                  <li>
+                    <div class="">
+                      <div class="inline-block v-top">
+                        <img src="{{'gold' | medalicon:'white'}}" alt="" width="25px">
+                      </div>
+                      <div class="inline-block v-top medaldetails-schoolname">
+                        <p class="m-clear">Dr. Sarvepalli Radhakrishnan Hindi School (Andheri)</p>
+                      </div>
+                    </div>
+
+                  </li>
+                  <li>
+                    <div class="">
+                      <div class="inline-block v-top">
+                        <img src="{{'silver' | medalicon:'white'}}" alt="" width="25px">
+                      </div>
+                      <div class="inline-block v-top medaldetails-schoolname">
+                        <p class="m-clear">Dr. Sarvepalli Radhakrishnan Hindi School (Andheri)</p>
+                      </div>
+                    </div>
+
+                  </li>
+                  <li>
+                    <div class="">
+                      <div class="inline-block v-top">
+                        <img src="{{'bronze' | medalicon:'white'}}" alt="" width="25px">
+                      </div>
+                      <div class="inline-block v-top medaldetails-schoolname">
+                        <p class="m-clear">Dr. Sarvepalli Radhakrishnan Hindi School (Andheri)</p>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!-- FOOTER END -->
+          </div>
+          <!-- Detailed sport summary card END -->
         </div>
       </div>
       <!-- DETAILED STATISTICS END -->

@@ -1,102 +1,108 @@
 <div class="schoolprofile-statistics">
   <div class="container">
     <!--Report head-->
-    <div class="row">
-      <div class="inline-block">
-        <div class="schoolstatistics-reportyear">
-          <h1 class="m-clear">2017</h1>
-        </div>
-      </div>
-      <div class="inline-block v-bottom">
-        <div class="schoolstatistics-reporthead text-uppercase pull-left">
-          <h3 class="m-clear">sport report</h3>
+    <div class="statistics-card">
+      <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="inline-block">
+            <div class="schoolstatistics-reportyear">
+              <p class="m-clear">2017</p>
+            </div>
+          </div>
+          <div class="inline-block v-bottom">
+            <div class="schoolstatistics-reporthead text-uppercase pull-left">
+              <h3 class="m-clear color-primary fjalla-one">sport report</h3>
 
+            </div>
+          </div>
         </div>
       </div>
     </div>
     <!--end Report Head-->
 
     <!--Statistics-Card-->
-    <div class="statistics-card">
-      <div class="row">
-        <!--RankCard-->
-        <div class="col-md-3 col-sm-3 col-xs-12">
-          <div class="sportreport-schoolrankcard">
-            <div class="inline-block v-mid">
-              <div class="sportreport-imagetrophy">
-                <img src="img/trophy-small.png" class="img-responsive">
-              </div>
-            </div>
-            <div class="inline-block v-mid">
-              <div class="sportreport-rankcardcontent text-uppercase">
-                <p class="m-clear statistics-school">School Rank</p>
-                <p class="m-clear color-primary lh1"> <span class="statistics-schoolrank">19</span><span class="statistics-schooltotal">/652</span></p>
-              </div>
+
+    <div class="row">
+      <!--RankCard-->
+      <div class="col-md-3 col-sm-3 col-xs-12">
+        <div class="sportreport-schoolrankcard">
+          <div class="inline-block v-mid">
+            <div class="sportreport-imagetrophy">
+              <img src="img/trophy-small.png" class="img-responsive">
             </div>
           </div>
-          <!--End RankCard-->
-        </div>
-        <!--Gender Ratio-->
-        <div class="col-md-4 col-sm-4 col-xs-12">
-          <div class="sportreport-totalathletescard">
-            <div class="inline-block v-mid">
-              <div class="sportreport-totalathletecircle text-uppercase">
-                <p class="m-clear">Total</p>
-                <p class="m-clear">Athletes</p>
-                <p class="m-clear report-circleno">321</p>
-              </div>
+          <div class="inline-block v-mid">
+            <div class="sportreport-rankcardcontent text-uppercase">
+              <p class="m-clear statistics-school">School Rank</p>
+              <p class="m-clear color-primary lh1"> <span class="statistics-schoolrank">19</span><span class="statistics-schooltotal">/652</span></p>
             </div>
-            <div class="inline-block v-mid">
-              <div class="sportreport-genderratio">
-                <ul class="list-inline m-clear">
-                  <li class="v-mid">
-                    <div class="sportreport-gendermale ">
-                      <img ng-src="{{'male' | gendericon:'small'}}" alt="" class="img-responsive">
-                    </div>
-                  </li>
-                  <li class="sportreport-gendermaleno v-mid">
-                    <span>991</span>
-                  </li>
-                  <li class="v-mid">
-                    <div class="sportreport-genderfemale">
-                      <img ng-src="{{'female' | gendericon:'small'}}" alt="" class="img-responsive">
-                    </div>
-                  </li>
-                  <li class="sportreport-genderfemaleno v-mid">
-                    <span>992</span>
-                  </li>
-                </ul>
-                <div class="text-uppercase genderratio-values">
-                  <p class="m-clear"> <span>Gender Ratio</span> <span class="color-primary">3</span> : <span class="color-primary">2</span></p>
-                </div>
-              </div>
-            </div>
-
           </div>
         </div>
-        <!--End GenderRatio-->
-
-        <!--25sport circle-->
-        <div class="col-md-5 col-xs-12">
-          <div class="sportcicle25">
-            <div class="high25">
-              <p class="m-clear">Medals Won</p>
-              <p class="m-clear">300</p>
-            </div>
-
-          </div>
-        </div>
-        <!--end 25sportcircle-->
-
+        <!--End RankCard-->
       </div>
+      <!--Gender Ratio-->
+      <div class="col-md-4 col-sm-4 col-xs-12">
+        <div class="sportreport-totalathletescard">
+          <div class="inline-block v-mid">
+            <div class="sportreport-totalathletecircle text-uppercase">
+              <p class="m-clear">Total</p>
+              <p class="m-clear">Athletes</p>
+              <p class="m-clear report-circleno">321</p>
+            </div>
+          </div>
+          <div class="inline-block v-mid">
+            <div class="sportreport-genderratio">
+              <ul class="list-inline m-clear">
+                <li class="v-mid">
+                  <div class="sportreport-gendermale ">
+                    <img ng-src="{{'male' | gendericon:'small'}}" alt="" class="img-responsive">
+                  </div>
+                </li>
+                <li class="sportreport-gendermaleno v-mid">
+                  <span>991</span>
+                </li>
+                <li class="v-mid">
+                  <div class="sportreport-genderfemale">
+                    <img ng-src="{{'female' | gendericon:'small'}}" alt="" class="img-responsive">
+                  </div>
+                </li>
+                <li class="sportreport-genderfemaleno v-mid">
+                  <span>992</span>
+                </li>
+              </ul>
+              <div class="text-uppercase genderratio-values">
+                <p class="m-clear"> <span>Gender Ratio</span> <span class="color-primary">3</span> : <span class="color-primary">2</span></p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <!--End GenderRatio-->
+
+      <!--25sport circle-->
+      <div class="col-md-5 col-xs-12">
+        <div class="sportcicle25">
+          <div class="high25">
+            <p class="m-clear">Medals Won</p>
+            <p class="m-clear">300</p>
+          </div>
+
+        </div>
+      </div>
+      <!--end 25sportcircle-->
+
     </div>
+
     <!--Statistics-Card-End-->
     <!--Sport Wise head-->
     <div class="row">
       <div class="col-md-12 col-sm-12 col-xs-12">
-        <h3>
-          SPORT-WISE STATISTICS
-        </h3>
+        <div class="sportstatistics-sportwisehead">
+          <h3 class="text-uppercase color-primary fjalla-one">
+            SPORT-WISE STATISTICS
+          </h3>
+        </div>
       </div>
     </div>
     <!--Sport Wise head end-->
@@ -278,13 +284,13 @@
       <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
           <div class="statistics-performancesummaryhead">
-            <h3 class="m-clear">PERFORMANCE SUMMARY</h3>
+            <h3 class="m-clear text-uppercase color-primary fjalla-one">PERFORMANCE SUMMARY</h3>
           </div>
         </div>
         <div class="col-md-12 col-sm-12 col-xs-12">
           <div class="statistics-performancemedal">
 
-            <ul class="list-inline">
+            <ul class="list-inline m-clear">
               <li class="v-mid">
                 <div class="inline-block profile-bigmedals">
                   <img ng-src="{{'gold' | medalicon:'big'}}" alt="" class="img-responsive">
@@ -377,7 +383,7 @@
     <div class="row">
       <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="statistics-topperformance">
-          <h3>YOUR PERFORMANCE v/s TOP PERFORMANCE</h3>
+          <h3 class="color-primary fjalla-one">YOUR PERFORMANCE v/s TOP PERFORMANCE</h3>
         </div>
       </div>
       <div class="col-md-12 col-sm-12 col-xs-12">

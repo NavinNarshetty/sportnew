@@ -1,6 +1,7 @@
 // color-variable
 $light-blue:#00aaff !default;
 $light-orange:#ffad25 !default;
+$drak-primary:#070f40 !default;
 // common-class
 .mr5 {
     margin-right: 5px;
@@ -97,18 +98,17 @@ $light-orange:#ffad25 !default;
     border-radius: 100%;
 }
 
+.schoolpic-check {
+    @extend .athletepic-check;
+}
+
 .schoolprofile-page {
     min-height: 100vh;
     .school-head {
         margin: 30px;
     }
-    h3 {
-        color: $brand-primary;
-        @extend .fjalla-one;
-    }
     .schoolprofilecard {
-        // border: 1px solid red;
-        // padding: 20px;
+        padding: 20px;
         .schoolpicholder {
             width: 29%;
         }
@@ -369,12 +369,13 @@ $light-orange:#ffad25 !default;
 }
 
 .sport-card-content {
-    border: 1px solid #ddd;
+    border: 1px solid transparent;
     padding: 0 10px;
 }
 
 .sport-card {
     margin-top: 40px;
+    box-shadow: 1px 0px 2px #ebebeb;
 }
 
 .sport-sportname {
@@ -401,7 +402,7 @@ $light-orange:#ffad25 !default;
 
 .sport-sportname {
     font-size: 18px;
-    color: $brand-primary;
+    color: $drak-primary;
     font-weight: 600;
 }
 
@@ -530,6 +531,7 @@ $light-orange:#ffad25 !default;
 
 .schoolprofile-trackrecord {
     .trackrecord-year {
+        margin-top: 40px;
         ul>li {
             padding-right: 10px;
         }
@@ -548,6 +550,22 @@ $light-orange:#ffad25 !default;
     .trackrecord-athletelistcard {
         margin: 10px 0;
     }
+    .trackrecord-currentyear {
+        font-size: 85px;
+        line-height: 1;
+        margin-right: 5px;
+        letter-spacing: 2px;
+        color: #d3d3d3;
+        font-weight: 700;
+        @extend .teko;
+    }
+    .trackrecord-detailwidth {
+        width: calc(100% - 124px);
+    }
+}
+
+.listof-sportlistcardschool {
+    margin-bottom: 40px;
 }
 
 .schooltrack-accordianholder {
@@ -565,23 +583,48 @@ $light-orange:#ffad25 !default;
     }
 } // end-trackrecord
 // team
+.schoolprofile-selectsporthead,
+.schoolprofile-summaryhead,
+.schoolprofile-teamstatitics {
+    margin: 40px 0px;
+}
+
+.team-currentyear {
+    font-size: 85px;
+    line-height: 1;
+    margin-right: 5px;
+    letter-spacing: 2px;
+    color: #d3d3d3;
+    font-weight: 700;
+    @extend .teko;
+}
+
 .schoolprofile-teamsportlist {
     display: inline-block;
     margin: 5px;
 }
 
-.schoolprofileteam-head {
-    color: #fff;
-}
-
 .schoolprofile-teamsportdetails {
+    .teamslected-matchdetail {
+        font-size: 30px;
+        color: $dark-grey;
+        letter-spacing: 2px;
+    }
     .list-inline>li {
         padding: 0px 25px;
         border-right: 1px solid #ddd;
+        line-height: 1;
+        text-align: center;
+        &:nth-child(1) {
+            padding-left: 0px;
+        }
+        &:nth-last-child(1) {
+            border-right: none;
+        }
     }
     .videotableteam-imgholder {
         width: 100px;
-        height: auto;
+        max-height: 70px;
     }
     .teamvideo-customplay {
         span {
@@ -590,41 +633,72 @@ $light-orange:#ffad25 !default;
         @extend .vide-customplay;
         padding: 0px 5px;
     }
-    .schoolprofile-teamsporttable {
-        .table>tbody>tr>td {
-            vertical-align: middle; // padding: 5px;
-        }
-        .table {
-            // border: 1px solid #fff;
-            margin-bottom: 0px;
-            .bag-blue {
-                background-color: $brand-primary;
+}
+
+// ****TEAM TABLE******
+.schoolprofile-teamsporttable {
+    .table {
+        tbody {
+            tr {
+                td {
+                    vertical-align: middle;
+                }
             }
         }
-        .table-striped>tbody>tr:nth-of-type(odd) {
-            background-color: #f2f2f2;
+        thead {
+            tr {
+                color: #fff;
+            }
         }
-        .table-striped>tbody>tr:nth-of-type(even) {
-            background-color: #e5e5e5;
+        .teamsporttable-medalholder {
+            margin: 0 auto;
         }
     }
-    .opponent-schoolname {
-        width: calc(100% - 65px);
+    .table {
+        margin-bottom: 0px;
+        a {
+            &:hover {
+                text-decoration: none;
+            }
+        }
+        .bg-blue {
+            background-color: $brand-primary;
+        }
     }
-    .schoolprofile-teamvideos {
-        width: calc(100% - 105px);
+    .table-striped {
+        tbody {
+            tr {
+                &:nth-of-type(odd) {
+                    background-color: #f2f2f2;
+                }
+                &:nth-of-type(even) {
+                    background-color: #e5e5e5;
+                }
+            }
+        }
     }
 }
 
+.opponent-schoolname {
+    width: calc(100% - 65px);
+}
+
+.schoolprofile-teamvideos {
+    width: calc(100% - 105px);
+}
+
+// ****END TEAM TABLE*******
 .selectedsport-medaldetails {
     margin: 40px 0px;
-    border: 1px solid #000;
     padding: 8px;
     color: #fff;
     background: #464646;
     text-align: center;
     li {
         vertical-align: middle
+    }
+    .winingschool-width {
+        width: 230px;
     }
 }
 
@@ -660,6 +734,7 @@ $light-orange:#ffad25 !default;
     }
 }
 
+// *******SUMMARY TABLE********
 .school-yearsummarytable {
     .table>thead>tr>th {
         border-bottom: none;
@@ -685,14 +760,30 @@ $light-orange:#ffad25 !default;
     }
 }
 
+// ********SUMMARY TABLE END***********
+// ****SELECTED-SPORT-TABLE-CARD********
+.selectedsport-tablecardcontent {
+    margin: 0px 20px 0px 50px;
+}
+
+// ****SELECTED-SPORT-TABLE-CARD-END********
 // end-team
 //  statistics
-.statistics-card {
-    margin-top: 25px;
+.statistics-card,
+.statistics-topperformance {
+    margin: 40px 0px;
+}
+
+.schoolstatistics-reportyear {
+    @extend .team-currentyear;
+    margin-right: 0px;
+    line-height: 0;
+    letter-spacing: 3px;
 }
 
 .sportreport-schoolrankcard {
-    border: 1px solid #ddd;
+    // border: 1px solid #ddd;
+    box-shadow: 0px 0px 5px #ebebeb;
     padding: 20px;
     text-align: center;
     min-height: 170px;
@@ -712,7 +803,8 @@ $light-orange:#ffad25 !default;
 }
 
 .sportreport-totalathletescard {
-    border: 1px solid #ddd;
+    // border: 1px solid #ddd;
+    box-shadow: 0px 0px 5px #ebebeb;
     padding: 20px;
     text-align: center;
 }
@@ -766,7 +858,6 @@ $light-orange:#ffad25 !default;
 
 //sport-wise-card
 .sportwise-statisticscard {
-    box-shadow: 2px 3px 8px #e1e1e1;
     margin-top: 30px;
     .statistics-cardhead {
         padding: 10px 10px 0px;
@@ -776,7 +867,7 @@ $light-orange:#ffad25 !default;
     }
     .statistics-cardcontent {
         padding: 10px 15px;
-        border: 1px solid #ddd;
+        box-shadow: 0px 0px 5px #ebebeb;
         border-top: none;
     }
     .sportwise-statisticstype {
@@ -823,7 +914,7 @@ $light-orange:#ffad25 !default;
 
 .statistics-notparticipatehead {
     padding: 20px;
-    box-shadow: 2px 3px 8px #e1e1e1;
+    box-shadow: 0px 0px 5px #ebebeb;
 }
 
 .sportstatistics-matchdetailtable {
@@ -915,11 +1006,13 @@ $light-orange:#ffad25 !default;
 
 //   end sport-wise-card
 .statistics-performancesummary,
-.statistics-didnotparticipate {
+.statistics-didnotparticipate,
+.statistics-performancesummaryhead {
     margin: 40px 0px;
 }
 
 .statistics-performancemedal {
+    box-shadow: 0px 0px 2px #ebebeb;
     .list-inline>li {
         padding-left: 40px;
     }

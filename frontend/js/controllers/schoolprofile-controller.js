@@ -253,6 +253,67 @@ myApp.controller('SchoolProfileCtrl', function ($scope, $state, $stateParams, Te
 
     $scope.videos = [1, 2, 3, 4, 5];
 
+    $scope.SumTable = [{
+            name: 'football'
+        },
+        {
+            name: 'football'
+        },
+        {
+            name: 'football'
+        },
+        {
+            name: 'football'
+        },
+        {
+            name: 'football'
+        },
+        {
+            name: 'football'
+        }, {
+            name: 'football'
+        },
+        {
+            name: 'football'
+        },
+        {
+            name: 'football'
+        }, {
+            name: 'football'
+        },
+        {
+            name: 'football'
+        }, {
+            name: 'football'
+        }, {
+            name: 'football'
+        }, {
+            name: 'football'
+        }, {
+            name: 'football'
+        }, {
+            name: 'football'
+        }, {
+            name: 'football'
+        }, {
+            name: 'football'
+        }, {
+            name: 'football'
+        }, {
+            name: 'football'
+        }, {
+            name: 'football'
+        }, {
+            name: 'football'
+        }, {
+            name: 'football'
+        }, {
+            name: 'football'
+        }, {
+            name: 'football'
+        }
+    ];
+
     $scope.customCards = [{
         img: '/img/bl-inner.jpg'
     }, {

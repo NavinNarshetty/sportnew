@@ -3,58 +3,86 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
-          <div class="schooltrackrecord-content">
-            <h3>YEAR-ON-YEAR TRACK RECORD</h3>
+          <div class="schooltrackrecord-content text-uppercase">
+            <h3 class="color-primary fjalla-one">YEAR-ON-YEAR TRACK RECORD</h3>
             <p>A year-on-year summary of the school's overall performance at SFA Championships.
             </p>
-            <!--<div class="schooltrackrecord-table">
-              <table class=" table ">
-                <thead>
-                  <tr>
-                    <th>
-                      <div>
-                        SFA Champions
-                      </div>
-                    </th>
-                    <th>
-                      <div>
-                        2017
-                      </div>
-                    </th>
-                    <th>
-                      <div class="">
-                        2016
-                      </div>
-                    </th>
-                    <th>
-                      <div class="">
-                        2015
-                      </div>
-                    </th>
-
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr ng-repeat="item in schoolTrackTable track by $index">
-                    <td>{{$index+1}}</td>
-                    <td>{{item.name}}</td>
-                    <td>{{item.gold}} </td>
-                    <td>{{item.silver}} </td>
-
-                  </tr>
-
-                </tbody>
-              </table>
-            </div>-->
           </div>
+          <div class="schooltrackrecord-table">
+            <table class=" table ">
+              <thead>
+                <tr>
+                  <th>
+                    <div>
+                      SFA Champions
+                    </div>
+                  </th>
+                  <th>
+                    <div>
+                      2017
+                    </div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <div>
+                      <p class="m-clear">
+                        contingent strength
+                      </p>
+                    </div>
+                  </td>
+                  <td>
+                    <div>
+                      <p class="m-clear">
+                        <span>300</span> <span>Athletes</span> <span>(</span><span>M</span> <span>200</span>
+                        <span>F</span> <span>100</span><span>)</span>
+
+                      </p>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div>
+                      <p class="m-clear">
+                        sports participated
+                      </p>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="text-center">
+                      <p class="m-clear">
+                        <span ng-repeat="sport in SumTable track by $index"> 
+                            {{sport.name}}<span>,</span>
+                        </span>
+
+                      </p>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div>
+
+                    </div>
+                  </td>
+                  <td></td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+
         </div>
       </div>
       <!--DetailTeam-Statistics-->
       <div class="detailteam-statistics">
         <div class="row">
           <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class="detailstatistics-head">
-              <h3>
+            <div class="detailstatistics-head text-uppercase">
+              <h3 class="color-primary fjalla-one">
                 DETAILED TEAM STATITICS
               </h3>
             </div>
@@ -64,194 +92,195 @@
             </div>
           </div>
         </div>
+      </div>
 
-        <div class="trackrecord-filter">
-          <div class="row">
-            <div class="col-md-3 col-sm-4 co-xs-12">
-              <div class="inline-block">
-                <label for="">View for sports</label>
-              </div>
-              <div class="inline-block">
-                <select name="" id="" class="form-control">
-                <option value=""> Football</option>
-                <option value=""> Football</option>
-                <option value=""> Football</option>
-              </select>
-              </div>
-
-            </div>
-            <div class="col-md-3 col-sm-4 co-xs-12">
-              <div class="inline-block">
-                <label for="">View for sports</label>
-              </div>
-              <div class="inline-block">
-                <select name="" id="" class="form-control">
-                <option value=""> Football</option>
-                <option value=""> Football</option>
-                <option value=""> Football</option>
-              </select>
-              </div>
-            </div>
-            <div class="col-md-3 col-sm-4 co-xs-12">
-              <div class="inline-block">
-                <label for="">View for sports</label>
-              </div>
-              <div class="inline-block">
-                <select name="" id="" class="form-control">
-                <option value=""> Football</option>
-                <option value=""> Football</option>
-                <option value=""> Football</option>
-              </select>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="trackrecord-year">
-          <div class="row">
-            <div class="inline-block">
-              <p class="m-clear">2017</p>
-            </div>
-            <div class="inline-block">
-              <div class="trackrecord-detail">
-                <ul class="list-inline">
-                  <li class="f18 v-bottom">
-                    <span>School Rank</span> <span>120/300</span>
-                  </li>
-                  <li class="f18 v-bottom">
-                    <div class="inline-block">
-
-                      <span>CONTINGENT</span> <span>200</span>
-                    </div>
-                    <div class="inline-block  f18">
-                      <ul class="list-inline">
-
-                        <!--<li>(<img ng-src="{{'male' | gendericon:'white'}}" alt=""> <span>200</span></li>
-                        <li><img ng-src="{{'male' | gendericon:'white'}}" alt=""><span>200)</span></li>-->
-                        <!--<li>
-                          <span>(</span>
-                        </li>-->
-                        <li>
-                          <div class="inline-block">
-                            <span>(</span>
-                          </div>
-                          <div class="inline-block trackrecordprofile-greygender v-mid">
-                            <img ng-src="{{'male' | gendericon:'white'}}" alt="" class="img-responsive">
-                          </div>
-                          <div class="inline-block v-mid">
-                            <span>200</span>
-                          </div>
-                        </li>
-                        <li>
-
-                          <div class="inline-block trackrecordprofile-greygender v-mid">
-                            <img ng-src="{{'female' | gendericon:'white'}}" alt="" class="img-responsive">
-                          </div>
-                          <div class="inline-block v-mid">
-                            <span>200</span>
-                          </div>
-                          <div class="inline-block">
-                            <span>)</span>
-                          </div>
-                        </li>
-
-                      </ul>
-
-                    </div>
-
-                  </li>
-                  <li>
-                    <ul class="list-inline f14">
-                      <li class="v-mid">
-                        <div class="inline-block v-bottom profile-bluemedals">
-
-                          <img ng-src="{{'gold' | medalicon:'white'}}" alt="" class="img-responsive">
-                        </div>
-                        <div class="inline-block ">
-                          <span class="color-warning ">999</span>
-                          <span>Gold</span>
-                        </div>
-                      </li>
-                      <li class="v-mid">
-                        <div class="inline-block v-bottom profile-bluemedals">
-
-                          <img ng-src="{{'silver' | medalicon:'white'}}" alt="" class="img-responsive">
-                        </div>
-                        <div class="inline-block">
-                          <span class="color-warning ">999</span>
-                          <span>Silver</span>
-                        </div>
-                      </li>
-                      <li class="v-mid">
-                        <div class="inline-block v-bottom profile-bluemedals">
-
-                          <img ng-src="{{'bronze' | medalicon:'white'}}" alt="" class="img-responsive">
-                        </div>
-                        <div class="inline-block">
-                          <span class="color-warning ">999</span>
-                          <span>Bronze</span>
-                        </div>
-                      </li>
-
-
-
-
-                    </ul>
-                  </li>
-                </ul>
-              </div>
-
-            </div>
-          </div>
-        </div>
-
+      <div class="trackrecord-filter">
         <div class="row">
-          <div class="">
-            <div class="text-center">
-              <div class="sporttrack-sportlistcard" ng-repeat="s in customCards track by $index">
-                <sport-card></sport-card>
-              </div>
+          <div class="col-md-3 col-sm-4 co-xs-12">
+            <div class="inline-block">
+              <label for="">View for sports</label>
             </div>
-            <div class="row">
-              <div class="col-md-12 col-sm12 col-xs-12">
-                <div class="schooltrack-sportname text-uppercase">
-                  <h3>Archery</h3>
-                </div>
-              </div>
-            </div>
-            <div class="schooltrack-accordianholder">
-              <uib-accordion close-others="oneAtATime">
-                <div uib-accordion-group class="panel-default" is-open="s.open" ng-repeat="s in myAccordian track by $index">
-                  <uib-accordion-heading class="clearfix">
-                    <i class="pull-right fa" ng-class="{'fa-minus': s.open, 'fa-plus': !s.open}"></i>
-                    <ul class="list-inline text-uppercase">
-                      <li>{{s.gender}} </li>
-                      <li>|</li>
-                      <li>{{s.agegroup}} </li>
-                      <li>|</li>
-                      <li>{{s.event}} </li>
-                    </ul>
-
-                  </uib-accordion-heading>
-                  <div class="">
-                    <div class="col-md-4 col-sm-6 col-xs-12" ng-repeat="n in s.img track by $index">
-                      <div class="trackrecord-athletelistcard">
-
-                        <profile-athlete-card></profile-athlete-card>
-                      </div>
-                    </div>
-                  </div>
-
-                </div>
-              </uib-accordion>
+            <div class="inline-block">
+              <select name="" id="" class="form-control">
+                <option value=""> Football</option>
+                <option value=""> Football</option>
+                <option value=""> Football</option>
+              </select>
             </div>
 
-
+          </div>
+          <div class="col-md-3 col-sm-4 co-xs-12">
+            <div class="inline-block">
+              <label for="">View for sports</label>
+            </div>
+            <div class="inline-block">
+              <select name="" id="" class="form-control">
+                <option value=""> Football</option>
+                <option value=""> Football</option>
+                <option value=""> Football</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-4 co-xs-12">
+            <div class="inline-block">
+              <label for="">View for sports</label>
+            </div>
+            <div class="inline-block">
+              <select name="" id="" class="form-control">
+                <option value=""> Football</option>
+                <option value=""> Football</option>
+                <option value=""> Football</option>
+              </select>
+            </div>
           </div>
         </div>
 
       </div>
+
+      <div class="trackrecord-year">
+        <div class="row">
+          <div class="inline-block v-mid">
+            <p class="m-clear trackrecord-currentyear">2017</p>
+          </div>
+          <div class="inline-block v-mid trackrecord-detailwidth">
+            <div class="trackrecord-detail">
+              <ul class="list-inline">
+                <li class="f18 v-bottom">
+                  <span>School Rank</span> <span>120/300</span>
+                </li>
+                <li class="f18 v-bottom">
+                  <div class="inline-block">
+
+                    <span>CONTINGENT</span> <span>200</span>
+                  </div>
+                  <div class="inline-block  f18">
+                    <ul class="list-inline">
+
+                      <!--<li>(<img ng-src="{{'male' | gendericon:'white'}}" alt=""> <span>200</span></li>
+                        <li><img ng-src="{{'male' | gendericon:'white'}}" alt=""><span>200)</span></li>-->
+                      <!--<li>
+                          <span>(</span>
+                        </li>-->
+                      <li>
+                        <div class="inline-block">
+                          <span>(</span>
+                        </div>
+                        <div class="inline-block trackrecordprofile-greygender v-mid">
+                          <img ng-src="{{'male' | gendericon:'white'}}" alt="" class="img-responsive">
+                        </div>
+                        <div class="inline-block v-mid">
+                          <span>200</span>
+                        </div>
+                      </li>
+                      <li>
+
+                        <div class="inline-block trackrecordprofile-greygender v-mid">
+                          <img ng-src="{{'female' | gendericon:'white'}}" alt="" class="img-responsive">
+                        </div>
+                        <div class="inline-block v-mid">
+                          <span>200</span>
+                        </div>
+                        <div class="inline-block">
+                          <span>)</span>
+                        </div>
+                      </li>
+
+                    </ul>
+
+                  </div>
+
+                </li>
+                <li>
+                  <ul class="list-inline f14">
+                    <li class="v-mid">
+                      <div class="inline-block v-bottom profile-bluemedals">
+
+                        <img ng-src="{{'gold' | medalicon:'white'}}" alt="" class="img-responsive">
+                      </div>
+                      <div class="inline-block ">
+                        <span class="color-warning ">999</span>
+                        <span>Gold</span>
+                      </div>
+                    </li>
+                    <li class="v-mid">
+                      <div class="inline-block v-bottom profile-bluemedals">
+
+                        <img ng-src="{{'silver' | medalicon:'white'}}" alt="" class="img-responsive">
+                      </div>
+                      <div class="inline-block">
+                        <span class="color-warning ">999</span>
+                        <span>Silver</span>
+                      </div>
+                    </li>
+                    <li class="v-mid">
+                      <div class="inline-block v-bottom profile-bluemedals">
+
+                        <img ng-src="{{'bronze' | medalicon:'white'}}" alt="" class="img-responsive">
+                      </div>
+                      <div class="inline-block">
+                        <span class="color-warning ">999</span>
+                        <span>Bronze</span>
+                      </div>
+                    </li>
+
+
+
+
+                  </ul>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="text-center listof-sportlistcardschool">
+          <div class="sporttrack-sportlistcard" ng-repeat="s in customCards track by $index">
+            <sport-card></sport-card>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 col-sm12 col-xs-12">
+          <div class="schooltrack-sportname text-uppercase">
+            <h3 class="color-primary fjalla-one">Archery</h3>
+          </div>
+        </div>
+      </div>
+      <div class="schooltrack-accordianholder">
+        <uib-accordion close-others="oneAtATime">
+          <div uib-accordion-group class="panel-default" is-open="s.open" ng-repeat="s in myAccordian track by $index">
+            <uib-accordion-heading class="clearfix">
+              <i class="pull-right fa" ng-class="{'fa-minus': s.open, 'fa-plus': !s.open}"></i>
+              <ul class="list-inline text-uppercase">
+                <li>{{s.gender}} </li>
+                <li>|</li>
+                <li>{{s.agegroup}} </li>
+                <li>|</li>
+                <li>{{s.event}} </li>
+              </ul>
+
+            </uib-accordion-heading>
+            <div class="">
+              <div class="col-md-4 col-sm-6 col-xs-12" ng-repeat="n in s.img track by $index">
+                <div class="trackrecord-athletelistcard">
+
+                  <profile-athlete-card></profile-athlete-card>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </uib-accordion>
+      </div>
+
+
+
+
+
+
 
     </div>
   </div>

@@ -7,12 +7,24 @@ $drak-primary:#070f40 !default;
     margin-right: 5px;
 }
 
+.mb5 {
+    margin-bottom: 5px;
+}
+
 .lh1 {
     line-height: 1;
 }
 
 .mt40 {
     margin-top: 40px;
+}
+
+.white {
+    color: $white;
+}
+
+.clearfix {
+    overflow: auto;
 }
 
 // end common class
@@ -343,7 +355,7 @@ $drak-primary:#070f40 !default;
 // medal-card
 .medal-card {
     border: 1px solid #ddd;
-    padding: 10px 10px;
+    padding: 10px 15px;
     border-bottom: 3px solid #ffb026;
 }
 
@@ -352,13 +364,14 @@ $drak-primary:#070f40 !default;
     height: 100px;
     border-radius: 100%;
     overflow: hidden;
-    margin: 0 auto;
+    margin: 0 auto 10px;
 }
 
 .medal-athletename {
     color: $brand-primary;
     font-size: 14px;
     font-weight: 600;
+    width: 120px;
 } // end medal-card
 // sport-card
 .sport-imgholder {
@@ -581,7 +594,49 @@ $drak-primary:#070f40 !default;
     .panel-default {
         border-color: $light-grey;
     }
-} // end-trackrecord
+}
+
+// ********YEAR-TRACKRECORD-TABLE************
+.schooltrackrecord-table {
+    .table {
+        border: 1px solid #ddd;
+        thead {
+            tr {
+                th {
+                    border: 1px solid $grey;
+                    color: #fff;
+                    text-align: center;
+                    font-size: 21px;
+                    @extend .fjalla-one;
+                    &:nth-child(1) {
+                        background-color: $light-blue;
+                    }
+                    &:nth-child(n+2) {
+                        background-color: $green-graph;
+                    }
+                }
+            }
+        }
+        tbody {
+            tr {
+                td {
+                    border-right: 1px solid $grey;
+                    vertical-align: middle;
+                    text-align: center;
+                    &:nth-child(1) {
+                        text-transform: uppercase;
+                    }
+                    &:nth-child(n+2) {
+                        text-transform: capitalize;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// ********YEAR-TRACKRECORD-TABLE-END************
+// end-trackrecord
 // team
 .schoolprofile-selectsporthead,
 .schoolprofile-summaryhead,
@@ -1073,4 +1128,57 @@ $drak-primary:#070f40 !default;
     }
 } // end stats-table
 // end-statistics
+// *****ACHIEVEMENTS
+.schoolachievements-currentyear,
+.schoolachievements-heading {
+    margin: 40px 0px;
+}
+
+.schoolachievements-currentyear {
+    @extend .team-currentyear;
+}
+
+// CERTIFICATE
+.schoolachievement-certificate {
+    width: 60%;
+    margin-top: 40px;
+    margin-left: 100px;
+    box-shadow: 0 0 2px #a0a0a0;
+}
+
+.schoolcertificate-logo {
+    width: 90px;
+    position: absolute;
+    top: -27px;
+    left: -90px;
+}
+
+.schoolachievement-certificatedetail {
+    display: inline-block;
+    width: 70%;
+    vertical-align: top;
+    padding: 20px;
+}
+
+.schoolachievement-certificatepic {
+    display: inline-block;
+    width: 29%;
+    padding: 20px;
+    text-align: center;
+}
+
+// END_CERTIFICATE
+.schoolachievements-bluebar {
+    .schoolachievements-detail {
+        padding: 5px 50px; // border: 1px solid #070f40;
+        background-color: $brand-primary;
+    }
+}
+
+.schoolachievements-matchdetails {
+    color: $white;
+    font-size: 18px;
+}
+
+// ******END-ACHIVEMENTS
 //end schoolprofile-page

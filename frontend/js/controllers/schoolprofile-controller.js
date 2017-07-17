@@ -242,6 +242,32 @@ myApp.controller('SchoolProfileCtrl', function ($scope, $state, $stateParams, Te
         ]
     }]
 
+    $scope.myAccord = [{
+        sport: 'Swimming',
+        gold: '999',
+        silver: '999',
+        bronze: '999',
+        rank: '999/1000',
+        img: ['/img/day-03.png',
+            '/img/day-04.png',
+            '/img/oldSfa/bg-draw.jpg',
+            '/img/day-03.png',
+            '/img/day-04.png',
+            '/img/oldSfa/bg-draw.jpg'
+        ]
+    }, {
+        gender: 'Boys',
+        agegroup: 'U-10',
+        event: '100M',
+        img: ['/img/day-03.png',
+            '/img/day-04.png',
+            '/img/oldSfa/bg-draw.jpg',
+            '/img/day-03.png',
+            '/img/day-04.png',
+            '/img/oldSfa/bg-draw.jpg'
+        ]
+    }];
+
     $scope.mySlides = [
         '/img/day-03.png',
         '/img/day-04.png',
@@ -253,6 +279,46 @@ myApp.controller('SchoolProfileCtrl', function ($scope, $state, $stateParams, Te
 
     $scope.videos = [1, 2, 3, 4, 5];
 
+    $scope.sumRank = [{
+        schoolrank: '180',
+        total: '999'
+    }, {
+        schoolrank: '180',
+        total: '999'
+    }, {
+        schoolrank: '180',
+        total: '999'
+    }];
+
+    $scope.corName = [{
+        name: 'Manan Vora'
+    }, {
+        name: 'Manan Vora'
+    }, {
+        name: 'Manan Vora'
+    }]
+
+    $scope.yearTable = [{
+        year: '2017',
+    }, {
+        year: '2016',
+    }, {
+        year: '2015'
+    }];
+
+    $scope.contentT = [{
+        total: '3000',
+        male: '600',
+        female: '400'
+    }, {
+        total: '3000',
+        male: '600',
+        female: '400'
+    }, {
+        total: '3000',
+        male: '600',
+        female: '400'
+    }];
     $scope.SumTable = [{
             name: 'football'
         },
@@ -386,11 +452,11 @@ myApp.controller('SchoolProfileCtrl', function ($scope, $state, $stateParams, Te
             $scope.schoolprofile.active = 'statistics';
             break;
         case "achievements":
-            $scope.schoolprofile.innerView = allSchoolProfile[3];
+            $scope.schoolprofile.innerView = allSchoolProfile[4];
             $scope.schoolprofile.active = 'achievements';
             break;
         case "videos":
-            $scope.schoolprofile.innerView = allSchoolProfile[3];
+            $scope.schoolprofile.innerView = allSchoolProfile[5];
             $scope.schoolprofile.active = 'video';
             break;
 

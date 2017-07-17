@@ -9,17 +9,17 @@
             </p>
           </div>
           <div class="schooltrackrecord-table">
-            <table class=" table ">
+            <table class=" table table-striped">
               <thead>
                 <tr>
-                  <th>
-                    <div>
+                  <th style="width:190px">
+                    <div class="text-uppercase">
                       SFA Champions
                     </div>
                   </th>
-                  <th>
+                  <th ng-repeat="y in yearTable ">
                     <div>
-                      2017
+                      {{y.year}}
                     </div>
                   </th>
                 </tr>
@@ -33,11 +33,11 @@
                       </p>
                     </div>
                   </td>
-                  <td>
+                  <td ng-repeat="detail in contentT">
                     <div>
                       <p class="m-clear">
-                        <span>300</span> <span>Athletes</span> <span>(</span><span>M</span> <span>200</span>
-                        <span>F</span> <span>100</span><span>)</span>
+                        <span>{{detail.total}}</span> <span>Athletes</span> <span>(</span><span>M</span> <span>{{detail.male}}</span>
+                        <span>F</span> <span>{{detail.female}}</span><span>)</span>
 
                       </p>
                     </div>
@@ -51,7 +51,7 @@
                       </p>
                     </div>
                   </td>
-                  <td>
+                  <td ng-repeat="d in videos | limitTo:3">
                     <div class="text-center">
                       <p class="m-clear">
                         <span ng-repeat="sport in SumTable track by $index"> 
@@ -65,10 +65,91 @@
                 <tr>
                   <td>
                     <div>
+                      <p class="m-clear">medal won</p>
+                    </div>
+                  </td>
+                  <td ng-repeat="z in videos | limitTo:3">
+                    <div class="">
+                      <ul class="list-inline f14">
+                        <li class="v-mid">
+                          <div class="inline-block v-bottom profile-bluemedals">
+
+                            <img ng-src="{{'gold' | medalicon:'blue'}}" alt="" class="img-responsive">
+                          </div>
+                          <div class="inline-block ">
+                            <span class="color-primary">999</span>
+                            <span>Gold</span>
+                          </div>
+                        </li>
+                        <li class="v-mid">
+                          <div class="inline-block v-bottom profile-bluemedals">
+
+                            <img ng-src="{{'silver' | medalicon:'blue'}}" alt="" class="img-responsive">
+                          </div>
+                          <div class="inline-block">
+                            <span class="color-primary">999</span>
+                            <span>Silver</span>
+                          </div>
+                        </li>
+                        <li class="v-mid">
+                          <div class="inline-block v-bottom profile-bluemedals">
+
+                            <img ng-src="{{'bronze' | medalicon:'blue'}}" alt="" class="img-responsive">
+                          </div>
+                          <div class="inline-block">
+                            <span class="color-primary">999</span>
+                            <span>Bronze</span>
+                          </div>
+                        </li>
+
+
+
+
+                      </ul>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="">
+                      <p class="m-clear">
+                        special award
+                      </p>
+                    </div>
+                  </td>
+                  <td ng-repeat="y in videos | limitTo:3">
+                    <div class="">
 
                     </div>
                   </td>
-                  <td></td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="">
+                      rank
+                    </div>
+                  </td>
+                  <td ng-repeat="x in sumRank">
+                    <div class="">
+                      <p class="m-clear">
+                        <span>{{x.schoolrank}}</span><span>/{{x.total}}</span>
+                      </p>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="">
+                      <p class="m-clear">sports co-ordinator </p>
+                    </div>
+                  </td>
+                  <td ng-repeat="w in corName">
+                    <div class="">
+                      <p class="m-clear">
+                        {{w.name}}
+                      </p>
+                    </div>
+                  </td>
                 </tr>
 
               </tbody>

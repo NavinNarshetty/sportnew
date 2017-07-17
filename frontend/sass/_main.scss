@@ -10,7 +10,7 @@ $base: #303030 !default; //black
 $white: #fff !default;
 $grey: #e1e1e1 !default;
 $dark-grey: #757575 !default;
-$light-grey: #ebebeb !default;
+$light-grey: #e5e5e5 !default;
 $other-blue: #2a45d4 !default;
 $light-green:#bcd200 !default;
 $bg-table: #f2f2f2 !default;
@@ -431,6 +431,8 @@ header {
 
 .titledescription-holder{
   width: 60%;
+  text-align: justify;
+  word-wrap: break-word;
 }
 // COMMON CLASSES END
 // athlete PAGE START
@@ -665,6 +667,15 @@ header {
 
 .sportslide-table {
     margin: 10px 0 5px;
+
+    .table{
+      margin: 0;
+      >tbody>tr>td{
+        padding: 0px 8px;
+        border: none;
+        text-align: center;
+      }
+    }
 }
 
 .sportslide-sportname {
@@ -743,22 +754,34 @@ header {
 .athleteachievement-special, .athleteachievement-excellence, .athleteachievement-participation{
   margin: 50px 0;
 }
+.athleteachievement-special{
+  margin-top: 0;
+}
 .achievement-awardyear{
   margin: 0;
-  font-size: 45px;
-  color: #c0c0c0;
+  font-size: 60px;
+  color: $grey-year;
+  @extend .teko-semibold;
 }
+
+.athleteachievement-intro{
+  width: 60%;
+}
+
 .athleteachievement-certificate {
   width: 60%;
   margin-top: 40px;
   margin-left: 100px;
-  box-shadow: 0 0 2px #a0a0a0;
+  box-shadow: 0 0 10px $light-grey;
 }
 .athletecertificate-logo {
   width: 90px;
   position: absolute;
   top: -27px;
   left: -90px;
+}
+.athleteachievement-partnerholder{
+  margin: 20px 20px 0;
 }
 .athleteachievement-certificatedetail {
     display: inline-block;
@@ -821,7 +844,7 @@ header {
   padding: 5px;
 }
 .participation-certificateholder{
-  border: 1px solid $brand-primary;
+  border: 3px solid $brand-primary;
 }
 // ACHIEVEMENTS PAGE END
 

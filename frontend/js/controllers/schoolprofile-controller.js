@@ -19,15 +19,32 @@ myApp.controller('SchoolProfileCtrl', function ($scope, $state, $stateParams, Te
             animationLoop: true,
             reverse: false,
             slideshow: true,
+            slideshowSpeed: 6000,
+            controlNav: false,
+            directionNav: true,
+            prevText: "",
+            nextText: "",
+            itemWidth: 380,
+            itemMargin: 10
+        });
+    }, 100);
+
+    setTimeout(function () {
+        $('.performanceathlete-slider .flexslider').flexslider({
+            animation: "slide",
+            animationLoop: true,
+            reverse: false,
+            slideshow: true,
             slideshowSpeed: 4000,
             controlNav: false,
             directionNav: true,
             prevText: "",
             nextText: "",
-            itemWidth: 370,
+            itemWidth: 380,
             itemMargin: 10
         });
     }, 100);
+
 
     // end flex
 
@@ -109,13 +126,8 @@ myApp.controller('SchoolProfileCtrl', function ($scope, $state, $stateParams, Te
             silver: "18",
             bronze: "19",
             points: "30"
-        }, {
-            name: "Jamnabai Narsee International School",
-            gold: "20",
-            silver: "18",
-            bronze: "19",
-            points: "30"
-        }, {
+        },
+        {
             name: "Jamnabai Narsee International School",
             gold: "20",
             silver: "18",
@@ -128,26 +140,29 @@ myApp.controller('SchoolProfileCtrl', function ($scope, $state, $stateParams, Te
             silver: "18",
             bronze: "19",
             points: "30"
-        }, {
+        },
+        {
             name: "Jamnabai Narsee International School",
             gold: "20",
             silver: "18",
             bronze: "19",
             points: "30"
-        }, {
+        },
+        {
             name: "Jamnabai Narsee International School",
             gold: "20",
             silver: "18",
             bronze: "19",
             points: "30"
-        }, {
+        },
+        {
             name: "Jamnabai Narsee International School",
             gold: "20",
             silver: "18",
             bronze: "19",
             points: "30"
         }
-    ]
+    ];
     $scope.summaryTable = [{
         year: '2017',
         match: '10',

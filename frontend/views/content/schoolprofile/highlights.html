@@ -1,12 +1,12 @@
 <div class="schoolprofile-highlight">
   <div class="">
+    <!--TABS-->
     <div class="container">
       <div class="row">
-        <!--tab-1-->
+        <!--TAB-1-->
         <div class="col-md-4 col-sm-6 col-xs-12">
           <div class="schoolchampions">
             <div class="schoolchampions-head cardheader-green text-uppercase">
-
               <p class="m-clear schoolhighlight-title ">SFA Championship 2017</p>
             </div>
             <div class="schoolchampions-content">
@@ -17,27 +17,23 @@
                   </div>
                 </div>
                 <div class="inline-block v-top">
-
                   <div class="">
                     <p class="m-clear schoolchampions-rankhead text-uppercase">School Rank</p>
                     <p class="m-clear schoolchampions-schoolrank"> <span class="yourrank">19</span> <span class="slashtotal">/652</span></p>
                   </div>
-
-
                 </div>
               </div>
               <div class="">
                 <ul class="list-inline">
                   <li>
-
                     <div class="inline-block">
                       <div class="schoolchampions-medalimage">
                         <img ng-src="{{'Gold'|medalicon:'blue'}}" class="img-responsive">
                       </div>
                     </div>
-                    <div class="inline-block">
-                      <span class="color-primary">999</span><br/>
-                      <span>Gold</span>
+                    <div class="inline-block lh1">
+                      <p class="m-clear color-primary">999 </p>
+                      <p class="m-clear">Gold</p>
                     </div>
                   </li>
                   <li>
@@ -46,9 +42,9 @@
                         <img ng-src="{{'Silver'|medalicon:'blue'}}" class="img-responsive">
                       </div>
                     </div>
-                    <div class="inline-block">
-                      <span class="color-primary">999</span><br/>
-                      <span>Gold</span>
+                    <div class="inline-block lh1">
+                      <p class="m-clear color-primary">999 </p>
+                      <p class="m-clear">Silver</p>
                     </div>
                   </li>
                   <li>
@@ -57,9 +53,9 @@
                         <img ng-src="{{'bronze'|medalicon:'blue'}}" class="img-responsive">
                       </div>
                     </div>
-                    <div class="inline-block">
-                      <span class="color-primary">999</span><br/>
-                      <span>Gold</span>
+                    <div class="inline-block lh1">
+                      <p class="m-clear color-primary">999 </p>
+                      <p class="m-clear">Bronze</p>
                     </div>
                   </li>
 
@@ -71,19 +67,19 @@
           </div>
 
         </div>
-        <!--end tab-1-->
-        <!--tab-2-->
+        <!--END-TAB1-->
+        <!--TAB-2-->
         <div class="col-md-4 col-sm-6 col-xs-12">
           <div class="performance">
             <div class="performance-head cardheader-green text-uppercase">
-              <p class="m-clear text-center schoolhighlight-title">Top Performace School</p>
+              <p class="m-clear text-center schoolhighlight-title">Top Performing School</p>
             </div>
             <school-profile-card></school-profile-card>
           </div>
         </div>
-        <!--end tab-2-->
+        <!--END-TAB-2-->
 
-        <!--tab-3-->
+        <!--TAB-3-->
         <div class="col-md-4 col-sm-6 col-xs-12">
           <div class="imagegallery">
             <div class="imagegallery-head cardheader-green text-center text-uppercase">
@@ -106,21 +102,20 @@
             </div>
           </div>
         </div>
-        <!--end-tab-3-->
+        <!--END-TAB-3-->
       </div>
-      <!--Ad-Space-->
-      <div class="">
-        <div class="row">
-          <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class="highlight-adspace relate">
-              <h1 class="get-center m-clear">
-                AD SPACE
-              </h1>
-            </div>
+      <!--END-TABS-->
 
+
+      <!--Ad-Space-->
+      <div class="schoolhighlight-adspace">
+        <div class="row">
+          <div class="highlight-adspace relate">
+            <h1 class="get-center m-clear">
+              AD SPACE
+            </h1>
           </div>
         </div>
-
       </div>
 
       <!--End-adspace-->
@@ -128,7 +123,7 @@
       <!--school-->
       <div class="performteam-school">
         <div class="row">
-          <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="titledescription-holder">
             <div class="performteamschool-head">
               <h3 class="color-primary fjalla-one">
                 TOP PERFORMING TEAMS FROM YOUR SCHOOL
@@ -141,16 +136,12 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-md-12 col-sm-12 col-xs-12">
-
-            <div class="performteam-slider highlightschool-slider sfa-flexslider">
-              <flex-slider flex-slide="s in customCards track by $index" prev-text="" next-text="">
-                <li>
-                  <team-card></team-card>
-
-                </li>
-              </flex-slider>
-            </div>
+          <div class="performteam-slider highlightschool-slider sfa-flexslider">
+            <flex-slider flex-slide="s in customCards track by $index" prev-text="" next-text="">
+              <li>
+                <team-card></team-card>
+              </li>
+            </flex-slider>
           </div>
         </div>
       </div>
@@ -161,7 +152,7 @@
       <!--Athlete-->
       <div class="performance-athlete">
         <div class="row">
-          <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="titledescription-holder">
             <div class="performanceathlete-head">
               <h3 class="color-primary fjalla-one">
                 TOP PERFORMING ATHLETES FROM YOUR SCHOOL
@@ -175,16 +166,12 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-md-12 col-sm-12 col-xs-12">
-
-            <div class="performanceathlete-slider highlightschool-slider sfa-flexslider">
-              <flex-slider flex-slide="n in customCards track by $index" prev-text="" next-text="">
-                <li>
-                  <profile-athlete-card></profile-athlete-card>
-                </li>
-              </flex-slider>
-
-            </div>
+          <div class="performanceathlete-slider  sfa-flexslider">
+            <flex-slider flex-slide="n in customCards track by $index" prev-text="" next-text="">
+              <li>
+                <profile-athlete-card></profile-athlete-card>
+              </li>
+            </flex-slider>
           </div>
         </div>
 
@@ -196,14 +183,11 @@
       <!--schooltable-->
       <div class="schoolrank-table">
         <div class="row">
-          <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class="schoolranktable-head">
-              <h3 class="text-uppercase color-primary fjalla-one">
-                School Rank table
-              </h3>
-            </div>
+          <div class="schoolranktable-head">
+            <h3 class="text-uppercase color-primary fjalla-one">
+              School Rank table
+            </h3>
           </div>
-
         </div>
         <div class="row">
           <div class="col-md-7 col-sm-12 col-xs-12">
@@ -261,7 +245,6 @@
                         <td>{{item.silver}} </td>
                         <td>{{item.bronze}} </td>
                         <td>{{item.points}} </td>
-
                       </tr>
 
                     </tbody>
@@ -283,15 +266,11 @@
       <!--School-videos-->
       <div class="school-videos">
         <div class="row">
-          <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class="schoolvideos-head text-uppercase">
-              <h3 class="color-primary fjalla-one">Your Match Videos</h3>
-            </div>
+          <div class="schoolvideos-head text-uppercase">
+            <h3 class="color-primary fjalla-one">Your Match Videos</h3>
           </div>
         </div>
-
         <div class="schoolvideos-content inline-block" ng-repeat="s in videos track by $index| limitTo:5">
-
           <video-card></video-card>
         </div>
         <div class="schoolhighlights-videomore">
@@ -299,7 +278,6 @@
         </div>
       </div>
       <!--End-schoolvideos-->
-
     </div>
 
   </div>

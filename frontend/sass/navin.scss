@@ -23,10 +23,6 @@ $drak-primary:#070f40 !default;
     color: $white;
 }
 
-.clearfix {
-    overflow: auto;
-}
-
 // end common class
 //Ad-Space
 .highlight-adspace {
@@ -95,7 +91,7 @@ $drak-primary:#070f40 !default;
 .schoolprofile-team,
 .schoolprofile-trackrecord,
 .schoolprofile-statistics {
-    padding: 20px 0px 50px;
+    padding: 30px 0px 50px;
 }
 
 .performteam-school,
@@ -117,7 +113,7 @@ $drak-primary:#070f40 !default;
 .schoolprofile-page {
     min-height: 100vh;
     .school-head {
-        margin: 30px;
+        margin: 30px 0px;
     }
     .schoolprofilecard {
         padding: 20px;
@@ -148,7 +144,7 @@ $drak-primary:#070f40 !default;
         .school-achievments {
             margin-top: 10px;
             .progress-hovertip {
-                right: -17px;
+                right: -32px;
             }
         }
     }
@@ -177,7 +173,8 @@ $drak-primary:#070f40 !default;
 }
 
 .schoolchampions-content {
-    border: 1px solid #ddd;
+    // border: 1px solid #ddd;
+    box-shadow: 0px 0px 5px $light-grey;
     padding: 10px 15px;
     min-height: 155px;
     .schooltrophy-image {
@@ -208,7 +205,8 @@ $drak-primary:#070f40 !default;
 } // schoolprofile-card
 .schoolprofile-card {
     // padding: 10px 15px;
-    border: 1px solid #ddd;
+    // border: 1px solid #ddd;
+    box-shadow: 0px 0px 5px $light-grey;
     border-left: 3px solid #ffb026;
     min-height: 155px;
 }
@@ -229,7 +227,7 @@ $drak-primary:#070f40 !default;
 }
 
 .schoolprofile-cardcontent {
-    width: 69%;
+    width: calc(100% - 113px);
     padding: 10px;
     padding-left: 0px;
 }
@@ -264,7 +262,8 @@ $drak-primary:#070f40 !default;
 // athleteprofile-card
 .profileathlete-card {
     // padding: 10px 15px;
-    border: 1px solid #ddd;
+    // border: 1px solid #ddd;
+    box-shadow: 0px 0px 5px $light-grey;
     border-left: 3px solid #ffb026;
 }
 
@@ -283,7 +282,8 @@ $drak-primary:#070f40 !default;
 }
 
 .profileathlete-cardcontent {
-    width: 69%;
+    // width: 69%;
+    width: calc(100% - 120px);
     padding: 10px;
     padding-left: 0px;
 }
@@ -310,7 +310,8 @@ $drak-primary:#070f40 !default;
 // team-card
 .team-card {
     // padding: 10px 15px;
-    border: 1px solid #ddd;
+    // border: 1px solid #ddd;
+    box-shadow: 0px 0px 5px $light-grey;
     border-left: 3px solid #ffb026;
 }
 
@@ -329,7 +330,8 @@ $drak-primary:#070f40 !default;
 }
 
 .team-cardcontent {
-    width: 69%;
+    // width: 69%;
+    width: calc(100% - 120px);
     padding: 10px;
     padding-left: 0px;
 }
@@ -383,12 +385,12 @@ $drak-primary:#070f40 !default;
 
 .sport-card-content {
     border: 1px solid transparent;
-    padding: 0 10px;
+    padding: 0 5px;
 }
 
 .sport-card {
     margin-top: 40px;
-    box-shadow: 1px 0px 2px #ebebeb;
+    box-shadow: 1px 0px 2px $light-grey;
 }
 
 .sport-sportname {
@@ -464,7 +466,8 @@ $drak-primary:#070f40 !default;
 .schooltable-holder {
     color: #fff;
     .schooltable-content {
-        padding: 10px;
+        padding: 15px 10px;
+        background: rgba(0, 0, 0, 0.5);
     }
     .table {
         border: 1px solid #fff;
@@ -493,6 +496,8 @@ $drak-primary:#070f40 !default;
     }
     .table>tbody>tr>td {
         border-top: none;
+        padding: 10px 8px;
+        text-align: center;
         &:nth-child(n+3) {
             text-align: center;
         }
@@ -534,6 +539,10 @@ $drak-primary:#070f40 !default;
 // end school-videos
 //end school-highlight
 // trackrecord
+.schooltrackrecord-head {
+    margin: 40px 0px;
+}
+
 .f18 {
     font-size: 18px;
 }
@@ -553,7 +562,7 @@ $drak-primary:#070f40 !default;
         border: 1px solid;
         background: $brand-primary;
         color: white;
-        padding: 0px 10px;
+        padding: 5px 10px;
     }
     .sporttrack-sportlistcard {
         // width: 19%;
@@ -590,9 +599,11 @@ $drak-primary:#070f40 !default;
     }
     .panel-group .panel-heading+.panel-collapse>.panel-body {
         border-top: 0;
+        padding: 15px 0px;
     }
     .panel-default {
-        border-color: $light-grey;
+        border-color: $grey-year;
+        border-radius: 0px;
     }
 }
 
@@ -620,7 +631,7 @@ $drak-primary:#070f40 !default;
         tbody {
             tr {
                 td {
-                    border-right: 1px solid $grey;
+                    border-right: 1px solid #cfcfcf;
                     vertical-align: middle;
                     text-align: center;
                     &:nth-child(1) {
@@ -629,6 +640,18 @@ $drak-primary:#070f40 !default;
                     &:nth-child(n+2) {
                         text-transform: capitalize;
                     }
+                }
+            }
+        }
+    }
+}
+
+.schooltrackrecord-table {
+    .table-striped {
+        tbody {
+            tr {
+                &:nth-of-type(odd) {
+                    background-color: $white;
                 }
             }
         }
@@ -742,7 +765,21 @@ $drak-primary:#070f40 !default;
     width: calc(100% - 105px);
 }
 
-// ****END TEAM TABLE*******
+// ****SELECTED-SPORT-TABLE-CARD********
+.selectedsport-tablecard {
+    padding-top: 20px;
+    box-shadow: 0px 0px 5px $light-grey;
+}
+
+.selectedsport-tablecardcontent {
+    margin: 0px 20px 0px 50px;
+    .schoolprofile-teamsportimg {
+        width: 60px;
+        height: 60px;
+        border-radius: 100%;
+    }
+}
+
 .selectedsport-medaldetails {
     margin: 40px 0px;
     padding: 8px;
@@ -757,18 +794,18 @@ $drak-primary:#070f40 !default;
     }
 }
 
-.schoolprofile-teamsportimg {
-    width: 60px;
-    height: auto;
-}
-
+// ****SELECTED-SPORT-TABLE-CARD-END********
+// ****END TEAM TABLE*******
+// *******SUMMARY TABLE********
 .school-yearsummary {
     margin-top: 20px;
 }
 
 .school-yearsummaryimg {
-    background-image: url("/img/bl-inner.jpg"); // border: 1px solid #000;
-    margin-left: 100px;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-left: 86px;
     .school-yearsummarycontent {
         padding: 10px;
         background-color: rgba(0, 0, 0, 0.7);
@@ -776,7 +813,7 @@ $drak-primary:#070f40 !default;
     }
     .school-yearsummarysportimg {
         width: 60px;
-        height: auto;
+        height: 60px;
         position: absolute;
         top: -19px;
         left: -33px;
@@ -789,7 +826,6 @@ $drak-primary:#070f40 !default;
     }
 }
 
-// *******SUMMARY TABLE********
 .school-yearsummarytable {
     .table>thead>tr>th {
         border-bottom: none;
@@ -812,17 +848,13 @@ $drak-primary:#070f40 !default;
         color: $brand-primary;
         font-weight: 600;
         font-size: 18px;
+        letter-spacing: 2px;
+        @extend .teko;
     }
 }
 
 // ********SUMMARY TABLE END***********
-// ****SELECTED-SPORT-TABLE-CARD********
-.selectedsport-tablecardcontent {
-    margin: 0px 20px 0px 50px;
-}
-
-// ****SELECTED-SPORT-TABLE-CARD-END********
-// end-team
+// END-TEAM
 //  statistics
 .statistics-card,
 .statistics-topperformance {
@@ -838,7 +870,7 @@ $drak-primary:#070f40 !default;
 
 .sportreport-schoolrankcard {
     // border: 1px solid #ddd;
-    box-shadow: 0px 0px 5px #ebebeb;
+    box-shadow: 0px 0px 5px $light-grey;
     padding: 20px;
     text-align: center;
     min-height: 170px;
@@ -859,7 +891,7 @@ $drak-primary:#070f40 !default;
 
 .sportreport-totalathletescard {
     // border: 1px solid #ddd;
-    box-shadow: 0px 0px 5px #ebebeb;
+    box-shadow: 0px 0px 5px $light-grey;
     padding: 20px;
     text-align: center;
 }
@@ -922,7 +954,7 @@ $drak-primary:#070f40 !default;
     }
     .statistics-cardcontent {
         padding: 10px 15px;
-        box-shadow: 0px 0px 5px #ebebeb;
+        box-shadow: 0px 0px 5px $light-grey;
         border-top: none;
     }
     .sportwise-statisticstype {
@@ -969,7 +1001,7 @@ $drak-primary:#070f40 !default;
 
 .statistics-notparticipatehead {
     padding: 20px;
-    box-shadow: 0px 0px 5px #ebebeb;
+    box-shadow: 0px 0px 5px $light-grey;
 }
 
 .sportstatistics-matchdetailtable {
@@ -1067,7 +1099,7 @@ $drak-primary:#070f40 !default;
 }
 
 .statistics-performancemedal {
-    box-shadow: 0px 0px 2px #ebebeb;
+    box-shadow: 0px 0px 2px $light-grey;
     .list-inline>li {
         padding-left: 40px;
     }
@@ -1143,7 +1175,7 @@ $drak-primary:#070f40 !default;
     width: 60%;
     margin-top: 40px;
     margin-left: 100px;
-    box-shadow: 0 0 2px #a0a0a0;
+    box-shadow: 0 0 2px $light-grey;
 }
 
 .schoolcertificate-logo {

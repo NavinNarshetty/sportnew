@@ -1,19 +1,14 @@
 <div class="schoolprofile-team">
   <div class="container">
-    <!--Summary-->
-    <div class="row">
-      <div class="col-md-12 col-sm-12 col-xs-12">
-        <div class="schoolprofile-summaryhead ">
-          <h3 class="color-primary fjalla-one text-uppercase">YEAR-ON-YEAR SUMMARY</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, ipsum sint voluptatum voluptates facilis veritatis
-            ullam esse, totam aliquid eveniet consequuntur. Nostrum possimus nemo vel dolores dolorum molestias officia deserunt.</p>
-        </div>
-
+    <!--SUMMARY SECTION-->
+    <div class="schoolprofile-summarysection">
+      <div class="schoolprofile-summaryhead  titledescription-holder">
+        <h3 class="color-primary fjalla-one text-uppercase">YEAR-ON-YEAR SUMMARY</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, ipsum sint voluptatum voluptates facilis veritatis
+          ullam esse, totam aliquid eveniet consequuntur. Nostrum possimus nemo vel dolores dolorum molestias officia deserunt.</p>
       </div>
-    </div>
-    <div class="row">
+      <!--FLEX-SLIDER-->
       <div class="schoolprofile-tablelist  sfa-flexslider">
-
         <flex-slider flex-slide="n in customCards track by $index" prev-text="" next-text="">
           <li>
             <div>
@@ -21,22 +16,46 @@
                 <div class="school-yearsummaryhead">
                   <div class="school-yearsummaryimg relate">
                     <div class="school-yearsummarycontent">
-                      <p class="m-clear ">Football</p>
+                      <p class="m-clear fjalla-one">Football</p>
                     </div>
                     <div class="school-yearsummarysportimg">
                       <img src="img/8_Football.png" alt="" class="img-responsive">
                     </div>
                   </div>
                 </div>
-                <div class="school-yearsummarytable">
+                <div class="school-yearsummarytable table-responsive">
                   <table class="table">
                     <thead>
                       <th></th>
-                      <th>M</th>
-                      <th>W</th>
-                      <th>L</th>
-                      <th>D</th>
-                      <th>W%</th>
+                      <th>
+                        <div class="">
+                          <p class="m-clear">M</p>
+                        </div>
+                      </th>
+                      <th>
+                        <div class="">
+                          <p class="m-clear">W</p>
+                        </div>
+                      </th>
+                      <th>
+                        <div class="">
+                          <p class="m-clear">
+                            L
+                          </p>
+                        </div>
+                      </th>
+                      <th>
+                        <div class="">
+                          <p class="m-clear">D</p>
+                        </div>
+                      </th>
+                      <th>
+                        <div class="">
+                          <p class="m-clear">
+                            W%
+                          </p>
+                        </div>
+                      </th>
 
                     </thead>
                     <tbody>
@@ -80,79 +99,24 @@
             </div>
           </li>
         </flex-slider>
-
       </div>
+      <!--END-FLEX-SLIDER-->
     </div>
-    <!--End Summary-->
-
-    <!--STATITICS-->
-    <div class="row">
-      <div class="col-md-12 col-sm-12 col-xs-12">
-        <div class="schoolprofile-teamstatitics">
-          <h3 class="text-uppercase color-primary fjalla-one">DETAILED TEAM STATITICS</h3>
-          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit ullam sapiente rerum laboriosam et eius ut repellat,
-            minus voluptatem enim modi beatae minima atque, dolores maiores perspiciatis ipsam! Saepe, iure?</p>
-          <div class="schoolprofile-teamfilter">
-            <ul class="list-inline">
-              <li>
-                <p>View by year</p>
-              </li>
-              <li>
-                <div class="dropdown">
-                  <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Tutorials
-              <span class="caret"></span></button>
-                  <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">CSS</a></li>
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">JavaScript</a></li>
-                  </ul>
-                </div>
-              </li>
-            </ul>
-
-          </div>
-        </div>
+    <!--END SUMMARY-->
 
 
-      </div>
-    </div>
-    <!--End-STATITICS-->
-
-    <div class="">
-      <p class="m-clear team-currentyear">2017</p>
-    </div>
-
-    <!--cards-list-->
-    <div class="row">
-      <div class="">
-        <div class="schoolprofile-teamsportlist" ng-repeat="s in teamCards track by $index">
-          <sport-card></sport-card>
-
-        </div>
-      </div>
-
-    </div>
-    <!--end cardlist-->
-
-    <!--selected sport with table-->
-    <div class="row">
-      <div class="selectedsport-tablecard">
-        <div class="schoolprofile-selectsporthead">
-          <h3 class="text-uppercase color-primary fjalla-one">Basketball</h3>
+    <!--DETAIL SECTION -->
+    <div class="schoolprofile-detailstatisticssection">
+      <!--STATITICS SECTION-->
+      <div class="schoolprofile-teamstatitics titledescription-holder">
+        <h3 class="text-uppercase color-primary fjalla-one">DETAILED TEAM STATITICS</h3>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit ullam sapiente rerum laboriosam et eius ut repellat,
+          minus voluptatem enim modi beatae minima atque, dolores maiores perspiciatis ipsam! Saepe, iure?</p>
+        <div class="schoolprofile-teamfilter">
           <ul class="list-inline">
-            <li>Gender</li>
             <li>
-              <div class="dropdown">
-                <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Tutorials
-              <span class="caret"></span></button>
-                <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">CSS</a></li>
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">JavaScript</a></li>
-                </ul>
-              </div>
+              <p>View by year</p>
             </li>
-            <li>Age category</li>
             <li>
               <div class="dropdown">
                 <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Tutorials
@@ -166,8 +130,59 @@
             </li>
           </ul>
         </div>
+      </div>
+      <!--END-STATITICS-SECTION->
 
+      <!--YEAR-->
+      <div class="team-currentyear">
+        <p class="m-clear ">2017</p>
+      </div>
+      <!--YEAR-->
 
+      <!--cards-list-->
+      <div class="schoolprofile-teamsportlistcard">
+        <div class="schoolprofile-teamsportlist" ng-repeat="s in teamCards track by $index">
+          <sport-card></sport-card>
+        </div>
+      </div>
+      <!--end cardlist-->
+
+    </div>
+    <!--END DETAIL SECTION-->
+
+    <!--SPORT TABLE SECTION-->
+    <div class="schoolteam-tablesection">
+      <!--SELECTED SPORT TABLE-->
+      <div class="schoolprofile-selectsporthead">
+        <h3 class="text-uppercase color-primary fjalla-one">Basketball</h3>
+        <ul class="list-inline">
+          <li>Gender</li>
+          <li>
+            <div class="dropdown">
+              <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Tutorials
+              <span class="caret"></span></button>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">CSS</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">JavaScript</a></li>
+              </ul>
+            </div>
+          </li>
+          <li>Age category</li>
+          <li>
+            <div class="dropdown">
+              <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Tutorials
+              <span class="caret"></span></button>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">CSS</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">JavaScript</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="selectedsport-tablecard">
         <div class="selectedsport-tablecardcontent">
           <div class="schoolprofile-teamsportdetails">
             <p><span>Boys</span> | <span>U-8</span> | <span>MT 1113</span></p>
@@ -195,7 +210,7 @@
 
             </div>
             <!--table-->
-            <div class="schoolprofile-teamsporttable">
+            <div class="schoolprofile-teamsporttable table-responsive">
               <table class=" table table-striped">
                 <thead>
                   <tr class="bg-blue text-uppercase">
@@ -289,8 +304,8 @@
                 </tbody>
               </table>
             </div>
+            <!--End table-->
           </div>
-          <!--End table-->
         </div>
         <div class="selcetedsport-tablecardfooter">
           <div class="selectedsport-medaldetails">
@@ -302,8 +317,8 @@
               </li>
               <li class="v-mid">
                 <div class="">
-                  <div class="inline-block v-top">
-                    <img src="img/sf-gold-sec.png" alt="">
+                  <div class="inline-block v-top profile-bluemedals">
+                    <img ng-src="{{'gold' | medalicon:'white'}}" alt="" class="img-responsive">
                   </div>
                   <div class="inline-block winingschool-width">
                     <p class="m-clear">Dr. Sarvepalli Radhakrishnan Hindi School (Andheri)</p>
@@ -313,8 +328,8 @@
               </li>
               <li class="v-mid">
                 <div class="">
-                  <div class="inline-block v-top">
-                    <img src="img/sf-gold-sec.png" alt="">
+                  <div class="inline-block v-top profile-bluemedals">
+                    <img ng-src="{{'silver' | medalicon:'white'}}" alt="" class="img-responsive">
                   </div>
                   <div class="inline-block winingschool-width">
                     <p class="m-clear">Dr. Sarvepalli Radhakrishnan Hindi School (Andheri)</p>
@@ -324,8 +339,8 @@
               </li>
               <li class="v-mid">
                 <div class="">
-                  <div class="inline-block v-top">
-                    <img src="img/sf-gold-sec.png" alt="">
+                  <div class="inline-block v-top profile-bluemedals">
+                    <img ng-src="{{'bronze' | medalicon:'white'}}" alt="" class="img-responsive">
                   </div>
                   <div class="inline-block winingschool-width">
                     <p class="m-clear">Dr. Sarvepalli Radhakrishnan Hindi School (Andheri)</p>
@@ -336,7 +351,8 @@
           </div>
         </div>
       </div>
+      <!--END SELECTED SPORT TABLE-->
     </div>
-    <!--end selected sport with table-->
+    <!--END SPORT TABLE SECTION-->
   </div>
 </div>

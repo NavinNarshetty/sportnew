@@ -249,7 +249,7 @@ myApp.controller('AthleteProfileCtrl', function ($scope, $state, $stateParams, T
         schoolname: 'Jamnabai Narsee International School',
         score: '30-22',
         result: 'Won',
-        videotext: 'You can also watch match highlights'
+        videotext: 'match highlights'
 
     }, {
         round: 'Leauge match',

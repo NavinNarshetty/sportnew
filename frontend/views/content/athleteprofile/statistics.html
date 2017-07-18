@@ -143,42 +143,136 @@
                   <table class="table table-striped">
                     <thead>
                       <tr class="text-uppercase">
+                        <!-- ROUND TH -->
                         <th>
                           <div class="schoolprofileteam-head">
-                            Rank
+                            Round
                           </div>
                         </th>
-                        <th></th>
+                        <!-- ROUND TH END -->
+                        <!-- ATTEMPT TH END -->
+                        <th class="hide" ng-show="">
+                          <div class="schoolprofileteam-head">
+                            Attempt
+                          </div>
+                        </th>
+                        <!-- ATTEMPT TH END -->
+                        <!-- EMPTY TH FOR VS VALUE -->
+                        <th>
+                          <div class="opponentvs-holder"></div>
+                        </th>
+                        <!-- EMPTY TH FOR VS VALUE END -->
+                        <!-- OPPONENT TH  -->
                         <th>
                           <div class="schoolprofileteam-head">
                             Opponent
                           </div>
                         </th>
+                        <!-- OPPONENT TH END -->
+                        <!-- SCORE TH -->
                         <th>
                           <div class="schoolprofileteam-head">
                             score
                           </div>
                         </th>
+                        <!-- SCORE TH END -->
+                        <!-- TOP SCORE TH -->
+                        <th class="hide" ng-show="">
+                          <div class="schoolprofileteam-head">
+                            TOP score
+                          </div>
+                        </th>
+                        <!-- TOP SCORE TH  END  -->
+                        <!-- time TH  -->
+                        <th class="hide" ng-show="">
+                          <div class="schoolprofileteam-head">
+                            time
+                          </div>
+                        </th>
+                        <!-- time TH  END  -->
+                        <!-- best time TH  -->
+                        <th class="hide" ng-show="">
+                          <div class="schoolprofileteam-head">
+                            best time
+                          </div>
+                        </th>
+                        <!-- best time TH  END  -->
+                        <!-- DISTANCE TH-->
+                        <th class="hide" ng-show="">
+                          <div class="schoolprofileteam-head">
+                            distance
+                          </div>
+                        </th>
+                        <!-- DISTANCE TH END -->
+                        <!-- BEST DISTANCE TH-->
+                        <th class="hide" ng-show="">
+                          <div class="schoolprofileteam-head">
+                            best distance
+                          </div>
+                        </th>
+                        <!-- BEST DISTANCE TH END -->
+                        <!-- HEIGHT TH -->
+                        <th class="hide" ng-show="">
+                          <div class="schoolprofileteam-head">
+                            height
+                          </div>
+                        </th>
+                        <!-- HEIGHT TH END -->
+                        <!-- NO OF JUMPS TH -->
+                        <th class="hide" ng-show="">
+                          <div class="schoolprofileteam-head">
+                            No. of jumps
+                          </div>
+                        </th>
+                        <!-- NO OF JUMPS TH END -->
+                        <!-- POINTS TH -->
+                        <th class="hide" ng-show="">
+                          <div class="schoolprofileteam-head">
+                            Point
+                          </div>
+                        </th>
+                        <!-- POINTS TH END -->
+                        <!-- RESULT TH -->
                         <th>
                           <div class="schoolprofileteam-head">
                             Result
                           </div>
                         </th>
+                        <!-- RESULT TH END -->
+                        <!-- POSITION TH -->
+                        <th class="hide" ng-show="">
+                          <div class="schoolprofileteam-head hide">
+                            Position
+                          </div>
+                        </th>
+                        <!-- POSITION TH eND -->
+                        <!-- VIDEO TH -->
                         <th>
                           <div class="schoolprofileteam-head">
                             video
                           </div>
                         </th>
+                        <!-- VIDEO TH eND -->
                       </tr>
                     </thead>
                     <tbody>
                       <tr ng-repeat="item in selectedsportTable track by $index">
+                        <!-- ROUND TD -->
                         <td>
                           <div class="">{{item.round}}</div>
                         </td>
+                        <!-- ROUND TD  END-->
+                        <!-- ATTEMPT TD -->
+                        <td class="hide">
+                          <div class="">1111</div>
+                        </td>
+                        <!-- ATTEMPT TD  END-->
+                        <!-- VS TD -->
                         <td>
                           <div>vs</div>
                         </td>
+                        <!-- VS TD END-->
+                        <!-- OPPONENT TD -->
                         <td>
                           <div class="inline-block schoolprofile-teamsportimg v-mid ">
                             <img src="img/oldSfa/icon/2.png" alt="" class="img-responsive">
@@ -187,9 +281,53 @@
                             <p class="m-clear">{{item.schoolname}}</p>
                           </div>
                         </td>
+                        <!-- OPPONENT END -->
+                        <!-- SCORE TD -->
                         <td>
                           <div class="">{{item.score}}</div>
                         </td>
+                        <!-- SCORE TD END -->
+                        <!-- TOP SCORE TD -->
+                        <td class="hide">
+                          <div class="">{{item.score}}</div>
+                        </td>
+                        <!-- TOP SCORE TD END -->
+                        <!-- YOUR TIME TD -->
+                        <td>
+                          <div class="">{{item.score}}</div>
+                        </td>
+                        <!-- YOUR TIME TD END -->
+                        <!-- BEST TIME TD -->
+                        <td class="hide">
+                          <div class="">{{item.score}}</div>
+                        </td>
+                        <!-- BEST TIME TD END -->
+                        <!-- DISTANCE TD -->
+                        <td class="hide">
+                          <div class="">{{item.score}}</div>
+                        </td>
+                        <!-- DISTANCE TD END -->
+                        <!-- BEST DISTANCE TD -->
+                        <td class="hide">
+                          <div class="">{{item.score}}</div>
+                        </td>
+                        <!-- BEST DISTANCE TD END -->
+                        <!-- HEIGHT TD -->
+                        <td class="hide">
+                          <div class="">{{item.score}}</div>
+                        </td>
+                        <!-- HEIGHT TD END -->
+                        <!-- NO OF JUMP TD -->
+                        <td class="hide">
+                          <div class="">{{item.score}}</div>
+                        </td>
+                        <!--  NO OF JUMP TD END -->
+                        <!-- POINT TD -->
+                        <td>
+                          <div class="">{{item.score}}</div>
+                        </td>
+                        <!--  POINT TD END -->
+                        <!-- RESULT TD -->
                         <td>
                           <div class="text-center">
                             <p class="m-clear">{{item.result}}</p>
@@ -198,6 +336,12 @@
                             </div>
                           </div>
                         </td>
+                        <!-- RESULT TD END -->
+                        <!-- POSITION TD -->
+                        <td class="hide">
+                          <div class="">point</div>
+                        </td>
+                        <!-- POSITION TD  END-->
                         <td>
                           <div class="inline-block v-mid">
                             <div class="videotableteam-imgholder relate">
@@ -208,7 +352,9 @@
                             </div>
                           </div>
                           <div class="inline-block v-mid schoolprofile-teamvideos">
-                            <p>{{item.videotext}} </p>
+                            <p class="m-clear">You can also watch</p>
+                            <a class="display-block ">Match highlights </a>
+                            <a class="display-block ">Analyzed videos</a>
                           </div>
                         </td>
                       </tr>

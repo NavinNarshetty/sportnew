@@ -270,18 +270,9 @@ myApp.controller('SchoolProfileCtrl', function ($scope, $state, $stateParams, Te
             '/img/day-04.png',
             '/img/oldSfa/bg-draw.jpg'
         ]
-    }, {
-        gender: 'Boys',
-        agegroup: 'U-10',
-        event: '100M',
-        img: ['/img/day-03.png',
-            '/img/day-04.png',
-            '/img/oldSfa/bg-draw.jpg',
-            '/img/day-03.png',
-            '/img/day-04.png',
-            '/img/oldSfa/bg-draw.jpg'
-        ]
     }];
+
+    $scope.ySlides = [1, 2, 3];
 
     $scope.mySlides = [
         '/img/day-03.png',

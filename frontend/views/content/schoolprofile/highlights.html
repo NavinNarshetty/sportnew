@@ -1,285 +1,267 @@
 <div class="schoolprofile-highlight">
-  <div class="">
+  <div class="container">
     <!--TABS-->
-    <div class="container">
-      <div class="row">
-        <!--TAB-1-->
-        <div class="col-md-4 col-sm-6 col-xs-12">
-          <div class="schoolchampions">
-            <div class="schoolchampions-head cardheader-green text-uppercase">
-              <p class="m-clear schoolhighlight-title ">SFA Championship 2017</p>
+    <div class="row">
+      <!--TAB-1-->
+      <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="schoolchampions">
+          <div class="schoolchampions-head cardheader-green text-uppercase">
+            <p class="m-clear schoolhighlight-title ">SFA Championship 2017</p>
+          </div>
+          <div class="schoolchampions-content">
+            <div class="trophyrank-content">
+              <div class="inline-block v-top">
+                <div class="schooltrophy-image">
+                  <img src="img/trophy-small.png" class="img-responsive">
+                </div>
+              </div>
+              <div class="inline-block v-top">
+                <div class="">
+                  <p class="m-clear schoolchampions-rankhead text-uppercase">School Rank</p>
+                  <p class="m-clear schoolchampions-schoolrank"> <span class="yourrank">19</span> <span class="slashtotal">/652</span></p>
+                </div>
+              </div>
             </div>
-            <div class="schoolchampions-content">
-              <div class="trophyrank-content">
-                <div class="inline-block v-top">
-                  <div class="schooltrophy-image">
-                    <img src="img/trophy-small.png" class="img-responsive">
+            <div class="">
+              <ul class="list-inline">
+                <li>
+                  <div class="inline-block">
+                    <div class="schoolchampions-medalimage">
+                      <img ng-src="{{'Gold'|medalicon:'blue'}}" class="img-responsive">
+                    </div>
                   </div>
-                </div>
-                <div class="inline-block v-top">
-                  <div class="">
-                    <p class="m-clear schoolchampions-rankhead text-uppercase">School Rank</p>
-                    <p class="m-clear schoolchampions-schoolrank"> <span class="yourrank">19</span> <span class="slashtotal">/652</span></p>
+                  <div class="inline-block lh1">
+                    <p class="m-clear color-primary">999 </p>
+                    <p class="m-clear">Gold</p>
                   </div>
-                </div>
-              </div>
-              <div class="">
-                <ul class="list-inline">
-                  <li>
-                    <div class="inline-block">
-                      <div class="schoolchampions-medalimage">
-                        <img ng-src="{{'Gold'|medalicon:'blue'}}" class="img-responsive">
-                      </div>
+                </li>
+                <li>
+                  <div class="inline-block">
+                    <div class="schoolchampions-medalimage">
+                      <img ng-src="{{'Silver'|medalicon:'blue'}}" class="img-responsive">
                     </div>
-                    <div class="inline-block lh1">
-                      <p class="m-clear color-primary">999 </p>
-                      <p class="m-clear">Gold</p>
+                  </div>
+                  <div class="inline-block lh1">
+                    <p class="m-clear color-primary">999 </p>
+                    <p class="m-clear">Silver</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="inline-block">
+                    <div class="schoolchampions-medalimage">
+                      <img ng-src="{{'bronze'|medalicon:'blue'}}" class="img-responsive">
+                    </div>
+                  </div>
+                  <div class="inline-block lh1">
+                    <p class="m-clear color-primary">999 </p>
+                    <p class="m-clear">Bronze</p>
+                  </div>
+                </li>
+
+              </ul>
+            </div>
+
+
+          </div>
+        </div>
+
+      </div>
+      <!--END-TAB1-->
+      <!--TAB-2-->
+      <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="performance">
+          <div class="performance-head cardheader-green text-uppercase">
+            <p class="m-clear text-center schoolhighlight-title">Top Performing School</p>
+          </div>
+          <school-profile-card></school-profile-card>
+        </div>
+      </div>
+      <!--END-TAB-2-->
+
+      <!--TAB-3-->
+      <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="imagegallery">
+          <div class="imagegallery-head cardheader-green text-center text-uppercase">
+            <p class="m-clear schoolhighlight-title">Image gallery</p>
+          </div>
+          <div class="imagegallery-content">
+            <div class="imagegallery-picholder">
+              <div class="imagegallery-pic sfa-flexslider">
+                <!--<img src="img/bl-inner.jpg" class="img-responsive">-->
+                <flex-slider flex-slide="s in mySlides track by $index" prev-text="" next-text="" control-nav="false" slideshow="true" slideshow-speed="2500">
+                  <li>
+                    <div class="flex-customimage relate">
+
+                      <img ng-src="{{s}}" class="img-responsive get-center">
                     </div>
                   </li>
-                  <li>
-                    <div class="inline-block">
-                      <div class="schoolchampions-medalimage">
-                        <img ng-src="{{'Silver'|medalicon:'blue'}}" class="img-responsive">
-                      </div>
-                    </div>
-                    <div class="inline-block lh1">
-                      <p class="m-clear color-primary">999 </p>
-                      <p class="m-clear">Silver</p>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="inline-block">
-                      <div class="schoolchampions-medalimage">
-                        <img ng-src="{{'bronze'|medalicon:'blue'}}" class="img-responsive">
-                      </div>
-                    </div>
-                    <div class="inline-block lh1">
-                      <p class="m-clear color-primary">999 </p>
-                      <p class="m-clear">Bronze</p>
-                    </div>
-                  </li>
-
-                </ul>
-              </div>
-
-
-            </div>
-          </div>
-
-        </div>
-        <!--END-TAB1-->
-        <!--TAB-2-->
-        <div class="col-md-4 col-sm-6 col-xs-12">
-          <div class="performance">
-            <div class="performance-head cardheader-green text-uppercase">
-              <p class="m-clear text-center schoolhighlight-title">Top Performing School</p>
-            </div>
-            <school-profile-card></school-profile-card>
-          </div>
-        </div>
-        <!--END-TAB-2-->
-
-        <!--TAB-3-->
-        <div class="col-md-4 col-sm-6 col-xs-12">
-          <div class="imagegallery">
-            <div class="imagegallery-head cardheader-green text-center text-uppercase">
-              <p class="m-clear schoolhighlight-title">Image gallery</p>
-            </div>
-            <div class="imagegallery-content">
-              <div class="imagegallery-picholder">
-                <div class="imagegallery-pic sfa-flexslider">
-                  <!--<img src="img/bl-inner.jpg" class="img-responsive">-->
-                  <flex-slider flex-slide="s in mySlides track by $index" prev-text="" next-text="" control-nav="false" slideshow="true" slideshow-speed="2500">
-                    <li>
-                      <div class="flex-customimage relate">
-
-                        <img ng-src="{{s}}" class="img-responsive get-center">
-                      </div>
-                    </li>
-                  </flex-slider>
-                </div>
+                </flex-slider>
               </div>
             </div>
           </div>
         </div>
-        <!--END-TAB-3-->
       </div>
-      <!--END-TABS-->
-
-
-      <!--Ad-Space-->
-      <div class="schoolhighlight-adspace">
-        <div class="row">
-          <div class="highlight-adspace relate">
-            <h1 class="get-center m-clear">
-              AD SPACE
-            </h1>
-          </div>
-        </div>
-      </div>
-
-      <!--End-adspace-->
-
-      <!--school-->
-      <div class="performteam-school">
-        <div class="row">
-          <div class="titledescription-holder">
-            <div class="performteamschool-head">
-              <h3 class="color-primary fjalla-one">
-                TOP PERFORMING TEAMS FROM YOUR SCHOOL
-              </h3>
-            </div>
-            <div class="performteam-content">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque reiciendis odit quia, eligendi voluptas ipsum
-                sunt aliquid id cupiditate inventore beatae! Ut deserunt ad est laborum eveniet, quae culpa aut?</p>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="performteam-slider highlightschool-slider sfa-flexslider">
-            <flex-slider flex-slide="s in customCards track by $index" prev-text="" next-text="">
-              <li>
-                <team-card></team-card>
-              </li>
-            </flex-slider>
-          </div>
-        </div>
-      </div>
-      <!--end-school-->
-
-
-
-      <!--Athlete-->
-      <div class="performance-athlete">
-        <div class="row">
-          <div class="titledescription-holder">
-            <div class="performanceathlete-head">
-              <h3 class="color-primary fjalla-one">
-                TOP PERFORMING ATHLETES FROM YOUR SCHOOL
-              </h3>
-            </div>
-            <div class="performathlete-content">
-              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dignissimos ut facere natus beatae reiciendis fuga
-                excepturi consequatur necessitatibus, officia quaerat neque, accusantium adipisci, assumenda et nemo incidunt
-                corporis illum omnis!</p>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="performanceathlete-slider  sfa-flexslider">
-            <flex-slider flex-slide="n in customCards track by $index" prev-text="" next-text="">
-              <li>
-                <profile-athlete-card></profile-athlete-card>
-              </li>
-            </flex-slider>
-          </div>
-        </div>
-
-      </div>
-      <!--end-Athlete-->
-
-
-
-      <!--schooltable-->
-      <div class="schoolrank-table">
-        <div class="row">
-          <div class="schoolranktable-head">
-            <h3 class="text-uppercase color-primary fjalla-one">
-              School Rank table
-            </h3>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-7 col-sm-12 col-xs-12">
-            <div class="schooltable-image">
-              <div class="schooltable-holder">
-                <div class="schooltable-content table-responsive">
-                  <table class=" table ">
-                    <thead>
-                      <tr class="bag-blue">
-                        <th>
-                          <div class="schooltable-head">
-                            Rank
-                          </div>
-                        </th>
-                        <th>
-                          <div class="schooltable-head">
-                            School Name
-                          </div>
-                        </th>
-                        <th>
-                          <div class="table-medalimage">
-                            <div class="profile-bluemedals">
-
-                              <img ng-src="{{'gold' |medalicon:'white'}}" alt="" class="img-responsive">
-                            </div>
-                            <p class="schoolmedal-points m-clear">5 points</p>
-                          </div>
-                        </th>
-                        <th>
-                          <div class="table-medalimage">
-                            <div class="profile-bluemedals">
-                              <img ng-src="{{'silver' | medalicon:'white'}}" alt="" class="img-responsive">
-                            </div>
-                            <p class="schoolmedal-points m-clear">3 points</p>
-                          </div>
-                        </th>
-                        <th>
-                          <div class="table-medalimage">
-                            <div class="profile-bluemedals">
-                              <img ng-src="{{'bronze' | medalicon:'white'}}" alt="" class="img-responsive">
-                            </div>
-                            <p class="schoolmedal-points m-clear">2 points</p>
-                          </div>
-                        </th>
-                        <th>
-                          <div class="schooltable-head">Points</div>
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr ng-repeat="item in schoolRankTable track by $index">
-                        <td>{{$index+1}}</td>
-                        <td>{{item.name}}</td>
-                        <td>{{item.gold}} </td>
-                        <td>{{item.silver}} </td>
-                        <td>{{item.bronze}} </td>
-                        <td>{{item.points}} </td>
-                      </tr>
-
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-
-            </div>
-          </div>
-          <div class="col-md-5 col-sm-12 col-xs-12">
-            <div class="side-adspace relate">
-              <h2 class="get-center m-clear">SIDE AD SPACE</h2>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!--end school-table-->
-
-      <!--School-videos-->
-      <div class="school-videos">
-        <div class="row">
-          <div class="schoolvideos-head text-uppercase">
-            <h3 class="color-primary fjalla-one">Your Match Videos</h3>
-          </div>
-        </div>
-        <div class="schoolvideos-content inline-block" ng-repeat="s in videos track by $index| limitTo:5">
-          <video-card></video-card>
-        </div>
-        <div class="schoolhighlights-videomore">
-          <button class="btn btn-blue-outline">View All</button>
-        </div>
-      </div>
-      <!--End-schoolvideos-->
+      <!--END-TAB-3-->
     </div>
+    <!--END-TABS-->
 
+
+    <!--AD SPACE-->
+    <div class="schoolhighlight-adspace">
+      <div class="highlight-adspace relate">
+        <h1 class="get-center m-clear">
+          AD SPACE
+        </h1>
+      </div>
+    </div>
+    <!--END AD SPACE-->
+
+    <!--SCHOOL SECTION-->
+    <div class="performteam-school">
+      <div class="titledescription-holder">
+        <div class="performteamschool-head">
+          <h3 class="color-primary fjalla-one">
+            TOP PERFORMING TEAMS FROM YOUR SCHOOL
+          </h3>
+        </div>
+        <div class="performteam-content">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque reiciendis odit quia, eligendi voluptas ipsum sunt
+            aliquid id cupiditate inventore beatae! Ut deserunt ad est laborum eveniet, quae culpa aut?</p>
+        </div>
+      </div>
+      <div class="performteam-slider highlightschool-slider sfa-flexslider">
+        <flex-slider flex-slide="s in customCards track by $index" prev-text="" next-text="">
+          <li>
+            <team-card></team-card>
+          </li>
+        </flex-slider>
+      </div>
+    </div>
+    <!--END SCHOOL SECTION-->
+
+
+
+    <!--ATHLETE-->
+    <div class="performance-athlete">
+      <div class="titledescription-holder">
+        <div class="performanceathlete-head">
+          <h3 class="color-primary fjalla-one">
+            TOP PERFORMING ATHLETES FROM YOUR SCHOOL
+          </h3>
+        </div>
+        <div class="performathlete-content">
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dignissimos ut facere natus beatae reiciendis fuga excepturi
+            consequatur necessitatibus, officia quaerat neque, accusantium adipisci, assumenda et nemo incidunt corporis
+            illum omnis!</p>
+        </div>
+      </div>
+      <div class="performanceathlete-slider  sfa-flexslider">
+        <flex-slider flex-slide="n in customCards track by $index" prev-text="" next-text="">
+          <li>
+            <profile-athlete-card></profile-athlete-card>
+          </li>
+        </flex-slider>
+      </div>
+    </div>
+    <!--END ATHLETE-->
+
+
+
+    <!--SCHOOL TABLE-->
+    <div class="schoolrank-table">
+      <div class="schoolranktable-head">
+        <h3 class="text-uppercase color-primary fjalla-one">
+          School Rank table
+        </h3>
+      </div>
+      <div class="row">
+        <div class="col-md-7 col-sm-12 col-xs-12">
+          <div class="schooltable-image">
+            <div class="schooltable-holder">
+              <div class="schooltable-content table-responsive">
+                <table class=" table ">
+                  <thead>
+                    <tr class="bag-blue">
+                      <th>
+                        <div class="schooltable-head">
+                          Rank
+                        </div>
+                      </th>
+                      <th>
+                        <div class="schooltable-head">
+                          School Name
+                        </div>
+                      </th>
+                      <th>
+                        <div class="table-medalimage">
+                          <div class="profile-bluemedals">
+
+                            <img ng-src="{{'gold' |medalicon:'white'}}" alt="" class="img-responsive">
+                          </div>
+                          <p class="schoolmedal-points m-clear">5 points</p>
+                        </div>
+                      </th>
+                      <th>
+                        <div class="table-medalimage">
+                          <div class="profile-bluemedals">
+                            <img ng-src="{{'silver' | medalicon:'white'}}" alt="" class="img-responsive">
+                          </div>
+                          <p class="schoolmedal-points m-clear">3 points</p>
+                        </div>
+                      </th>
+                      <th>
+                        <div class="table-medalimage">
+                          <div class="profile-bluemedals">
+                            <img ng-src="{{'bronze' | medalicon:'white'}}" alt="" class="img-responsive">
+                          </div>
+                          <p class="schoolmedal-points m-clear">2 points</p>
+                        </div>
+                      </th>
+                      <th>
+                        <div class="schooltable-head">Points</div>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr ng-repeat="item in schoolRankTable track by $index">
+                      <td>{{$index+1}}</td>
+                      <td>{{item.name}}</td>
+                      <td>{{item.gold}} </td>
+                      <td>{{item.silver}} </td>
+                      <td>{{item.bronze}} </td>
+                      <td>{{item.points}} </td>
+                    </tr>
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="col-md-5 col-sm-12 col-xs-12">
+          <div class="side-adspace relate">
+            <h2 class="get-center m-clear">SIDE AD SPACE</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--END SCHOOL TABLE-->
+
+    <!--SCHOOL VIDEOS-->
+    <div class="school-videos">
+      <div class="row">
+        <div class="schoolvideos-head text-uppercase">
+          <h3 class="color-primary fjalla-one">Your Match Videos</h3>
+        </div>
+      </div>
+      <div class="schoolvideos-content inline-block" ng-repeat="s in videos track by $index| limitTo:5">
+        <video-card></video-card>
+      </div>
+      <div class="schoolhighlights-videomore">
+        <button class="btn btn-blue-outline">View All</button>
+      </div>
+    </div>
+    <!--END SCHOOL VIEDOS-->
   </div>
-</div>
 </div>

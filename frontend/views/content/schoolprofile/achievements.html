@@ -185,24 +185,72 @@
     <!--ACCORDIAN-->
     <div class="schoolachievements-accordianholder">
       <uib-accordion close-others="oneAtATime">
-        <div uib-accordion-group class="panel-default" is-open="s.open" ng-repeat="s in myAccord track by $index">
-          <uib-accordion-heading class="clearfix">
-            <i class="pull-right fa" ng-class="{'fa-minus': s.open, 'fa-plus': !s.open}"></i>
-            <ul class="list-inline">
-              <li>
-                <div class="schoolachievements-accordiansport">
-                  <h4 class="m-clear fjalla-one color-primary">{{s.sport}}</h4>
-                </div>
-              </li>
-            </ul>
+        <div uib-accordion-group class="panel-default relate" is-open="s.open" ng-repeat="s in myAccord track by $index">
+          <uib-accordion-heading>
+            <i class="pull-right fa mt5" ng-class="{'fa-minus': s.open, 'fa-plus': !s.open}"></i>
+            <div class="schoolachievements-accordiancontent">
+              <div class="pull-left pd5">
+                <h4 class="m-clear fjalla-one color-primary">{{s.sport}}</h4>
+              </div>
+              <div class="pull-right pd5">
+                <p class="m-clear">Rank <span>{{s.rank}}</span></p>
+              </div>
+              <div class="schoolachivements-accordianmedals">
+                <ul class="list-inline m-clear">
+                  <li>
+                    <div class="inline-block  schoolprofile-accordianmedals">
+
+                      <img ng-src="{{'gold' | medalicon:'blue'}}" alt="" class="img-responsive">
+                    </div>
+                    <div class="inline-block ">
+                      <span class="color-warning ">999</span>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="inline-block  schoolprofile-accordianmedals">
+
+                      <img ng-src="{{'silver' | medalicon:'blue'}}" alt="" class="img-responsive">
+                    </div>
+                    <div class="inline-block">
+                      <span class="color-warning ">999</span>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="inline-block  schoolprofile-accordianmedals">
+
+                      <img ng-src="{{'bronze' | medalicon:'blue'}}" alt="" class="img-responsive">
+                    </div>
+                    <div class="inline-block">
+                      <span class="color-warning ">999</span>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="schoolachievements-accordianimg absolute">
+              <img ng-src="{{'water polo' | sporticon:'icon'}}" alt="" class="img-responsive">
+            </div>
           </uib-accordion-heading>
-          <div class="">
+          <!--<div class="row">
             <div class="col-md-4 col-sm-6 col-xs-12" ng-repeat="n in s.img track by $index">
               <div class="trackrecord-athletelistcard">
 
                 <profile-athlete-card></profile-athlete-card>
               </div>
             </div>
+          </div>-->
+          <div class="inner-accord">
+            <uib-accordion close-others="oneAtATime">
+              <div uib-accordion-group class="panel-default" heading="Static Header, initially expanded" is-open="q.open" ng-repeat="q in  myAccord track by $index">
+                <uib-accordion-heading>
+                  Custom template with custom header template
+                </uib-accordion-heading>
+                <div class="inner-accord">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+                    dolore magna aliqua. Ut enim ad minim veniam, quis </p>
+                </div>
+              </div>
+            </uib-accordion>
           </div>
 
         </div>

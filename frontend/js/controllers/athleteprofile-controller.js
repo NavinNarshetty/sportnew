@@ -170,7 +170,6 @@ myApp.controller('AthleteProfileCtrl', function ($scope, $state, $stateParams, T
     ];
     $scope.showTeam = false;
     $scope.showTeamClass = "";
-      console.log($scope.showTeam,$scope.showTeamClass,"when init");
     $scope.viewTeamSlider = function(){
       if($scope.showTeam == true){
         $scope.showTeam = false;
@@ -179,7 +178,6 @@ myApp.controller('AthleteProfileCtrl', function ($scope, $state, $stateParams, T
           class: "",
           click: ""
         }
-        console.log($scope.showTeam,$scope.showTeamClass,"when true");
       }else{
         $scope.showTeam = true;
         $scope.showTeamClass = "viewteam-slidershow";
@@ -241,7 +239,7 @@ myApp.controller('AthleteProfileCtrl', function ($scope, $state, $stateParams, T
             directionNav: true,
             prevText: "",
             nextText: "",
-            itemWidth: 380,
+            itemWidth: 370,
             itemMargin: 10
         });
     }, 100);

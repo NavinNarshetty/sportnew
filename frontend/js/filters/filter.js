@@ -46,102 +46,132 @@ myApp.filter('truncate', function () {
 
 // FILTER FOR SPORT ICON AND HEADER IMG
 myApp.filter('sporticon', function(){
-  return function(input){
-    var input = input;
+  return function(input, type){
+    var input = input.toLowerCase();
+    var type = type.toLowerCase();
     var iconImg = "";
     var headerImg = "";
     // Switch the sport types to get the icons
     switch(input){
-      case "Handball":
-        iconImg = "img/sporticon/1_Handball.png";
+      case "handball":
+        iconImg = "img/sporticon/handball.png";
+        headerImg = "img/sporticon/handball-" + type + ".jpg";
       break;
-      case "Basketball":
-        iconImg = "img/sporticon/2_Basketball.png";
+      case "basketball":
+        iconImg = "img/sporticon/basketball.png";
+        headerImg = "img/sporticon/basketball-" + type + ".jpg";
       break;
-      case "Volleyball":
-        iconImg = "img/sporticon/3_Volleyball.png";
+      case "volleyball":
+        iconImg = "img/sporticon/volleyball.png";
+        headerImg = "img/sporticon/volleyball-" + type + ".jpg";
       break;
-      case "Throwball":
-        iconImg = "img/sporticon/4_Throwball.png";
+      case "throwball":
+        iconImg = "img/sporticon/throwball.png";
+        headerImg = "img/sporticon/throwball-" + type + ".jpg";
       break;
-      case "Hockey":
-        iconImg = "img/sporticon/5_Hockey.png";
+      case "hockey":
+        iconImg = "img/sporticon/hockey.png";
+        headerImg = "img/sporticon/hockey-" + type + ".jpg";
       break;
-      case "Kabaddi":
-        iconImg = "img/sporticon/6_Kabaddi.png";
+      case "kabaddi":
+        iconImg = "img/sporticon/kabaddi.png";
+        headerImg = "img/sporticon/kabaddi-" + type + ".jpg";
       break;
-      case "Football":
-        iconImg = "img/sporticon/7_Football.png";
+      case "football":
+        iconImg = "img/sporticon/football.png";
+        headerImg = "img/sporticon/football-" + type + ".jpg";
       break;
-      case "Badminton":
-      case "Badminton Doubles":
-        iconImg = "img/sporticon/8_Badminton.png";
+      case "badminton":
+      case "badminton doubles":
+        iconImg = "img/sporticon/badminton.png";
+        headerImg = "img/sporticon/badminton-" + type + ".jpg";
       break;
-      case "Tennis":
-      case "Tennis Doubles":
-      case "Tennis Mixed Doubles":
-        iconImg = "img/sporticon/9_Tennis.png";
+      case "tennis":
+      case "tennis doubles":
+      case "tennis mixed doubles":
+        iconImg = "img/sporticon/tennis.png";
+        headerImg = "img/sporticon/tennis-" + type + ".jpg";
       break;
-      case "Table Tennis":
-      case "Table Tennis Doubles":
-        iconImg = "img/sporticon/10_Table-Tennis.png";
+      case "table tennis":
+      case "table tennis doubles":
+        iconImg = "img/sporticon/table-tennis.png";
+        headerImg = "img/sporticon/table-tennis-" + type + ".jpg";
       break;
-      case "Squash":
-        iconImg = "img/sporticon/11_Squash.png";
+      case "squash":
+        iconImg = "img/sporticon/squash.png";
+        headerImg = "img/sporticon/squash-" + type + ".jpg";
       break;
-      case "Judo":
-        iconImg = "img/sporticon/12_Judo.png";
+      case "judo":
+        iconImg = "img/sporticon/judo.png";
+        headerImg = "img/sporticon/judo-" + type + ".jpg";
       break;
-      case "Taekwondo":
-        iconImg = "img/sporticon/13_Taekwondo.png";
+      case "taekwondo":
+        iconImg = "img/sporticon/taekwondo.png";
+        headerImg = "img/sporticon/taekwondo-" + type + ".jpg";
       break;
-      case "Boxing":
-        iconImg = "img/sporticon/14_Boxing.png";
+      case "boxing":
+        iconImg = "img/sporticon/boxing.png";
+        headerImg = "img/sporticon/boxing-" + type + ".jpg";
       break;
-      case "Fencing":
-        iconImg = "img/sporticon/15_Fencing.png";
+      case "fencing":
+        iconImg = "img/sporticon/fencing.png";
+        headerImg = "img/sporticon/fencing-" + type + ".jpg";
       break;
-      case "Karate":
-      case "Karate Team Kumite":
-        iconImg = "img/sporticon/16_Karate.png";
+      case "karate":
+      case "karate team kumite":
+        iconImg = "img/sporticon/karate.png";
+        headerImg = "img/sporticon/karate-" + type + ".jpg";
       break;
-      case "Sport MMA":
-        iconImg = "img/sporticon/17_MMA.png";
+      case "sport mma":
+        iconImg = "img/sporticon/sport-mma.png";
+        headerImg = "img/sporticon/sport-mma-" + type + ".jpg";
       break;
-      case "Shooting":
-      case "Shooting Air Rifle Peep Team":
-      case "Shooting Air Rifle Open Team":
-      case "Shooting Air Rifle Peep Team":
-        iconImg = "img/sporticon/18_Shooting.png";
+      case "shooting":
+      case "shooting air rifle peep team":
+      case "shooting air rifle open team":
+      case "shooting air rifle peep team":
+        iconImg = "img/sporticon/shooting.png";
+        headerImg = "img/sporticon/shooting-" + type + ".jpg";
       break;
-      case "Archery":
-        iconImg = "img/sporticon/19_Archery.png";
+      case "archery":
+        iconImg = "img/sporticon/archery.png";
+        headerImg = "img/sporticon/archery-" + type + ".jpg";
       break;
-      case "Swimming":
-      case "Swimming 4x50m Freestyle Relay":
-      case "Swimming 4x50m Medley Relay":
-        iconImg = "img/sporticon/20_Swimming.png";
+      case "swimming":
+      case "swimming 4x50m freestyle relay":
+      case "swimming 4x50m medley relay":
+        iconImg = "img/sporticon/swimming.png";
+        headerImg = "img/sporticon/swimming-" + type + ".jpg";
       break;
-      case "Water Polo":
-        iconImg = "img/sporticon/21_WaterPolo.png";
+      case "water polo":
+        iconImg = "img/sporticon/water-polo.png";
+        headerImg = "img/sporticon/water-polo-" + type + ".jpg";
       break;
-      case "Carrom":
-        iconImg = "img/sporticon/22_Carrom.png";
+      case "carrom":
+        iconImg = "img/sporticon/carrom.png";
+        headerImg = "img/sporticon/carrom-" + type + ".jpg";
       break;
-      case "Chess":
-        iconImg = "img/sporticon/23_Chess.png";
+      case "chess":
+        iconImg = "img/sporticon/chess.png";
+        headerImg = "img/sporticon/chess-" + type + ".jpg";
       break;
-      case "Athletics":
-      case "Athletics 4x100m Relay":
-      case "Athletics 4x50m Relay":
-      case "Athletics Medley Relay":
-        iconImg = "img/sporticon/25_Athletics.png";
+      case "athletics":
+      case "athletics 4x100m relay":
+      case "athletics 4x50m relay":
+      case "athletics medley relay":
+        iconImg = "img/sporticon/athletics.png";
+        headerImg = "img/sporticon/athletics-" + type + ".jpg";
       break;
-      case "Kho Kho":
-        iconImg = "img/sporticon/26_Kho-Kho.png";
+      case "kho kho":
+        iconImg = "img/sporticon/kho-kho.png";
+        headerImg = "img/sporticon/kho-kho-" + type + ".jpg";
       break;
     }
-    return iconImg;
+    if( type == 'header' || type == 'certificate'){
+      return headerImg;
+    } else{
+      return iconImg;
+    }
   }
 })
 // FILTER FOR SPORT ICON AND HEADER IMG END

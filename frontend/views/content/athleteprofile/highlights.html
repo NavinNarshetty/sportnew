@@ -8,7 +8,7 @@
             <flex-slider flex-slide="s in mySlides"  prev-text="" next-text="" control-nav="false" slideshow="true">
               <li>
                 <div class="highlights-sportslide text-uppercase">
-                  <div class="sportslide-header">
+                  <div class="sportslide-header" style="background-image: url(../{{'tennis'|sporticon:'header'}});">
                     <div class="sportslide-headertitle">2017</div>
                   </div>
                   <div class="sportslide-content">
@@ -115,16 +115,13 @@
     <!-- STATS END -->
     <!-- AD SPACE -->
     <div class="adv-space">
-      <div class="row">
           <div class="highlight-adspace relate">
             <h1 class="m-clear get-center text-uppercase">Ad Space</h1>
           </div>
-      </div>
     </div>
     <!-- AD SPACE END -->
     <!-- YOUR MATCH VIDEOS -->
     <div class="athletehighlights-yourvideo">
-      <div class="row">
       <h3 class="blue-header-title text-uppercase">YOUR MATCH VIDEOS</h3>
       <div class="athletehighlights-videosection">
         <div class="athletehighlights-videoholder" ng-repeat="s in mySlides | limitTo:5">
@@ -133,7 +130,6 @@
         <div class="athletehighlights-videomore">
           <a >View All</a>
         </div>
-      </div>
       </div>
     </div>
     <!-- YOUR MATCH VIDEOS END -->
@@ -230,22 +226,18 @@
     <!-- SPORT RANKING TABLE END -->
     <!-- OTHER VIDEOS -->
     <div class="athletehighlights-yourvideo athletehighlights-othervideo">
-      <div class="row">
       <h3 class="blue-header-title text-uppercase">other videos YOU may like</h3>
       <div class="athletehighlights-videosection">
         <div class="athletehighlights-videoholder" ng-repeat="s in mySlides | limitTo:5">
           <video-card></video-card>
         </div>
       </div>
-      </div>
     </div>
     <!-- OTHER VIDEOS END -->
     <!-- AD SPACE -->
     <div class="adv-space">
-      <div class="row">
-          <div class="highlight-adspace relate">
-            <h1 class="m-clear get-center text-uppercase">Ad Space</h1>
-          </div>
+      <div class="highlight-adspace relate">
+        <h1 class="m-clear get-center text-uppercase">Ad Space</h1>
       </div>
     </div>
     <!-- AD SPACE END -->

@@ -433,6 +433,7 @@ header {
   width: 60%;
   text-align: justify;
   word-wrap: break-word;
+
 }
 // COMMON CLASSES END
 // athlete PAGE START
@@ -509,9 +510,8 @@ header {
 
 .athleteprofile-picture {
     display: inline-block;
-    width: 29%;
-    vertical-align: top;
     position: relative;
+    vertical-align: top;
 }
 
 .athlete-picholder {
@@ -540,9 +540,10 @@ header {
 }
 
 .athleteprofile-details {
-    display: inline-block;
-    width: 70%;
-    vertical-align: top;
+  width: calc(100% - 200px);
+  padding: 0px 0px 0 10px;
+  display: inline-block;
+  vertical-align: top;
 }
 .athletestar-img {
   width: 24px;
@@ -650,9 +651,11 @@ header {
 }
 
 .sportslide-header {
-    text-align: right;
-    color: #fff;
-    border: 1px solid red;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #fff;
+  text-align: right;
 }
 
 .sportslide-content {
@@ -850,6 +853,7 @@ header {
 
 // STATISTICS PAGE
 .athletestatistics-yearsummary, .athletestatistics-detailsummary{
+  padding: 0px 10px;
   margin: 40px 0;
 }
 .athletestatistics-detailheader, .athletestatistics-summaryheader{

@@ -1,7 +1,6 @@
 <div class="atheleteprofile-statistics">
     <div class="container">
       <!-- YEAR ON YEAR SUMMARY -->
-      <div class="row">
         <div class="athletestatistics-yearsummary">
           <div class="athletestatistics-summaryheader">
             <h3 class="fjalla-one text-uppercase">year on year summary</h3>
@@ -13,7 +12,7 @@
                 <div>
                   <div class="school-yearsummary">
                     <div class="school-yearsummaryhead">
-                      <div class="school-yearsummaryimg relate">
+                      <div class="school-yearsummaryimg relate" style="background-image: url(../{{'tennis'|sporticon:'header'}});">
                         <div class="school-yearsummarycontent">
                           <p class="m-clear fjalla-one">Football</p>
                         </div>
@@ -26,11 +25,32 @@
                       <table class="table">
                         <thead>
                           <th></th>
-                          <th>M</th>
-                          <th>W</th>
-                          <th>L</th>
-                          <th>D</th>
-                          <th>W%</th>
+                          <th>
+                            <div class="">
+                              <p class="m-clear">M</p>
+                              <p class="m-clear hide">R</p>
+                              <p class="m-clear hide">A</p>
+                            </div>
+                          </th>
+                          <th>
+                            <div class="">
+                              <p class="m-clear">W</p>
+                            </div>
+                          </th>
+                          <th>
+                            <div class="">
+                              <p class="m-clear">L</p>
+                            </div>
+                          </th>
+                          <th>
+                            <div class="">
+                              <p class="m-clear">D</p>
+                            </div>
+                          </th>
+                          <th>
+                            <div class="">
+                              <p class="m-clear">W%</p>
+                            </div></th>
 
                         </thead>
                         <tbody>
@@ -75,10 +95,8 @@
             </flex-slider>
           </div>
         </div>
-      </div>
       <!-- YEAR ON YEAR SUMMARY END -->
       <!-- DETAILED STATISTICS -->
-      <div class="row">
         <div class="athletestatistics-detailsummary">
           <div class="athletestatistics-detailheader">
             <h3 class="fjalla-one text-uppercase">detailed statistics</h3>
@@ -92,7 +110,7 @@
             <!-- HEADER -->
             <div class="statisticsport-header">
                 <div class="statisticsport-sporticon">
-                  <img src="{{'Basketball'|sporticon }}" alt="" class="img-responsive">
+                  <img ng-src="{{'Basketball'|sporticon:'icon'}}" alt="" class="img-responsive">
                 </div>
                 <h3 class="blue-header-title m-clear text-uppercase">Basketball</h3>
                 <h5 class="text-uppercase opensans-semibold m-clear"><span> BOYS </span>  <span> | </span> <span> U-14 </span></h5>
@@ -251,7 +269,6 @@
           </div>
           <!-- Detailed sport summary card END -->
         </div>
-      </div>
       <!-- DETAILED STATISTICS END -->
     </div>
 </div>

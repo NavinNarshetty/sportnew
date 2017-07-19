@@ -13,7 +13,7 @@
                   <div class="school-yearsummary">
                     <div class="school-yearsummaryhead">
                       <div class="school-yearsummaryimg relate" style="background-image: url(../{{'tennis'|sporticon:'header'}});">
-                        <div class="school-yearsummarycontent">
+                        <div class="school-yearsummarycontent text-uppercase">
                           <p class="m-clear fjalla-one">Football</p>
                         </div>
                         <div class="school-yearsummarysportimg">
@@ -362,7 +362,7 @@
                   </table>
               </div>
               <div class="statisticsport-certificatebtn">
-                <button type="button" name="button" class="btn btn-blue-outline text-uppercase">view team</button>
+                <!-- <button type="button" name="button" class="btn btn-blue-outline text-uppercase">view team</button> -->
                 <button type="button" name="button" class="btn btn-blue-outline text-uppercase">view certificate</button>
               </div>
             </div>
@@ -412,6 +412,26 @@
               </div>
             </div>
             <!-- FOOTER END -->
+            <!-- VIEW TEAM ACCORDION -->
+            <div class="viewteam-accordion statisticssport-teamaccordion">
+              <uib-accordion close-others="oneAtATime">
+                <div uib-accordion-group class="panel-default" is-open="s.open" ng-repeat="s in schoolRankTable|limitTo:1">
+                  <uib-accordion-heading class="clearfix">
+                    <a class=""> View Team</a>
+                  </uib-accordion-heading>
+                  <div class="viewteam-accordioncontent">
+                    <div class="row">
+                      <div class="col-md-2 col-xs-6" ng-repeat="s in schoolRankTable track by $index">
+                        <div class="viewteam-medalcard">
+                          <medal-card></medal-card>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </uib-accordion>
+            </div>
+            <!-- VIEW TEAM ACCORDION END -->
           </div>
           <!-- Detailed sport summary card END -->
         </div>

@@ -208,6 +208,13 @@ header {
   }
 }
 
+a{
+  color: $brand-primary;
+  &:active, &:focus, &:hover, &.active{
+    color: $brand-primary;
+  }
+}
+
 .d {
     width: 100%;
     height: 200px;
@@ -434,6 +441,27 @@ header {
   text-align: justify;
   word-wrap: break-word;
 
+}
+
+.viewteam-accordion{
+  .panel-default{
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    background-color: transparent;
+  }
+  .panel-heading{
+    border: none;
+    border-radius: 0;
+    background-color: transparent;
+    text-align: right;
+  }
+  .panel-body{
+    border-color: transparent;
+  }
+  .panel-default > .panel-heading + .panel-collapse > .panel-body{
+    border: none;
+  }
 }
 // COMMON CLASSES END
 // athlete PAGE START
@@ -724,15 +752,14 @@ header {
   .table {
       border: 1px solid #fff;
       margin-bottom: 0px;
-      .bag-blue {
-          background-color: $brand-primary;
-      }
       .schoolmedal-points {
           font-size: 10px;
+          @extend .text-uppercase;
       }
       .schooltable-head {
           font-size: 16px;
           text-align: center;
+          @extend .text-uppercase;
       }
       tr{
         // background-color: rgba(0,0,0,0.5);
@@ -743,6 +770,7 @@ header {
           border-bottom: none;
           padding: 0px 8px;
           vertical-align: middle;
+          background-color: $brand-primary;
       }
       >tbody>tr>td {
         padding: 10px 8px;

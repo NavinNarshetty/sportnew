@@ -125,10 +125,10 @@
       <h3 class="blue-header-title text-uppercase">YOUR MATCH VIDEOS</h3>
       <div class="athletehighlights-videosection">
         <div class="athletehighlights-videoholder" ng-repeat="s in mySlides | limitTo:5">
-          <video-card></video-card>
+          <video-card description="true"></video-card>
         </div>
         <div class="athletehighlights-videomore">
-          <a >View All</a>
+          <a ng-click="getTab(3);">View All</a>
         </div>
       </div>
     </div>
@@ -156,7 +156,7 @@
             <div class="highlight-sportranking-tableoverlay">
             <table class="table">
               <thead>
-                <tr class="bag-blue">
+                <tr >
                   <th>
                     <div class="schooltable-head">
                       Rank

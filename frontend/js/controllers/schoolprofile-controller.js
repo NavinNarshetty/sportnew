@@ -281,29 +281,99 @@ myApp.controller('SchoolProfileCtrl', function ($scope, $state, $stateParams, Te
 
 
     $scope.myAccord = [{
-        sport: 'Swimming',
+        name: 'Swimming',
         gold: '999',
         silver: '999',
         bronze: '999',
         rank: '999/1000',
         event: [{
             gender: 'Boys',
-            age: 'u-8',
+            age: 'U-8',
             gold: '999',
             silver: '999',
-            bronze: '999'
+            bronze: '999',
+            cat: [{
+                    name: '50M',
+                    ath: [1, 2, 3, 4, 5, 6]
+                },
+                {
+                    name: 'LONG JUMP',
+                    ath: [1, 2, 3, 4, 5, 6]
+                }, {
+                    name: 'HIGH JUMP',
+                    ath: [1, 2, 3, 4, 5, 6]
+                }
+            ]
+        }, {
+            gender: 'Girls',
+            age: 'U-10',
+            gold: '999',
+            silver: '999',
+            bronze: '999',
+            cat: [{
+                    name: '50M',
+                    ath: [1, 2, 3, 4, 5, 6]
+                },
+                {
+                    name: 'LONG JUMP',
+                    ath: [1, 2, 3, 4, 5, 6]
+                }, {
+                    name: 'HIGH JUMP',
+                    ath: [1, 2, 3, 4, 5, 6]
+                }
+            ]
         }, {
             gender: 'Boys',
-            age: 'u-8',
+            age: 'U-10',
             gold: '999',
             silver: '999',
-            bronze: '999'
-        }, {
+            bronze: '999',
+            cat: [{
+                    name: '50M',
+                    ath: [1, 2, 3, 4, 5, 6]
+                },
+                {
+                    name: 'LONG JUMP',
+                    ath: [1, 2, 3, 4, 5, 6]
+                }, {
+                    name: 'HIGH JUMP',
+                    ath: [1, 2, 3, 4, 5, 6]
+                }
+            ]
+        }]
+    }, {
+        name: 'Volleyball',
+        gold: '999',
+        silver: '999',
+        bronze: '999',
+        rank: '999/1000',
+        event: [{
             gender: 'Boys',
-            age: 'u-8',
+            age: 'U-8',
             gold: '999',
             silver: '999',
-            bronze: '999'
+            bronze: '999',
+            cat: [{
+                name: 'Singles',
+                ath: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+            }]
+        }]
+    }, {
+        name: 'Archery',
+        gold: '999',
+        silver: '999',
+        bronze: '999',
+        rank: '999/1000',
+        event: [{
+            gender: 'Boys',
+            age: 'U-8',
+            gold: '999',
+            silver: '999',
+            bronze: '999',
+            cat: [{
+                name: 'Compound Bow',
+                ath: [1, 2, 3, 4, 5, 6]
+            }]
         }]
     }];
 

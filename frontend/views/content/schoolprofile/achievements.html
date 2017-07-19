@@ -182,61 +182,59 @@
     <!--END-BLUE-BAR-->
 
 
-    <!--ACCORDIAN-->
+    <!--ACCORDION-->
     <div class="schoolachievements-accordianholder">
+      <!--OUTER ACCORDION-->
       <uib-accordion close-others="oneAtATime">
-        <div uib-accordion-group class="panel-default relate" is-open="s.open" ng-repeat="s in myAccord track by $index">
+        <div uib-accordion-group class="panel-default achievements-accordionspace relate" is-open="sport.open" ng-repeat="sport in myAccord track by $index">
+          <!--OUTER ACCORDIAN HEAD-->
           <uib-accordion-heading>
-            <i class="pull-right fa mt5" ng-class="{'fa-minus': s.open, 'fa-plus': !s.open}"></i>
+            <i class="pull-right fa mt5" ng-class="{'fa-minus': sport.open, 'fa-plus': !sport.open}"></i>
             <div class="schoolachievements-accordiancontent">
               <div class="pull-left pd5">
-                <h4 class="m-clear fjalla-one color-primary">{{s.sport}}</h4>
+                <h4 class="m-clear fjalla-one color-primary">{{sport.name}}</h4>
               </div>
               <div class="pull-right pd5">
-                <p class="m-clear">Rank <span>{{s.rank}}</span></p>
+                <p class="m-clear ">Rank <span class="color-primary">{{sport.rank}}</span></p>
               </div>
               <div class="schoolachivements-accordianmedals">
                 <ul class="list-inline m-clear">
                   <li>
-                    <div class="inline-block  schoolprofile-accordianmedals">
+                    <div class="inline-block v-bottom schoolprofile-accordianmedals">
                       <img ng-src="{{'gold' | medalicon:'blue'}}" alt="" class="img-responsive">
                     </div>
-                    <span class="color-warning ">999</span>
+                    <span>{{sport.gold}}</span>
                   </li>
                   <li>
-                    <div class="inline-block  schoolprofile-accordianmedals">
+                    <div class="inline-block v-bottom schoolprofile-accordianmedals">
                       <img ng-src="{{'silver' | medalicon:'blue'}}" alt="" class="img-responsive">
                     </div>
-                    <span class="color-warning ">999</span>
+                    <span>{{sport.silver}}</span>
                   </li>
                   <li>
-                    <div class="inline-block  schoolprofile-accordianmedals">
+                    <div class="inline-block v-bottom schoolprofile-accordianmedals">
                       <img ng-src="{{'bronze' | medalicon:'blue'}}" alt="" class="img-responsive">
                     </div>
-                    <span class="color-warning ">999</span>
+                    <span>{{sport.bronze}}</span>
                   </li>
                 </ul>
               </div>
             </div>
             <div class="schoolachievements-accordianimg absolute">
-              <img ng-src="{{'water polo' | sporticon:'icon'}}" alt="" class="img-responsive">
+              <img ng-src="{{ sport.name| sporticon:'icon'}}" alt="" class="img-responsive">
             </div>
           </uib-accordion-heading>
-          <!--<div class="row">
-            <div class="col-md-4 col-sm-6 col-xs-12" ng-repeat="n in s.img track by $index">
-              <div class="trackrecord-athletelistcard">
+          <!--END OUTER ACCORDIAN HEAD-->
 
-                <profile-athlete-card></profile-athlete-card>
-              </div>
-            </div>
-          </div>-->
+          <!--INNER ACCORDION -->
           <div class="achievementsinner-accord">
             <uib-accordion close-others="oneAtATime">
-              <div uib-accordion-group class="panel-default" is-open="q.open" ng-repeat="q in  s.event track by $index">
+              <div uib-accordion-group class="panel-default" is-open="Category.open" ng-repeat="Category in  sport.event track by $index">
+                <!--INNER ACCORDION HEAD-->
                 <uib-accordion-heading>
                   <div class="text-center">
                     <div class="pull-left pd5">
-                      <p class="m-clear text-uppercase"><span>{{q.gender}}</span> <span>|</span> <span>{{q.age}}</span></p>
+                      <p class="m-clear text-uppercase"><span>{{Category.gender}}</span> <span>|</span> <span>{{Category.age}}</span></p>
                     </div>
                     <div class="pull-right pd5">
                       <p class="m-clear">Medal winners</p>
@@ -244,37 +242,49 @@
                     <div class="">
                       <ul class="list-inline m-clear">
                         <li>
-                          <div class="inline-block  schoolprofile-accordianmedals">
+                          <div class="inline-block v-bottom schoolprofile-accordianmedals">
                             <img ng-src="{{'gold' | medalicon:'blue'}}" alt="" class="img-responsive">
                           </div>
-                          <span class="color-warning ">999</span>
+                          <span>{{Category.gold}}</span>
                         </li>
                         <li>
-                          <div class="inline-block  schoolprofile-accordianmedals">
+                          <div class="inline-block v-bottom schoolprofile-accordianmedals">
                             <img ng-src="{{'silver' | medalicon:'blue'}}" alt="" class="img-responsive">
                           </div>
-                          <span class="color-warning ">999</span>
+                          <span>{{Category.silver}}</span>
                         </li>
-                        <li>
-                          <div class="inline-block  schoolprofile-accordianmedals">
+                        <li class="">
+                          <div class="inline-block v-bottom schoolprofile-accordianmedals">
                             <img ng-src="{{'bronze' | medalicon:'blue'}}" alt="" class="img-responsive">
                           </div>
-                          <span class="color-warning ">999</span>
+                          <span>{{Category.bronze}}</span>
                         </li>
                       </ul>
                     </div>
                   </div>
                 </uib-accordion-heading>
-                <div class="achievementsinner-accordcontent">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis </p>
+                <!--END INNER ACCORDION HEAD-->
+                <div class="inneraccordion-sporthead" ng-repeat="event in Category.cat track by $index">
+                  <div class="">
+                    <p>{{event.name}}</p>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-2 col-sm-2 col-xs-6" ng-repeat="athlete in event.ath track by $index">
+                      <div class="achievementsinner-accordcontent">
+                        <medal-card></medal-card>
+                      </div>
+                    </div>
+                  </div>
                 </div>
+
               </div>
             </uib-accordion>
           </div>
+          <!--END INNER ACCORDION-->
 
         </div>
       </uib-accordion>
+      <!--END OUTER ACCORDION-->
     </div>
 
     <!--END-ACCORDIAN-->

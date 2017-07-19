@@ -1220,7 +1220,6 @@ $drak-primary:#070f40 !default;
 
 // END_CERTIFICATE
 .schoolachievements-bluebar {
-    margin-bottom: 40px;
     .schoolachievements-detail {
         padding: 5px 50px; // border: 1px solid #070f40;
         background-color: $brand-primary;
@@ -1233,6 +1232,15 @@ $drak-primary:#070f40 !default;
 }
 
 .schoolachievements-accordianholder {
+    margin-bottom: 40px;
+    a {
+        &:active,
+        &:focus,
+        &:hover,
+        &.active {
+            color: #2b2b2b;
+        }
+    }
     .schoolachievements-accordianimg {
         width: 60px;
         height: 60px;
@@ -1245,6 +1253,21 @@ $drak-primary:#070f40 !default;
     .panel-title>a {
         text-decoration: none;
     }
+    .panel-default>.panel-heading {
+        background-color: #fff;
+    }
+    .panel-default {
+        border-color: $grey-year;
+    }
+    .panel-group .panel {
+        border-radius: 0px;
+    }
+    .panel-group .panel+.panel {
+        margin-top: 2px;
+    }
+    .achievements-accordionspace {
+        margin: 30px 0px;
+    }
     .schoolachievements-accordiancontent {
         margin: 0px 30px;
         text-align: center;
@@ -1254,6 +1277,17 @@ $drak-primary:#070f40 !default;
     }
     .trackrecord-athletelistcard {
         margin: 10px 0px;
+    }
+    .inneraccordion-sporthead {
+        margin: 30px 0px;
+    }
+    .achievementsinner-accord {
+        .panel-default>.panel-heading+.panel-collapse>.panel-body {
+            border-top: none;
+        }
+    }
+    .achievementsinner-accordcontent {
+        margin: 5px 0px;
     }
 }
 

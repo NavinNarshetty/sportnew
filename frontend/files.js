@@ -5,7 +5,7 @@ module.exports = [
   'bower_components/flexslider/jquery.flexslider-min.js',
   'bower_components/fancybox/dist/jquery.fancybox.js',
   'bower_components/smart-app-banner/smart-app-banner.js',
-  "bower_components/moment/min/moment.min.js",
+  'bower_components/moment/min/moment.min.js',
 
 
   //Angular Libs
@@ -24,6 +24,15 @@ module.exports = [
   "bower_components/angular-toastr/dist/angular-toastr.js",
   "bower_components/angular-toastr/dist/angular-toastr.tpls.js",
   "bower_components/angular-promise-buttons/dist/angular-promise-buttons.js",
+  "bower_components/ev-emitter/ev-emitter.js",
+  "bower_components/desandro-matches-selector/matches-selector.js",
+  "bower_components/fizzy-ui-utils/utils.js",
+  "bower_components/get-size/get-size.js",
+  "bower_components/outlayer/item.js",
+  "bower_components/outlayer/outlayer.js",
+  "bower_components/masonry/masonry.js",
+  "bower_components/imagesloaded/imagesloaded.js",
+  "bower_components/angular-masonry/angular-masonry.js",
 
   //App.js
   'frontend/js/app.js',

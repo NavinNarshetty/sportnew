@@ -151,7 +151,7 @@
                         </th>
                         <!-- ROUND TH END -->
                         <!-- ATTEMPT TH END -->
-                        <th class="hide" ng-show="">
+                        <th class="hide" ng-show="" ng-if="">
                           <div class="schoolprofileteam-head">
                             Attempt
                           </div>
@@ -177,56 +177,56 @@
                         </th>
                         <!-- SCORE TH END -->
                         <!-- TOP SCORE TH -->
-                        <th class="hide" ng-show="">
+                        <th class="hide" ng-show="" ng-if="" >
                           <div class="schoolprofileteam-head">
                             TOP score
                           </div>
                         </th>
                         <!-- TOP SCORE TH  END  -->
                         <!-- time TH  -->
-                        <th class="hide" ng-show="">
+                        <th class="hide" ng-show="" ng-if="">
                           <div class="schoolprofileteam-head">
                             time
                           </div>
                         </th>
                         <!-- time TH  END  -->
                         <!-- best time TH  -->
-                        <th class="hide" ng-show="">
+                        <th class="hide" ng-show="" ng-if="">
                           <div class="schoolprofileteam-head">
                             best time
                           </div>
                         </th>
                         <!-- best time TH  END  -->
                         <!-- DISTANCE TH-->
-                        <th class="hide" ng-show="">
+                        <th class="hide" ng-show="" ng-if="">
                           <div class="schoolprofileteam-head">
                             distance
                           </div>
                         </th>
                         <!-- DISTANCE TH END -->
                         <!-- BEST DISTANCE TH-->
-                        <th class="hide" ng-show="">
+                        <th class="hide" ng-show="" ng-if="">
                           <div class="schoolprofileteam-head">
                             best distance
                           </div>
                         </th>
                         <!-- BEST DISTANCE TH END -->
                         <!-- HEIGHT TH -->
-                        <th class="hide" ng-show="">
+                        <th class="hide" ng-show="" ng-if="">
                           <div class="schoolprofileteam-head">
                             height
                           </div>
                         </th>
                         <!-- HEIGHT TH END -->
                         <!-- NO OF JUMPS TH -->
-                        <th class="hide" ng-show="">
+                        <th class="hide" ng-show="" ng-if="">
                           <div class="schoolprofileteam-head">
                             No. of jumps
                           </div>
                         </th>
                         <!-- NO OF JUMPS TH END -->
                         <!-- POINTS TH -->
-                        <th class="hide" ng-show="">
+                        <th class="hide" ng-show="" ng-if="">
                           <div class="schoolprofileteam-head">
                             Point
                           </div>
@@ -240,7 +240,7 @@
                         </th>
                         <!-- RESULT TH END -->
                         <!-- POSITION TH -->
-                        <th class="hide" ng-show="">
+                        <th class="hide" ng-show="" ng-if="">
                           <div class="schoolprofileteam-head hide">
                             Position
                           </div>
@@ -263,7 +263,7 @@
                         </td>
                         <!-- ROUND TD  END-->
                         <!-- ATTEMPT TD -->
-                        <td class="hide">
+                        <td class="hide" ng-if="">
                           <div class="">1111</div>
                         </td>
                         <!-- ATTEMPT TD  END-->
@@ -288,42 +288,42 @@
                         </td>
                         <!-- SCORE TD END -->
                         <!-- TOP SCORE TD -->
-                        <td class="hide">
+                        <td class="hide" ng-if="">
                           <div class="">{{item.score}}</div>
                         </td>
                         <!-- TOP SCORE TD END -->
                         <!-- YOUR TIME TD -->
-                        <td>
+                        <td ng-if="">
                           <div class="">{{item.score}}</div>
                         </td>
                         <!-- YOUR TIME TD END -->
                         <!-- BEST TIME TD -->
-                        <td class="hide">
+                        <td class="hide" ng-if="">
                           <div class="">{{item.score}}</div>
                         </td>
                         <!-- BEST TIME TD END -->
                         <!-- DISTANCE TD -->
-                        <td class="hide">
+                        <td class="hide" ng-if="">
                           <div class="">{{item.score}}</div>
                         </td>
                         <!-- DISTANCE TD END -->
                         <!-- BEST DISTANCE TD -->
-                        <td class="hide">
+                        <td class="hide" ng-if="">
                           <div class="">{{item.score}}</div>
                         </td>
                         <!-- BEST DISTANCE TD END -->
                         <!-- HEIGHT TD -->
-                        <td class="hide">
+                        <td class="hide" ng-if="">
                           <div class="">{{item.score}}</div>
                         </td>
                         <!-- HEIGHT TD END -->
                         <!-- NO OF JUMP TD -->
-                        <td class="hide">
+                        <td class="hide" ng-if="">
                           <div class="">{{item.score}}</div>
                         </td>
                         <!--  NO OF JUMP TD END -->
                         <!-- POINT TD -->
-                        <td>
+                        <td ng-if="">
                           <div class="">{{item.score}}</div>
                         </td>
                         <!--  POINT TD END -->
@@ -338,7 +338,7 @@
                         </td>
                         <!-- RESULT TD END -->
                         <!-- POSITION TD -->
-                        <td class="hide">
+                        <td class="hide" ng-if="">
                           <div class="">point</div>
                         </td>
                         <!-- POSITION TD  END-->
@@ -417,7 +417,7 @@
               <uib-accordion close-others="oneAtATime">
                 <div uib-accordion-group class="panel-default" is-open="s.open" ng-repeat="s in schoolRankTable|limitTo:1">
                   <uib-accordion-heading class="clearfix">
-                    <a class=""> View Team</a>
+                    <a class=""> View Team <i class="fa " ng-class="{'fa-chevron-up': s.open, 'fa-chevron-down': !s.open}"></i></a>
                   </uib-accordion-heading>
                   <div class="viewteam-accordioncontent">
                     <div class="row">

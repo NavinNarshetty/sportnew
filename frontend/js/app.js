@@ -37,7 +37,8 @@ var myApp = angular.module('myApp', [
     'angular-flexslider',
     'ui.swiper',
     'angularPromiseButtons',
-    'toastr'
+    'toastr',
+    'wu.masonry'
 ]);
 
 // Define all the routes below

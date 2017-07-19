@@ -17,7 +17,7 @@ myApp.controller('AthleteProfileCtrl', function ($scope, $state, $stateParams, T
     'Hockey','Kabaddi','Football','Badminton','Badminton Doubles', 'Tennis','Tennis Doubles','Tennis Mixed Doubles','Table Tennis','Table Tennis Doubles','Squash','Judo','Taekwondo','Boxing','Fencing','Karate','Karate Team Kumite','Sport MMA','Shooting','Shooting Air Rifle Peep Team','Shooting Air Rifle Open Team','Shooting Air Rifle Peep Team', 'Archery', 'Swimming', 'Swimming 4x50m Freestyle Relay', 'Swimming 4x50m Medley Relay', 'Water Polo', 'Carrom','Chess','Athletics','Athletics 4x100m Relay','Athletics 4x50m Relay','Athletics Medley Relay','Kho Kho'];
     // ARRAY OF SPORT NAMES END
 
-    var allAgentProfile = [ "frontend/views/content/athleteprofile/highlights.html", "frontend/views/content/athleteprofile/statistics.html", "frontend/views/content/athleteprofile/achievements.html", "frontend/views/content/athleteprofile/videos.html"];
+    var allAgentProfile = [ "frontend/views/content/athleteprofile/highlights.html", "frontend/views/content/athleteprofile/statistics.html", "frontend/views/content/athleteprofile/achievements.html", "frontend/views/content/athleteprofile/videos.html", "frontend/views/content/athleteprofile/gallery.html"];
     $scope.athleteprofile = {
       innerView: allAgentProfile[0],
       active : "highlights"
@@ -40,6 +40,10 @@ myApp.controller('AthleteProfileCtrl', function ($scope, $state, $stateParams, T
       case "videos":
         $scope.athleteprofile.innerView = allAgentProfile[3];
         $scope.athleteprofile.active = "videos";
+      break;
+      case "gallery":
+        $scope.athleteprofile.innerView = allAgentProfile[4];
+        $scope.athleteprofile.active = "gallery";
       break;
       default:
         $scope.athleteprofile.innerView = allAgentProfile[0];
@@ -69,6 +73,10 @@ myApp.controller('AthleteProfileCtrl', function ($scope, $state, $stateParams, T
         case 3:
           url = "videos";
           $scope.athleteprofile.active = "videos";
+        break;
+        case 4:
+          url = "gallery";
+          $scope.athleteprofile.active = "gallery";
         break;
         default:
           url = "highlights";
@@ -287,4 +295,6 @@ myApp.controller('AthleteProfileCtrl', function ($scope, $state, $stateParams, T
         videotext: 'You can also watch match highlights'
 
     }];
+
+    $scope.gallery = ['img/oldSfa/banner1.jpg', 'img/oldSfa/banner2.jpg', 'img/oldSfa/cfjudo.jpg', 'img/oldSfa/cfcarrom.jpg', 'img/oldSfa/cfchess.jpg'];
 })

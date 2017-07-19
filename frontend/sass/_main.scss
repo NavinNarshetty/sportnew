@@ -212,6 +212,7 @@ a{
   color: $brand-primary;
   &:active, &:focus, &:hover, &.active{
     color: $brand-primary;
+    text-decoration: none;
   }
 }
 

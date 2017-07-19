@@ -199,7 +199,8 @@ myApp.directive('img', function($compile, $parse) {
               title: 0,
               byline: 0,
               portrait:0
-            }
+            },
+            buttons: ['close']
           });
         }
       }

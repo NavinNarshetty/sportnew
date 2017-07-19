@@ -30,6 +30,8 @@
                       <th>
                         <div class="">
                           <p class="m-clear">M</p>
+                          <p class="m-clear" hidden>R</p>
+                          <p class="m-clear" hidden>A</p>
                         </div>
                       </th>
                       <th>
@@ -216,7 +218,7 @@
                   <tr class="bg-blue text-uppercase">
                     <th>
                       <div class="schoolprofileteam-head">
-                        Rank
+                        Round
                       </div>
                     </th>
                     <th></th>
@@ -285,7 +287,7 @@
                             <div class="absolute video-playbtn">
                               <div class="teamvideo-customplay">
                                 <span>
-                          <i class="fa  fa-play" aria-hidden="true"></i>
+                          <i class="fa  fa-play"></i>
                           </span>
                                 <!--<i class="fa fa-play-circle" aria-hidden="true"></i>-->
                               </div>
@@ -293,10 +295,13 @@
                           </div>
 
                         </div>
-                        <div class="inline-block v-mid schoolprofile-teamvideos">
-                          <p>{{item.videotext}} </p>
-                        </div>
                       </a>
+                      <div class="inline-block v-mid schoolprofile-teamvideos">
+                        <p class="m-clear">You can also watch </p>
+                        <a class="display-block ">Match highlights </a>
+                        <a class="display-block ">Analyzed videos</a>
+                      </div>
+
                     </td>
 
                   </tr>
@@ -354,5 +359,31 @@
       <!--END SELECTED SPORT TABLE-->
     </div>
     <!--END SPORT TABLE SECTION-->
+
+    <!--ACCORDIAN-->
+
+    <div class="schoolteam-accordianholder viewteam-accordion">
+      <uib-accordion close-others="oneAtATime">
+        <div uib-accordion-group class="panel-default" is-open="s.open" ng-repeat="s in teamAccor |limitTo:1 track by $index">
+          <uib-accordion-heading class="clearfix">
+            <a href="">View Team</a>
+          </uib-accordion-heading>
+          <div class="viewteam-accordioncontent">
+            <div class="row">
+              <div class="col-md-2 col-sm-2 col-xs-6" ng-repeat="n in s.img track by $index">
+                <div class="viewteam-medalcard">
+                  <medal-card></medal-card>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </uib-accordion>
+    </div>
+    <!--END ACCORDIAN-->
+
   </div>
 </div>

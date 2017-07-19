@@ -199,30 +199,21 @@
                 <ul class="list-inline m-clear">
                   <li>
                     <div class="inline-block  schoolprofile-accordianmedals">
-
                       <img ng-src="{{'gold' | medalicon:'blue'}}" alt="" class="img-responsive">
                     </div>
-                    <div class="inline-block ">
-                      <span class="color-warning ">999</span>
-                    </div>
+                    <span class="color-warning ">999</span>
                   </li>
                   <li>
                     <div class="inline-block  schoolprofile-accordianmedals">
-
                       <img ng-src="{{'silver' | medalicon:'blue'}}" alt="" class="img-responsive">
                     </div>
-                    <div class="inline-block">
-                      <span class="color-warning ">999</span>
-                    </div>
+                    <span class="color-warning ">999</span>
                   </li>
                   <li>
                     <div class="inline-block  schoolprofile-accordianmedals">
-
                       <img ng-src="{{'bronze' | medalicon:'blue'}}" alt="" class="img-responsive">
                     </div>
-                    <div class="inline-block">
-                      <span class="color-warning ">999</span>
-                    </div>
+                    <span class="color-warning ">999</span>
                   </li>
                 </ul>
               </div>
@@ -239,13 +230,42 @@
               </div>
             </div>
           </div>-->
-          <div class="inner-accord">
+          <div class="achievementsinner-accord">
             <uib-accordion close-others="oneAtATime">
-              <div uib-accordion-group class="panel-default" heading="Static Header, initially expanded" is-open="q.open" ng-repeat="q in  myAccord track by $index">
+              <div uib-accordion-group class="panel-default" is-open="q.open" ng-repeat="q in  s.event track by $index">
                 <uib-accordion-heading>
-                  Custom template with custom header template
+                  <div class="text-center">
+                    <div class="pull-left pd5">
+                      <p class="m-clear text-uppercase"><span>{{q.gender}}</span> <span>|</span> <span>{{q.age}}</span></p>
+                    </div>
+                    <div class="pull-right pd5">
+                      <p class="m-clear">Medal winners</p>
+                    </div>
+                    <div class="">
+                      <ul class="list-inline m-clear">
+                        <li>
+                          <div class="inline-block  schoolprofile-accordianmedals">
+                            <img ng-src="{{'gold' | medalicon:'blue'}}" alt="" class="img-responsive">
+                          </div>
+                          <span class="color-warning ">999</span>
+                        </li>
+                        <li>
+                          <div class="inline-block  schoolprofile-accordianmedals">
+                            <img ng-src="{{'silver' | medalicon:'blue'}}" alt="" class="img-responsive">
+                          </div>
+                          <span class="color-warning ">999</span>
+                        </li>
+                        <li>
+                          <div class="inline-block  schoolprofile-accordianmedals">
+                            <img ng-src="{{'bronze' | medalicon:'blue'}}" alt="" class="img-responsive">
+                          </div>
+                          <span class="color-warning ">999</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
                 </uib-accordion-heading>
-                <div class="inner-accord">
+                <div class="achievementsinner-accordcontent">
                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
                     dolore magna aliqua. Ut enim ad minim veniam, quis </p>
                 </div>

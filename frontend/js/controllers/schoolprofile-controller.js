@@ -60,7 +60,7 @@ myApp.controller('SchoolProfileCtrl', function ($scope, $state, $stateParams, Te
             directionNav: true,
             prevText: "",
             nextText: "",
-            itemWidth: 380,
+            itemWidth: 370,
             itemMargin: 10
         });
     }, 100);
@@ -257,19 +257,54 @@ myApp.controller('SchoolProfileCtrl', function ($scope, $state, $stateParams, Te
         ]
     }]
 
+    $scope.teamAccor = [{
+        gender: 'Boys',
+        agegroup: 'U-10',
+        event: '100M',
+        img: ['/img/day-03.png',
+            '/img/day-04.png',
+            '/img/oldSfa/bg-draw.jpg',
+            '/img/day-03.png',
+            '/img/day-04.png',
+            '/img/oldSfa/bg-draw.jpg',
+            '/img/oldSfa/bg-draw.jpg',
+            '/img/oldSfa/bg-draw.jpg',
+            '/img/oldSfa/bg-draw.jpg',
+            '/img/oldSfa/bg-draw.jpg',
+            '/img/oldSfa/bg-draw.jpg',
+            '/img/oldSfa/bg-draw.jpg',
+            '/img/oldSfa/bg-draw.jpg',
+            '/img/oldSfa/bg-draw.jpg',
+            '/img/oldSfa/bg-draw.jpg'
+        ]
+    }]
+
+
     $scope.myAccord = [{
         sport: 'Swimming',
         gold: '999',
         silver: '999',
         bronze: '999',
         rank: '999/1000',
-        img: ['/img/day-03.png',
-            '/img/day-04.png',
-            '/img/oldSfa/bg-draw.jpg',
-            '/img/day-03.png',
-            '/img/day-04.png',
-            '/img/oldSfa/bg-draw.jpg'
-        ]
+        event: [{
+            gender: 'Boys',
+            age: 'u-8',
+            gold: '999',
+            silver: '999',
+            bronze: '999'
+        }, {
+            gender: 'Boys',
+            age: 'u-8',
+            gold: '999',
+            silver: '999',
+            bronze: '999'
+        }, {
+            gender: 'Boys',
+            age: 'u-8',
+            gold: '999',
+            silver: '999',
+            bronze: '999'
+        }]
     }];
 
     $scope.ySlides = [1, 2, 3];

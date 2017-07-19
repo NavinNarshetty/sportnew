@@ -365,7 +365,8 @@ $drak-primary:#070f40 !default;
 } // end team-card
 // medal-card
 .medal-card {
-    border: 1px solid #ddd;
+    // border: 1px solid #ddd;
+    box-shadow: 0px 0px 5px $light-grey;
     padding: 10px 15px;
     border-bottom: 3px solid #ffb026;
 }
@@ -383,6 +384,7 @@ $drak-primary:#070f40 !default;
     font-size: 14px;
     font-weight: 600;
     width: 120px;
+    margin: 0 auto;
 } // end medal-card
 // sport-card
 .sport-imgholder {
@@ -630,6 +632,7 @@ $drak-primary:#070f40 !default;
                     @extend .fjalla-one;
                     &:nth-child(1) {
                         background-color: $light-blue;
+                        width: 190px;
                     }
                     &:nth-child(n+2) {
                         background-color: $green-graph;
@@ -804,6 +807,12 @@ $drak-primary:#070f40 !default;
 }
 
 // ****SELECTED-SPORT-TABLE-CARD-END********
+.schoolteam-accordianholder {
+    .viewteam-medalcard {
+        margin: 5px 0px;
+    }
+}
+
 // ****END TEAM TABLE*******
 // *******SUMMARY TABLE********
 .school-yearsummary {

@@ -1,3 +1,17 @@
 @media screen and (max-width: 480px) {
-   // Mobile SCREENS
+  // Mobile SCREENS
+  //  SCHOOL PROFILE HEADER
+  .schoolprofile-page .schoolprofilecard {
+    text-align: center;
+  }
+  .schoolprofile-page .schoolprofilecard .schoolpicholder {
+    width: 80%;
+  }
+  .schoolprofile-page .schoolprofilecard .school-image {
+    width: 150px;
+    height: 150px;
+  }
+  .schoolprofile-page .schoolprofilecard .schooldetail-holder {
+    width: 100%;
+  } //  SCHOOL PROFILE HEADER END
 }

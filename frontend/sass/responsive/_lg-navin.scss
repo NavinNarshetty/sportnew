@@ -1,3 +1,37 @@
-@media screen and (max-width: 1200px){
+@media screen and (max-width: 1200px) {
   // WIDE SCREENS
+  // **************SCHOOL HEADER***************
+  .schoolprofilecard-holder {
+    width: 80%;
+  }
+  .schoolprofile-page {
+    .schoolprofilecard {
+      .schooldetail-holder {
+        width: calc(100% - 200px);
+      }
+    }
+  } // *****************END SCHOOL HEADER ***************
+  // *************** HIGHLIGHT PAGE *********************
+  // SCHOOL PROFILE CARD
+  .schoolprofile-cardcontent {
+    width: calc(100% - 105px);
+    padding: 10px 0;
+  }
+  .profile-bluemedals {
+    width: 15px;
+  }
+  .schoolprofilecard-medallist {
+    .list-inline>li {
+      padding: 0px;
+      padding-right: 4px;
+      &:nth-last-child(1) {
+        padding-right: 0px;
+      }
+    }
+  } // END SCHOOL PROFILE CARD
+  // SIDE AD SPACE
+  .side-adspace {
+    min-height: 446px;
+  } // END SIDE AD SPACE
+  //******************** END HIGHLIGHT PAGE **************
 }

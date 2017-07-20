@@ -1,17 +1,31 @@
 @media screen and (max-width: 480px) {
   // Mobile SCREENS
   //  SCHOOL PROFILE HEADER
-  .schoolprofile-page .schoolprofilecard {
-    text-align: center;
-  }
-  .schoolprofile-page .schoolprofilecard .schoolpicholder {
-    width: 80%;
-  }
-  .schoolprofile-page .schoolprofilecard .school-image {
-    width: 150px;
-    height: 150px;
-  }
-  .schoolprofile-page .schoolprofilecard .schooldetail-holder {
-    width: 100%;
+  .schoolprofile-page {
+    .schoolprofilecard {
+      padding: 0px;
+      text-align: center;
+      .school-image {
+        width: 150px;
+        height: 150px;
+      }
+    }
+    .mobileschoolheader-progressbar {
+      display: block;
+      width: 60%;
+      margin: 0 auto;
+    }
+    .schoolpic-check {
+      left: 20px;
+    }
+    .schoolprofilecard-head h3 {
+      font-size: 18px;
+      word-break: break-word;
+    }
   } //  SCHOOL PROFILE HEADER END
+  .school-navigation ul li {
+    padding: 5px 5px;
+    font-size: 12px;
+  } // NAVIGATION
+  // END NAVIGATION
 }

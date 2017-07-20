@@ -1,3 +1,28 @@
-@media screen and (max-width: 991px){
+@media screen and (max-width: 991px) {
   // DESKTOP SCREENS
+  //****************** SCHOOL HEADER**************
+  .schoolprofilecard-holder {
+    width: 80%;
+  }
+  .schoolprofile-page {
+    .schoolprofilecard {
+      .schooldetail-holder {
+        width: calc(100% - 160px);
+      }
+      .school-image {
+        width: 150px;
+        height: 150px;
+      }
+    }
+  } // *********END SCHOOL HEADER *********
+  // *************HIGHLIGHT PAGE **************
+  //SIDE AD SPACE
+  .side-adspace {
+    margin: 10px 0px;
+  } // END SIDE AD SPACE
+  // MEDIA GALLERY PAGE
+  .imagegallery {
+    margin: 15px 0px;
+  } // END MEDIA GALLERY PAGE
+  // **************END HIGHLIGHT PAGE***************
 }

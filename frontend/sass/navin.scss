@@ -115,6 +115,11 @@ $drak-primary:#070f40 !default;
     border-radius: 100%;
 }
 
+.schoolprofilecard-holder {
+    width: 70%;
+    margin: 0 auto;
+}
+
 .schoolpic-check {
     @extend .athletepic-check;
 }
@@ -127,10 +132,10 @@ $drak-primary:#070f40 !default;
     .schoolprofilecard {
         padding: 20px;
         .schoolpicholder {
-            width: 29%;
+            // width: 29%;
         }
         .schooldetail-holder {
-            width: 70%;
+            width: calc(100% - 200px);
         }
         .school-image {
             width: 190px;
@@ -221,7 +226,6 @@ $drak-primary:#070f40 !default;
 }
 
 .schoolprofile-cardimgholder {
-    width: 29%;
     padding: 10px;
     padding-right: 0px;
 }

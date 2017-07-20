@@ -1,3 +1,42 @@
 @media screen and (max-width: 767px) {
-     // Tablet SCCREENS
+  // Tablet SCCREENS
+  //********** SCHOOL HEADER*****************
+  .schoolprofilecard-holder {
+    width: 100%;
+  }
+  .schoolprofile-page {
+    .schoolprofilecard {
+      text-align: center;
+      .mobileschoolheader-progressbar {
+        width: 100%;
+      }
+      .schoolpic-check {
+        left: 20px;
+      }
+      .schooldetail-holder {
+        width: 100%;
+      }
+      .mobileschoolheader-progressbar {
+        display: block;
+        width: 60%;
+        margin: 0 auto;
+      }
+    }
+  } //************ END SCHOOL HEADER ***************
+  // **************HIGHLIGHT PAGE**************
+  // CHAMPIONS CARD
+  .schoolchampions {
+    margin: 15px 0px;
+    padding: 0px 5px;
+  } // CHAMPIONS CARD END
+  // SCHOOL PROFILE CARD
+  .performance {
+    margin: 15px 0px;
+    padding: 0px 5px;
+  } // END SCHOOL PROFILE CARD
+  // IMAGE GALLERY
+  .imagegallery {
+    padding: 0px 5px;
+  } // END IMAGE GALLERY
+  // **************END HIGHLIGHT PAGE***********
 }

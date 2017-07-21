@@ -1,3 +1,92 @@
 @media screen and (max-width: 767px) {
      // Tablet SCCREENS
+    //  COMMON
+    .titledescription-holder{
+      width: 100%;
+    }
+    //  COMMON END
+     // ATHLETE PROFILE PAGE
+     // ATHLETE PROFILE CARD
+     .athleteprofile-mainsection{
+       margin: 0;
+     }
+     .athleteprofile-cardholder{
+       .athleteprofile-card{
+         text-align: center;
+       }
+       .athleteprofile-picture{
+         margin-bottom: 15px;
+       }
+       .athleteprofile-details{
+         width: 100%;
+         padding: 0;
+         text-align: center;
+       }
+       .athletedetails-ratio{
+         width: 60%;
+         margin: 0 auto;
+         display: block;
+       }
+       .athletedetail-ratiocount{
+         display: none;
+       }
+     }
+     // ATHLETE PROFILE CARD END
+    //  ATHLETE NAV BAR
+    .athleteprofile-nav{
+       .athleteprofile-navcity{
+         padding: 5px 10px;
+         top: -30px;
+         &:after{
+           border-bottom: 30px solid #b7b7b7;
+         }
+       }
+    }
+    //  ATHLETE NAV BAR END
+    // ATHLETE PROFILE ACHIEVEMENTS
+    .athleteachievement-certificate{
+      width: auto;
+    }
+    .athleteachievement-intro{
+      width: 100%;
+    }
+    .athleteachievement-certificatedetail{
+      width: calc(100% - 145px);
+      h3{
+        font-size: 21px;
+      }
+      p{
+        font-size: 12px;
+      }
+    }
+    .athleteachievement-certificateholder{
+      width: 120px;
+    }
+
+    .achievementexcellence-certificatedetail{
+      width: calc(100% - 145px);
+      padding: 10px;
+    }
+    .athleteachievement-certificatepic{
+      padding: 10px;
+    }
+    .achievementexcellence-table{
+      width: 100%;
+      .achievementexcellence-tableholder{
+        display: none;
+      }
+    }
+    .achievementexcellence-medal{
+      padding: 0;
+      .achievementexcellence-medalholder{
+        display: inline-block;
+        vertical-align: middle;
+      }
+      p{
+        display: inline-block;
+        vertical-align: middle;
+      }
+    }
+    // ATHLETE PROFILE ACHIEVEMENTS END
+     // ATHLETE PROFILE PAGE END
 }

@@ -1,3 +1,82 @@
 @media screen and (max-width: 991px){
   // DESKTOP SCREENS
+  // COMMON
+  .table-responsive{
+    border: none;
+  }
+  .titledescription-holder{
+    width: 80%;
+  }
+  // COMMON END
+  // ATHLETE PROFILE PAGE
+  // ATHLETE PROFILE CARD
+  .athleteprofile-cardholder{
+    width: 100%;
+  }
+  .athlete-picholder{
+    width: 150px;
+    height: 150px;
+  }
+  .athleteprofile-details{
+    width: calc(100% - 160px);
+  }
+  .athletepic-check{
+    width: 20px;
+    height: 20px;
+    bottom: 0;
+    left: 30px;
+    font-size: 14px;
+    line-height: 20px;
+  }
+  // ATHLETE PROFILE CARD END
+  // ATHLETE PROFILE HIGHLIGHTS
+  .highlights-sporttable{
+    padding: 0px 5px;
+    margin: 15px 0;
+  }
+  .atheletehighlight-schoolcheck{
+    padding: 0px 5px;
+    margin: 15px 0;
+  }
+  .atheletehighlight-sportgallery{
+    padding: 0px 5px;
+    margin: 15px 0;
+  }
+  .highlight-knowflexslider{
+    padding: 0px 10px;
+  }
+  // ATHLETE PROFILE HIGHLIGHTS END
+  // ATHLETE PROFILE ACHIEVEMENTS
+  .athleteachievement-certificate{
+    margin-left: 70px;
+  }
+  .athleteachievement-certificatedetail{
+    width: calc(100% - 130px);
+  }
+  .achievementexcellence-certificatedetail{
+    padding: 15px;
+  }
+  .athletecertificate-logo{
+    width: 60px;
+    top: -18px;
+    left: -60px;
+  }
+  .athleteachievement-certificateholder{
+    width: 100px;
+  }
+  .achievementexcellence-certificatedetail{
+    width: calc(100% - 130px);
+    padding-right: 0;
+  }
+  .achievementexcellence-medal{
+    font-size: 12px;
+  }
+  .achievementexcellence-medalholder{
+    width: 25px;
+  }
+  .achievementexcellence-table{
+    width: calc(100% - 80px);
+  }
+  // ATHLETE PROFILE ACHIEVEMENTS END
+  // ATHLETE PROFILE PAGE END
 }

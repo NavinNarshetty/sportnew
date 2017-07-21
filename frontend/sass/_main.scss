@@ -526,11 +526,16 @@ a{
 }
 
 .athleteprofile-mainsection {
-    margin: 30px;
+    margin: 30px 0;
 }
 
 .athleteprofile-highlights, .athleteprofile-achievements, .atheleteprofile-statistics{
   padding: 20px 0px 50px;
+}
+
+.athleteprofile-cardholder{
+  width: 70%;
+  margin: 0 auto;
 }
 
 .athleteprofile-card {
@@ -611,7 +616,7 @@ a{
 
 .athletedetail-name {
     color: $brand-primary;
-    word-break: break-all;
+    word-break: break-word;
 }
 
 .athletedetail-sportlist {
@@ -645,7 +650,7 @@ a{
 }
 
 .athleteprofile-nav {
-    border-top: 2px solid $dark-grey;
+    border-top: 2px solid #b7b7b7;
     position: relative;
 
     .athletenav-option {
@@ -658,6 +663,25 @@ a{
             border-bottom: 3px solid $brand-success;
             font-weight: 700;
         }
+    }
+
+    .athleteprofile-navcity{
+      padding: 10px 15px;
+      position: absolute;
+      top: -40px;
+      right: 0;
+      background-color: #b7b7b7;
+      color: #2b2b2b;
+      text-transform: capitalize;
+      @extend .opensans-semibold;
+      &:after{
+        content: '';
+        border-bottom: 40px solid #b7b7b7;
+        border-left: 15px solid transparent;
+        position: absolute;
+        top: 0;
+        left: -15px;
+      }
     }
 }
 
@@ -821,15 +845,15 @@ a{
 }
 .athleteachievement-certificatedetail {
     display: inline-block;
-    width: 70%;
+    width: calc(100% - 200px);
     vertical-align: top;
     padding: 20px;
 }
 .athleteachievement-certificatepic {
     display: inline-block;
-    width: 29%;
-    padding: 20px;
+    padding: 20px 10px;
     text-align: center;
+    vertical-align: middle;
 }
 .athleteachievement-certificateholder {
     width: 140px;
@@ -837,14 +861,14 @@ a{
 }
 .achievementexcellence-certificatedetail{
   display: inline-block;
-  width: 70%;
+  width: calc(100% - 165px);
   padding: 20px;
   padding-right: 0;
-  vertical-align: top;
+  vertical-align: middle;
 }
 .achievementexcellence-table{
   display: inline-block;
-  width: 79%;
+  width: calc(100% - 100px);
   margin: 10px 0;
 }
 .achievementexcellence-tableholder{
@@ -859,7 +883,6 @@ a{
 }
 .achievementexcellence-medal{
   display: inline-block;
-  width: 19%;
   padding-top: 20px;
   margin-left: 5px;
 }

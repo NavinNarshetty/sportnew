@@ -10,8 +10,20 @@
 
   // ATHLETE PROFILE HIGHLIGHTS END
   // ATHLETE PROFILE ACHIEVEMENTS
-  
+  .athleteachievement-participationcertificate{
+    width: 185px;
+  }
   // ATHLETE PROFILE ACHIEVEMENTS END
+  // ATHLETE PROFILE STATISTICS
+  .statisticsport-medaldetails{
+    .statsmedaldetail-sport{
+      width: 190px;
+    }
+    .medaldetails-schoolname{
+      width: 190px;
+    }
+  }
+  // ATHLETE PROFILE STATISTICS END
 
   // ATHLETE PROFILE PAGE END
 }

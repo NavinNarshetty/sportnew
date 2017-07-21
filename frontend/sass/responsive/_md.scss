@@ -77,6 +77,35 @@
   .achievementexcellence-table{
     width: calc(100% - 80px);
   }
+  .athleteachievement-participationholder{
+    white-space: nowrap;
+  }
+  .athleteachievement-participationcertificate{
+    width: 180px;
+  }
   // ATHLETE PROFILE ACHIEVEMENTS END
+  // ATHLETE PROFILE STATISTICS
+  .schoolprofile-teamvideos{
+    width: 100%;
+  }
+  .statisticsport-schoolyear{
+    max-width: 370px;
+  }
+  .statisticsport-medaldetails{
+  .statsmedaldetail-sport{
+    width: 260px;
+  }
+  .medaldetails-schoolname{
+    width: 230px;
+  }
+  }
+  .statisticsport-content{
+    margin: 0px 10px 0px 30px;
+  }
+  .athletestatistics-detailheader, .athletestatistics-summaryheader{
+    width: 80%;
+  }
+
+  // ATHLETE PROFILE STATISTICS END
   // ATHLETE PROFILE PAGE END
 }

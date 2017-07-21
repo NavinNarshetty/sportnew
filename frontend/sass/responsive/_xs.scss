@@ -6,8 +6,43 @@
      margin: 5px 0;
    }
    // ATHLETE PROFILE CARD END
-   // ATHLETE PROFILE HIGHLIGHTS
-
-   // ATHLETE PROFILE HIGHLIGHTS END
-   // ATHLETE PROFILE PAGE END 
+   // ATHLETE PROFILE ACHIEVEMENTS
+   .athleteachievement-certificate{
+     margin-top: 25px;
+     margin-left: 50px;
+     text-align: center;
+   }
+   .athleteachievement-certificatedetail{
+     width: 100%;
+     padding: 10px;
+     text-align: left;
+   }
+   .athletecertificate-logo {
+    width: 50px;
+    top: -15px;
+    left: -50px;
+  }
+  .athleteachievement-certificateholder{
+    margin: 0 auto;
+  }
+  .athleteachievement-certificate{
+    margin-top: 25px;
+    margin-left: 50px;
+    text-align: center;
+  }
+  .achievementexcellence-certificatedetail{
+    width: 100%;
+    text-align: left;
+  }
+  .achievementexcellence-table{
+    margin: 0;
+    ul{
+      margin-bottom: 0;
+    }
+  }
+  .athleteachievement-participationcertificate{
+    width: 145px;
+  }
+   // ATHLETE PROFILE  ACHIEVEMENTS END
+   // ATHLETE PROFILE PAGE END
 }

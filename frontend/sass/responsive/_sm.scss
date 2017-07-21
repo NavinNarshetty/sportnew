@@ -62,6 +62,9 @@
     .athleteachievement-certificateholder{
       width: 120px;
     }
+    .athleteachievement-partnerholder{
+      margin-left: 70px;
+    }
 
     .achievementexcellence-certificatedetail{
       width: calc(100% - 145px);
@@ -87,6 +90,30 @@
         vertical-align: middle;
       }
     }
+    .viewstatistics-list{
+      display: none !important;
+    }
+    .athleteachievement-participationcertificate{
+      width: 150px;
+    }
     // ATHLETE PROFILE ACHIEVEMENTS END
+    // ATHLETE PROFILE STATISTICS
+    .statisticsport-content{
+      margin: 0px 5px;
+    }
+    .statisticsport-medaldetails{
+      padding: 10px 15px;
+      text-align: left;
+      li{
+        margin: 5px 0;
+      }
+      .statsmedaldetail-sport{
+        width: 100%;
+      }
+      .medaldetails-schoolname{
+        width: calc(100% - 30px);
+      }
+    }
+    // ATHLETE PROFILE STATISTICS END
      // ATHLETE PROFILE PAGE END
 }

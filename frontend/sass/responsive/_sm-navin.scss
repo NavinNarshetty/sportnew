@@ -1,5 +1,9 @@
 @media screen and (max-width: 767px) {
   // Tablet SCCREENS
+  // ********COMMON CLASS********
+  .profile-bluemedals {
+    width: 20px;
+  } // ********END COMMON CLASS******
   //********** SCHOOL HEADER*****************
   .schoolprofilecard-holder {
     width: 100%;
@@ -23,6 +27,14 @@
       }
     }
   } //************ END SCHOOL HEADER ***************
+  //************* ATHLETE PROFILE CARD**********
+  .profileathletecard-medallist {
+    li {
+      padding-left: 5px;
+      padding-right: 5px;
+      font-size: 14px;
+    }
+  } // ************END ATHLETE PROFILE CARD**********
   // **************HIGHLIGHT PAGE**************
   // CHAMPIONS CARD
   .schoolchampions {
@@ -33,10 +45,40 @@
   .performance {
     margin: 15px 0px;
     padding: 0px 5px;
+  }
+  .schoolprofilecard-medallist {
+    .list-inline>li {
+      padding-left: 5px;
+      padding-right: 5px;
+      font-size: 14px;
+    }
   } // END SCHOOL PROFILE CARD
   // IMAGE GALLERY
   .imagegallery {
     padding: 0px 5px;
   } // END IMAGE GALLERY
   // **************END HIGHLIGHT PAGE***********
+  // **************TRACKRECORD PAGE *********************
+  // YEAR BLUE DIV
+  .schoolprofile-trackrecord {
+    .trackrecord-detail {
+      padding: 5px 5px;
+    }
+  } // END YEAR BLUE DIV
+  // **************END TRACKRECORD PAGE*******************
+  // *********TEAM PAGE ***************
+  // TABLE FOOTER
+  .selectedsport-medaldetails {
+    text-align: left;
+    .winingschool-width {
+      width: calc(100% - 25px);
+    }
+    .selectedsport-sportnameage {
+      width: 100%;
+    }
+    li {
+      margin: 5px 0px;
+    }
+  } // END TABLE FOOTER
+  // *********TEAM PAGE END***************
 }

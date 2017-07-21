@@ -281,7 +281,7 @@ $drak-primary:#070f40 !default;
 }
 
 .profileathlete-cardimgholder {
-    width: 29%;
+    // width: 29%;
     padding: 10px;
     padding-right: 0px;
 }
@@ -329,7 +329,7 @@ $drak-primary:#070f40 !default;
 }
 
 .team-cardimgholder {
-    width: 29%;
+    // width: 29%;
     padding: 10px;
     padding-right: 0px;
 }
@@ -453,6 +453,11 @@ $drak-primary:#070f40 !default;
     margin-bottom: 5px;
 }
 
+.video-content {
+    text-align: left;
+    white-space: normal;
+}
+
 .video-sportnamecontent {
     font-size: 12px;
 }
@@ -558,10 +563,6 @@ $drak-primary:#070f40 !default;
     margin: 40px 0px;
 }
 
-.f18 {
-    font-size: 18px;
-}
-
 .f14 {
     font-size: 14px;
 }
@@ -598,6 +599,14 @@ $drak-primary:#070f40 !default;
     }
     .trackrecord-detailwidth {
         width: calc(100% - 124px);
+    }
+}
+
+.trackrecord-detail {
+    ul {
+        li {
+            font-size: 16px;
+        }
     }
 }
 
@@ -806,6 +815,9 @@ $drak-primary:#070f40 !default;
         vertical-align: middle
     }
     .winingschool-width {
+        width: 230px;
+    }
+    .selectedsport-sportnameage {
         width: 230px;
     }
 }

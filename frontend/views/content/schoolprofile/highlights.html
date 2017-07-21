@@ -249,15 +249,17 @@
     <!--END SCHOOL TABLE-->
 
     <!--SCHOOL VIDEOS-->
-    <div class="school-videos" hidden>
-      <div class="row">
-        <div class="schoolvideos-head text-uppercase">
-          <h3 class="color-primary fjalla-one">Your Match Videos</h3>
+    <div class="school-videos">
+      <div class="schoolvideos-head text-uppercase">
+        <h3 class="color-primary fjalla-one">Your Match Videos</h3>
+      </div>
+      <div class="schoolvideos-contentholder">
+        <div class="schoolvideos-content inline-block" ng-repeat="s in videos track by $index| limitTo:5">
+
+          <video-card></video-card>
         </div>
       </div>
-      <div class="schoolvideos-content inline-block" ng-repeat="s in videos track by $index| limitTo:5">
-        <video-card></video-card>
-      </div>
+
       <div class="schoolhighlights-videomore">
         <button class="btn btn-blue-outline">View All</button>
       </div>

@@ -1,5 +1,9 @@
 @media screen and (max-width: 480px) {
   // Mobile SCREENS
+  // ********COMMON CLASS*************
+  .profile-bluemedals {
+    width: 15px;
+  } // ********END COMMON CLASS**********
   //  SCHOOL PROFILE HEADER
   .schoolprofile-page {
     .schoolprofilecard {
@@ -23,9 +27,85 @@
       word-break: break-word;
     }
   } //  SCHOOL PROFILE HEADER END
+  // ***********NAVIGATION***************
   .school-navigation ul li {
     padding: 5px 5px;
     font-size: 12px;
-  } // NAVIGATION
-  // END NAVIGATION
+  } // **************END NAVIGATION*****************
+  // **************SCHOOL PROFILE CARD******************
+  .schoolprofilecard-medallist {
+    .list-inline>li {
+      padding: 0px;
+      padding-right: 4px;
+      font-size: 12px;
+      &:nth-last-child(1) {
+        padding-right: 0px;
+      }
+    }
+  } // ***************END SCHOOL PROFILE CARD*************
+  // *****************MEDAL CARD**************
+  .medal-imgholder {
+    width: 90px;
+    height: 90px;
+  }
+  .medal-athletename {
+    width: 90px;
+  } // *****************END MEDAL CARD**********
+  // ******PROFILE ATHLETE CARD*************
+  .profileathletecard-medallist {
+    li {
+      padding: 0px;
+      padding-right: 4px;
+      font-size: 12px;
+      &:nth-last-child(1) {
+        padding-right: 0px;
+      }
+    }
+  } // ******END PROFILE ATHLETE CARD*********
+  // ************TEAM CARD *****************
+  .team-cardcontent {
+    width: calc(100% - 105px);
+  }
+  .teamcard-medallist {
+    li {
+      padding: 0px;
+      padding-right: 4px;
+      font-size: 12px;
+      &:nth-last-child(1) {
+        padding-right: 0px;
+      }
+    }
+  } // ************END TEAM CARD**************
+  // **********************HIGHLIGHT PAGE******************
+  // **********************END HIGHLIGHT PAGE****************
+  // **************TRACKRECORD PAGE**********************
+  .mobiletrack-accordian {
+    .col-xs-12 {
+      padding: 0px 5px;
+    }
+  } // **************END TRACKRECORD PAGE******************
+  // ****************TEAM PAGE *********************
+  // SPORT TABLE SECTION
+  .schoolprofile-teamsportlistcard {
+    text-align: center;
+  }
+  .schoolprofile-selectsporthead {
+    .list-inline>li {
+      display: block;
+      margin: 5px 0px;
+    }
+  } // END SPORT TABLE SECTION
+  // TABLE CARD
+  .schoolprofile-teamsportdetails {
+    .teamslected-matchdetail {
+      font-size: 24px;
+    }
+    .list-inline>li {
+      padding: 0px 10px;
+    }
+  }
+  .selectedsport-tablecardcontent {
+    margin: 0px 20px;
+  } // END TABLE CARD
+  // ****************END TEAM PAGE******************
 }

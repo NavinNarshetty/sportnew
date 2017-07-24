@@ -6,7 +6,7 @@ $brand-success: #27b465 !default; //green
 $brand-warning: #ffb026 !default; //yellow
 $brand-danger: #da495b !default; //red
 $brand-info: #000072 !default; //lighter-blue
-$base: #303030 !default; //black
+$base: #1a1a1a !default; //black
 $white: #fff !default;
 $grey: #e1e1e1 !default;
 $dark-grey: #757575 !default;
@@ -311,6 +311,9 @@ a{
     border: none;
     margin: 0;
       .flex-direction-nav {
+        a{
+          opacity: 1;
+        }
         a:before {
             font-size: 18px;
         }
@@ -529,7 +532,7 @@ a{
     margin: 30px 0;
 }
 
-.athleteprofile-highlights, .athleteprofile-achievements, .atheleteprofile-statistics{
+.athleteprofile-highlights, .athleteprofile-achievements, .athleteprofile-statistics, .athleteprofile-videos{
   padding: 20px 0px 50px;
 }
 
@@ -694,6 +697,10 @@ a{
 .highlights-stats, .athletehighlights-yourvideo, .athletehighlights-athletes, .athletehighlight-sportranking{
   margin: 40px 0;
 }
+.athletehighlights-yourvideo{
+  padding: 15px 10px;
+  // box-shadow: 0 0 5px $light-grey;
+}
 .sportslidetable-element {
     width: 24%;
     display: inline-block;
@@ -713,7 +720,7 @@ a{
 }
 
 .sportslide-content {
-    border: 1px solid lightgray;
+    box-shadow: 0 0 5px $light-grey;
     border-top: none;
     padding: 15px 20px;
 
@@ -758,12 +765,15 @@ a{
     }
 }
 .highlights-athleteslide {
-  padding: 5px 0;
+  padding: 20px 0 5px;
+}
+.athletehighlights-videosection{
+  text-align: center;
 }
 .athletehighlights-videoholder{
   display: inline-block;
   padding: 5px;
-  width: 20%;
+  width: 220px;
   margin: 10px 0;
 }
 .athletehighlights-videomore{
@@ -808,6 +818,9 @@ a{
 .highlight-sportranking-tableoverlay{
   padding: 15px 10px;
   background-color: rgba(0,0,0,0.5);
+}
+.atheletehighlight-sportgallery{
+  box-shadow: 0 0 5px #e5e5e5;
 }
 // HIGHLIGHTS PAGE END
 // ACHIEVEMENTS PAGE
@@ -1058,6 +1071,47 @@ a{
   }
 }
 // STATISTICS PAGE END
+// VIDEOS PAGE
+.athletevideo-yearwise{
+  margin: 40px 0;
+}
+.athletevideo-yearholder {
+  margin-bottom: -55px;
+  text-align: right;
+}
+.athletevideo-year {
+  margin: 0;
+  color: $grey-year;
+  font-size: 48px;
+  line-height: 1;
+  @extend .teko-semibold;
+}
+.athletevideo-sportholder{
+  margin-bottom: 40px;
+}
+.athletevideo-videocard{
+  margin: 20px 0;
+}
+.athletevideo-sportvideos{
+  text-align: center;
+}
+.athletevideo-videocard{
+  width: 20%;
+  padding: 0px 10px;
+  margin: 20px 0;
+  display: inline-block;
+}
+.athletevideo-sportviewall{
+  text-align: right;
+}
+.btn-videoviewall{
+  color: #1a1a1a;
+  &:active, &:focus, &:hover{
+    color: #1a1a1a;
+    text-decoration: underline;
+  }
+}
+// VIDEOS PAGE END
 // athlete PAGE END
 
 .img-lol{

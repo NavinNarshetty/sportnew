@@ -297,4 +297,36 @@ myApp.controller('AthleteProfileCtrl', function ($scope, $state, $stateParams, T
     }];
 
     $scope.gallery = ['img/oldSfa/banner1.jpg', 'img/oldSfa/banner2.jpg', 'img/oldSfa/cfjudo.jpg', 'img/oldSfa/cfcarrom.jpg', 'img/oldSfa/cfchess.jpg'];
-})
+
+    // VIDEO PAGE jSON
+    $scope.videoArray = [{
+      year: '2017',
+      totalVideos: '100',
+      sport:[{
+        name: 'Basketball',
+        videoCount: '50',
+        videos: ['1','2','3','4','5','6','7','8','9','10']
+      },{
+        name: 'Swimming',
+        videoCount: '60',
+        videos: ['1','2','3','4','5','6','7','8','9','10']
+      }]
+    },{
+      year: '2016',
+      totalVideos: '150',
+      sport:[{
+        name: 'Tennis',
+        videoCount: '40',
+        videos: ['1','2','3','4','5','6','7','8','9','10']
+      },{
+        name: 'Taekwondo',
+        videoCount: '50',
+        videos: ['1','2','3','4','5','6','7','8','9','10']
+      },{
+        name: 'Kho Kho',
+        videoCount: '60',
+        videos: ['1','2','3','4','5','6','7','8','9','10']
+      }]
+    }];
+    // VIDEO PAGE jSON END
+})//END OF CONTROLLER

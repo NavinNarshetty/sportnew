@@ -1,3 +1,54 @@
-<div class="atheleteprofile-videos">
-  <h1>VIDEOS</h1>
+<div class="athleteprofile-videos">
+    <div class="container">
+        <!-- FILTERS -->
+        <div class="athletevideo-filter">
+            <div class="row">
+                <div class="col-md-4">
+                    <p>View by sports</p>
+                </div>
+                <div class="col-md-4">
+                    <p>View by year</p>
+                </div>
+            </div>
+        </div>
+        <!-- FILTERS END -->
+        <!-- YEARWISE VIDEO HOLDER -->
+        <div class="athletevideo-content">
+            <div class="athletevideo-yearwise" ng-repeat="videoholder in videoArray track by $index">
+                <!-- YEAR TITLE  -->
+                <div class="athletevideo-yearholder text-uppercase">
+                    <p class="athletevideo-year">{{videoholder.year}}</p>
+                    <p class="opensans-semibold">Total match videos {{videoholder.totalVideos}}</p>
+                </div>
+                <!-- YEAR TITLE END -->
+                <!-- SPORTWISE VIDEO HOLDER -->
+                <div class="athletevideo-sportholder" ng-repeat="sport in videoholder.sport track by $index">
+                    <!-- SPORT NAME AND COUNTS  -->
+                    <div class="athetevideo-sporttitle text-uppercase">
+                        <h3 class="m-clear blue-header-title">{{sport.name}}</h3>
+                        <p class="">{{sport.videoCount}} videos</p>
+                    </div>
+                    <!-- SPORT NAME AND COUNTS END -->
+                    <!-- SPORTWISE VIDEO CARD ON REPEAT -->
+                    <div class="athletevideo-sportvideos">
+                        <!-- <div class="row"> -->
+                        <!-- <div class="col-md-3" ng-repeat="video in sport.videos track by $index"> -->
+                        <div class="athletevideo-videocard" ng-repeat="video in sport.videos track by $index">
+                            <video-card></video-card>
+                        </div>
+                        <!-- </div> -->
+                        <!-- </div> -->
+                    </div>
+                    <!-- SPORTWISE VIDEO CARD ON REPEAT END -->
+                    <!-- SPORTWISE VIEW ALL PAGINATION CALL -->
+                    <div class="athletevideo-sportviewall">
+                      <a class="btn-videoviewall">View All</a>
+                    </div>
+                    <!-- SPORTWISE VIEW ALL PAGINATION CALL END -->
+                </div>
+                <!-- SPORTWISE VIDEO HOLDER END -->
+            </div>
+        </div>
+        <!-- YEARWISE VIDEO HOLDER END -->
+    </div>
 </div>

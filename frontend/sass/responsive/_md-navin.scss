@@ -75,5 +75,42 @@
     }
   } // END TABLE FOOTER
   // **********END TEAM PAGE*******
-  // *************END TEAM PAGE *****************
+  // **********STATISTICS PAGE ************
+  .statistics-performancemedalpoints {
+    .list-inline>li {
+      padding-left: 28px;
+    }
+  } // **********END STATISTICS PAGE **********
+  // ************ACHIEVEMENTS PAGE ************
+  // SPECIAL AWARD
+  .schoolachievement-certificate {
+    margin-left: 70px;
+  }
+  .schoolcertificate-logo {
+    width: 60px;
+    top: -18px;
+    left: -60px;
+  }
+  .schoolachievement-certificatedetail {
+    width: calc(100% - 130px);
+  }
+  .schoolachievement-certificateholder {
+    width: 100px;
+  }
+  .schoolachievement-certificatepic {
+    padding: 20px 10px;
+  } // END SPECIAL AWARD
+  // BLUE BAR
+  .schoolachievements-bluebar {
+    .schoolachievements-detail {
+      padding: 5px 10px;
+      ul {
+        font-size: 12px;
+      }
+    }
+  }
+  .schoolachievements-matchdetails {
+    font-size: 14px;
+  } // END BLUE BAR
+  // ************END ACHIEVEMENTS PAGE ************
 }

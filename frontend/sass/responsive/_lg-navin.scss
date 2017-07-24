@@ -73,4 +73,24 @@
     }
   } // END TABLE FOOTER
   // **********END TEAM PAGE*******
+  //  **********STATISTICS PAGE********
+  .statistics-medalwon {
+    text-align: center;
+  }
+  .sportwise-statisticscard {
+    .statistics-cardcontent {
+      padding: 10px 5px;
+    }
+    .sportwise-statisticstype p {
+      font-size: 42px;
+      letter-spacing: 2px;
+    }
+  }
+  .statistics-winpercentage {
+    margin: 5px auto;
+  } // ACCORDIAN
+  .schoolachievements-accordianholder {
+    padding: 0px 20px;
+  } // END ACCORDIAN
+  // ***********END STATISTICS PAGE******
 }

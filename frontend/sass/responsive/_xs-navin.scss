@@ -108,4 +108,53 @@
     margin: 0px 20px;
   } // END TABLE CARD
   // ****************END TEAM PAGE******************
+  //**************** ACHIEVEMENTS PAGE **************
+  // SCHOOL AWARD
+  .schoolachievement-certificatedetail {
+    width: 100%;
+    padding: 10px;
+    text-align: left;
+  }
+  .schoolachievement-certificatepic {
+    margin-left: 40px;
+  } // END SCHOOL AWARD
+  // BLUE BAR
+  .schoolachievements-bluebar {
+    .schoolachievements-detail {
+      ul {
+        text-align: left;
+      }
+    }
+  } // END BLUE BAR
+  // ACCORDIAN
+  .schoolachievements-accordianholder {
+    padding: 0px;
+    padding-left: 20px;
+  }
+  .schoolachievements-accordianholder {
+    .schoolachievements-accordiancontent {
+      text-align: left;
+    }
+  }
+  .outeraccordian-sportfloat {
+    float: none !important;
+    text-align: left;
+  }
+  .inneraccordian-sportfloat {
+    float: none !important;
+    text-align: left;
+    padding: 5px;
+    p {
+      text-align: left;
+    }
+  }
+  .inneraccordian-medalslist {
+    text-align: left;
+  }
+  .schoolachievements-accordiancontent {
+    .pd5 {
+      padding: 5px;
+    }
+  } // END ACCORDIAN
+  // ***************END ACHIEVEMENTS PAGE ***********
 }

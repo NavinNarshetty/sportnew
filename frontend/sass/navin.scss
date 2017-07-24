@@ -273,6 +273,10 @@ $drak-primary:#070f40 !default;
     }
 } // end-tab3
 // athleteprofile-card
+.performanceathlete-profilecardholder {
+    padding: 20px 0 5px;
+}
+
 .profileathlete-card {
     // padding: 10px 15px;
     // border: 1px solid #ddd;
@@ -299,6 +303,25 @@ $drak-primary:#070f40 !default;
     width: calc(100% - 120px);
     padding: 10px;
     padding-left: 0px;
+}
+
+.athletecard-starflag {
+    position: absolute;
+    top: -15px;
+    right: -10px;
+}
+
+.athletecard-flagholder {
+    width: 30px;
+    margin: 0 5px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.athletecard-starholder {
+    width: 30px;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .profileathlete-athletename {

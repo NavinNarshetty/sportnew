@@ -81,4 +81,86 @@
     }
   } // END TABLE FOOTER
   // *********TEAM PAGE END***************
+  // *********STATISTICS PAGE *************
+  // RANK CARD
+  .sportreport-schoolrankcard {
+    margin: 15px 0px;
+  } // END RANK CARD
+  // GENDER RATIO
+  .sportreport-totalathletescard {
+    margin: 15px 0px;
+  } // END GENDER RATIO
+  // SPORT WISE CARD
+  .sportwise-statisticscard {
+    .statistics-cardcontent {
+      padding: 10px 15px;
+    }
+  } //  END SPORT WISE CARD
+  // **********END STATISTICS PAGE ********
+  // **********ACHIEVEMENTS PAGE *************
+  // SCHOOL AWARD
+  .schoolachievement-certificate {
+    width: auto;
+  }
+  .schoolachievement-certificatedetail {
+    width: calc(100% - 145px);
+    h3 {
+      font-size: 21px;
+    }
+    p {
+      font-size: 12px;
+    }
+  }
+  .schoolachievement-certificateholder {
+    width: 120px;
+  } // END SCHOOL AWARD
+  // BLUE BAR
+  .schoolachievements-bluebar {
+    .schoolachievements-detail {
+      ul {
+        text-align: center;
+      }
+    }
+  } // END BLUE BAR
+  // ACCORDIAN 
+  .schoolachievements-accordianholder .schoolachievements-accordiancontent {
+    margin: 0px 12px;
+  }
+  .schoolachivements-accordianmedals {
+    li {
+      padding: 0px;
+      font-size: 12px;
+    }
+  }
+  .schoolachievements-accordiancontent {
+    .pd5 {
+      padding: 10px;
+    }
+  }
+  .schoolachievements-accordianholder {
+    .mt5 {
+      margin-top: 10px;
+    }
+  }
+  .schoolachievements-accordianholder {
+    .schoolachievements-accordianimg {
+      width: 50px;
+      height: 50px;
+      top: -5px;
+      left: -25px;
+    }
+  }
+  .inneraccordian-medalslist {
+    padding: 0px;
+    font-size: 12px;
+  }
+  .inneraccordian-achievementsdetails {
+    p {
+      font-size: 12px;
+    }
+    .pd5 {
+      padding: 10px;
+    }
+  } // END ACCORDIAN
+  // **********END ACHIEVEMENTS PAGE ***********
 }

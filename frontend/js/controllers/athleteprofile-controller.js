@@ -1,4 +1,4 @@
-myApp.controller('AthleteProfileCtrl', function ($scope, $state, $stateParams, TemplateService, NavigationService, $timeout, toastr, $http) {
+myApp.controller('AthleteProfileCtrl', function ($scope, $state, $stateParams, TemplateService, NavigationService, $timeout, toastr, $http, Athleteprofile) {
     $scope.template = TemplateService.getHTML("content/athleteprofile.html");
     TemplateService.title = "Athlete Profile"; //This is the Title of the Website
     $scope.navigation = NavigationService.getNavigation();
@@ -11,6 +11,15 @@ myApp.controller('AthleteProfileCtrl', function ($scope, $state, $stateParams, T
       click: ""
     }
     // VARIABLE INITIALISATIONS END
+
+    // API CALLS
+    $scope.getVideo = function(){
+        Athleteprofile.getVideo(function(data){
+          $scope.videoArray = data.data.videoArray;
+          console.log($scope.videoArray, 'array');
+        });
+    }
+    // API CALLS END
 
     // ARRAY OF SPORT NAMES
     $scope.sporticon = ['Handball','Basketball','Volleyball','Throwball',
@@ -38,6 +47,7 @@ myApp.controller('AthleteProfileCtrl', function ($scope, $state, $stateParams, T
         $scope.athleteprofile.active = "achievements";
       break;
       case "videos":
+      $scope.getVideo();
         $scope.athleteprofile.innerView = allAgentProfile[3];
         $scope.athleteprofile.active = "videos";
       break;
@@ -72,6 +82,7 @@ myApp.controller('AthleteProfileCtrl', function ($scope, $state, $stateParams, T
         break;
         case 3:
           url = "videos";
+          $scope.getVideo();
           $scope.athleteprofile.active = "videos";
         break;
         case 4:
@@ -298,35 +309,4 @@ myApp.controller('AthleteProfileCtrl', function ($scope, $state, $stateParams, T
 
     $scope.gallery = ['img/oldSfa/banner1.jpg', 'img/oldSfa/banner2.jpg', 'img/oldSfa/cfjudo.jpg', 'img/oldSfa/cfcarrom.jpg', 'img/oldSfa/cfchess.jpg'];
 
-    // VIDEO PAGE jSON
-    $scope.videoArray = [{
-      year: '2017',
-      totalVideos: '100',
-      sport:[{
-        name: 'Basketball',
-        videoCount: '50',
-        videos: ['1','2','3','4','5','6','7','8','9','10']
-      },{
-        name: 'Swimming',
-        videoCount: '60',
-        videos: ['1','2','3','4','5','6','7','8','9','10']
-      }]
-    },{
-      year: '2016',
-      totalVideos: '150',
-      sport:[{
-        name: 'Tennis',
-        videoCount: '40',
-        videos: ['1','2','3','4','5','6','7','8','9','10']
-      },{
-        name: 'Taekwondo',
-        videoCount: '50',
-        videos: ['1','2','3','4','5','6','7','8','9','10']
-      },{
-        name: 'Kho Kho',
-        videoCount: '60',
-        videos: ['1','2','3','4','5','6','7','8','9','10']
-      }]
-    }];
-    // VIDEO PAGE jSON END
 })//END OF CONTROLLER

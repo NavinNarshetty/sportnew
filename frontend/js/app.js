@@ -38,7 +38,8 @@ var myApp = angular.module('myApp', [
     'ui.swiper',
     'angularPromiseButtons',
     'toastr',
-    'wu.masonry'
+    'wu.masonry',
+    'athleteprofile'
 ]);
 
 // Define all the routes below

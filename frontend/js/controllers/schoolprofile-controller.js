@@ -13,6 +13,43 @@ myApp.controller('SchoolProfileCtrl', function ($scope, $state, $stateParams, Te
     //     });
     // });
 
+    // swiper
+    $scope.initSwiper = function(){
+      console.log('yoyoyoyo');
+      // $scope.$on('$viewContentLoaded', function (event) {
+          $timeout(function () {
+            console.log('in ');
+              mySwiper = new Swiper('.swiper-container', {
+                  pagination: '.swiper-pagination',
+                  slidesPerView: 3,
+                  paginationClickable: true,
+                  loop: true,
+                  autoplay: 2500,
+                  grabCursor: true,
+                  spaceBetween: 10,
+                  nextButton: '.swiper-button-next',
+                  prevButton: '.swiper-button-prev',
+                  touchEventsTarget: 'container',
+                  breakpoints: {
+                      992: {
+                          slidesPerView: 3
+                      },
+                      768: {
+                          slidesPerView: 2
+
+                      },
+                      481: {
+                          slidesPerView: 1
+                      },
+                      320: {
+                          slidesPerView: 1
+                      }
+                  }
+              })
+          }, 100);
+      // });
+    }
+    // swiper
     // flex-slider
     setTimeout(function () {
         $('.highlightschool-slider .flexslider').flexslider({
@@ -573,6 +610,7 @@ myApp.controller('SchoolProfileCtrl', function ($scope, $state, $stateParams, Te
         case "videos":
             $scope.schoolprofile.innerView = allSchoolProfile[5];
             $scope.schoolprofile.active = 'video';
+            $scope.initSwiper();
             break;
 
         default:
@@ -611,6 +649,7 @@ myApp.controller('SchoolProfileCtrl', function ($scope, $state, $stateParams, Te
             case 5:
                 url = "videos";
                 $scope.schoolprofile.active = 'video';
+                $scope.initSwiper();
                 break;
             default:
                 url = "highlights";
@@ -627,38 +666,6 @@ myApp.controller('SchoolProfileCtrl', function ($scope, $state, $stateParams, Te
     // ON CLICK END
 
 
-    // swiper
 
-    $scope.$on('$viewContentLoaded', function (event) {
-        $timeout(function () {
-            mySwiper = new Swiper('.swiper-container', {
-                pagination: '.swiper-pagination',
-                slidesPerView: 3,
-                paginationClickable: true,
-                loop: true,
-                autoplay: 2500,
-                grabCursor: true,
-                spaceBetween: 10,
-                nextButton: '.swiper-button-next',
-                prevButton: '.swiper-button-prev',
-                touchEventsTarget: 'container',
-                breakpoints: {
-                    992: {
-                        slidesPerView: 3
-                    },
-                    768: {
-                        slidesPerView: 2
-
-                    },
-                    481: {
-                        slidesPerView: 1
-                    },
-                    320: {
-                        slidesPerView: 1
-                    }
-                }
-            })
-        }, 300);
-    });
 
 })

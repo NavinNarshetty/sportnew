@@ -9,17 +9,17 @@
       </div>
       <!--FLEX-SLIDER-->
       <div class="schoolprofile-tablelist  sfa-flexslider">
-        <flex-slider flex-slide="n in customCards track by $index" prev-text="" next-text="">
+        <flex-slider flex-slide="n in Sumsportstable track by $index" prev-text="" next-text="">
           <li>
             <div>
               <div class="school-yearsummary">
                 <div class="school-yearsummaryhead">
-                  <div class="school-yearsummaryimg relate" style=" background-image: url(../{{ 'archery'|sporticon: 'header'}});">
+                  <div class="school-yearsummaryimg relate" style=" background-image: url(../{{ n.name|sporticon: 'header'}});">
                     <div class="school-yearsummarycontent">
-                      <p class="m-clear fjalla-one text-uppercase">ARCHERY</p>
+                      <p class="m-clear fjalla-one text-uppercase">{{n.name}}</p>
                     </div>
                     <div class="school-yearsummarysportimg">
-                      <img ng-src="{{'archery' | sporticon:'icon'}}" alt="" class="img-responsive">
+                      <img ng-src="{{n.name | sporticon:'icon'}}" alt="" class="img-responsive">
                     </div>
                   </div>
                 </div>
@@ -366,7 +366,8 @@
       <uib-accordion close-others="oneAtATime">
         <div uib-accordion-group class="panel-default" is-open="s.open" ng-repeat="s in teamAccor |limitTo:1 track by $index">
           <uib-accordion-heading class="clearfix">
-            <a href="">View Team</a>
+
+            <a href="">View Team<i class="fa " ng-class="{'fa-chevron-up': s.open, 'fa-chevron-down': !s.open}"></i></a>
           </uib-accordion-heading>
           <div class="viewteam-accordioncontent">
             <div class="row">

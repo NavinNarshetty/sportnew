@@ -41,7 +41,7 @@ $drak-primary:#070f40 !default;
 
 .side-adspace {
     background-color: #ddd;
-    height: 323px;
+    height: 341px;
 }
 
 // end Ad-space
@@ -208,6 +208,10 @@ $drak-primary:#070f40 !default;
     .schoolchampions-medalimage {
         width: 20px;
     }
+}
+
+.schholranktable-width {
+    max-width: 320px;
 }
 
 .schoolperformace-holder {
@@ -540,8 +544,10 @@ $drak-primary:#070f40 !default;
     .table>tbody>tr>td {
         border-top: none;
         padding: 10px 8px;
-        text-align: center;
         &:nth-child(n+3) {
+            text-align: center;
+        }
+        &:nth-child(1) {
             text-align: center;
         }
     }
@@ -570,13 +576,24 @@ $drak-primary:#070f40 !default;
 // end school-table
 // school-videos
 .schoolvideos-content {
-    width: 20%;
+    display: inline-block;
     padding: 5px;
-    margin: 10px 0px;
+    width: 220px;
+    margin: 10px 0;
+}
+
+.schoolvideos-contentholder {
+    text-align: center;
+    overflow: auto;
+    white-space: nowrap;
 }
 
 .schoolhighlights-videomore {
     text-align: right;
+}
+
+.school-videos {
+    padding: 15px 10px;
 }
 
 // end school-videos
@@ -640,6 +657,11 @@ $drak-primary:#070f40 !default;
 .schooltrack-accordianholder {
     .panel-title>a {
         text-decoration: none;
+        &:active,
+        &:focus,
+        &:hover {
+            color: inherit;
+        }
     }
     .panel-default>.panel-heading {
         background-color: #fff;
@@ -931,7 +953,7 @@ $drak-primary:#070f40 !default;
     box-shadow: 0px 0px 5px $light-grey;
     padding: 20px;
     text-align: center;
-    min-height: 170px;
+    min-height: 160px;
 }
 
 .sportreport-rankcardcontent {
@@ -955,14 +977,19 @@ $drak-primary:#070f40 !default;
 }
 
 .sportreport-totalathletecircle {
+    width: 120px;
+    height: 120px;
     border: 1px solid #ddd;
-    padding: 25px;
     border-radius: 50%;
     text-align: justify;
     margin-right: 10px;
     .report-circleno {
         font-size: 25px;
         color: $brand-primary;
+    }
+    .sportreport-totalathletecirclecontent {
+        margin: 20px 0px;
+        text-align: center;
     }
 }
 
@@ -991,14 +1018,16 @@ $drak-primary:#070f40 !default;
 }
 
 .high25 {
-    border: 1px solid #ddd;
-    display: inline-block;
-    padding: 70px;
-    border-radius: 100%;
+    text-align: center;
+    margin: 80px 0px;
 }
 
 .sportcicle25 {
-    text-align: center;
+    width: 200px;
+    height: 200px;
+    border: 1px solid;
+    border-radius: 50%;
+    margin: 0 auto;
 }
 
 //sport-wise-card
@@ -1331,4 +1360,11 @@ $drak-primary:#070f40 !default;
 }
 
 // ******END-ACHIVEMENTS
+// ******SCHOOL VIDEOS PAGE
+// .schoolprofile-videos {
+//     .schoolvideo-videocard {
+//         width: 220px;
+//     }
+// }
+// ******END SCHOOL VIDEOS PAGE
 //end schoolprofile-page

@@ -226,12 +226,36 @@
                   </thead>
                   <tbody>
                     <tr ng-repeat="item in schoolRankTable track by $index">
-                      <td>{{$index+1}}</td>
-                      <td>{{item.name}}</td>
-                      <td>{{item.gold}} </td>
-                      <td>{{item.silver}} </td>
-                      <td>{{item.bronze}} </td>
-                      <td>{{item.points}} </td>
+                      <td>
+                        <div class="">
+                          {{item.rank}}
+                        </div>
+                      </td>
+                      <td>
+                        <div class="schholranktable-width">
+                          {{item.name}}
+                        </div>
+                      </td>
+                      <td>
+                        <div class="">
+                          {{item.gold}}
+                        </div>
+                      </td>
+                      <td>
+                        <div class="">
+                          {{item.silver}}
+                        </div>
+                      </td>
+                      <td>
+                        <div class="">
+                          {{item.bronze}}
+                        </div>
+                      </td>
+                      <td>
+                        <div class="">
+                          {{item.points}}
+                        </div>
+                      </td>
                     </tr>
 
                   </tbody>

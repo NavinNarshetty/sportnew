@@ -43,9 +43,20 @@
   // **************END HIGHLIGHT PAGE***************
   //******************** TRACKRECORD PAGE**************
   // YEAR BLUE DIV
+  .schoolprofile-trackrecord {
+    .trackrecord-detailwidth {
+      width: calc(100% - 105px);
+    }
+    .trackrecord-currentyear {
+      font-size: 70px;
+    }
+    .trackrecord-detail {
+      padding: 5px 5px;
+    }
+  }
   .trackrecord-detail {
     ul>li {
-      font-size: 14px;
+      font-size: 12px;
     }
   }
   .schoolprofile-trackrecord {

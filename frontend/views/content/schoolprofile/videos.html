@@ -1,28 +1,54 @@
-<div class="accord-holder">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="">
-        <uib-accordion close-others="oneAtATime">
-          <div uib-accordion-group class="panel-default" heading="Static Header, initially expanded" is-open="status.open" ng-repeat="s in  schoolRankTable track by $index">
-            <uib-accordion-heading>
-              Custom template with custom header template
-            </uib-accordion-heading>
-            <div class="inner-accord">
-              <uib-accordion close-others="oneAtATime">
-                <div uib-accordion-group class="panel-default" heading="Static Header, initially expanded" is-open="q.open" ng-repeat="q in  s.ySlides track by $index">
-                  <uib-accordion-heading>
-                    Custom template with custom header template
-                  </uib-accordion-heading>
-                  <div class="inner-accord">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-                      et dolore magna aliqua. Ut enim ad minim veniam, quis </p>
-                  </div>
-                </div>
-              </uib-accordion>
-            </div>
-          </div>
-        </uib-accordion>
+<div class="schoolprofile-videos">
+  <div class="container">
+    <!-- FILTERS -->
+    <div class="athletevideo-filter schoolvideo-filter">
+      <div class="row">
+        <div class="col-md-4">
+          <p>View by sports</p>
+        </div>
+        <div class="col-md-4">
+          <p>View by year</p>
+        </div>
       </div>
     </div>
+    <!-- FILTERS END -->
+    <!-- YEARWISE VIDEO HOLDER -->
+    <div class="athletevideo-content schoolvideo-content">
+      <div class="athletevideo-yearwise schoolvideo-yearwise" ng-repeat="videoholder in videoArray track by $index">
+        <!-- YEAR TITLE  -->
+        <div class="athletevideo-yearholder schoolvideo-yearholder text-uppercase">
+          <p class="athletevideo-year schoolvideo-year">{{videoholder.year}}</p>
+          <p class="opensans-semibold">Total match videos {{videoholder.totalVideos}}</p>
+        </div>
+        <!-- YEAR TITLE END -->
+        <!-- SPORTWISE VIDEO HOLDER -->
+        <div class="athletevideo-sportholder schoolvideo-sportholder" ng-repeat="sport in videoholder.sport track by $index">
+          <!-- SPORT NAME AND COUNTS  -->
+          <div class="athetevideo-sporttitle schoolvideo-sporttitle text-uppercase">
+            <h3 class="m-clear blue-header-title">{{sport.name}}</h3>
+            <p class="">{{sport.videoCount}} videos</p>
+          </div>
+          <!-- SPORT NAME AND COUNTS END -->
+          <!-- SPORTWISE VIDEO CARD ON REPEAT -->
+          <div class="athletevideo-sportvideos schoolvideo-sportvideos">
+            <!-- <div class="row"> -->
+            <!-- <div class="col-md-3" ng-repeat="video in sport.videos track by $index"> -->
+            <div class="athletevideo-videocard schoolvideo-videocard" ng-repeat="video in sport.videos track by $index">
+              <video-card></video-card>
+            </div>
+            <!-- </div> -->
+            <!-- </div> -->
+          </div>
+          <!-- SPORTWISE VIDEO CARD ON REPEAT END -->
+          <!-- SPORTWISE VIEW ALL PAGINATION CALL -->
+          <div class="athletevideo-sportviewall  schoolvideo-sportviewall">
+            <a class="btn-videoviewall">View All</a>
+          </div>
+          <!-- SPORTWISE VIEW ALL PAGINATION CALL END -->
+        </div>
+        <!-- SPORTWISE VIDEO HOLDER END -->
+      </div>
+    </div>
+    <!-- YEARWISE VIDEO HOLDER END -->
   </div>
 </div>

@@ -120,71 +120,87 @@ myApp.controller('SchoolProfileCtrl', function ($scope, $state, $stateParams, Te
         isFirstOpen: true,
         isFirstDisabled: false
     };
+
+    // HIGHLIGHT SCHOOL TABLE
     $scope.schoolRankTable = [{
+            rank: "120",
             name: "Jamnabai Narsee International School",
-            gold: "20",
-            silver: "18",
-            bronze: "19",
-            points: "30"
+            gold: "202",
+            silver: "181",
+            bronze: "191",
+            points: "301"
         },
         {
+            rank: "121",
             name: "Jamnabai Narsee International School",
-            gold: "20",
-            silver: "18",
-            bronze: "19",
-            points: "30"
+            gold: "201",
+            silver: "181",
+            bronze: "191",
+            points: "301"
         },
         {
-            name: "Jamnabai Narsee International School",
-            gold: "20",
-            silver: "18",
-            bronze: "19",
-            points: "30"
+            rank: "122",
+            name: "Dnyan Pushpa Vidya Niketan & Jr. College",
+            gold: "201",
+            silver: "182",
+            bronze: "191",
+            points: "301"
         },
         {
-            name: "Jamnabai Narsee International School",
-            gold: "20",
-            silver: "18",
-            bronze: "19",
-            points: "30"
+            rank: "123",
+            name: "St. Xaviers High School (Airoli)",
+            gold: "201",
+            silver: "181",
+            bronze: "191",
+            points: "301"
         },
         {
-            name: "Jamnabai Narsee International School",
-            gold: "20",
-            silver: "18",
-            bronze: "19",
-            points: "30"
+            rank: "124",
+            name: "Dnyan Pushpa Vidya Niketan & Jr. College",
+            gold: "201",
+            silver: "181",
+            bronze: "119",
+            points: "301"
         },
         {
-            name: "Jamnabai Narsee International School",
-            gold: "20",
-            silver: "18",
-            bronze: "19",
-            points: "30"
+            rank: "125",
+            name: "Dr. Sarvepalli Radhakrishnan Hindi Secondary School (Andheri)",
+            gold: "111",
+            silver: "112",
+            bronze: "172",
+            points: "281"
         }
     ];
+    // END HIGHLIGHT SCHOOL TABLE
+
     $scope.summaryTable = [{
+        name: 'archery',
         year: '2017',
         match: '10',
         win: '10',
         loss: '10',
         draw: '10',
+        show: true,
         wper: '10'
 
     }, {
+        name: 'boxing',
         year: '2016',
         match: '10',
         win: '10',
         loss: '10',
         draw: '10',
+        show: true,
         wper: '10'
 
     }, {
+        name: 'carrom',
         year: '2015',
         match: '10',
         win: '10',
         loss: '10',
         draw: '10',
+        show: true,
         wper: '10'
 
     }]
@@ -377,6 +393,38 @@ myApp.controller('SchoolProfileCtrl', function ($scope, $state, $stateParams, Te
         }]
     }];
 
+    // VIDEO PAGE jSON
+    $scope.videoArray = [{
+        year: '2017',
+        totalVideos: '100',
+        sport: [{
+            name: 'Basketball',
+            videoCount: '50',
+            videos: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
+        }, {
+            name: 'Swimming',
+            videoCount: '60',
+            videos: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
+        }]
+    }, {
+        year: '2016',
+        totalVideos: '150',
+        sport: [{
+            name: 'Tennis',
+            videoCount: '40',
+            videos: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
+        }, {
+            name: 'Taekwondo',
+            videoCount: '50',
+            videos: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
+        }, {
+            name: 'Kho Kho',
+            videoCount: '60',
+            videos: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
+        }]
+    }];
+    // VIDEO PAGE jSON END
+
     $scope.ySlides = [1, 2, 3];
 
     $scope.mySlides = [
@@ -404,9 +452,9 @@ myApp.controller('SchoolProfileCtrl', function ($scope, $state, $stateParams, Te
     $scope.corName = [{
         name: 'Manan Vora'
     }, {
-        name: 'Manan Vora'
+        name: 'Aadil Mehta'
     }, {
-        name: 'Manan Vora'
+        name: 'Viraj Kale'
     }]
 
     $scope.yearTable = [{
@@ -430,66 +478,7 @@ myApp.controller('SchoolProfileCtrl', function ($scope, $state, $stateParams, Te
         male: '600',
         female: '400'
     }];
-    $scope.SumTable = [{
-            name: 'football'
-        },
-        {
-            name: 'football'
-        },
-        {
-            name: 'football'
-        },
-        {
-            name: 'football'
-        },
-        {
-            name: 'football'
-        },
-        {
-            name: 'football'
-        }, {
-            name: 'football'
-        },
-        {
-            name: 'football'
-        },
-        {
-            name: 'football'
-        }, {
-            name: 'football'
-        },
-        {
-            name: 'football'
-        }, {
-            name: 'football'
-        }, {
-            name: 'football'
-        }, {
-            name: 'football'
-        }, {
-            name: 'football'
-        }, {
-            name: 'football'
-        }, {
-            name: 'football'
-        }, {
-            name: 'football'
-        }, {
-            name: 'football'
-        }, {
-            name: 'football'
-        }, {
-            name: 'football'
-        }, {
-            name: 'football'
-        }, {
-            name: 'football'
-        }, {
-            name: 'football'
-        }, {
-            name: 'football'
-        }
-    ];
+    $scope.SumTable = ['football', 'football', 'football', 'football', 'football', 'football', 'football', 'football', 'football', 'football', 'football', 'football', 'football'];
 
     $scope.customCards = [{
         img: '/img/bl-inner.jpg'
@@ -502,6 +491,20 @@ myApp.controller('SchoolProfileCtrl', function ($scope, $state, $stateParams, Te
     }, {
         img: '/img/bl-inner.jpg'
     }];
+
+    $scope.Sumsportstable = [{
+        name: 'archery'
+    }, {
+        name: 'basketball'
+    }, {
+        name: 'fencing'
+    }, {
+        name: 'carrom'
+    }, {
+        name: 'karate'
+    }, {
+        name: 'shooting'
+    }]
 
     $scope.teamCards = [{
         img: '/img/bl-inner.jpg'

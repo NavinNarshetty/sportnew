@@ -1,3 +1,4 @@
+var mySwiper;
 myApp.controller('SchoolProfileCtrl', function ($scope, $state, $stateParams, TemplateService, NavigationService, $timeout, toastr, $http) {
     $scope.template = TemplateService.getHTML("content/schoolprofile.html");
     TemplateService.title = "School Profile"; //This is the Title of the Website
@@ -541,7 +542,7 @@ myApp.controller('SchoolProfileCtrl', function ($scope, $state, $stateParams, Te
     var allSchoolProfile = ["frontend/views/content/schoolprofile/highlights.html", "frontend/views/content/schoolprofile/trackrecord.html",
         "frontend/views/content/schoolprofile/team.html",
         "frontend/views/content/schoolprofile/statistics.html",
-        "frontend/views/content/schoolprofile/achievements.html", "frontend/views/content/schoolprofile/videos.html"
+        "frontend/views/content/schoolprofile/achievements.html", "frontend/views/content/schoolprofile/test.html"
     ];
     $scope.schoolprofile = {
         innerView: allSchoolProfile[0],
@@ -624,5 +625,39 @@ myApp.controller('SchoolProfileCtrl', function ($scope, $state, $stateParams, Te
         })
     }
     // ON CLICK END
+
+
+    // swiper
+
+    $scope.$on('$viewContentLoaded', function (event) {
+        $timeout(function () {
+            mySwiper = new Swiper('.swiper-container', {
+                pagination: '.swiper-pagination',
+                slidesPerView: 3,
+                paginationClickable: true,
+                loop: true,
+                autoplay: 2500,
+                grabCursor: true,
+                spaceBetween: 10,
+                nextButton: '.swiper-button-next',
+                prevButton: '.swiper-button-prev',
+                breakpoints: {
+                    992: {
+                        slidesPerView: 3
+                    },
+                    768: {
+                        slidesPerView: 2
+
+                    },
+                    481: {
+                        slidesPerView: 1
+                    },
+                    320: {
+                        slidesPerView: 1
+                    }
+                }
+            })
+        }, 300);
+    });
 
 })

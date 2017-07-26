@@ -1,29 +1,29 @@
 // Link all the JS Docs here
 var backgroundClick = {
-  object: undefined,
-  close: function (e) {
-    console.log(backgroundClick.object.backgroundClick);
-    // if the classes given below is not added in respective div elements, then it will work normally as it was previously
-    if ($(e.target).parents().hasClass(backgroundClick.object.innerClass)) {
-      return;
-    } else if ($(e.target).hasClass(backgroundClick.object.outerClass)) {
-      backgroundClick.object.backgroundClick = !backgroundClick.object.backgroundClick;
-      backgroundClick.scope.$apply();
-    } else {
-      backgroundClick.object.backgroundClick = false;
-      backgroundClick.object.backgroundClick = undefined;
-      backgroundClick.scope.$apply();
+    object: undefined,
+    close: function (e) {
+        console.log(backgroundClick.object.backgroundClick);
+        // if the classes given below is not added in respective div elements, then it will work normally as it was previously
+        if ($(e.target).parents().hasClass(backgroundClick.object.innerClass)) {
+            return;
+        } else if ($(e.target).hasClass(backgroundClick.object.outerClass)) {
+            backgroundClick.object.backgroundClick = !backgroundClick.object.backgroundClick;
+            backgroundClick.scope.$apply();
+        } else {
+            backgroundClick.object.backgroundClick = false;
+            backgroundClick.object.backgroundClick = undefined;
+            backgroundClick.scope.$apply();
+        }
     }
-  }
 };
 
 $(document).ready(function () {
-  $("body").click(function (e) {
-    // console.log(backgroundClick.object);
-    if (backgroundClick.object) {
-      backgroundClick.close(e);
-    }
-  });
+    $("body").click(function (e) {
+        // console.log(backgroundClick.object);
+        if (backgroundClick.object) {
+            backgroundClick.close(e);
+        }
+    });
 });
 
 var myApp = angular.module('myApp', [
@@ -35,7 +35,7 @@ var myApp = angular.module('myApp', [
     'ngAnimate',
     'ngSanitize',
     'angular-flexslider',
-    'ui.swiper',
+    // 'ui.swiper',
     'angularPromiseButtons',
     'toastr',
     'wu.masonry',

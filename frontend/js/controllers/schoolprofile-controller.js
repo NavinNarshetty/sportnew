@@ -641,6 +641,7 @@ myApp.controller('SchoolProfileCtrl', function ($scope, $state, $stateParams, Te
                 spaceBetween: 10,
                 nextButton: '.swiper-button-next',
                 prevButton: '.swiper-button-prev',
+                touchEventsTarget: 'container',
                 breakpoints: {
                     992: {
                         slidesPerView: 3

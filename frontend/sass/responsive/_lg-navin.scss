@@ -11,6 +11,17 @@
       }
     }
   } // *****************END SCHOOL HEADER ***************
+  // ********************TEAM CARD************************
+  .teamcard-medallist {
+    li {
+      padding: 0px;
+      padding-right: 4px;
+      font-size: 12px;
+      &:nth-last-child(1) {
+        padding-right: 0px;
+      }
+    }
+  } // ********************END TEAM CARD********************
   // ***************PROFILE ATHLETE CARD*********************
   .profileathlete-cardcontent {
     width: calc(100% - 105px);
@@ -60,6 +71,10 @@
   } // END YEAR BLUE DIV
   // ********************END TRACKRECORD PAGE***************
   // **********TEAM PAGE***********
+  // SUMMARY TABLE
+  .school-yearsummaryimg {
+    margin-left: 72px;
+  } // END SUMMARY TABLE
   // TABLE FOOTER
   .selectedsport-medaldetails {
     .selectedsport-sportnameage {

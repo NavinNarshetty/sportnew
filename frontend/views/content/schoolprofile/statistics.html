@@ -107,18 +107,18 @@
 
       <!--Sport wise card-->
       <div class="row">
-        <div class="col-md-4 col-sm-6 col-xs-12" ng-repeat="s in customCards">
+        <div class="col-md-4 col-sm-6 col-xs-12" ng-repeat="s in Sumsportstable track by $index">
 
           <div class="sportwise-statisticscard relate">
             <div class="statistics-cardhead clearfix ">
               <div class="statisticscard-sporttitle inline-block">
-                <p class="m-clear text-uppercase">Archery</p>
+                <p class="m-clear text-uppercase">{{s.name}}</p>
               </div>
               <div class="statisticscard-sportrank inline-block pull-right lh1">
                 <p class="m-clear"><span class="stats-yourrank">30</span><span class="stats-outofrank">/300</span></p>
               </div>
               <div class="statisticscard-sportimg absolute">
-                <img src="img/8_Football.png" alt="" class="img-responsive">
+                <img ng-src="{{s.name | sporticon:'icon'}}" alt="s.name" class="img-responsive">
               </div>
             </div>
             <div class="statistics-cardcontent">
@@ -128,25 +128,25 @@
                     <tr class="sportstatistics-br">
                       <td>
                         <div class="sportwise-statisticstype">
-                          <p class="m-clear">123</p>
+                          <p class="m-clear">{{s.played}}</p>
                           <span>Played</span>
                         </div>
                       </td>
                       <td>
                         <div class="sportwise-statisticstype">
-                          <p class="m-clear">456</p>
+                          <p class="m-clear">{{s.won}}</p>
                           <span>Won</span>
                         </div>
                       </td>
                       <td>
                         <div class="sportwise-statisticstype">
-                          <p class="m-clear">789</p>
+                          <p class="m-clear">{{s.lost}}</p>
                           <span>LOst</span>
                         </div>
                       </td>
                       <td>
                         <div class="sportwise-statisticstype">
-                          <p class="m-clear">03</p>
+                          <p class="m-clear">{{s.draw}}</p>
                           <span>Draw</span>
                         </div>
                       </td>
@@ -155,9 +155,9 @@
                 </table>
               </div>
               <div class="statistics-contingentstrength">
-                <p class="m-clear text-uppercase">Contingent Strenght : 300</p>
+                <p class="m-clear text-uppercase">Contingent Strength : {{s.strength}}</p>
                 <div class="progress progress-statistics">
-                  <div class="progress-bar male-statistics" role="progressbar" style="width:60%">
+                  <div class="progress-bar male-statistics" role="progressbar" style="width:{{s.male}}%">
                     <!--<span class="statistics-progresgendermale">
                     <span class="male-statisticsimg"><img ng-src="{{'male' | gendericon:'progress'}}" alt="" class="img-responsive"></span>
                   <span class="male-statisticsnumber">200</span>
@@ -171,13 +171,13 @@
                       </li>
                     </ul>
                   </div>
-                  <div class="progress-bar female-statistics" role="progressbar" style="width:40%">
+                  <div class="progress-bar female-statistics" role="progressbar" style="width:{{s.female}}%">
                     <!--<span class="statistics-progresgenderfemale">
                     <span class="female-statisticsimg"><img src="img/sf-girl-blue.png" alt=""></span>
                   <span class="female-statisticsnumber">200</span>
                   </span>-->
                     <ul class="list-inline pull-left m-clear">
-                      <li class="v-mid">
+                      <li class="v-mid female-statisticsimg">
                         <img ng-src="{{'female' | gendericon:'progress'}}" alt="" class="img-responsive" width="12px">
                       </li>
                       <li class="p-clear female-statisticsnumber v-mid">

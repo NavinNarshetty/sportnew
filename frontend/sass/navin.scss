@@ -601,6 +601,13 @@ $drak-primary:#070f40 !default;
 }
 
 // end school-videos
+// **********HIGHLIGHT PAGE SWIPER
+.performanceathlete-swiper,
+.performteam-swiper {
+    padding: 15px 5px;
+}
+
+// **********END HIGHLIGHT PAGE SWIPER
 //end school-highlight
 // trackrecord
 .schooltrackrecord-head {
@@ -735,6 +742,10 @@ $drak-primary:#070f40 !default;
 // ********YEAR-TRACKRECORD-TABLE-END************
 // end-trackrecord
 // team
+.school-yearsummarytableswiper {
+    width: 100%;
+}
+
 .schoolprofile-selectsporthead,
 .schoolprofile-summaryhead,
 .schoolprofile-teamstatitics {
@@ -1131,11 +1142,12 @@ $drak-primary:#070f40 !default;
         // float: right;
         // width: 15px;
         padding-right: 0px;
-        padding-left: 0px; // font-weight: 700;
+        padding-left: 3px; // font-weight: 700;
     }
     .male-statisticsnumber {
         // float: right;
-        padding-right: 5px;
+        padding-right: 3px;
+        padding-left: 0px;
         color: $brand-primary;
         font-size: 14px;
         font-weight: bold;
@@ -1147,11 +1159,12 @@ $drak-primary:#070f40 !default;
         background-color: #ffdea8;
     }
     .female-statisticsimg {
-        padding-left: 5px;
+        padding-left: 3px;
+        padding-right: 0px;
     }
     .female-statisticsnumber {
         padding-left: 0px;
-        padding-right: 0px;
+        padding-right: 3px;
         color: $brand-primary;
         font-size: 14px;
         font-weight: bold;

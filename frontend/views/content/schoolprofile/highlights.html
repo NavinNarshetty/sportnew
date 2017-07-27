@@ -129,12 +129,23 @@
             aliquid id cupiditate inventore beatae! Ut deserunt ad est laborum eveniet, quae culpa aut?</p>
         </div>
       </div>
-      <div class="performteam-slider highlightschool-slider sfa-flexslider">
-        <flex-slider flex-slide="s in customCards track by $index" prev-text="" next-text="">
+      <div class="performteam-slider highlightschool-slider sfa-flexslider sfa-swiper relate">
+        <!--<flex-slider flex-slide="s in customCards track by $index" prev-text="" next-text="">
           <li>
             <team-card></team-card>
           </li>
-        </flex-slider>
+        </flex-slider>-->
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide" ng-repeat="s in customCards track by $index">
+              <div class="performteam-swiper">
+                <team-card></team-card>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-button-prev performteam-swiper-prev"><span class="fa fa-chevron-left"></span></div>
+        <div class="swiper-button-next performteam-swiper-next"><span class="fa fa-chevron-right"></span></div>
       </div>
     </div>
     <!--END SCHOOL SECTION-->
@@ -155,14 +166,25 @@
             illum omnis!</p>
         </div>
       </div>
-      <div class="performanceathlete-slider  sfa-flexslider">
-        <flex-slider flex-slide="n in customCards track by $index" prev-text="" next-text="">
+      <div class="performanceathlete-slider  sfa-flexslider sfa-swiper relate">
+        <!--<flex-slider flex-slide="n in customCards track by $index" prev-text="" next-text="">
           <li>
             <div class="performanceathlete-profilecardholder">
               <profile-athlete-card></profile-athlete-card>
             </div>
           </li>
-        </flex-slider>
+        </flex-slider>-->
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide" ng-repeat="s in videos track by $index">
+              <div class="performanceathlete-swiper">
+                <profile-athlete-card></profile-athlete-card>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-button-prev performanceathlete-swiper-prev"><span class="fa fa-chevron-left"></span></div>
+        <div class="swiper-button-next performanceathlete-swiper-next"><span class="fa fa-chevron-right"></span></div>
       </div>
     </div>
     <!--END ATHLETE-->

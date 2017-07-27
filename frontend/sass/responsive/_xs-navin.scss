@@ -67,7 +67,7 @@
     width: calc(100% - 105px);
   }
   .teamcard-medallist {
-    li {
+    .list-inline>li {
       padding: 0px;
       padding-right: 4px;
       font-size: 12px;
@@ -90,6 +90,10 @@
     }
   } // **************END TRACKRECORD PAGE******************
   // ****************TEAM PAGE *********************
+  // SUMMARY TABLE
+  .school-yearsummaryimg {
+    margin-left: 72px;
+  } // END SUMMARY TABLE
   // SPORT TABLE SECTION
   .schoolprofile-teamsportlistcard {
     text-align: center;

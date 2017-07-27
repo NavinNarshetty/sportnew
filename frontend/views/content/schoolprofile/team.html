@@ -8,99 +8,105 @@
           ullam esse, totam aliquid eveniet consequuntur. Nostrum possimus nemo vel dolores dolorum molestias officia deserunt.</p>
       </div>
       <!--FLEX-SLIDER-->
-      <div class="schoolprofile-tablelist  sfa-flexslider">
-        <flex-slider flex-slide="n in Sumsportstable track by $index" prev-text="" next-text="">
-          <li>
-            <div>
-              <div class="school-yearsummary">
-                <div class="school-yearsummaryhead">
-                  <div class="school-yearsummaryimg relate" style=" background-image: url(../{{ n.name|sporticon: 'header'}});">
-                    <div class="school-yearsummarycontent">
-                      <p class="m-clear fjalla-one text-uppercase">{{n.name}}</p>
-                    </div>
-                    <div class="school-yearsummarysportimg">
-                      <img ng-src="{{n.name | sporticon:'icon'}}" alt="" class="img-responsive">
+      <div class="schoolprofile-tablelist  sfa-flexslider sfa-swiper relate">
+        <!--<flex-slider flex-slide="n in Sumsportstable track by $index" prev-text="" next-text="">-->
+
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide" ng-repeat="n in Sumsportstable track by $index">
+              <div class="school-yearsummarytableswiper">
+                <div class="school-yearsummary">
+                  <div class="school-yearsummaryhead">
+                    <div class="school-yearsummaryimg relate" style=" background-image: url(../{{ n.name|sporticon: 'header'}});">
+                      <div class="school-yearsummarycontent">
+                        <p class="m-clear fjalla-one text-uppercase">{{n.name}}</p>
+                      </div>
+                      <div class="school-yearsummarysportimg">
+                        <img ng-src="{{n.name | sporticon:'icon'}}" alt="" class="img-responsive">
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div class="school-yearsummarytable table-responsive">
-                  <table class="table">
-                    <thead>
-                      <th></th>
-                      <th>
-                        <div class="">
-                          <p class="m-clear">M</p>
-                          <p class="m-clear" hidden>R</p>
-                          <p class="m-clear" hidden>A</p>
-                        </div>
-                      </th>
-                      <th>
-                        <div class="">
-                          <p class="m-clear">W</p>
-                        </div>
-                      </th>
-                      <th>
-                        <div class="">
-                          <p class="m-clear">
-                            L
-                          </p>
-                        </div>
-                      </th>
-                      <th>
-                        <div class="">
-                          <p class="m-clear">D</p>
-                        </div>
-                      </th>
-                      <th>
-                        <div class="">
-                          <p class="m-clear">
-                            W%
-                          </p>
-                        </div>
-                      </th>
+                  <div class="school-yearsummarytable table-responsive">
+                    <table class="table">
+                      <thead>
+                        <th></th>
+                        <th>
+                          <div class="">
+                            <p class="m-clear">M</p>
+                            <p class="m-clear" hidden>R</p>
+                            <p class="m-clear" hidden>A</p>
+                          </div>
+                        </th>
+                        <th>
+                          <div class="">
+                            <p class="m-clear">W</p>
+                          </div>
+                        </th>
+                        <th>
+                          <div class="">
+                            <p class="m-clear">
+                              L
+                            </p>
+                          </div>
+                        </th>
+                        <th>
+                          <div class="">
+                            <p class="m-clear">D</p>
+                          </div>
+                        </th>
+                        <th>
+                          <div class="">
+                            <p class="m-clear">
+                              W%
+                            </p>
+                          </div>
+                        </th>
 
-                    </thead>
-                    <tbody>
-                      <tr ng-repeat="t in summaryTable track by $index">
-                        <td>
-                          <div class="">
-                            {{t.year}}
-                          </div>
-                        </td>
-                        <td>
-                          <div class="">
-                            {{t.match}}
-                          </div>
-                        </td>
-                        <td>
-                          <div class="">
-                            {{t.win}}
-                          </div>
-                        </td>
-                        <td>
-                          <div class="">
-                            {{t.loss}}
-                          </div>
-                        </td>
-                        <td>
-                          <div class="">
-                            {{t.draw}}
-                          </div>
-                        </td>
-                        <td>
-                          <div class="">
-                            {{t.wper}}
-                          </div>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
+                      </thead>
+                      <tbody>
+                        <tr ng-repeat="t in summaryTable track by $index">
+                          <td>
+                            <div class="">
+                              {{t.year}}
+                            </div>
+                          </td>
+                          <td>
+                            <div class="">
+                              {{t.match}}
+                            </div>
+                          </td>
+                          <td>
+                            <div class="">
+                              {{t.win}}
+                            </div>
+                          </td>
+                          <td>
+                            <div class="">
+                              {{t.loss}}
+                            </div>
+                          </td>
+                          <td>
+                            <div class="">
+                              {{t.draw}}
+                            </div>
+                          </td>
+                          <td>
+                            <div class="">
+                              {{t.wper}}
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
-
               </div>
             </div>
-          </li>
-        </flex-slider>
+          </div>
+        </div>
+        <div class="swiper-button-prev school-yearsummarytableswiper-prev"><span class="fa fa-chevron-left"></span></div>
+        <div class="swiper-button-next school-yearsummarytableswiper-next"><span class="fa fa-chevron-right"></span></div>
+        <!--</flex-slider>-->
       </div>
       <!--END-FLEX-SLIDER-->
     </div>

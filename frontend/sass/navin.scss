@@ -228,8 +228,7 @@ $drak-primary:#070f40 !default;
 .schoolprofile-card {
     // padding: 10px 15px;
     // border: 1px solid #ddd;
-    box-shadow: 0px 0px 5px $light-grey;
-    border-left: 3px solid #ffb026;
+    box-shadow: 0px 0px 5px $light-grey; // border-left: 3px solid #ffb026;
     min-height: 155px;
 }
 
@@ -261,7 +260,35 @@ $drak-primary:#070f40 !default;
 
 .schoolprofile-schoolid {
     font-size: 12px;
-} // schoolprofile-card END
+}
+
+// MAIPULATION ON THE SCHOOL PROFILE CARD
+.schoolprofilecard-trophy {
+    padding: 5px 10px;
+    .schooltrophy-image {
+        width: 40px;
+    }
+    .yourrank {
+        font-size: 35px;
+        line-height: 1;
+    }
+    .slashtotal {
+        font-size: 25px;
+        line-height: 1;
+    }
+    .schoolprofilecard-ranktotal {
+        padding: 0px 5px;
+    }
+}
+
+.schoolprofilecard-contigent {
+    p {
+        font-size: 13px;
+    }
+}
+
+// END MANIPULATION ON THE SCHOOL PROFILE CARD
+// schoolprofile-card END
 // tab3
 .imagegallery-content {
     // border: 1px solid #ddd;
@@ -288,8 +315,8 @@ $drak-primary:#070f40 !default;
 .profileathlete-card {
     // padding: 10px 15px;
     // border: 1px solid #ddd;
+    // border-left: 3px solid #ffb026;
     box-shadow: 0px 0px 5px $light-grey;
-    border-left: 3px solid #ffb026;
 }
 
 .profileathlete-cardimgholder {
@@ -355,8 +382,7 @@ $drak-primary:#070f40 !default;
 .team-card {
     // padding: 10px 15px;
     // border: 1px solid #ddd;
-    box-shadow: 0px 0px 5px $light-grey;
-    border-left: 3px solid #ffb026;
+    box-shadow: 0px 0px 5px $light-grey; // border-left: 3px solid #ffb026;
 }
 
 .team-cardimgholder {
@@ -401,9 +427,8 @@ $drak-primary:#070f40 !default;
 // medal-card
 .medal-card {
     // border: 1px solid #ddd;
+    padding: 10px 15px; // border-bottom: 3px solid #ffb026;
     box-shadow: 0px 0px 5px $light-grey;
-    padding: 10px 15px;
-    border-bottom: 3px solid #ffb026;
 }
 
 .medal-imgholder {

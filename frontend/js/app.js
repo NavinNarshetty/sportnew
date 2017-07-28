@@ -85,6 +85,24 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
             templateUrl: tempateURL,
             controller: 'SchoolProfileCtrl',
             reloadOnSearch: false
+        })
+        .state('schoollanding', {
+            url: "/schoollanding",
+            templateUrl: tempateURL,
+            controller: 'SchoolLandingCtrl',
+            reloadOnSearch: false
+        })
+        .state('athletelanding', {
+            url: "/athletelanding",
+            templateUrl: tempateURL,
+            controller: 'AthleteLandingCtrl',
+            reloadOnSearch: false
+        })
+        .state('teamlanding', {
+            url: "/teamlanding",
+            templateUrl: tempateURL,
+            controller: 'TeamLandingCtrl',
+            reloadOnSearch: false
         });
     $urlRouterProvider.otherwise("/");
     $locationProvider.html5Mode(isproduction);

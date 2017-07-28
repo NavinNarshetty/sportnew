@@ -135,15 +135,19 @@
     <!-- YOUR MATCH VIDEOS END -->
     <!-- ATHELETES YOU MAY KNOW  -->
     <div class="athletehighlights-athletes">
-      <div class="athletehighight-knowflexslider sfa-flexslider">
+      <div class="athletehighight-knowflexslider sfa-swiper relate">
         <h3 class="blue-header-title text-uppercase">ATHLETES YOU MAY KNOW</h3>
-        <flex-slider flex-slide="s in mySlides" class="highlight-knowflexslider" >
-          <li>
-            <div class="highlights-athleteslide ">
-              <profile-athlete-card></profile-athlete-card>
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide" ng-repeat="s in mySlides track by $index">
+              <div class="highlights-athleteslide ">
+                <profile-athlete-card></profile-athlete-card>
+              </div>
             </div>
-          </li>
-        </flex-slider>
+          </div>
+        </div>
+        <div class="swiper-button-prev athleteknow-prev"><span class="fa fa-chevron-left"></span></div>
+        <div class="swiper-button-next athleteknow-next"><span class="fa fa-chevron-right"></span></div>
       </div>
     </div>
     <!-- ATHELETES YOU MAY KNOW END  -->
@@ -243,18 +247,22 @@
     <!-- AD SPACE END -->
     <!-- TOP PERFORMING ATHLETES  -->
     <div class="athletehighlights-athletes">
-      <div class="athletehighight-knowflexslider sfa-flexslider">
+      <div class="athletehighight-topflexslider sfa-swiper relate">
         <div class="titledescription-holder">
           <h3 class="blue-header-title text-uppercase">top performing ATHLETES</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est sunt omnis autem rem odio recusandae at nemo magni, atque reiciendis aut, vitae non, ad quisquam quasi veniam eius. Voluptatibus, dolore.</p>
         </div>
-        <flex-slider flex-slide="s in mySlides" class="highlight-knowflexslider" >
-          <li>
-            <div class="highlights-athleteslide ">
-              <profile-athlete-card></profile-athlete-card>
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide" ng-repeat="s in mySlides track by $index">
+              <div class="highlights-athleteslide ">
+                <profile-athlete-card></profile-athlete-card>
+              </div>
             </div>
-          </li>
-        </flex-slider>
+          </div>
+        </div>
+        <div class="swiper-button-prev athletetop-prev"><span class="fa fa-chevron-left"></span></div>
+        <div class="swiper-button-next athletetop-next"><span class="fa fa-chevron-right"></span></div>
         <div class="athletehighlight-viewall">
           <a href="">view all</a>
         </div>

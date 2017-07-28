@@ -216,6 +216,14 @@ a {
   }
 }
 
+.school-border{
+  border-left: 3px solid $brand-warning;
+}
+
+.college-border{
+  border-left: 3px solid $brand-success;
+}
+
 .d {
   width: 100%;
   height: 200px;
@@ -347,6 +355,7 @@ a {
 // END FLEX SLIDER
 // SWIPER
 .sfa-swiper {
+  position: relative;
   .swiper-slide {
     font-size: 14px;
     text-align: left;
@@ -569,6 +578,10 @@ a {
   width: 70%;
   margin: 0 auto;
 }
+.school-yearsummaryholder{
+  width: 100%;
+}
+
 
 .athleteprofile-card {
   padding: 20px;
@@ -798,7 +811,7 @@ a {
 }
 
 .highlights-athleteslide {
-  padding: 20px 0 5px;
+  padding: 20px 5px 5px;
 }
 
 .athletehighlights-videosection {

@@ -12,6 +12,114 @@ myApp.controller('AthleteProfileCtrl', function ($scope, $state, $stateParams, T
     }
     // VARIABLE INITIALISATIONS END
 
+    // SWIPER INITIALSE
+    $scope.initSwiper = function(){
+      $timeout(function () {
+        // ATHLETES YOU MAY KNOW SWIPER
+          var athleteKnow = new Swiper('.athletehighight-knowflexslider .swiper-container', {
+              // pagination: '.swiper-pagination',
+              slidesPerView: 3,
+              paginationClickable: true,
+              loop: true,
+              autoplay: 2000,
+              grabCursor: true,
+              spaceBetween: 10,
+              nextButton: '.athleteknow-next',
+              prevButton: '.athleteknow-prev',
+              touchEventsTarget: 'container',
+              breakpoints: {
+                  992: {
+                      slidesPerView: 3
+                  },
+                  768: {
+                      slidesPerView: 2
+
+                  },
+                  481: {
+                      slidesPerView: 1
+                  },
+                  320: {
+                      slidesPerView: 1
+                  }
+              }
+          })
+          // ATHLETES YOU MAY KNOW SWIPER END
+          // TOP PERFORMING ATHLETES SWIPER
+          var athleteTop = new Swiper('.athletehighight-topflexslider .swiper-container', {
+              // pagination: '.swiper-pagination',
+              slidesPerView: 3,
+              paginationClickable: true,
+              loop: true,
+              autoplay: 2500,
+              grabCursor: true,
+              spaceBetween: 10,
+              nextButton: '.athletetop-next',
+              prevButton: '.athletetop-prev',
+              touchEventsTarget: 'container',
+              breakpoints: {
+                  992: {
+                      slidesPerView: 3
+                  },
+                  768: {
+                      slidesPerView: 2
+
+                  },
+                  481: {
+                      slidesPerView: 1
+                  },
+                  320: {
+                      slidesPerView: 1
+                  }
+              }
+          })
+          // TOP PERFORMING ATHLETES SWIPER END
+          // YEAR STATISTICS SWIPER
+          var yearStats = new Swiper('.athletestatistics-summaryslider .swiper-container', {
+              // pagination: '.swiper-pagination',
+              slidesPerView: 3,
+              paginationClickable: true,
+              loop: true,
+              autoplay: 2500,
+              grabCursor: true,
+              spaceBetween: 10,
+              nextButton: '.yeatstats-next',
+              prevButton: '.yearstats-prev',
+              touchEventsTarget: 'container',
+              breakpoints: {
+                  992: {
+                      slidesPerView: 3
+                  },
+                  768: {
+                      slidesPerView: 2
+
+                  },
+                  481: {
+                      slidesPerView: 1
+                  },
+                  320: {
+                      slidesPerView: 1
+                  }
+              }
+          })
+          // YEAR STATISTICS SWIPER END
+      }, 100);
+    }
+    $scope.swiperInitialise = function(type){
+      if(type == 0){
+        $scope.$on('$viewContentLoaded', function (event) {
+          console.log("000");
+          $scope.initSwiper();
+        })
+      } else{
+        $scope.initSwiper();
+        console.log("111");
+      }
+    }
+    $scope.swiperInitialise(0);
+    // SWIPER INITIALSE END
+
+
+
     // API CALLS
     $scope.getVideo = function(){
         Athleteprofile.getVideo(function(data){
@@ -37,10 +145,12 @@ myApp.controller('AthleteProfileCtrl', function ($scope, $state, $stateParams, T
       case "highlights":
         $scope.athleteprofile.innerView = allAgentProfile[0];
         $scope.athleteprofile.active = "highlights";
+        $scope.swiperInitialise(0);
       break;
       case "statistics":
         $scope.athleteprofile.innerView = allAgentProfile[1];
         $scope.athleteprofile.active = "statistics";
+        $scope.swiperInitialise(0);
       break;
       case "achievements":
         $scope.athleteprofile.innerView = allAgentProfile[2];
@@ -66,15 +176,17 @@ myApp.controller('AthleteProfileCtrl', function ($scope, $state, $stateParams, T
     $scope.getTab = function(view){
       $scope.athleteprofile.innerView = allAgentProfile[view];
       var url = "highlights";
-
+      $scope.swiperInitialise(1);
       switch (view) {
         case 0:
           url = "highlights";
           $scope.athleteprofile.active = "highlights";
+          // $scope.initSwiper();
         break;
         case 1 :
           url = "statistics";
           $scope.athleteprofile.active = "statistics";
+          // $scope.initSwiper();
         break;
         case 2:
           url = "achievements";
@@ -245,6 +357,64 @@ myApp.controller('AthleteProfileCtrl', function ($scope, $state, $stateParams, T
         wper: '10'
 
     }];
+
+    // YEAR WISE SUMMARY SLIDER
+    $scope.sumSportsTable = [{
+        name: 'archery',
+        played: '123',
+        won: '456',
+        lost: '789',
+        draw: '012',
+        strength: '300',
+        male: '30',
+        female: '70'
+    }, {
+        name: 'basketball',
+        played: '123',
+        won: '456',
+        lost: '789',
+        draw: '012',
+        strength: '400',
+        male: '70',
+        female: '30'
+    }, {
+        name: 'fencing',
+        played: '123',
+        won: '456',
+        lost: '789',
+        draw: '012',
+        strength: '500',
+        male: '60',
+        female: '40'
+    }, {
+        name: 'carrom',
+        played: '123',
+        won: '456',
+        lost: '789',
+        draw: '012',
+        strength: '600',
+        male: '20',
+        female: '80'
+    }, {
+        name: 'karate',
+        played: '123',
+        won: '456',
+        lost: '789',
+        draw: '012',
+        strength: '700',
+        male: '50',
+        female: '50'
+    }, {
+        name: 'shooting',
+        played: '123',
+        won: '456',
+        lost: '789',
+        draw: '012',
+        strength: '800',
+        male: '40',
+        female: '60'
+    }];
+    // YEAR WISE SUMMARY SLIDER END
 
     // team-flex
     setTimeout(function () {

@@ -6,8 +6,98 @@
             <h3 class="fjalla-one text-uppercase">year on year summary</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias quis, modi ullam aut quam repellat fuga nesciunt impedit, illo, dicta optio soluta laboriosam quo fugit voluptatibus, tenetur ratione mollitia commodi.</p>
           </div>
-          <div class="athletestatistics-summaryslider sfa-flexslider">
-            <flex-slider flex-slide="n in customCards track by $index" prev-text="" next-text="">
+          <div class="athletestatistics-summaryslider sfa-flexslider sfa-swiper">
+            <div class="swiper-container">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide" ng-repeat="n in customCards track by $index">
+                  <div class="school-yearsummaryholder">
+                    <div class="school-yearsummary">
+                      <div class="school-yearsummaryhead">
+                        <div class="school-yearsummaryimg relate" style="background-image: url(../{{'tennis'|sporticon:'header'}});">
+                          <div class="school-yearsummarycontent text-uppercase">
+                            <p class="m-clear fjalla-one">Football</p>
+                          </div>
+                          <div class="school-yearsummarysportimg">
+                            <img src="img/8_Football.png" alt="" class="img-responsive">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="school-yearsummarytable table-responsive">
+                        <table class="table">
+                          <thead>
+                            <th></th>
+                            <th>
+                              <div class="">
+                                <p class="m-clear">M</p>
+                                <p class="m-clear hide">R</p>
+                                <p class="m-clear hide">A</p>
+                              </div>
+                            </th>
+                            <th>
+                              <div class="">
+                                <p class="m-clear">W</p>
+                              </div>
+                            </th>
+                            <th>
+                              <div class="">
+                                <p class="m-clear">L</p>
+                              </div>
+                            </th>
+                            <th>
+                              <div class="">
+                                <p class="m-clear">D</p>
+                              </div>
+                            </th>
+                            <th>
+                              <div class="">
+                                <p class="m-clear">W%</p>
+                              </div></th>
+
+                          </thead>
+                          <tbody>
+                            <tr ng-repeat="t in summaryTable track by $index">
+                              <td>
+                                <div class="teko-semibold">
+                                  {{t.year}}
+                                </div>
+                              </td>
+                              <td>
+                                <div class="">
+                                  {{t.match}}
+                                </div>
+                              </td>
+                              <td>
+                                <div class="">
+                                  {{t.win}}
+                                </div>
+                              </td>
+                              <td>
+                                <div class="">
+                                  {{t.loss}}
+                                </div>
+                              </td>
+                              <td>
+                                <div class="">
+                                  {{t.draw}}
+                                </div>
+                              </td>
+                              <td>
+                                <div class="">
+                                  {{t.wper}}
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-button-prev yearstats-prev"><span class="fa fa-chevron-left"></span></div>
+            <div class="swiper-button-next yearstats-next"><span class="fa fa-chevron-right"></span></div>
+            <!-- <flex-slider flex-slide="n in customCards track by $index" prev-text="" next-text="">
               <li>
                 <div>
                   <div class="school-yearsummary">
@@ -92,7 +182,7 @@
                   </div>
                 </div>
               </li>
-            </flex-slider>
+            </flex-slider> -->
           </div>
         </div>
       <!-- YEAR ON YEAR SUMMARY END -->

@@ -79,6 +79,7 @@ myApp.controller('SchoolProfileCtrl', function ($scope, $state, $stateParams, Te
             })
         }, 100);
 
+
         // HIGHLIGHT-PAGE-ATHLETE-SWIPER-END
         // TEAM TABLE SWIPER
         $timeout(function () {
@@ -117,6 +118,19 @@ myApp.controller('SchoolProfileCtrl', function ($scope, $state, $stateParams, Te
 
 
     }
+
+    $scope.swiperInitialise = function (type) {
+        if (type == 0) {
+            $scope.$on('$viewContentLoaded', function (event) {
+                console.log("000");
+                $scope.initSwiper();
+            })
+        } else {
+            $scope.initSwiper();
+            console.log("111");
+        }
+    }
+    $scope.swiperInitialise(0);
     // END-SWIPER
 
     // flex-slider
@@ -699,7 +713,7 @@ myApp.controller('SchoolProfileCtrl', function ($scope, $state, $stateParams, Te
         case "highlights":
             $scope.schoolprofile.innerView = allSchoolProfile[0];
             $scope.schoolprofile.active = 'highlights';
-            $scope.initSwiper();
+            $scope.swiperInitialise(0);
             break;
         case "trackrecord":
             $scope.schoolprofile.innerView = allSchoolProfile[1];
@@ -708,7 +722,7 @@ myApp.controller('SchoolProfileCtrl', function ($scope, $state, $stateParams, Te
         case "team":
             $scope.schoolprofile.innerView = allSchoolProfile[2];
             $scope.schoolprofile.active = 'team';
-            $scope.initSwiper();
+            $scope.swiperInitialise(0);
             break;
         case "statistics":
             $scope.schoolprofile.innerView = allSchoolProfile[3];
@@ -734,7 +748,7 @@ myApp.controller('SchoolProfileCtrl', function ($scope, $state, $stateParams, Te
     $scope.getTab = function (view) {
         $scope.schoolprofile.innerView = allSchoolProfile[view];
         var url = "highlights";
-
+        $scope.swiperInitialise(1);
         switch (view) {
             case 0:
                 url = "highlights";

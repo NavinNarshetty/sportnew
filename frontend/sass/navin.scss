@@ -107,6 +107,10 @@ $drak-primary:#070f40 !default;
     padding: 30px 0px 50px;
 }
 
+.schoolprofilecard-head {
+    @extend .opensans-semibold;
+}
+
 .performteam-school,
 .performance-athlete,
 .schoolrank-table,

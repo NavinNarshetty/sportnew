@@ -92,8 +92,14 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
             controller: 'SchoolLandingCtrl',
             reloadOnSearch: false
         })
-        .state('athletelanding', {
+        .state('athletelanding-without', {
             url: "/athletelanding",
+            templateUrl: tempateURL,
+            controller: 'AthleteLandingCtrl',
+            reloadOnSearch: false
+        })
+        .state('athletelanding', {
+            url: "/athletelanding/:name",
             templateUrl: tempateURL,
             controller: 'AthleteLandingCtrl',
             reloadOnSearch: false

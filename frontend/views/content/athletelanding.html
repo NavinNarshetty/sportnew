@@ -17,4 +17,23 @@
         </div>
     </div>
     <!-- ATHLETE LANDING HEADER END -->
+    <!-- ATHLETE LANDING NAVIGATION -->
+    <div class="athletelanding-nav">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="athletelanding-navscroll">
+              <ul class="list-inline text-uppercase">
+                <li class="landingnav-option" ng-click="getTab(0);" ng-class="{'active': athletelanding.active=='school'}">school</li>
+                <li class="landingnav-option" ng-click="getTab(1);" ng-class="{'active': athletelanding.active=='college'}">CollegeS</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ATHLETE LANDING NAVIGATION END -->
+    <!-- ATHLETE LANDING CONTENT -->
+    <div class="athletelanding-content" ng-include="athletelanding.innerView"></div>
+    <!-- ATHLETE LANDING CONTENT END  -->
 </div>

@@ -80,7 +80,7 @@ $green-graph: #0edb87 !default;
 
 // FONT VARIABLES END
 body {
-  padding-top: 70px;
+  padding-top: 55px;
   color: #1a1a1a;
   @extend .opensans-regular;
 }
@@ -1252,6 +1252,7 @@ a {
 // ATHLETE HEADER
 .athletelanding-header{
   height: 360px;
+  margin-bottom: 30px;
   position: relative;
   background-image: url("/img/backgrounds/bg-landing.jpg");
   background-position: 0 20%;
@@ -1286,7 +1287,65 @@ a {
     outline: none;
     background-color: transparent;
     color: #fff;
+    .fa-search{
+      font-size: 18px;
+    }
   }
 }
 // ATHLETE HEADER END
+// ATHLETE LANDING NAV
+.athletelanding-nav{
+  .landingnav-option{
+    padding: 5px 10px;
+    margin: 5px;
+    font-size: 15px;
+    cursor: pointer;
+    &.active{
+      border-bottom: 3px solid #27b465;
+      font-weight: 700;
+    }
+  }
+}
+// ATHLETE LANDING NAV END
+// ATHLETE LANDING CONTENT
+// ATHETE LANDING SCHOOL
+.athletelanding-schoolpage{
+  margin: 30px 0px 50px;
+}
+.schoolsport-landinghead{
+  margin: 20px 0;
+}
+.schoolsport-landingimg {
+  margin-left: 30px;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.schoolsport-landingcontent{
+  padding: 10px 10px 10px 40px;
+  background-color: rgba(0,0,0,0.5);
+  color: #fff;
+  font-size: 21px;
+}
+.schoolsport-landingicon{
+  width: 60px;
+  height: auto;
+  position: absolute;
+  top: -19px;
+  left: -30px;
+}
+.athleteschool-sportcitytitle{
+  margin: 20px 0 0;
+}
+.sportcity-landingathlete{
+    padding: 20px 0;
+}
+.athleteschool-viewall{
+  margin: 20px 0;
+  text-align: right;
+}
+// ATHETE LANDING SCHOOL  END
+// ATHETE LANDING COLLEGE
+// ATHETE LANDING COLLEGE  END
+// ATHLETE LANDING CONTENT END
 // ATHLETE LANDING PAGE END

@@ -134,39 +134,39 @@ myApp.controller('AthleteProfileCtrl', function ($scope, $state, $stateParams, T
     'Hockey','Kabaddi','Football','Badminton','Badminton Doubles', 'Tennis','Tennis Doubles','Tennis Mixed Doubles','Table Tennis','Table Tennis Doubles','Squash','Judo','Taekwondo','Boxing','Fencing','Karate','Karate Team Kumite','Sport MMA','Shooting','Shooting Air Rifle Peep Team','Shooting Air Rifle Open Team','Shooting Air Rifle Peep Team', 'Archery', 'Swimming', 'Swimming 4x50m Freestyle Relay', 'Swimming 4x50m Medley Relay', 'Water Polo', 'Carrom','Chess','Athletics','Athletics 4x100m Relay','Athletics 4x50m Relay','Athletics Medley Relay','Kho Kho'];
     // ARRAY OF SPORT NAMES END
 
-    var allAgentProfile = [ "frontend/views/content/athleteprofile/highlights.html", "frontend/views/content/athleteprofile/statistics.html", "frontend/views/content/athleteprofile/achievements.html", "frontend/views/content/athleteprofile/videos.html", "frontend/views/content/athleteprofile/gallery.html"];
+    var allAthleteProfile = [ "frontend/views/content/athleteprofile/highlights.html", "frontend/views/content/athleteprofile/statistics.html", "frontend/views/content/athleteprofile/achievements.html", "frontend/views/content/athleteprofile/videos.html", "frontend/views/content/athleteprofile/gallery.html"];
     $scope.athleteprofile = {
-      innerView: allAgentProfile[0],
+      innerView: allAthleteProfile[0],
       active : "highlights"
     };
     $scope.viewTab = 1;
     // DIRECT LINK
     switch($state.params.name){
       case "highlights":
-        $scope.athleteprofile.innerView = allAgentProfile[0];
+        $scope.athleteprofile.innerView = allAthleteProfile[0];
         $scope.athleteprofile.active = "highlights";
         $scope.swiperInitialise(0);
       break;
       case "statistics":
-        $scope.athleteprofile.innerView = allAgentProfile[1];
+        $scope.athleteprofile.innerView = allAthleteProfile[1];
         $scope.athleteprofile.active = "statistics";
         $scope.swiperInitialise(0);
       break;
       case "achievements":
-        $scope.athleteprofile.innerView = allAgentProfile[2];
+        $scope.athleteprofile.innerView = allAthleteProfile[2];
         $scope.athleteprofile.active = "achievements";
       break;
       case "videos":
       $scope.getVideo();
-        $scope.athleteprofile.innerView = allAgentProfile[3];
+        $scope.athleteprofile.innerView = allAthleteProfile[3];
         $scope.athleteprofile.active = "videos";
       break;
       case "gallery":
-        $scope.athleteprofile.innerView = allAgentProfile[4];
+        $scope.athleteprofile.innerView = allAthleteProfile[4];
         $scope.athleteprofile.active = "gallery";
       break;
       default:
-        $scope.athleteprofile.innerView = allAgentProfile[0];
+        $scope.athleteprofile.innerView = allAthleteProfile[0];
         $scope.athleteprofile.active = "highlights";
       break;
     }
@@ -174,7 +174,7 @@ myApp.controller('AthleteProfileCtrl', function ($scope, $state, $stateParams, T
 
     // ON CLICK
     $scope.getTab = function(view){
-      $scope.athleteprofile.innerView = allAgentProfile[view];
+      $scope.athleteprofile.innerView = allAthleteProfile[view];
       var url = "highlights";
       $scope.swiperInitialise(1);
       switch (view) {

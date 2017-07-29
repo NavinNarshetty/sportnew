@@ -1,0 +1,41 @@
+<div class="athletelanding-schoolpage">
+  <div class="container">
+    <div class="titledescription-holder">
+      <h3 class="blue-header-title text-uppercase">top performing athletes <span>ALL</span></h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi, error, nesciunt nobis earum eaque, architecto eos assumenda laudantium facilis doloribus amet inventore consequuntur porro iusto ipsa quis sit aliquam omnis.</p>
+    </div>
+      <div class="athletelanding-schoolcontent">
+        <div class="landingschool-sport" ng-repeat= "sport in athleteSchool track by $index">
+          <div class="row">
+          <div class="col-md-4">
+            <div class="schoolsport-landinghead">
+              <div class="schoolsport-landingimg relate" style="background-image: url(../{{sport.name|sporticon:'header'}});">
+                <div class="schoolsport-landingcontent text-uppercase">
+                  <p class="m-clear fjalla-one">{{sport.name}}</p>
+                </div>
+                <div class="schoolsport-landingicon">
+                  <img ng-src="{{sport.name| sporticon:'icon'}}" alt="" class="img-responsive">
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+          <div class="athleteschool-sportcity" ng-repeat ="city in sport.city track by $index " ng-init="city.viewSchool=3">
+            <div class="athleteschool-sportcitytitle">
+              <h3 class="fjalla-one m-clear">{{city.name}}</h3>
+            </div>
+            <div class="row">
+              <div class="col-md-4" ng-repeat="athlete in city.athletes|limitTo:city.viewSchool track by $index">
+                <div class="sportcity-landingathlete">
+                  <profile-athlete-card></profile-athlete-card>
+                </div>
+              </div>
+            </div>
+            <div class="athleteschool-viewall">
+              <a ng-click="viewMoreSchools(city)">View <span ng-if="city.viewSchool==3">All</span> <span ng-if="city.viewSchool==6">Less</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>

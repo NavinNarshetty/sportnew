@@ -1,10 +1,20 @@
 <div class="athletelanding-schoolpage">
   <div class="container">
     <div class="titledescription-holder">
-      <h3 class="blue-header-title text-uppercase">top performing athletes <span>ALL</span></h3>
+      <h3 class="blue-header-title text-uppercase">top performing athletes
+         <span class="landingschool-citytitle">
+           <span  ng-click="viewCity();">{{defaultCity}} <i class="fa" ng-class = " { 'fa-chevron-up' : showCityFilter == true , 'fa-chevron-down' :  showCityFilter == false } "></i></span>
+          <div class="landingschool-schoolfilter" ng-show="showCityFilter">
+            <ul class="list-unstyled">
+              <li ng-click="selectCity('all');">all</li>
+              <li ng-repeat="city in cityList track by $index" ng-click="selectCity(city);"> {{city}}</li>
+            </ul>
+          </div>
+         </span>
+       </h3>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi, error, nesciunt nobis earum eaque, architecto eos assumenda laudantium facilis doloribus amet inventore consequuntur porro iusto ipsa quis sit aliquam omnis.</p>
     </div>
-      <div class="athletelanding-schoolcontent">
+    <div class="athletelanding-schoolcontent">
         <div class="landingschool-sport" ng-repeat= "sport in athleteSchool track by $index">
           <div class="row">
           <div class="col-md-4">

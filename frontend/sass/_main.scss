@@ -595,6 +595,29 @@ a {
   padding: 20px;
 }
 
+.athleteprofile-school{
+  .athletepic-check{
+    background-color: $brand-warning;
+  }
+  .athletelevel-title {
+    background-color: $brand-warning;
+    &:after {
+      border-top: 20px solid $brand-warning;
+    }
+  }
+}
+.athleteprofile-college{
+  .athletepic-check{
+    background-color: $brand-success;
+  }
+  .athletelevel-title {
+    background-color: $brand-success;
+    &:after {
+      border-top: 20px solid $brand-success;
+    }
+  }
+}
+
 .athleteprofile-picture {
   display: inline-block;
   position: relative;
@@ -618,7 +641,6 @@ a {
   width: 25px;
   height: 25px;
   border-radius: 100%;
-  background-color: $brand-warning;
   color: #fff;
   font-size: 15px;
   line-height: 25px;
@@ -661,13 +683,6 @@ a {
     right: -10px;
     border-top: 20px solid $brand-primary;
     border-right: 10px solid transparent;
-  }
-}
-
-.athletelevel-title {
-  background-color: $brand-warning;
-  &:after {
-    border-top: 20px solid $brand-warning;
   }
 }
 
@@ -1344,6 +1359,34 @@ a {
   margin: 20px 0;
   text-align: right;
 }
+// CITY FILTER
+.landingschool-citytitle{
+  position: relative;
+  color: $brand-success;
+  cursor: pointer;
+}
+.landingschool-schoolfilter{
+  width: 150px;
+  padding: 5px 10px;
+  box-shadow: 0 0 10px $light-grey;
+  position: absolute;
+  top: 30px;
+  left: 0px;
+  background: #fff;
+  color: $base;
+  font-size: 16px;
+  z-index: 1;
+  @extend .opensans-regular;
+
+  ul{
+    margin: 0;
+    li{
+      margin: 10px 0;
+      cursor: pointer;
+    }
+  }
+}
+// CITY FILTER END
 // ATHETE LANDING SCHOOL  END
 // ATHETE LANDING COLLEGE
 // ATHETE LANDING COLLEGE  END

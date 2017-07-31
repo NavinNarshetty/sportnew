@@ -5,7 +5,30 @@ myApp.controller('AthleteLandingCtrl', function ($scope, $state, $stateParams, T
 
   // INITIALSE VARIABLES
   $scope.viewSchool  = 3;
+  $scope.showCityFilter = false;
+  $scope.defaultCity = 'all';
+  $scope.selectcity = '';
   // INITIALSE VARIABLES END
+
+  // SELECT CITY FILTER
+  $scope.viewCity = function(){
+    if($scope.showCityFilter == false){
+      $scope.showCityFilter = true;
+    } else {
+      $scope.showCityFilter = false;
+    }
+  }
+  $scope.selectCity = function(city){
+    if(city == 'all'){
+      $scope.selectcity = '';
+    } else {
+      $scope.selectcity = city;
+    }
+    $scope.defaultCity = city;
+    $scope.viewCity();
+    console.log($scope.selectcity, 'selected city');
+  }
+  // SELECT CITY FILTER END
 
   // VIEW MORE SCHOOLS
   $scope.viewMoreSchools = function(city){
@@ -73,6 +96,7 @@ myApp.controller('AthleteLandingCtrl', function ($scope, $state, $stateParams, T
   // ON CLICK END
 
   // ATHLETE SCHOOL JSON
+  $scope.cityList = ['mumbai', 'ahmedabad', 'hyderabad'];
   $scope.athleteSchool = [{
     name: 'football',
     city: [{

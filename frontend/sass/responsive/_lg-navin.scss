@@ -113,4 +113,13 @@
     padding: 0px 20px;
   } // END ACCORDIAN
   // ***********END STATISTICS PAGE******
+  // ***********TEAM LANDING PAGE *********
+  .sportcity-landingteam {
+    .teamcard-medallist li {
+      padding-right: 3px;
+      &:nth-last-child(1) {
+        padding-right: 0px;
+      }
+    }
+  } // ***********END TEAM LANDING PAGE **********
 }

@@ -1,8 +1,160 @@
-<div class="schoollanding">
+<div class="schoollanding-page">
   <!--BACKGROUND IMAGE-->
-  <div class="schoollanding-imageholder">
-    <img src="" alt="">
+  <div class="athletelanding-header schoollanding-header">
+    <div class="athletelanding-headeroverlay schoollanding-headeroverlay">
+      <div class="container">
+        <div class="landing-search">
+          <div class="input-group landingsearch-inputgroup">
+            <input type="text" class="form-control" placeholder="Enter School Name or School SFA ID">
+            <span class="input-group-btn">
+            <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   <!--END BACKGROUND IMAGE-->
+  <div class="schoollanding-fullcontent">
+    <div class="container">
+
+      <!--<div class="schoollanding-fullcontent">
+      
+    </div>-->
+      <!--TOP PERFORMING SCHOOL-->
+      <div class="schoollanding-topperformschool titledescription-holder ">
+        <h3 class="fjalla-one color-primary text-uppercase">TOP PERFORMING SCHOOLS</h3>
+        <div class="schoollanding-topperformcontent">
+          <p class="m-clear">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque ullam odit quaerat dolorum maiores, debitis
+            ab vero aperiam tempora animi. Laudantium enim ducimus, a veniam ipsum adipisci modi aliquam excepturi.</p>
+        </div>
+      </div>
+      <!--END TOP PERFORMING SCHOOL-->
+      <!--SFA CHAMPIONS-->
+      <!--SFA CHAMPIONS HEAD-->
+      <div class="schoollanding-sfachampions titledescription-holder ">
+        <h3 class="fjalla-one color-primary text-uppercase">sfa championship 2016</h3>
+        <div class="schoollanding-sfachampionscontent">
+          <p class="m-clear">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla ratione, quidem aliquam nesciunt asperiores sunt
+            nam quasi accusamus omnis aliquid vero possimus quam provident quis maiores sapiente assumenda libero voluptates?</p>
+        </div>
+      </div>
+      <!--SFA CHAMPIONS HEAD END-->
+      <!--SFA CITY-->
+      <div class="schoollanding-sfacity" ng-repeat="school in sfachampions track by $index" ng-init="city.viewSchool=3">
+        <h4 class="fjalla-one text-uppercase">{{school.city}}</h4>
+        <div class="row">
+          <div class="col-md-4 col-sm-6 col-xs-12" ng-repeat="topschool in school.topschool  | limitTo:city.viewSchool track by $index">
+            <div class="schoollanding-schoolcard">
+              <school-profile-card trophy="true"></school-profile-card>
+            </div>
+          </div>
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="schoollanding-viewall">
+              <a ng-click="viewMoreSchools(city)">View <span ng-if="city.viewSchool==3">All</span> <span ng-if="city.viewSchool==10">Less</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--END SFA CITY-->
+      <!--MEDAL CARDS HOLDER-->
+
+      <!--MEDAL CARD HEAD-->
+      <div class="schoollanding-maxmedalswon titledescription-holder">
+        <h3 class="fjalla-one text-uppercase">maximum medals won</h3>
+        <div class="schoollanding-maxmedalscontent">
+          <p class="m-clear">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi molestias, aspernatur quibusdam quasi quia iure
+            quos magnam dolorem earum autem ratione omnis repudiandae nam neque rem commodi dolorum aliquam possimus!</p>
+        </div>
+      </div>
+      <!--END MEDAL CARD HEAD-->
+
+      <!--TOTAL MEDAL CARD-->
+      <div class="row">
+        <div class="schoollanding-totalmedalcard">
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="schoollanding-totalmedalcardholder">
+              <p class="m-clear text-uppercase">total medals</p>
+              <school-profile-card stats="true"></school-profile-card>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!--END TOTAL MEDAL CARD-->
+
+      <!--ALL MEDAL CARD TYPE-->
+      <div class="row">
+        <div class="medal-goldsilverbronzecard">
+          <div class="col-md-4 col-sm-6 col-xs-12" ng-repeat="medals in maxmedals track by $index">
+            <div class="medal-goldsilverbronzecard-holder">
+              <p class="text-uppercase m-clear"> maximum <span>{{medals.medal}}</span></p>
+              <school-profile-card stats="true"></school-profile-card>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!--END ALL TYPE MEDAL CARDS-->
+      <!--END MEDALS CARDS HOLDER-->
+
+      <!--PARTICIPATION HEAD-->
+      <div class="schoollanding-participation titledescription-holder">
+        <h3 class="fjalla-one text-uppercase">participation in maximum sports </h3>
+        <p class="m-clear">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos ullam consectetur, corrupti labore ratione reprehenderit
+          iure rem maiores itaque laborum nam. Provident debitis suscipit quidem praesentium obcaecati eum. Magnam, voluptatum.</p>
+      </div>
+      <div class="row">
+        <div class="col-md-4 col-sm-6 col-xs-12" ng-repeat="maxsport in dummy track by $index">
+          <div class="schoollanding-participation-holder">
+            <school-profile-card stats="true"></school-profile-card>
+          </div>
+        </div>
+      </div>
+      <!--END PARTICIPATION HEAD-->
+
+      <!--HIGHEST WIN PERCENTAGE -->
+      <div class="schoollanding-winpercentage titledescription-holder">
+        <h3 class="fjalla-one text-uppercase">highest win percentage</h3>
+        <div class="schoollanding-winpercentagecontent">
+          <p class="m-clear">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad architecto odit ipsam ea, porro et placeat quisquam
+            dignissimos ullam consequuntur, perspiciatis eum temporibus adipisci ipsum veritatis esse impedit quasi accusantium.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 col-sm-6 col-xs-12" ng-repeat=" winperc in dummy track by $index">
+          <div class="schoollanding-winpercentageholder">
+            <school-profile-card stats="true"></school-profile-card>
+          </div>
+        </div>
+      </div>
+      <!--END HIGEST WIN PERCENTAGE END-->
+
+      <!--LARGEST CONTIGENT-->
+      <div class="schoollanding-contigent titledescription-holder">
+        <h3 class="fjalla-one text-uppercase">largest contigent </h3>
+        <div class="schoollanding-contigentcontent">
+          <p class="m-clear">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt alias temporibus ipsum? Et nam esse ullam architecto.
+            Ipsa assumenda ab deleniti laboriosam dolorem accusantium, perspiciatis asperiores eveniet. Quibusdam, fugit
+            ipsum!
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 col-sm-6 col-xs-12">
+          <div class="schoollanding-contigentholder">
+            <school-profile-card stats="true"></school-profile-card>
+          </div>
+        </div>
+      </div>
+
+      <!--END LARGEST CONTIGENT-->
+
+
+      <!--END SFA CHAMPIONS-->
+    </div>
+
+
+  </div>
 
 </div>

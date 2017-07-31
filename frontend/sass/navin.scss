@@ -1414,3 +1414,89 @@ $drak-primary:#070f40 !default;
 // }
 // ******END SCHOOL VIDEOS PAGE
 //end schoolprofile-page
+// ************SCHOOL LANDING PAGE *************
+.teamlanding-page,
+.schoollanding-page {
+    min-height: 100vh;
+}
+
+.schoollanding-topperformschool,
+.schoollanding-sfachampions,
+.schoollanding-participation,
+.schoollanding-winpercentage,
+.schoollanding-contigent {
+    margin: 40px 0px;
+}
+
+.schoollanding-fullcontent {
+    padding: 30px 0px 50px;
+}
+
+// SFA CHAMPIONS CARD
+.schoollanding-schoolcard,
+.schoollanding-participation-holder,
+.schoollanding-winpercentageholder,
+.medal-goldsilverbronzecard-holder,
+.schoollanding-totalmedalcardholder {
+    margin: 10px 0px;
+}
+
+.schoollanding-viewall {
+    text-align: right;
+    margin: 10px 0px;
+}
+
+.schoollanding-totalmedalcard,
+.medal-goldsilverbronzecard {
+    margin: 20px 0px;
+}
+
+// END SFA CHAMPIONS CARD
+// ***********END SCHOOL LANDING PAGE ************
+// ***********TEAM LANDING PAGE****************
+.teamlanding-page {
+    .teamlanding-header {
+        background-image: url("/img/backgrounds/bg-teamlanding.jpg");
+        background-position: 0% 45%;
+    }
+    .athletelanding-header {
+        height: 360px;
+    }
+}
+
+// ***********END TEAM LANDING PAGE************
+// breadcrumb
+.bread-cum-holder {
+    overflow: auto;
+    white-space: nowrap;
+    padding: 10px 20px;
+}
+
+.breadcrum {
+    min-width: 100px;
+    position: relative;
+    background: red;
+    color: #fff;
+    padding-left: 20px;
+    margin: 10px 10px 10px 0;
+    &:before {
+        content: '';
+        position: absolute;
+        left: -1px;
+        top: 0;
+        border-top: 16px solid transparent;
+        border-bottom: 16px solid transparent;
+        border-left: 15px solid white;
+        z-index: 1;
+    }
+    &:after {
+        content: '';
+        position: absolute;
+        right: -16px;
+        top: 0;
+        border-top: 16px solid transparent;
+        border-bottom: 16px solid transparent;
+        border-left: 15px solid red;
+        z-index: 2;
+    }
+}

@@ -1,1 +1,37 @@
-<p>Navin</p>
+<div class="teamlanding-page">
+  <!--BACKGROUND IMAGE-->
+  <div class="athletelanding-header teamlanding-header">
+    <div class="athletelanding-headeroverlay teamlanding-headeroverlay">
+      <div class="container">
+        <div class="landing-search">
+          <div class="input-group landingsearch-inputgroup">
+            <input type="text" class="form-control" placeholder="Enter School Name or team SFA ID">
+            <span class="input-group-btn">
+            <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--END BACKGROUND IMAGE-->
+  <!--TEAM HEADER NAV-->
+  <div class="athletelanding-nav teamlanding-nav">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="teamlanding-navscroll">
+            <ul class="list-inline text-uppercase">
+              <li class="landingnav-option" ng-click="getTab(0);" ng-class="{'active': teamlanding.active=='school'}">school</li>
+              <li class="landingnav-option" ng-click="getTab(1);" ng-class="{'active': teamlanding.active=='college'}">CollegeS</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--END TEAM HEADER NAV-->
+  <div class="teamlanding-content" ng-include="teamlanding.innerView">
+
+  </div>
+</div>

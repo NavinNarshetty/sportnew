@@ -132,6 +132,18 @@ $drak-primary:#070f40 !default;
     @extend .athletepic-check;
 }
 
+.schoolprofile-school {
+    .schoolpic-check {
+        background-color: $brand-warning;
+    }
+}
+
+.schoolprofile-college {
+    .schoolpic-check {
+        background-color: $brand-success;
+    }
+}
+
 .schoolprofile-page {
     min-height: 100vh;
     .school-head {

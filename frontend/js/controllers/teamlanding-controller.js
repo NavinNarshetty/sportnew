@@ -3,9 +3,38 @@ myApp.controller('TeamLandingCtrl', function ($scope, $state, $stateParams, Temp
   TemplateService.title = "Team Landing Page"; //This is the Title of the Website
   $scope.navigation = NavigationService.getNavigation();
 
+
+
+
   // INITIALSE VARIABLES
   $scope.viewSchool = 3;
+  $scope.showCityFilter = false;
+  $scope.defaultCity = 'all';
+  $scope.selectcity = '';
   // INITIALSE VARIABLES END
+
+
+  // SELECT CITY
+  $scope.viewCity = function () {
+    if ($scope.showCityFilter == false) {
+      $scope.showCityFilter = true;
+    } else {
+      $scope.showCityFilter = false;
+    }
+  }
+
+  $scope.selectCity = function (city) {
+    if (city == 'all') {
+      $scope.selectCity = '';
+    } else {
+      $scope.selectcity = city;
+    }
+    $scope.defaultCity = city;
+    $scope.viewCity();
+    console.log($scope.selectcity, 'test');
+  }
+
+  // END SELECT CITY
 
   // VIEW MORE SCHOOLS
   $scope.viewMoreSchools = function (city) {
@@ -18,7 +47,7 @@ myApp.controller('TeamLandingCtrl', function ($scope, $state, $stateParams, Temp
   // VIEW MORE SCHOOLS  END
 
 
-
+  $scope.cityList = ['mumbai', 'ahmedabad', 'hyderabad'];
   var allTeamLanding = ["frontend/views/content/teamlanding/school.html", "frontend/views/content/teamlanding/college.html"];
 
   $scope.teamlanding = {

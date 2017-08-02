@@ -23,7 +23,17 @@
     </div>-->
       <!--TOP PERFORMING SCHOOL-->
       <div class="schoollanding-topperformschool titledescription-holder ">
-        <h3 class="fjalla-one color-primary text-uppercase">TOP PERFORMING SCHOOLS</h3>
+        <h3 class="fjalla-one  text-uppercase">TOP PERFORMING SCHOOLS
+          <span class="landingschool-citytitle">
+           <span  ng-click="viewCity();">{{defaultCity}} <i class="fa" ng-class = " { 'fa-chevron-up' : showCityFilter == true , 'fa-chevron-down' :  showCityFilter == false } "></i></span>
+          <div class="landingschool-schoolfilter" ng-show="showCityFilter">
+            <ul class="list-unstyled">
+              <li ng-click="selectCity('all');">all</li>
+              <li ng-repeat="city in cityList track by $index" ng-click="selectCity(city);"> {{city}}</li>
+            </ul>
+          </div>
+          </span>
+        </h3>
         <div class="schoollanding-topperformcontent">
           <p class="m-clear">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque ullam odit quaerat dolorum maiores, debitis
             ab vero aperiam tempora animi. Laudantium enim ducimus, a veniam ipsum adipisci modi aliquam excepturi.</p>
@@ -33,7 +43,7 @@
       <!--SFA CHAMPIONS-->
       <!--SFA CHAMPIONS HEAD-->
       <div class="schoollanding-sfachampions titledescription-holder ">
-        <h3 class="fjalla-one color-primary text-uppercase">sfa championship 2016</h3>
+        <h3 class="fjalla-one  text-uppercase">sfa championship 2016</h3>
         <div class="schoollanding-sfachampionscontent">
           <p class="m-clear">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla ratione, quidem aliquam nesciunt asperiores sunt
             nam quasi accusamus omnis aliquid vero possimus quam provident quis maiores sapiente assumenda libero voluptates?</p>

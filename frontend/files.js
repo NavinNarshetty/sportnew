@@ -11,8 +11,8 @@ module.exports = [
 
   //Angular Libs
   'bower_components/angular/angular.js',
-  'bower_components/angular-sanitize/angular-sanitize.js',
-  'bower_components/angular-animate/angular-animate.min.js',
+  // 'bower_components/angular-sanitize/angular-sanitize.js',
+  // 'bower_components/angular-animate/angular-animate.min.js',
   'bower_components/angular-bootstrap/ui-bootstrap.min.js',
   'bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
   'bower_components/angular-ui-router/release/angular-ui-router.min.js',
@@ -50,6 +50,7 @@ module.exports = [
 
   // Services
   'frontend/js/services/template.js',
+  'frontend/js/services/athleteprofileservice.js',
 
   //Factories
   'frontend/js/factories/navigation.js',

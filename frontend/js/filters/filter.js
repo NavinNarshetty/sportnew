@@ -218,21 +218,7 @@ myApp.filter('medalicon', function(){
     var input = input.toLowerCase();
     var type = type.toLowerCase();
     var medalImg = "";
-
-    switch (type) {
-      case "blue":
-        medalImg = "img/medalicon/" + input + "-blue.png";
-      break;
-      case "grey":
-        medalImg = "img/medalicon/" + input + "-grey.png";
-      break;
-      case "white":
-        medalImg = "img/medalicon/" + input + "-white.png";
-      break;
-      case "big":
-        medalImg = "img/medalicon/" + input + "-big.png";
-      break;
-    }
+    medalImg = "img/medalicon/" + input + "-" + type + ".png";
     return medalImg;
   }
 })

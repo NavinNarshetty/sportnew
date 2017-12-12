@@ -39,7 +39,7 @@ var myApp = angular.module('myApp', [
     'angularPromiseButtons',
     'toastr',
     'athleteprofile',
-    // 'wu.masonry'
+    'wu.masonry'
 ]);
 
 // Define all the routes below

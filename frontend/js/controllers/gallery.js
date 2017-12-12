@@ -37,30 +37,30 @@ myApp.controller('GalleryLandingCtrl', function ($scope, $state, $stateParams, T
   $scope.sfaChampions = [{
     name: 'School',
     sfaCards: [{
-      img: 'day-04.png',
+      img: '/img/day-04.png',
       title: 'Sfa Mumbai 2015-16',
       count: '11'
     }, {
-      img: 'day-04.png',
+      img: '/img/day-04.png',
       title: 'Sfa Mumbai 2015-17',
       count: '12'
     }, {
-      img: 'day-04.png',
+      img: '/img/day-04.png',
       title: 'Sfa Mumbai 2015-18',
       count: '13'
     }, {
-      img: 'day-04.png',
+      img: '/img/day-04.png',
       title: 'Sfa Mumbai 2015-18',
       count: '13'
     }]
   }, {
     name: 'College',
     sfaCards: [{
-      img: 'day-03.png',
+      img: '/img/day-03.png',
       title: 'Sfa Mumbai 2015-16',
       count: '11'
     }, {
-      img: 'day-03.png',
+      img: '/img/day-03.png',
       title: 'Sfa Mumbai 2015-17',
       count: '12'
     }]
@@ -68,14 +68,41 @@ myApp.controller('GalleryLandingCtrl', function ($scope, $state, $stateParams, T
   // SFA CHAMPIONS END
 
   $scope.Images = [{
-    img: 'dishapatani1.jpg'
+    img: 'dishapatani1.jpg',
+    type: 'photo'
   }, {
-    img: 'mobweb-3.jpg'
+    thumbnail: 'mobweb-3.jpg',
+    type: 'video'
   }, {
-    img: 'sa2.jpg'
+    img: 'sa2.jpg',
+    type: 'photo'
   }, {
-    img: 'dishapatani1.jpg'
+    thumbnail: 'sa3.jpg',
+    type: 'video'
   }, {
-    img: 'mobweb-3.jpg'
+    img: 'sa4.jpg',
+    type: 'photo'
+  }, {
+    thumbnail: 'dishapatani1.jpg',
+    type: 'video'
+  }, {
+    img: 'mobweb-3.jpg',
+    type: 'photo'
+  }, {
+    img: 'sa4.jpg',
+    type: 'photo'
+  }, {
+    img: 'sa2.jpg',
+    type: 'photo'
+  }]
+
+  $scope.likeImage = [{
+    img: '/img/dishapatani1.jpg'
+  }, {
+    img: '/img/day-03.png'
+  }, {
+    img: '/img/day-02.png'
+  }, {
+    img: '/img/day-04.png'
   }]
 });

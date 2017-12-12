@@ -11,6 +11,7 @@ $drak-primary:#070f40 !default;
     background-color: #ddd;
     height: 130px;
     margin: 40px 0px;
+    font-size: 30px;
 }
 
 .light-blue {
@@ -51,11 +52,13 @@ $drak-primary:#070f40 !default;
     background-color: #ddd;
     height: 130px;
     margin: 40px 0px;
+    font-size: 30px;
 }
 
 .side-adspace {
     background-color: #ddd;
     height: 341px;
+    font-size: 30px;
 }
 
 // end Ad-space
@@ -1526,6 +1529,10 @@ $drak-primary:#070f40 !default;
 // GALLERY LANDING
 .gallery-landing-page {
     min-height: 100vh;
+    .gallery-lannding-mainheader {
+        font-size: 36px;
+        margin-top: 40px;
+    }
     .gallery-headercontent {
         text-align: justify;
     }
@@ -1536,6 +1543,10 @@ $drak-primary:#070f40 !default;
     .cardholder {
         padding-right: 20px;
         position: relative;
+    }
+    .gallery-feature-subtitle {
+        font-size: 16px;
+        margin: 10px 0px;
     }
     .feature-cardholder {
         width: 50%; // border: 1px solid; // height: 100px;
@@ -1591,11 +1602,36 @@ $drak-primary:#070f40 !default;
         padding-bottom: 20px;
         border-bottom: 1px solid #000;
     }
-    .gallery-schoolcollege-titleholder {
+    .album-title-holder {
         margin-top: 10px;
     }
-    .gallery-schoolcollege-title {
+    .album-subtitle {
         font-size: 18px;
+    }
+    .photovideo-galleryimage {
+        margin: 10px 0px;
+    }
+    .gallery-landing-photovideo {
+        padding-bottom: 40px;
+        border-bottom: 1px solid #000;
+    }
+    .gallery-likepic-holder {
+        // background-image: url("../img/dishapatani1.jpg");
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 170px;
+        margin: 8px 0px;
+    }
+}
+
+.album-holder {
+    .album-pic-holder {
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 175px;
+        margin: 8px 0px;
     }
 }
 

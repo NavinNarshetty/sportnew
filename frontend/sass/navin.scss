@@ -8,10 +8,14 @@ $drak-primary:#070f40 !default;
 //     height: 300px;
 // }
 .adspace {
-    background-color: #ddd;
-    height: 130px;
-    margin: 40px 0px;
-    font-size: 30px;
+  height: 130px;
+  margin: 40px 0px;
+  background-color: #ddd;
+  font-size: 36px;
+  ::selection {
+    color: #ddd;
+    background: #1a1a1a;
+  }
 }
 
 .light-blue {
@@ -49,16 +53,16 @@ $drak-primary:#070f40 !default;
 // end common class
 //Ad-Space
 .highlight-adspace {
-    background-color: #ddd;
-    height: 130px;
-    margin: 40px 0px;
-    font-size: 30px;
+  height: 130px;
+  margin: 40px 0px;
+  background-color: #ddd;
+  font-size: 36px;
 }
 
 .side-adspace {
-    background-color: #ddd;
-    height: 341px;
-    font-size: 30px;
+  height: 341px;
+  background-color: #ddd;
+  font-size: 36px;
 }
 
 // end Ad-space
@@ -1529,9 +1533,13 @@ $drak-primary:#070f40 !default;
 // GALLERY LANDING
 .gallery-landing-page {
     min-height: 100vh;
-    .gallery-lannding-mainheader {
-        font-size: 36px;
-        margin-top: 40px;
+    padding: 50px 0;
+    .gallery-landing-header{
+      margin-bottom: 40px;
+    }
+    .gallery-landing-mainheader {
+      // margin-top: 40px;
+        font-size: 42px;
     }
     .gallery-headercontent {
         text-align: justify;
@@ -1539,6 +1547,7 @@ $drak-primary:#070f40 !default;
     .gallery-checkout {
         padding-bottom: 30px;
         border-bottom: 1px solid #000;
+        margin: 40px 0;
     }
     .cardholder {
         padding-right: 20px;
@@ -1549,15 +1558,18 @@ $drak-primary:#070f40 !default;
         margin: 10px 0px;
     }
     .feature-cardholder {
-        width: 50%; // border: 1px solid; // height: 100px;
-        // padding-right: 10px;
-        padding: 8px;
+        width: 50%;
+        // border: 1px solid;
+        // height: 100px;
+        padding-right: 10px;
+        // padding: 8px;
         margin-bottom: 10px;
         position: relative;
         float: left;
         cursor: pointer;
         &:first-child {
             width: 100%;
+            padding: 10px;
             @extend .card1;
             .card-slip,
             .card-slip2 {
@@ -1599,8 +1611,9 @@ $drak-primary:#070f40 !default;
         top: 5%;
     }
     .gallery-landing-sfachampions {
-        padding-bottom: 20px;
+        padding-bottom: 40px;
         border-bottom: 1px solid #000;
+        margin: 40px 0;
     }
     .album-title-holder {
         margin-top: 10px;
@@ -1608,12 +1621,16 @@ $drak-primary:#070f40 !default;
     .album-subtitle {
         font-size: 18px;
     }
+    .galleryalbum-count{
+      color: $dark-grey;
+    }
     .photovideo-galleryimage {
         margin: 15px 0px;
     }
     .gallery-landing-photovideo {
         padding-bottom: 40px;
         border-bottom: 1px solid #000;
+        margin: 40px 0;
     }
     .gallery-likepic-holder {
         // background-image: url("../img/dishapatani1.jpg");
@@ -1623,9 +1640,13 @@ $drak-primary:#070f40 !default;
         height: 170px;
         margin: 8px 0px;
     }
+    .gallery-like{
+      margin: 40px 0;
+    }
 }
 
 .album-holder {
+  cursor: pointer;
     .album-pic-holder {
         background-position: 50% 50%;
         background-repeat: no-repeat;

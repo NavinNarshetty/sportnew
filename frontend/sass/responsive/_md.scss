@@ -1,3 +1,36 @@
+@media screen and (max-width: 1200px){
+  // WIDE SCREENS
+  // ATHLETE PROFILE PAGE
+  // ATHLETE PROFILE CARD
+  .athleteprofile-cardholder{
+    width: 80%;
+  }
+  // ATHLETE PROFILE CARD END
+  // ATHLETE PROFILE HIGHLIGHTS
+  .athletehighlights-videoholder{
+    width: 180px;
+  }
+  // ATHLETE PROFILE HIGHLIGHTS END
+  // ATHLETE PROFILE ACHIEVEMENTS
+  .athleteachievement-participationcertificate{
+    width: 185px;
+  }
+  // ATHLETE PROFILE ACHIEVEMENTS END
+  // ATHLETE PROFILE STATISTICS
+  .statisticsport-medaldetails{
+    .statsmedaldetail-sport{
+      width: 190px;
+    }
+    .medaldetails-schoolname{
+      width: 190px;
+    }
+  }
+  // ATHLETE PROFILE STATISTICS END
+
+  // ATHLETE PROFILE PAGE END
+}
+
+
 @media screen and (max-width: 991px){
   // DESKTOP SCREENS
   // COMMON

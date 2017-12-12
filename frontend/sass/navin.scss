@@ -7,6 +7,16 @@ $drak-primary:#070f40 !default;
 //     width: 600px;
 //     height: 300px;
 // }
+.adspace {
+    background-color: #ddd;
+    height: 130px;
+    margin: 40px 0px;
+}
+
+.light-blue {
+    color: $light-blue;
+}
+
 .mr5 {
     margin-right: 5px;
 }
@@ -1512,3 +1522,81 @@ $drak-primary:#070f40 !default;
         z-index: 2;
     }
 }
+
+// GALLERY LANDING
+.gallery-landing-page {
+    min-height: 100vh;
+    .gallery-headercontent {
+        text-align: justify;
+    }
+    .gallery-checkout {
+        padding-bottom: 30px;
+        border-bottom: 1px solid #000;
+    }
+    .cardholder {
+        padding-right: 20px;
+        position: relative;
+    }
+    .feature-cardholder {
+        width: 50%; // border: 1px solid; // height: 100px;
+        // padding-right: 10px;
+        padding: 8px;
+        margin-bottom: 10px;
+        position: relative;
+        float: left;
+        cursor: pointer;
+        &:first-child {
+            width: 100%;
+            @extend .card1;
+            .card-slip,
+            .card-slip2 {
+                display: block;
+            }
+            .feature-card-footer {
+                font-size: 18px;
+            }
+        }
+    }
+    .feature-card-footer {
+        padding: 5px;
+        margin-top: 10px;
+        text-transform: uppercase;
+        font-size: 14px;
+        @extend .fjalla-one;
+    }
+    .card1 {
+        // width: 100%;
+        // height: 300px;
+        background: #e5e5e5;
+    }
+    .card-slip {
+        display: none;
+        width: 10px;
+        height: 95%;
+        position: absolute;
+        background: linear-gradient(to right, #a0a0a0 5%, #e5e5e5 95%);
+        top: 2.5%;
+        right: -10px;
+    }
+    .card-slip2 {
+        display: none;
+        width: 10px;
+        height: 90%;
+        position: absolute;
+        background: linear-gradient(to right, #a0a0a0 10%, #e5e5e5 90%);
+        right: -20px;
+        top: 5%;
+    }
+    .gallery-landing-sfachampions {
+        padding-bottom: 20px;
+        border-bottom: 1px solid #000;
+    }
+    .gallery-schoolcollege-titleholder {
+        margin-top: 10px;
+    }
+    .gallery-schoolcollege-title {
+        font-size: 18px;
+    }
+}
+
+// GALLERY LANDING END

@@ -33,7 +33,8 @@ module.exports = [
   "bower_components/outlayer/outlayer.js",
   "bower_components/masonry/masonry.js",
   "bower_components/imagesloaded/imagesloaded.js",
-  "bower_components/angular-masonry/angular-masonry.js",
+  "bower_components/masonry/dist/masonry.pkgd.min.js",
+  // "bower_components/angular-masonry/angular-masonry.js",
 
   //App.js
   'frontend/js/app.js',
@@ -51,6 +52,7 @@ module.exports = [
   // Services
   'frontend/js/services/template.js',
   'frontend/js/services/athleteprofileservice.js',
+  // 'frontend/js/services/mansonry-edited.js',
 
   //Factories
   'frontend/js/factories/navigation.js',
@@ -65,4 +67,5 @@ module.exports = [
   'frontend/js/controllers/schoollanding-controller.js',
   'frontend/js/controllers/athletelanding-controller.js',
   'frontend/js/controllers/teamlanding-controller.js',
+  'frontend/js/controllers/gallery.js',
 ];

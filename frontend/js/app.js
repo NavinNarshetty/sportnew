@@ -38,8 +38,8 @@ var myApp = angular.module('myApp', [
     // 'ui.swiper',
     'angularPromiseButtons',
     'toastr',
-    'wu.masonry',
-    'athleteprofile'
+    'athleteprofile',
+    // 'wu.masonry'
 ]);
 
 // Define all the routes below
@@ -108,6 +108,12 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
             url: "/teamlanding",
             templateUrl: tempateURL,
             controller: 'TeamLandingCtrl',
+            reloadOnSearch: false
+        })
+        .state('gallerylanding', {
+            url: "/gallerylanding",
+            templateUrl: tempateURL,
+            controller: 'GalleryLandingCtrl',
             reloadOnSearch: false
         });
     $urlRouterProvider.otherwise("/");

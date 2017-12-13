@@ -1,4 +1,4 @@
-myApp.controller('AthleteLandingCtrl', function ($scope, $state, $stateParams, TemplateService, NavigationService, $timeout, toastr, $http, $uibModal, $rootScope) {
+myApp.controller('AthleteLandingCtrl', function ($scope, $state, $stateParams, TemplateService, NavigationService, $timeout, toastr, $http, $uibModal, $rootScope, MediaPopupService) {
   $scope.template = TemplateService.getHTML("content/athletelanding.html");
   TemplateService.title = "Athlete Landing Page"; //This is the Title of the Website
   $scope.navigation = NavigationService.getNavigation();
@@ -138,12 +138,12 @@ myApp.controller('AthleteLandingCtrl', function ($scope, $state, $stateParams, T
 
   var photoPopUp;
   $scope.showPopup = function(){
-      $rootScope.modalInstance = $uibModal.open({
-        animation: true,
-        scope: $scope,
-        size: 'lg',
-        templateUrl: 'views/modal/photovideo-popup.html',
-        windowClass: 'photovideo-modal'
-      })
+    MediaPopupService.openMediaPopup($scope);
+  }
+  $scope.nextSlides = function(){
+    MediaPopupService.nextSlide();
+  }
+  $scope.prevSlides = function(){
+    MediaPopupService.prevSlide();
   }
 })

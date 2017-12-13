@@ -1,12 +1,12 @@
 <div class="photovideo-popup">
     <!-- PHOTO VIDEO NAV -->
     <!-- NAV LEFT -->
-    <div class="photovideo-nav photovideo-navleft">
+    <div class="photovideo-nav photovideo-navleft" ng-click="prevSlides();">
         <div class=""> <span class="fa fa-angle-left"></span></div>
     </div>
     <!-- NAV LEFT END -->
     <!-- NAV RIGHT  -->
-    <div class="photovideo-nav photovideo-navright">
+    <div class="photovideo-nav photovideo-navright" ng-click="nextSlides();">
         <div class=""><span class="fa fa-angle-right"></span></div>
     </div>
     <!-- NAV RIGHT END -->
@@ -16,12 +16,12 @@
     <div class="photovideo-mediaholder">
       <!-- POPUP PHOTO HOLDER -->
         <div class="photovideo-photoholder" >
-          <img src="img/backgrounds/bg-teamlanding.jpg" alt="| Sports For All" class="img-responsive" title="| Sports For All">
+          <img src="img/backgrounds/bg-teamlanding.jpg" alt="| Sports For All" class="img-responsive m-auto" title="| Sports For All">
         </div>
         <!-- POPUP PHOTO HOLDER END -->
         <!-- POPUP VIDEO HOLDER  -->
         <div class="photovideo-videoholder" hidden>
-          <iframe src="https://player.vimeo.com/video/245334512" frameborder="0" allowfullscreen></iframe>
+          <!-- <iframe src="https://player.vimeo.com/video/245334512" frameborder="0" allowfullscreen></iframe> -->
         </div>
         <!-- POPUP VIDEO HOLDER END -->
     </div>
@@ -50,7 +50,7 @@
                   <!-- LOG IN FOOTER -->
                   <div class="photovideo-loginfoot">
                     <form>
-                        <label for="photoTag">TAG YOURSELF: To this image to your personal SFA Profile simply add SFA ID here:</label>
+                        <label for="photoTag">TAG YOURSELF: To add this image to your personal SFA Profile simply add SFA ID here:</label>
                         <div class="input-group">
                             <span class="input-group-addon">@</span>
                             <input type="text" class="form-control">

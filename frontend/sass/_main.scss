@@ -262,6 +262,10 @@ a {
   margin: 0;
 }
 
+.m-auto{
+  margin: 0px auto;
+}
+
 .p-clear {
   padding: 0;
 }
@@ -515,6 +519,10 @@ a {
 // COMMON CLASSES END
 // PHOTO VIDEO POPUP
 .photovideo-modal{
+  top: 50%;
+  bottom: auto;
+  @include transform(translateY(-50%));
+
   .modal-content{
     border-radius: 0;
   }
@@ -602,9 +610,10 @@ a {
         font-weight: 700;
       }
       .form-control{
-        width: auto;
+        width: 100%;
         height: auto;
-        padding: 0;
+        padding: 0 5px;
+        margin-left: 5px;
         border: none;
         border-bottom: 1px solid #000;
         font-size: 12px;

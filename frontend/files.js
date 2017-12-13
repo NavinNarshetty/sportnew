@@ -52,6 +52,7 @@ module.exports = [
   // Services
   'frontend/js/services/template.js',
   'frontend/js/services/athleteprofileservice.js',
+  'frontend/js/services/mediapopup.js',
   // 'frontend/js/services/mansonry-edited.js',
 
   //Factories

@@ -2,7 +2,10 @@ myApp.service('MediaPopupService', function($http, $uibModal, TemplateService, $
   // SERVICE START
   // VARIABLE INITIATIALISATION
   var modalInstance;
+  var firstSlide = false;
+  var lastSlide = false;
   var page = this;
+  var currentIndex, sliderArr;
   // VARIABLE INITIATIALISATION END
   // FUNCTIONS
   // NEXT SLIDE FUNCTION
@@ -15,13 +18,24 @@ myApp.service('MediaPopupService', function($http, $uibModal, TemplateService, $
     console.log("Prevous Slide");
   }
   // PREVIOUS SLIDE FUNCTION END
+  this.checkSlide = function(index, sliderArr){
+    console.log(sliderArr);
+    if (index == 0) {
+      firstSlide = true;
+    }
+    if(index == sliderArr.length-1){
+      lastSlide = true;
+    }
+    console.log("First", firstSlide);
+    console.log("Last", lastSlide);
+  }
   // OPEN POPUP
-  this.openMediaPopup = function(pop){
+  this.openMediaPopup = function(index, slideArr, pageScope){
     // console.log("openMediaPopup");
 
         modalInstance = $uibModal.open({
           animation: true,
-          scope: pop,
+          scope: pageScope,
           size: 'lg',
           templateUrl: 'views/modal/photovideo-popup.html',
           windowClass: 'photovideo-modal'
@@ -31,6 +45,12 @@ myApp.service('MediaPopupService', function($http, $uibModal, TemplateService, $
             $(page).off(e);
           };
         })
+
+
+        console.log(index, slideArr);
+        currentIndex = index;
+        sliderArr = sliderArr;
+        page.checkSlide(currentIndex, sliderArr);
 
         $timeout(function () {
           page.onkeydown = function(e) {

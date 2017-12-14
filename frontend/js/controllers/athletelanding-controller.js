@@ -138,7 +138,9 @@ myApp.controller('AthleteLandingCtrl', function ($scope, $state, $stateParams, T
 
   var photoPopUp;
   $scope.showPopup = function(){
-    MediaPopupService.openMediaPopup($scope);
+    $scope.index = 0;
+    $scope.slideArr = [1,2,3];
+    MediaPopupService.openMediaPopup($scope.index, $scope.slideArr, $scope);
   }
   $scope.nextSlides = function(){
     MediaPopupService.nextSlide();

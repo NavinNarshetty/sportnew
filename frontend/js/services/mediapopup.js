@@ -49,7 +49,7 @@ myApp.service('MediaPopupService', function($http, $uibModal, TemplateService, $
 
         console.log(index, slideArr);
         currentIndex = index;
-        sliderArr = sliderArr;
+        sliderArr = slideArr;
         page.checkSlide(currentIndex, sliderArr);
 
         $timeout(function () {

@@ -2,24 +2,29 @@
 $light-blue:#00aaff !default;
 $light-orange:#ffad25 !default;
 $drak-primary:#070f40 !default;
+$sport-primary: #0a1a72 !default;
 // common-class
 // .swiper-container {
 //     width: 600px;
 //     height: 300px;
 // }
 .adspace {
-  height: 130px;
-  margin: 40px 0px;
-  background-color: #ddd;
-  font-size: 36px;
-  ::selection {
-    color: #ddd;
-    background: #1a1a1a;
-  }
+    height: 130px;
+    margin: 40px 0px;
+    background-color: #ddd;
+    font-size: 36px;
+    ::selection {
+        color: #ddd;
+        background: #1a1a1a;
+    }
 }
 
 .light-blue {
     color: $light-blue;
+}
+
+.sport-color-primary {
+    color: $sport-primary;
 }
 
 .mr5 {
@@ -53,16 +58,16 @@ $drak-primary:#070f40 !default;
 // end common class
 //Ad-Space
 .highlight-adspace {
-  height: 130px;
-  margin: 40px 0px;
-  background-color: #ddd;
-  font-size: 36px;
+    height: 130px;
+    margin: 40px 0px;
+    background-color: #ddd;
+    font-size: 36px;
 }
 
 .side-adspace {
-  height: 341px;
-  background-color: #ddd;
-  font-size: 36px;
+    height: 341px;
+    background-color: #ddd;
+    font-size: 36px;
 }
 
 // end Ad-space
@@ -1534,11 +1539,11 @@ $drak-primary:#070f40 !default;
 .gallery-landing-page {
     min-height: 100vh;
     padding: 50px 0;
-    .gallery-landing-header{
-      margin-bottom: 40px;
+    .gallery-landing-header {
+        margin-bottom: 40px;
     }
     .gallery-landing-mainheader {
-      // margin-top: 40px;
+        // margin-top: 40px;
         font-size: 42px;
     }
     .gallery-headercontent {
@@ -1558,11 +1563,9 @@ $drak-primary:#070f40 !default;
         margin: 10px 0px;
     }
     .feature-cardholder {
-        width: 50%;
-        // border: 1px solid;
+        width: 50%; // border: 1px solid;
         // height: 100px;
-        padding-right: 10px;
-        // padding: 8px;
+        padding-right: 10px; // padding: 8px;
         margin-bottom: 10px;
         position: relative;
         float: left;
@@ -1621,8 +1624,8 @@ $drak-primary:#070f40 !default;
     .album-subtitle {
         font-size: 18px;
     }
-    .galleryalbum-count{
-      color: $dark-grey;
+    .galleryalbum-count {
+        color: $dark-grey;
     }
     .photovideo-galleryimage {
         margin: 15px 0px;
@@ -1640,13 +1643,13 @@ $drak-primary:#070f40 !default;
         height: 170px;
         margin: 8px 0px;
     }
-    .gallery-like{
-      margin: 40px 0;
+    .gallery-like {
+        margin: 40px 0;
     }
 }
 
 .album-holder {
-  cursor: pointer;
+    cursor: pointer;
     .album-pic-holder {
         background-position: 50% 50%;
         background-repeat: no-repeat;
@@ -1657,3 +1660,77 @@ $drak-primary:#070f40 !default;
 }
 
 // GALLERY LANDING END
+// FEATURED VIDEO
+.allfeaturedheader {
+    font-size: 45px;
+}
+
+.featuredmatchvideo-page {
+    min-height: 100vh;
+    padding: 50px 0px;
+}
+
+.featurevideo-feature {
+    padding-bottom: 30px;
+    margin: 40px 0px;
+    border-bottom: 1px solid #757575;
+}
+
+.featurevideo-card:nth-child(1) {
+    width: 100%;
+}
+
+.featurevideo-card {
+    width: 50%;
+    float: left;
+    position: relative;
+    padding-right: 10px;
+    margin-bottom: 10px;
+}
+
+.featurevideo-play {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    background-color: #d8485a;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    color: #fff;
+    .fa-play {
+        font-size: 18px;
+        line-height: 40px;
+    }
+}
+
+.featurevideo-subheader:nth-child(1) {
+    font-size: 20px;
+}
+
+.featurevideo-subheader {
+    font-size: 18px;
+    margin: 5px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.featurevideo-sportplay {
+    @extend .featurevideo-play;
+    width: 25px;
+    height: 25px;
+    .fa-play {
+        font-size: 14px;
+        line-height: 25px;
+    }
+}
+
+.featurevideo-sportvideocardfooter {
+    font-size: 14px;
+    margin: 5px;
+    text-transform: capitalize;
+    font-weight: 600;
+}
+
+.featurevideo-sportsholder {
+    margin: 40px 0px;
+} // FEATURED VIDEO END

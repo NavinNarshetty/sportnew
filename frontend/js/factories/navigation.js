@@ -1,4 +1,4 @@
-myApp.factory('NavigationService', function () {
+myApp.factory('NavigationService', function ($http) {
     var navigation = [{
             name: "Home",
             classis: "active",
@@ -26,5 +26,20 @@ myApp.factory('NavigationService', function () {
         getNavigation: function () {
             return navigation;
         },
+        // LIVE UPDATES PAGE
+        getAllEnabledBanner: function (callback) {
+            $http({
+                url: adminurl + 'banner/getAllEnabledBanner',
+                method: 'POST',
+                withCredentials: true
+            }).then(callback);
+        },
+        getAllLiveUpdatedData: function (url, callback) {
+            $http({
+                url: adminurl + url,
+                method: 'POST'
+            }).then(callback);
+        },
+        // LIVE UPDATES PAGE
     };
 });

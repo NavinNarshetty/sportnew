@@ -11,6 +11,37 @@ myApp.filter('myFilter', function () {
     };
 
 });
+// SERVERIMAGE
+myApp.filter('serverimage', function () {
+    return function (image, width, height, style) {
+        var other = "";
+        if (width && width !== "") {
+            other += "&width=" + width;
+        }
+        if (height && height !== "") {
+            other += "&height=" + height;
+        }
+        if (style && style !== "") {
+            other += "&style=" + style;
+        }
+        if (image && image !== null) {
+            return adminurl + "upload/readFile?file=" + image + other;
+        } else {
+            return undefined;
+        }
+    };
+})
+// SERVERIMAGE END
+
+// DATE FILTER
+myApp.filter('englishNumeralDate', function () {
+    return function (value) {
+        if (value) {
+            return moment(new Date(value)).format("Do MMMM YYYY");
+        }
+    };
+});
+// DATE FILTER END
 
 myApp.filter('indianCurrency', function () {
   return function (getNumber) {
@@ -223,4 +254,17 @@ myApp.filter('medalicon', function(){
   }
 })
 // FILTER MEDALS
+// VIDEO
+myApp.filter('linkvideo', function () {
+  return function (input, type) {
+    var videourl;
+      if (type == 'youtube') {
+      videourl = "https://www.youtube.com/embed/" + input + "?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1";
+    } else {
+      videourl = "https://player.vimeo.com/video/" + input + "?autoplay=1&loop=1&autopause=0";
+    }
+    return videourl;
+  };
+})
+// VIDEO END
 ;

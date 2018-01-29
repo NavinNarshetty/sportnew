@@ -39,7 +39,8 @@ var myApp = angular.module('myApp', [
     'angularPromiseButtons',
     'toastr',
     'athleteprofile',
-    'wu.masonry'
+    'wu.masonry',
+    'angular-marquee'
 ]);
 
 // Define all the routes below
@@ -115,6 +116,16 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
             templateUrl: tempateURL,
             controller: 'GalleryLandingCtrl',
             reloadOnSearch: false
+        })
+        .state('liveupdates', {
+            url: "/liveupdates",
+            templateUrl: tempateURL,
+            controller: 'LiveUpdatesCtrl'
+        })
+        .state('matchvideo', {
+            url: "/matchvideo",
+            templateUrl: tempateURL,
+            controller: 'MatchVideoCtrl'
         });
     $urlRouterProvider.otherwise("/");
     $locationProvider.html5Mode(isproduction);

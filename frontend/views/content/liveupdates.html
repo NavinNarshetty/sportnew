@@ -1,0 +1,689 @@
+<div class="liveupdate-page opensans-regular">
+  <!-- HEADER BANNER -->
+  <!-- DESKTOP BANNERS -->
+  <!-- <section class="home-slider hidden-xs hidden-sm">
+    <flex-slider flex-slide="banner in banners track by $index" prev-text="" next-text="" slideshow=true>
+      <li>
+        <a href="{{banner.link}}" target="_blank">
+          <img ng-src="{{banner.image|serverimage}}" class="img-responsive">
+        </a>
+      </li>
+    </flex-slider>
+  </section> -->
+  <!-- DESKTOP BANNERS END -->
+  <!-- MOBILE BANNERS  -->
+  <!-- <section class="home-slider hidden-lg hidden-md">
+    <flex-slider flex-slide="banner in banners track by $index" prev-text="" next-text="">
+      <li auto-height>
+        <a href="{{banner.mobileImgLink}}" target="_new">
+          <img ng-src="{{banner.mobileImg | serverimage}}" class="img-responsive" auto-height onloading="true" slideshow=true>
+        </a>
+      </li>
+    </flex-slider>
+  </section> -->
+  <!-- MOBILE BANNERS END -->
+  <!-- HEADER BANNER END -->
+  <!-- RANKING TABLES SECTION -->
+  <section>
+    <div class="liveupdate-rankingstable">
+      <div class="container">
+        <div class="row">
+          <!-- ONLY SCHOOLS -->
+          <!-- SCHOOL RANKING TABLE  -->
+          <div class="col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8" ng-if="!drawObj.college">
+            <div class="liveupdate-schoolranking">
+              <div class="liveupdate-rankingtitle fjalla-one">
+                Top Schools On The Ranking Table
+              </div>
+              <p class="fjalla-one text-uppercase" ng-if="!rankTableSchool">Updating Soon</p>
+              <div class="liveupdate-rankingtableholder " ng-if="rankTableSchool">
+                <div class="liveupdate-tabletime">
+                  <!-- Last Updated on 28th September 2017  -->
+                  Last Updated on {{schoolDate|englishNumeralDate}}
+                </div>
+                <div class="table-responsive">
+                  <table class="table table-striped" id="schoolRankTable">
+                    <thead>
+                      <tr>
+                        <th>
+                          <div class="text-uppercase">
+                            rank
+                          </div>
+                        </th>
+                        <th>
+                          <div class="text-uppercase">
+                            school name
+                          </div>
+                        </th>
+                        <th>
+                          <div class="text-uppercase text-center">
+                            <div class="result-tablemedal">
+                              <img ng-src="{{'gold'|medalicon:'white'}}" alt="Gold Medals" class="img-responsive">
+                            </div>
+                          </div>
+                        </th>
+                        <th>
+                          <div class="text-uppercase text-center">
+                            <div class="result-tablemedal">
+                              <img ng-src="{{'silver'|medalicon:'white'}}" alt="Silver Medals" class="img-responsive">
+                            </div>
+                          </div>
+                        </th>
+                        <th>
+                          <div class="text-uppercase text-center">
+                            <div class="result-tablemedal">
+                              <img ng-src="{{'bronze'|medalicon:'white'}}" alt="Bronze Medals" class="img-responsive">
+                            </div>
+                          </div>
+                        </th>
+                        <th>
+                          <div class="text-uppercase text-center totalpoint-title">
+                            total points
+                          </div>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="school in rankTableSchool|orderBy:'rank' |limitTo:5 track by $index">
+                        <td>
+                          <div class="">
+                            {{school.rank}}
+                          </div>
+                        </td>
+                        <td>
+                          <div class="text-left">
+                            {{school.schoolName}}
+                          </div>
+                        </td>
+                        <td>
+                          <div class="">
+                            {{school.goldPoints}}
+                          </div>
+                        </td>
+                        <td>
+                          <div class="">
+                            {{school.silverPoints}}
+                          </div>
+                        </td>
+                        <td>
+                          <div class="">
+                            {{school.bronzePoints}}
+                          </div>
+                        </td>
+                        <td ng-click="addMedalDetail($index, school);" class="pointer">
+                          <div class="">
+                            {{school.totalPoints}}
+                            <span class="pointer fa " ng-class="{'fa-angle-down': school.rowDetail == false, 'fa-angle-up':school.rowDetail == true }"></span>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div class="liveupdate-tablefooter">
+                  <div class="pull-right">
+                    <a href="{{schoolLink}}/results">View School Ranking Table</a>
+                  </div>
+                  <div class="point-list">
+                    <ul class="list-inline">
+                      <li>
+                        <div class="point-color-box gold-box"></div>
+                        <span class="point-number">5 Point</span>
+                      </li>
+                      <li>
+                        <div class="point-color-box silver-box"></div>
+                        <span class="point-number">3 Point</span>
+                      </li>
+                      <li>
+                        <div class="point-color-box bronze-box"></div>
+                        <span class="point-number">1 Point</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- SCHOOL RANKING TABLE END  -->
+          <!-- ONLY SCHOOLS END -->
+          <!-- SCHOOLS AND COLLEGE -->
+          <!-- SCHOOL RANKING TABLE  -->
+          <div class="col-md-6 col-sm-6 " ng-if="drawObj.college ">
+            <div class="liveupdate-schoolranking">
+              <div class="liveupdate-rankingtitle fjalla-one">
+                Top Schools On The Ranking Table
+              </div>
+              <p class="fjalla-one text-uppercase" ng-if="!rankTableSchool">Updating Soon</p>
+              <div class="liveupdate-rankingtableholder " ng-if="rankTableSchool">
+                <div class="liveupdate-tabletime">
+                  <!-- Last Updated on 28th September 2017  -->
+                  Last Updated on {{schoolDate|englishNumeralDate}}
+                </div>
+                <div class="table-responsive">
+                  <table class="table table-striped" id="schoolRankTable">
+                    <thead>
+                      <tr>
+                        <th>
+                          <div class="text-uppercase">
+                            rank
+                          </div>
+                        </th>
+                        <th>
+                          <div class="text-uppercase">
+                            school name
+                          </div>
+                        </th>
+                        <th>
+                          <div class="text-uppercase text-center">
+                            <div class="result-tablemedal">
+                              <img ng-src="{{'gold'|medalicon:'white'}}" alt="Gold Medals" class="img-responsive">
+                            </div>
+                          </div>
+                        </th>
+                        <th>
+                          <div class="text-uppercase text-center">
+                            <div class="result-tablemedal">
+                              <img ng-src="{{'silver'|medalicon:'white'}}" alt="Silver Medals" class="img-responsive">
+                            </div>
+                          </div>
+                        </th>
+                        <th>
+                          <div class="text-uppercase text-center">
+                            <div class="result-tablemedal">
+                              <img ng-src="{{'bronze'|medalicon:'white'}}" alt="Bronze Medals" class="img-responsive">
+                            </div>
+                          </div>
+                        </th>
+                        <th>
+                          <div class="text-uppercase text-center totalpoint-title">
+                            total points
+                          </div>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="school in rankTableSchool|orderBy:'rank' |limitTo:5 track by $index">
+                        <td>
+                          <div class="">
+                            {{school.rank}}
+                          </div>
+                        </td>
+                        <td>
+                          <div class="text-left">
+                            {{school.schoolName}}
+                          </div>
+                        </td>
+                        <td>
+                          <div class="">
+                            {{school.goldPoints}}
+                          </div>
+                        </td>
+                        <td>
+                          <div class="">
+                            {{school.silverPoints}}
+                          </div>
+                        </td>
+                        <td>
+                          <div class="">
+                            {{school.bronzePoints}}
+                          </div>
+                        </td>
+                        <td ng-click="addMedalDetail($index, school);" class="pointer">
+                          <div class="">
+                            {{school.totalPoints}}
+                            <span class="pointer fa " ng-class="{'fa-angle-down': school.rowDetail == false, 'fa-angle-up':school.rowDetail == true }"></span>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="liveupdate-tablefooter">
+                  <div class="pull-right">
+                    <a href="{{schoolLink}}/results">View School Ranking Table</a>
+                  </div>
+                  <div class="point-list">
+                    <ul class="list-inline">
+                      <li>
+                        <div class="point-color-box gold-box"></div>
+                        <span class="point-number">5 Point</span>
+                      </li>
+                      <li>
+                        <div class="point-color-box silver-box"></div>
+                        <span class="point-number">3 Point</span>
+                      </li>
+                      <li>
+                        <div class="point-color-box bronze-box"></div>
+                        <span class="point-number">1 Point</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- SCHOOL RANKING TABLE END  -->
+          <!-- COLLEGE RANKING TABLE  -->
+          <div class="col-md-6 col-sm-6" ng-if="drawObj.college">
+            <div class="liveupdate-schoolranking">
+              <div class="liveupdate-rankingtitle fjalla-one">
+                Top Colleges On The Ranking Table
+              </div>
+              <p class="fjalla-one text-uppercase" ng-if="!rankTableCollege">Updating Soon</p>
+              <div class="liveupdate-rankingtableholder" ng-if="rankTableCollege">
+                <div class="liveupdate-tabletime">
+                  Last Updated on {{collegeDate|englishNumeralDate}}
+                </div>
+                <div class="table-responsive">
+                  <table class="table table-striped" id="schoolRankTable">
+                    <thead>
+                      <tr>
+                        <th>
+                          <div class="text-uppercase">
+                            rank
+                          </div>
+                        </th>
+                        <th>
+                          <div class="text-uppercase">
+                            College name
+                          </div>
+                        </th>
+                        <th>
+                          <div class="text-uppercase text-center">
+                            <div class="result-tablemedal">
+                              <img ng-src="{{'gold'|medalicon:'white'}}" alt="Gold Medals" class="img-responsive">
+                            </div>
+                          </div>
+                        </th>
+                        <th>
+                          <div class="text-uppercase text-center">
+                            <div class="result-tablemedal">
+                              <img ng-src="{{'silver'|medalicon:'white'}}" alt="Silver Medals" class="img-responsive">
+                            </div>
+                          </div>
+                        </th>
+                        <th>
+                          <div class="text-uppercase text-center">
+                            <div class="result-tablemedal">
+                              <img ng-src="{{'bronze'|medalicon:'white'}}" alt="Bronze Medals" class="img-responsive">
+                            </div>
+                          </div>
+                        </th>
+                        <th>
+                          <div class="text-uppercase text-center totalpoint-title">
+                            total points
+                          </div>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="college in rankTableCollege|orderBy:'rank' |limitTo:5 track by $index">
+                        <td>
+                          <div class="">
+                            {{college.rank}}
+                          </div>
+                        </td>
+                        <td>
+                          <div class="text-left">
+                            {{college.schoolName}}
+                          </div>
+                        </td>
+                        <td>
+                          <div class="">
+                            {{college.goldPoints}}
+                          </div>
+                        </td>
+                        <td>
+                          <div class="">
+                            {{college.silverPoints}}
+                          </div>
+                        </td>
+                        <td>
+                          <div class="">
+                            {{college.bronzePoints}}
+                          </div>
+                        </td>
+                        <td ng-click="addMedalDetail($index, school);" class="pointer">
+                          <div class="">
+                            {{college.totalPoints}}
+                            <span class="pointer fa " ng-class="{'fa-angle-down': school.rowDetail == false, 'fa-angle-up':school.rowDetail == true }"></span>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="liveupdate-tablefooter">
+                  <div class="pull-right">
+                    <a href="{{collegeLink}}/results">View College Ranking Table</a>
+                  </div>
+                  <div class="point-list">
+                    <ul class="list-inline">
+                      <li>
+                        <div class="point-color-box gold-box"></div>
+                        <span class="point-number">5 Point</span>
+                      </li>
+                      <li>
+                        <div class="point-color-box silver-box"></div>
+                        <span class="point-number">3 Point</span>
+                      </li>
+                      <li>
+                        <div class="point-color-box bronze-box"></div>
+                        <span class="point-number">1 Point</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- COLLEGE RANKING TABLE END  -->
+          <!-- SCHOOLS AND COLLEGE END -->
+
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- RANKING TABLES SECTION -->
+  <!-- LIVE TICKR -->
+  <section ng-if="tickerData[0].tickerDetails.length>0 && cityName!='Hyderabad'">
+    <div class="liveupdate-tickr">
+      <div class="container relate">
+        <div class="tickr-livelabel">LIVE</div>
+        <div class="tickr-holder" hidden>
+          <div class="ticker-wrap">
+            <div class="ticker">
+              <div class="ticker__item relate" ng-repeat="data in tickerData[0].tickerDetails track by $index">
+                <div class="ticker-icon">
+                  <img src="img/icon/sfa-ringlogo.png" alt="SFA" class="img-responsive">
+                </div>
+                <span ng-bind-html="data.tickerContent"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- lolwa -->
+        <div angular-marquee class="tickr-holder" scroll="ticker.scroll" duration="ticker.duration" duplicated="duplicated" gap="50">
+
+          <div class="" ng-bind-html="tickrContent"></div>
+
+          <!-- <div class="">
+              <div class="ticker__item relate" ng-repeat="data in tickerData[0].tickerDetails track by $index">
+                <div class="ticker-icon">
+                  <img src="img/sfa-ringlogo.png" alt="SFA" class="img-responsive">
+                </div>
+                <span ng-bind-html="data.tickerContent"></span>
+              </div>
+            </div> -->
+
+          <!-- <div class="" >
+              <div class="ticker__item relate" >
+                <div class="ticker-icon">
+                  <img src="img/sfa-ringlogo.png" alt="SFA" class="img-responsive">
+                </div>
+                <span >1. ticker content theree should be some thing over here and we don't know ahat to pou https://fb.com</span>
+              </div>
+              <div class="ticker__item relate" >
+                <div class="ticker-icon">
+                  <img src="img/sfa-ringlogo.png" alt="SFA" class="img-responsive">
+                </div>
+                <span >2. ticker content theree should be some thing over here and we don't know ahat to pou https://fb.com</span>
+              </div>
+              <div class="ticker__item relate" >
+                <div class="ticker-icon">
+                  <img src="img/sfa-ringlogo.png" alt="SFA" class="img-responsive">
+                </div>
+                <span >3. ticker content theree should be some thing over here and we don't know ahat to pou https://fb.com</span>
+              </div>
+              <div class="ticker__item relate" >
+                <div class="ticker-icon">
+                  <img src="img/sfa-ringlogo.png" alt="SFA" class="img-responsive">
+                </div>
+                <span >4. ticker content theree should be some thing over here and we don't know ahat to pou https://fb.com</span>
+              </div>
+              </div> -->
+
+
+        </div>
+        <!-- lolwa -->
+      </div>
+    </div>
+  </section>
+  <!-- LIVE TICKR END -->
+  <!-- LIVE IMAGE SECTION -->
+
+  <section ng-if="phtoAlbum.length>0 || allphotos.length>0">
+    <div class="liveupdate-imagesection">
+      <div class="container">
+        <div class="liveupdate-imagetitle fjalla-one" ng-if="cityName != 'Hyderabad'">
+          Live Update from sfa {{cityName}} championship 2017-18
+        </div>
+        <div class="liveupdate-imagetitle fjalla-one" ng-if="cityName=='Hyderabad'">
+          Highlights from sfa {{cityName}} championship 2017-18
+        </div>
+        <div class="row">
+          <div class="col-md-6 col-sm-6">
+            <div class="liveupdate-album">
+              <div class="liveupdate-albumholder" ng-repeat="album in phtoAlbum|limitTo:3" ng-click="openAlbumView(album);">
+                <img ng-src="{{album.albumImages[0].image | serverimage}}" alt="" class="img-responsive">
+                <div class="liveupdate-albumfooter">
+                  <div class="pull-right">
+                    <div class="album-thumbnailholder">
+                      <img src="img/icon/image-thumbnail.png" alt="" class="img-responsive">
+                    </div>
+                    <span>
+                      <span> {{album.albumImages.length}} </span> Photos</span>
+                  </div>
+                  <div class="albumfooter-title" ng-bind-html="album.albumName">
+                    Prize distribution
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-sm-6">
+            <div class="liveupdate-photo">
+              <div class="liveupdate-photoholder" ng-repeat="photo in allphotos|limitTo:3">
+                <img ng-src="{{photo.image | serverimage}}" alt="" class="img-responsive">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="text-right">
+              <a href="{{schoolLink}}/media-gallery" class="mlr-5">View
+                <span ng-if="!drawObj.college">More</span>
+                <span ng-if="drawObj.college">School Gallery</span>
+              </a>
+              <a href="{{collegeLink}}/media-gallery" ng-if="drawObj.college" class="mlr-5">View College Gallery</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- LIVE IMAGE SECTION END -->
+  <!-- DRAWS SCHDULE SECTION -->
+  <section ng-if="cityName!='Hyderabad'">
+    <div class="liveupdates-draws">
+      <div class="container">
+        <div class="liveupdates-drawholder">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="liveupdates-drawsschedule">
+                <div class="liveupdates-drawstitle fjalla-one">
+                  draws, schedules & results
+                </div>
+                <!-- FOR ONLY SCHOOLS -->
+                <div class="liveupdates-drawscard liveupdates-drawscardbig fjalla-one" ng-if="!drawObj.college">
+                  <a href="{{schoolLink}}/draws-schedule" target="_blank">
+                    <div class="livedraw-text">
+                      <p>School </br> Draws, Schedules & </br> Results</p>
+                    </div>
+                  </a>
+                </div>
+                <!-- FOR ONLY SCHOOLS END -->
+                <!-- FOR SCHOOLS AND COLLEGE -->
+                <div class="liveupdates-drawscard liveupdates-draw fjalla-one" ng-if="drawObj.college">
+                  <a href="{{schoolLink}}/draws-schedule" target="_blank">
+                    <div class="livedraw-text">
+                      <p>School </br> Draws, Schedules & Results</p>
+                    </div>
+                  </a>
+                </div>
+                <div class="liveupdates-drawscard liveupdates-draw liveupdates-drawcollege fjalla-one" ng-if="drawObj.college">
+                  <a href="{{schoolLink}}/livescore" target="_blank">
+                    <div class="livedraw-text">
+                      <p>School </br> Click Here For Live Scores</p>
+                    </div>
+                  </a>
+                </div>
+                <!-- FOR SCHOOLS AND COLLEGE END -->
+              </div>
+            </div>
+            <div class="col-md-8" ng-if="specialEvents || specialEvents.length>0">
+              <div class="liveupdates-drawsevents">
+                <div class="liveupdates-drawstitle fjalla-one">
+                  upcoming events
+                </div>
+                <div class="liveupdates-eventholder" ng-repeat="event in specialEvents|limitTo:2">
+                  <a href="{{schoolLink}}/specialevents" target="_new">
+                    <div class="liveupdate-eventcard">
+                      <div class="event-datebox fjalla-one">
+                        <span class="event-date">{{event.eventDate|date:'dd'}}</span>
+                        <span class="event-day">{{event.eventDay}}</span>
+                      </div>
+                      <div class="event-detail fjalla-one">
+                        <div class="event-header" ng-bind-html="event.title">
+
+                          <!-- animi sequi laboriosam qui quod? -->
+                        </div>
+                        <div class="event-content" ng-bind-html="event.eventDetails">
+                          <!-- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore officiis numquam magnam quidem temporibus odit alias maxime,
+                        assumenda sequi ipsa tempora cumque ducimus sed, quisquam reiciendis. -->
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- DRAWS SCHDULE SECTION END -->
+  <!-- LIVE VIDEO SECTION -->
+  <section ng-if="videoArr1.length>0 || videoArr2.length>0 ">
+    <div class="liveupdate-imagesection">
+      <div class="container">
+        <div class="liveupdate-imagetitle fjalla-one" ng-if="cityName == 'Hyderabad'">
+          Highlights from the championship
+        </div>
+        <div class="liveupdate-imagetitle fjalla-one" ng-if="cityName != 'Hyderabad'">
+          Live Highlights from the championship
+        </div>
+        <div class="row">
+          <div class="col-md-6 col-sm-6">
+            <div class="liveupdate-album">
+
+              <div class="liveupdate-albumholder" ng-repeat="video in videoArr1|limitTo:3">
+                <a class="various fancybox.iframe" fancybox href="{{video.videoLink | linkvideo:video.videoSrc}}">
+                  <img ng-src="{{video.thumbnail | serverimage}}" alt="Banner" class="img-responsive">
+                </a>
+                <!-- <img ng-src="{{video.thumbnail | serverimage}}" alt="" class="img-responsive"> -->
+
+                <div class="album-videoicon">
+                  <span class="fa fa-play"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-6">
+            <div class="liveupdate-photo">
+              <div class="liveupdate-photoholder" ng-repeat="video in videoArr2|limitTo:3">
+                <a class="various fancybox.iframe" fancybox href="{{video.videoLink | linkvideo:video.videoSrc}}">
+                  <img ng-src="{{video.thumbnail | serverimage}}" alt="Banner" class="img-responsive">
+                </a>
+                <!-- <img ng-src="{{video.thumbnail | serverimage}}" alt="" class="img-responsive"> -->
+                <div class="album-videoicon">
+                  <span class="fa fa-play"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="text-right">
+              <a href="{{schoolLink}}/media-gallery/video" class="mlr-5">View
+                <span ng-if="!drawObj.college">More</span>
+                <span ng-if="drawObj.college">School Gallery</span>
+              </a>
+              <a href="{{collegeLink}}/media-gallery/video" ng-if="drawObj.college" class="mlr-5">View College Gallery</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- LIVE VIDEO SECTION END -->
+  <!-- SOCIAL FEED SECTION -->
+  <section class="mt80">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-sm-4 col-xs-12">
+          <div class="text-center ">
+            <div class="live-social-fb">
+              <div class="live-sociallogo">
+                <span class="social-fa fa fa-facebook"></span>
+              </div>
+            </div>
+            <div class="box-social">
+              <div class="fb-page" data-href="https://www.facebook.com/sportsforallnow" data-tabs="timeline" data-width="360" data-height="820"
+                data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+                <blockquote cite="https://www.facebook.com/sportsforallnow" class="fb-xfbml-parse-ignore">
+                  <a href="https://www.facebook.com/sportsforallnow">Sports For All</a>
+                </blockquote>
+              </div>
+              <div id="fb-root"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-12">
+          <div class="text-center ">
+            <div class="live-social-twitter">
+              <div class="live-sociallogo">
+                <span class="social-fa fa fa-twitter"></span>
+              </div>
+            </div>
+            <div class="box-social">
+              <a class="twitter-timeline" href="https://twitter.com/sfanow" data-widget-id="641859487024869376">Tweets by @sfanow</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-12">
+          <div class="text-center ">
+            <div class="live-social-insta">
+              <div class="live-sociallogo">
+                <span class="social-fa fa fa-instagram"></span>
+              </div>
+            </div>
+            <div class="box-social">
+              <div class="fb-set" style="height: 820px;overflow-y: hidden;">
+                <iframe src="//lightwidget.com/widgets/836f36bbf5d959b8b1e7134bd93bf799.html" id="instansive_554a6dce8a" name="instansive_554a6dce8a"
+                  scrolling="yes" allowtransparency="true" class="instansive-widget" style="width: 100%;height: 100%; border: 0; overflow: hidden;"></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- SOCIAL FEED SECTION END -->
+</div>

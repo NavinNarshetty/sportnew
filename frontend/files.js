@@ -35,6 +35,7 @@ module.exports = [
   'bower_components/imagesloaded/imagesloaded.js',
   'bower_components/masonry/dist/masonry.pkgd.min.js',
   'bower_components/angular-masonry/angular-masonry.js',
+  'bower_components/angular-marquee/src/marquee.js',
 
   //App.js
   'frontend/js/app.js',
@@ -53,6 +54,7 @@ module.exports = [
   'frontend/js/services/template.js',
   'frontend/js/services/athleteprofileservice.js',
   'frontend/js/services/mediapopup.js',
+  'frontend/js/services/cityService.js',
   // 'frontend/js/services/mansonry-edited.js',
 
   //Factories
@@ -69,4 +71,6 @@ module.exports = [
   'frontend/js/controllers/athletelanding-controller.js',
   'frontend/js/controllers/teamlanding-controller.js',
   'frontend/js/controllers/gallery.js',
+  'frontend/js/controllers/liveUpdateController.js',
+  'frontend/js/controllers/matchvideos.js',
 ];

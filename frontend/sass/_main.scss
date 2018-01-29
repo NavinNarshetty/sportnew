@@ -1550,3 +1550,543 @@ a {
 // ATHETE LANDING COLLEGE  END
 // ATHLETE LANDING CONTENT END
 // ATHLETE LANDING PAGE END
+// LIVE UPDATES PAGE
+
+
+.liveupdate-bannerslide {
+    width: 100%;
+    height: 300px;
+}
+
+.liveupdate-bannerswiper {
+    width: 100%;
+    height: 300px;
+    background-color: $brand-primary;
+}
+
+// RANKING TABLES
+.liveupdate-rankingstable,
+.liveupdate-imagesection,
+.liveupdates-draws {
+    margin: 30px 0;
+}
+
+.liveupdate-tabletime {
+    color: #fff;
+    background: $brand-success;
+    display: inline-block;
+    padding: 5px 15px;
+    line-height: 1;
+    font-size: 12px;
+    border-radius: 5px 5px 0 0;
+}
+
+.liveupdate-rankingtitle,
+.liveupdate-imagetitle,
+.liveupdates-drawstitle {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #00aaff;
+    // font-weight: 700;
+    text-transform: uppercase;
+}
+
+.liveupdate-rankingtableholder {
+    .table {
+        margin-bottom: 10px;
+        >thead>tr {
+            background-color: #10259c;
+            color: #fff;
+            >th {
+                border: none;
+                vertical-align: middle;
+            }
+        }
+        >tbody>tr>td {
+            border: none;
+        }
+    }
+    .table-striped {
+        >tbody {
+            >tr {
+                &:nth-of-type(odd) {
+                    background-color: #e5e5e5;
+                }
+                &:nth-of-type(even) {
+                    background-color: #fff;
+                }
+            }
+        }
+    }
+    .result-tablemedal {
+        width: 15px;
+        margin: 0 auto;
+    }
+}
+
+.point-color-box {
+    width: 10px;
+    height: 10px;
+    margin-right: 5px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.gold-box {
+    background-color: #e8c936;
+}
+
+.silver-box {
+    background-color: #c9c9cf;
+}
+
+.bronze-box {
+    background-color: #d38936;
+}
+
+.point-number {
+    margin: 0;
+    text-transform: uppercase;
+    vertical-align: middle;
+}
+
+.totalpoint-title{
+  max-width: 100px;
+}
+// RANKING TABLES END
+// TICKR SECTION
+.liveupdate-tickr {
+    padding: 10px 0;
+    background-color: #5b5b5b;
+    color: #fff;
+    p {
+        margin: 0;
+    }
+}
+
+.tickr-livelabel {
+    padding: 2px 15px;
+    border-radius: 5px 5px 0 0;
+    position: absolute;
+    top: -26px;
+    left: 0;
+    background: $brand-success;
+    color: #fff;
+    font-size: 12px;
+    line-height: 1;
+}
+.tickr-holder{
+  overflow: hidden;
+}
+.home-tickr{
+    margin: -35px 0 40px;
+    .tickr-holder{
+      overflow: hidden;
+      height:40px !important;
+    }
+    .ticker__item {
+        font-size: 18px;
+    }
+    .angular-marquee{
+        padding: 8px 0px;
+    }
+    .ticker-icon {
+        top: 3px;
+    }
+}
+// TICKR SECTION END
+// IMAGE SECTION
+.liveupdate-albumholder {
+    width: 50%;
+    padding-right: 10px;
+    margin-bottom: 10px;
+    position: relative;
+    float: left;
+    cursor: pointer;
+    &:first-child {
+        width: 100%;
+    }
+}
+
+.liveupdate-albumfooter {
+    width: calc(100% - 10px);
+    padding: 10px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+}
+
+.album-thumbnailholder {
+    width: 12px;
+    margin-right: 5px;
+    display: inline-block;
+}
+
+.liveupdate-photoholder {
+    width: 50%;
+    padding-right: 10px;
+    margin-bottom: 10px;
+    position: relative;
+    float: left;
+    &:last-child {
+        width: 100%;
+    }
+}
+
+// ALBUM POPUP
+.album-picholder{
+  margin: 15px 0;
+  border-radius: 0;
+  // box-shadow: 0 0 3px #000;
+  img{
+    margin: 0px auto;
+  }
+}
+.album-modal{
+  .modal-dialog{
+    height: auto;
+    margin: 30px auto;
+  }
+  .modal-header{
+    padding: 10px 15px;
+    position: relative;
+    background-color: $brand-primary;
+    background-color: rgba(10, 26, 114, 0.7);
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    h4{
+      margin: 5px 0;
+    }
+  }
+  .modal-close {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 25px;
+    line-height: 30px;
+    text-align: center;
+  }
+  .modal-content{
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+  }
+  .modal-body{
+    padding: 0;
+    background-color: rgba(0,0,0,0.7);
+  }
+}
+.album-modal+.modal-backdrop.in{
+  opacity: 0.7;
+}
+// ALBUM POPUP END
+// IMAGE SECTION END
+// VIDEO SECTION
+.album-videoicon {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 10px;
+    bottom: 0px;
+    background: #d8485a;
+    color: #fff;
+    text-align: center;
+    .fa-play {
+        font-size: 18px;
+        line-height: 30px;
+    }
+}
+
+// VIDEO SECTION END
+// DRAWS SCHEDULE
+.liveupdates-drawholder {
+    padding: 20px 0;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+.drawschedule-tabholder {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+.drawschedule-tablist {
+    margin: 0;
+}
+
+.drawschedule-tab {
+    width: 49%;
+    padding: 5px;
+    cursor: pointer;
+    text-align: center;
+    text-transform: uppercase;
+    &.active,
+    &:hover,
+    &:active,
+    &:focus {
+        border-bottom: 2px solid $brand-success;
+    }
+}
+
+.liveupdates-drawscard {
+  height: 300px;
+  // padding: 20px;
+  // border: 1px solid #ccc;
+  position: relative;
+  background-image: url('../img/backgrounds/bg-drawschool.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-transform: uppercase;
+}
+
+.livedraw-text{
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  position: relative;
+  text-align: center;
+  line-height: 1.4;
+  background: rgba(0,0,0,0.3);
+  p{
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    color: #34da83;
+    font-size: 30px;
+    text-decoration: underline;
+    @include transform(translateY(-50%));
+  }
+}
+
+.liveupdates-draw{
+  height: 145px;
+  .livedraw-text{
+    p{
+      font-size: 24px;
+    }
+  }
+}
+
+.liveupdates-drawcollege{
+  margin-top: 10px;
+  background-image: url('../img/backgrounds/bg-drawcollege.jpg');
+}
+
+.liveupdates-drawscardbig{
+  background-image: url('../img/backgrounds/bg-drawsschool.jpg');
+}
+
+.updatedrawsschedule-lable {
+    min-width: 25%;
+    color: #757575;
+    vertical-align: middle;
+}
+
+.updatedraws-dropdown {
+    width: 70%;
+    padding: 0px 10px;
+    border: 1px solid #ccc;
+    vertical-align: middle;
+
+    p{
+      margin-bottom: 5px;
+    }
+}
+.livedraw-formholder{
+  padding: 10px 5px;
+  position: relative;
+  &:hover{
+    box-shadow: 0 0 3px #ccc;
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+}
+// DRAWS SCHEDULE END
+// EVENTS
+.liveupdates-eventholder {
+    width: 50%;
+    height: 300px;
+    float: left;
+     ::-webkit-scrollbar {
+        width: 5px;
+        height: 5px;
+    }
+     ::-webkit-scrollbar-thumb {
+        background-color: #ccc;
+    }
+     ::-webkit-scrollbar-track {
+        background-color: transparent;
+    }
+    &:nth-of-type(odd) {
+        .liveupdate-eventcard {
+            background-color: $brand-success;
+        }
+    }
+    &:nth-of-type(even) {
+        .liveupdate-eventcard {
+            background-color: $brand-success;
+        }
+    }
+}
+
+.liveupdate-eventcard {
+    width: 100%;
+    height: 100%;
+    padding: 40px 50px 20px;
+    color: #fff;
+    overflow-y: auto;
+}
+
+.event-date {
+    font-size: 48px;
+}
+
+.event-day {
+    border-bottom: 1px solid #fff;
+    font-size: 30px;
+}
+
+.event-detail {
+    margin: 10px 0;
+}
+
+.event-header {
+    font-size: 21px;
+    text-transform: uppercase;
+}
+
+.event-content {
+    font-size: 16px;
+}
+
+// EVENTS END
+// SOCIAL FEED
+.live-sociallogo{
+  width: 75px;
+  height: 75px;
+  border: 5px solid #fff;
+  border-radius: 100%;
+  margin: 0px auto;
+  margin-bottom: -8px;
+  display: inline-block;
+  position: relative;
+  color: #fff;
+  font-size: 42px;
+  line-height: 1;
+}
+.live-social-fb{
+  border-bottom: 10px solid #fe9b30;
+  .live-sociallogo{
+    background-color: #fe9b30;
+  }
+}
+.live-social-twitter{
+  border-bottom: 10px solid #00a8ff;
+  .live-sociallogo{
+    background-color: #00a8ff;
+  }
+}
+.live-social-insta{
+  border-bottom: 10px solid #0dd984;
+  .live-sociallogo{
+    background-color: #0dd984;
+  }
+}
+.social-fa {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include transform( translate(-50%, -50%));
+}
+// SOCIAL FEED END
+// CUSTOM TICKER
+.ticker-wrap {
+    width: 100%;
+    overflow: hidden;
+    padding-left: 100%; // offset items to begin
+}
+
+$tickerDuration: 60s;
+.ticker {
+    display: inline-block;
+    white-space: nowrap; // display items in a line
+    padding-right: 100%; // ensure items go before animations repeat (taken from parent due to inline-block)
+    animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    -webkit-animation-timing-function: linear;
+    animation-name: ticker;
+    -webkit-animation-name: ticker;
+    animation-duration: $tickerDuration;
+    -webkit-animation-duration: $tickerDuration;
+    &__item {
+        display: inline-block;
+    }
+}
+
+.ticker__item {
+    padding-left: 35px;
+    margin-right: 20px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.ticker-icon {
+    width: 30px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url("../img/icon/sfa-ringlogo.png");
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+// **************************************************************************
+// TICKER ANIMATION
+// **************************************************************************
+@-webkit-keyframes ticker {
+    0% {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+        visibility: visible;
+    }
+    100% {
+        -webkit-transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-100%, 0, 0);
+    }
+}
+
+@keyframes ticker {
+    0% {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+        visibility: visible;
+    }
+    100% {
+        -webkit-transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-100%, 0, 0);
+    }
+}
+
+// **************************************************************************
+// TICKER ANIMATION END
+// **************************************************************************
+// CUSTOM TICKER END
+// LIVE UPDATES PAGE END

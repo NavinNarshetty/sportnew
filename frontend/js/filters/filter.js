@@ -11,6 +11,13 @@ myApp.filter('myFilter', function () {
     };
 
 });
+// TRUSTED
+myApp.filter('trusted', ['$sce', function ($sce) {
+    return function (url) {
+        return $sce.trustAsResourceUrl(url);
+    };
+}]);
+// TRUSTED END
 // SERVERIMAGE
 myApp.filter('serverimage', function () {
     return function (image, width, height, style) {

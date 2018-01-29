@@ -273,7 +273,7 @@ myApp.controller('LiveUpdatesCtrl', function ($scope, $stateParams, $location, T
 
     });
   };
-  // $scope.getSpecialEvents();
+  $scope.getSpecialEvents();
   //Photo Album
   $scope.getPhotoAlbum = function () {
     $scope.url = 'LiveAlbum/getAllAlbums';

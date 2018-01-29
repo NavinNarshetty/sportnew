@@ -1,7 +1,7 @@
 <div class="liveupdate-page opensans-regular">
   <!-- HEADER BANNER -->
   <!-- DESKTOP BANNERS -->
-  <!-- <section class="home-slider hidden-xs hidden-sm">
+  <section class="home-slider hidden-xs hidden-sm">
     <flex-slider flex-slide="banner in banners track by $index" prev-text="" next-text="" slideshow=true>
       <li>
         <a href="{{banner.link}}" target="_blank">
@@ -9,10 +9,10 @@
         </a>
       </li>
     </flex-slider>
-  </section> -->
+  </section>
   <!-- DESKTOP BANNERS END -->
   <!-- MOBILE BANNERS  -->
-  <!-- <section class="home-slider hidden-lg hidden-md">
+  <section class="home-slider hidden-lg hidden-md">
     <flex-slider flex-slide="banner in banners track by $index" prev-text="" next-text="">
       <li auto-height>
         <a href="{{banner.mobileImgLink}}" target="_new">
@@ -20,7 +20,7 @@
         </a>
       </li>
     </flex-slider>
-  </section> -->
+  </section>
   <!-- MOBILE BANNERS END -->
   <!-- HEADER BANNER END -->
   <!-- RANKING TABLES SECTION -->
@@ -476,7 +476,7 @@
                     <span>
                       <span> {{album.albumImages.length}} </span> Photos</span>
                   </div>
-                  <div class="albumfooter-title" ng-bind-html="album.albumName">
+                  <div class="albumfooter-title" ng-bind-html="album.albumName | trusted">
                     Prize distribution
                   </div>
                 </div>
@@ -558,11 +558,11 @@
                         <span class="event-day">{{event.eventDay}}</span>
                       </div>
                       <div class="event-detail fjalla-one">
-                        <div class="event-header" ng-bind-html="event.title">
+                        <div class="event-header" ng-bind-html="event.title | trusted">
 
                           <!-- animi sequi laboriosam qui quod? -->
                         </div>
-                        <div class="event-content" ng-bind-html="event.eventDetails">
+                        <div class="event-content" ng-bind-html="event.eventDetails|trusted">
                           <!-- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore officiis numquam magnam quidem temporibus odit alias maxime,
                         assumenda sequi ipsa tempora cumque ducimus sed, quisquam reiciendis. -->
                         </div>

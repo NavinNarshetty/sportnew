@@ -70,8 +70,6 @@
     "angular-marquee": "*"
   },
   "resolutions": {
-    "angular": "1.6.0",
-    "angular-masonry": "^0.17.0",
-    "jquery": ">=1.6"
+    "angular": "1.5.8"
   }
 }

@@ -398,7 +398,7 @@
                 <div class="ticker-icon">
                   <img src="img/icon/sfa-ringlogo.png" alt="SFA" class="img-responsive">
                 </div>
-                <span ng-bind-html="data.tickerContent"></span>
+                <span ng-bind-html="data.tickerContent | trustedHtml"></span>
               </div>
             </div>
           </div>
@@ -407,7 +407,7 @@
         <!-- lolwa -->
         <div angular-marquee class="tickr-holder" scroll="ticker.scroll" duration="ticker.duration" duplicated="duplicated" gap="50">
 
-          <div class="" ng-bind-html="tickrContent"></div>
+          <div class="" ng-bind-html="tickrContent |  trustedHtml"></div>
 
           <!-- <div class="">
               <div class="ticker__item relate" ng-repeat="data in tickerData[0].tickerDetails track by $index">
@@ -476,7 +476,7 @@
                     <span>
                       <span> {{album.albumImages.length}} </span> Photos</span>
                   </div>
-                  <div class="albumfooter-title" ng-bind-html="album.albumName | trusted">
+                  <div class="albumfooter-title" ng-bind-html="album.albumName | trustedHtml">
                     Prize distribution
                   </div>
                 </div>
@@ -558,11 +558,11 @@
                         <span class="event-day">{{event.eventDay}}</span>
                       </div>
                       <div class="event-detail fjalla-one">
-                        <div class="event-header" ng-bind-html="event.title | trusted">
+                        <div class="event-header" ng-bind-html="event.title | trustedHtml">
 
                           <!-- animi sequi laboriosam qui quod? -->
                         </div>
-                        <div class="event-content" ng-bind-html="event.eventDetails|trusted">
+                        <div class="event-content" ng-bind-html="event.eventDetails | trustedHtml">
                           <!-- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore officiis numquam magnam quidem temporibus odit alias maxime,
                         assumenda sequi ipsa tempora cumque ducimus sed, quisquam reiciendis. -->
                         </div>

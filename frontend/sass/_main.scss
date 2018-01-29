@@ -3,7 +3,7 @@
 // COLOR VARIABLES
 $brand-primary: #10259c !default; //blue
 $brand-success: #27b465 !default; //green
-$brand-warning: #ffb026 !default; //yellow
+$brand-warning: #ffaf26 !default; //yellow
 $brand-danger: #da495b !default; //red
 $brand-info: #000072 !default; //lighter-blue
 $base: #1a1a1a !default; //black
@@ -1939,7 +1939,7 @@ a {
     }
     &:nth-of-type(even) {
         .liveupdate-eventcard {
-            background-color: $brand-success;
+            background-color: $brand-warning;
         }
     }
 }
@@ -1990,9 +1990,9 @@ a {
   line-height: 1;
 }
 .live-social-fb{
-  border-bottom: 10px solid #fe9b30;
+  border-bottom: 10px solid $brand-warning;
   .live-sociallogo{
-    background-color: #fe9b30;
+    background-color: $brand-warning;
   }
 }
 .live-social-twitter{

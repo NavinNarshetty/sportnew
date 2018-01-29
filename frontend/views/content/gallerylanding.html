@@ -109,7 +109,7 @@
       <div class="gallery-landing-photovideoholder">
         <div class="row" masonry preserve-order>
           <div class="col-md-4 col-sm-4 col-xs-6 masonry-brick" ng-repeat="galleryImage in Images track by $index">
-            <div class="photovideo-galleryimage relate">
+            <div class="photovideo-galleryimage relate pointer">
               <img ng-src="img/{{galleryImage.img}}" alt="| Sport For All" class="img-responsive" ng-if="galleryImage.type==='photo'">
               <img ng-src="img/{{galleryImage.thumbnail}}" alt="| Sport For All" class="img-responsive" ng-if="galleryImage.type==='video'">
               <div class="absolute video-playbtn" ng-if="galleryImage.type==='video'">

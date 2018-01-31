@@ -11,6 +11,25 @@ myApp.filter('myFilter', function () {
     };
 
 });
+myApp.filter('indianCurrency', function () {
+  return function (getNumber) {
+    if (!isNaN(getNumber)) {
+      var numberArr = getNumber.toString().split('.');
+      var lastThreeDigits = numberArr[0].substring(numberArr[0].length - 3);
+      var otherDigits = numberArr[0].substring(0, numberArr[0].length - 3);
+      if (otherDigits != '') {
+        lastThreeDigits = ',' + lastThreeDigits;
+      }
+      var finalNumber = otherDigits.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + lastThreeDigits;
+      if (numberArr.length > 1) {
+        var getRoundedDecimal = parseInt(numberArr[1].substring(0, 2)) + 1;
+        finalNumber += "." + getRoundedDecimal;
+      }
+      // return '₹' + finalNumber;
+      return finalNumber;
+    }
+  }
+})
 // TRUSTED URL
 myApp.filter('trusted', ['$sce', function ($sce) {
     return function (url) {
@@ -46,7 +65,6 @@ myApp.filter('serverimage', function () {
     };
 })
 // SERVERIMAGE END
-
 // DATE FILTER
 myApp.filter('englishNumeralDate', function () {
     return function (value) {
@@ -56,27 +74,7 @@ myApp.filter('englishNumeralDate', function () {
     };
 });
 // DATE FILTER END
-
-myApp.filter('indianCurrency', function () {
-  return function (getNumber) {
-    if (!isNaN(getNumber)) {
-      var numberArr = getNumber.toString().split('.');
-      var lastThreeDigits = numberArr[0].substring(numberArr[0].length - 3);
-      var otherDigits = numberArr[0].substring(0, numberArr[0].length - 3);
-      if (otherDigits != '') {
-        lastThreeDigits = ',' + lastThreeDigits;
-      }
-      var finalNumber = otherDigits.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + lastThreeDigits;
-      if (numberArr.length > 1) {
-        var getRoundedDecimal = parseInt(numberArr[1].substring(0, 2)) + 1;
-        finalNumber += "." + getRoundedDecimal;
-      }
-      // return '₹' + finalNumber;
-      return finalNumber;
-    }
-  }
-})
-
+// TRUNCATE FILTER
 myApp.filter('truncate', function () {
   return function (value, limit) {
     if (value) {
@@ -88,7 +86,7 @@ myApp.filter('truncate', function () {
     }
   }
 })
-
+// TRUNCATE FILTER END
 // FILTER FOR SPORT ICON AND HEADER IMG
 myApp.filter('sporticon', function(){
   return function(input, type){
@@ -220,9 +218,7 @@ myApp.filter('sporticon', function(){
   }
 })
 // FILTER FOR SPORT ICON AND HEADER IMG END
-
 // FILTER FOR GENDER ICONS
-
 myApp.filter('gendericon',function(){
   return function(gender,type){
     var gender = gender.toLowerCase();
@@ -256,7 +252,6 @@ myApp.filter('gendericon',function(){
   }
 })
 // FILTER FOR GENDER ICONS END
-
 // FILTER MEDALS
 myApp.filter('medalicon', function(){
   return function(input, type){
@@ -273,7 +268,7 @@ myApp.filter('linkvideo', function () {
   return function (input, type) {
     var videourl;
       if (type == 'youtube') {
-      videourl = "https://www.youtube.com/embed/" + input + "?autoplay=1&modestbranding=0&showinfo=0&rel=0&loop=1";
+      videourl = "https://www.youtube.com/embed/" + input + "?autoplay=0&modestbranding=0&showinfo=0&rel=0&loop=1";
     } else {
       videourl = "https://player.vimeo.com/video/" + input + "?autoplay=1&loop=1&autopause=0";
     }

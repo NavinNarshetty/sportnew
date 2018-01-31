@@ -219,4 +219,23 @@ myApp.directive('img', function ($compile, $parse) {
         }
     })
 
+    // SET HEIGHT OF TILE
+    .directive('setHeight', function ($compile, $parse) {
+        return {
+            restrict: 'A',
+            link: function ($scope, element, value) {
+                if (value.setHeight == '') {
+                    var multiple = 1;
+                } else {
+                    var multiple = value.setHeight;
+                }
+                var $element = $(element);
+                var $width = $($element).width();
+                var $width = $width * multiple;
+                $($element).height($width);
+            }
+        }
+    })
+    // SET HEIGHT OF TILE END
+
 ;

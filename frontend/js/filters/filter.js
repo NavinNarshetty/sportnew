@@ -281,4 +281,15 @@ myApp.filter('linkvideo', function () {
   };
 })
 // VIDEO END
+// MEDIA PATH TWO
+myApp.filter('mediapathtwo', function () {
+    return function (value) {
+        if (value) {
+            return "https://storage.googleapis.com/" + value;
+        } else {
+            return "";
+        }
+    };
+})
+// MEDIA PATH TWO END
 ;

@@ -20,6 +20,21 @@ myApp.service('TemplateService', function () {
         return data;
     };
 
+    // SCROLL TO FUNCTION
+    this.scrollTo = function (destination, type) {
+      if (type == 'id') {
+        var destination = '#' + destination;
+      } else if (type == 'class') {
+        var destination = '.' + destination;
+      }
+      // console.log(destination, type, 'in dir')
+      $('html,body').animate({
+        scrollTop: $(destination).offset().top
+      },
+        'slow');
+    };
+    // SCROLL TO FUNCTION END
+
     this.init();
 
 });

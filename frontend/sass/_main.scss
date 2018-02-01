@@ -266,6 +266,10 @@ a {
   margin: 0px auto;
 }
 
+.mb-0{
+  margin-bottom: 0;
+}
+
 .p-clear {
   padding: 0;
 }
@@ -490,7 +494,7 @@ a {
 }
 
 .titledescription-holder {
-  width: 60%;
+  // width: 60%;
   text-align: justify;
   word-wrap: break-word;
 }

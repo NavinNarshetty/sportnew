@@ -33,11 +33,13 @@ myApp.controller('SchoolLandingCtrl', function ($scope, $state, $stateParams, Te
   // END SELECT CITY
 
   // VIEW MORE SCHOOLS
-  $scope.viewMoreSchools = function (city) {
+  $scope.viewMoreSchools = function (city, index) {
+    $scope.scrollId = 'school' + index;
     if (city.viewSchool == 3) {
       city.viewSchool = 10;
     } else {
       city.viewSchool = 3;
+      TemplateService.scrollTo($scope.scrollId, 'id');
     }
   }
   // VIEW MORE SCHOOLS  END
@@ -58,10 +60,9 @@ myApp.controller('SchoolLandingCtrl', function ($scope, $state, $stateParams, Te
   // END SFA CHAMPIONS
 
 
-  // MEDALS CARDS 
+  // MEDALS CARDS
   $scope.maxmedals = [{
     medal: 'gold',
-
   }, {
     medal: 'silver',
   }, {

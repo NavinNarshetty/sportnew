@@ -11,15 +11,42 @@ myApp.controller('AthleteProfileCtrl', function ($scope, $state, $stateParams, T
       click: ""
     }
     // VARIABLE INITIALISATIONS END
-
+    // *********************************************************
+    // *********************************************************
     // HIGHLIGHTS PAGE
+    // VARIABLES
+    // VARIABLES END
+    // FUNCTIONS
+    // FUNCTIONS END
+    // API CALLS
+    // API CALLS END
     // HIGHLIGHTS PAGE END
+    // *********************************************************
+    // *********************************************************
     // STATISTICS PAGE
+    // FUNCTIONS
+    // FUNCTIONS END
+    // API CALLS
+    // API CALLS END
     // STATISTICS PAGE END
+    // *********************************************************
+    // *********************************************************
     // ACHIEVEMENTS PAGE
+    // FUNCTIONS
+    // FUNCTIONS END
+    // API CALLS
+    // API CALLS END
     // ACHIEVEMENTS PAGE END
+    // *********************************************************
+    // *********************************************************
     // VIDEOS PAGE
+    // FUNCTIONS
+    // FUNCTIONS END
+    // API CALLS
+    // API CALLS END
     // VIDEOS PAGE END
+    // *********************************************************
+    // *********************************************************
     // COMMON SECTION
     // VARIABLES
     // ARRAY OF SPORT NAMES
@@ -215,6 +242,8 @@ myApp.controller('AthleteProfileCtrl', function ($scope, $state, $stateParams, T
     // ON CLICK END
     // SELECT PAGE FUNCTION END
     // FUNCTIONS END
+    // API CALLS
+    // API CALLS END
     // COMMON SECTION END
 
     // API CALLS

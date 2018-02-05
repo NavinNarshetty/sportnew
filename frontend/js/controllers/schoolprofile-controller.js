@@ -12,6 +12,70 @@ myApp.controller('SchoolProfileCtrl', function ($scope, $state, $stateParams, Te
     //     });
     // });
 
+    // *********************************************************
+    // *********************************************************
+    // HIGHLIGHTS PAGE
+    // VARIABLES
+    // VARIABLES END
+    // FUNCTIONS
+    // FUNCTIONS END
+    // API CALLS
+    // API CALLS END
+    // HIGHLIGHTS PAGE END
+    // *********************************************************
+    // *********************************************************
+    // TRACK RECORD PAGE
+    // VARIABLES
+    // VARIABLES END
+    // FUNCTIONS
+    // FUNCTIONS END
+    // API CALLS
+    // API CALLS END
+    // TRACK RECORD PAGE END
+    // *********************************************************
+    // *********************************************************
+    // TEAM PAGE
+    // VARIABLES
+    // VARIABLES END
+    // FUNCTIONS
+    // FUNCTIONS END
+    // API CALLS
+    // API CALLS END
+    // TEAM PAGE END
+    // *********************************************************
+    // *********************************************************
+    // STATISTICS PAGE
+    // VARIABLES
+    // VARIABLES END
+    // FUNCTIONS
+    // FUNCTIONS END
+    // API CALLS
+    // API CALLS END
+    // STATISTICS PAGE END
+    // *********************************************************
+    // *********************************************************
+    // ACHIEVEMENTS PAGE
+    // VARIABLES
+    // VARIABLES END
+    // FUNCTIONS
+    // FUNCTIONS END
+    // API CALLS
+    // API CALLS END
+    // ACHIEVEMENTS PAGE END
+    // *********************************************************
+    // *********************************************************
+    // VIDEOS PAGE
+    // VARIABLES
+    // VARIABLES END
+    // FUNCTIONS
+    // FUNCTIONS END
+    // API CALLS
+    // API CALLS END
+    // VIDEOS PAGE END
+    // *********************************************************
+    // *********************************************************
+    // COMMON SECTION
+    // FUNCTIONS
     // SWIPER
     $scope.initSwiper = function () {
         console.log('yoyoyoyo');
@@ -112,11 +176,7 @@ myApp.controller('SchoolProfileCtrl', function ($scope, $state, $stateParams, Te
             })
         }, 100);
         // END TEAM TABLE SWIPER
-
-
         // });
-
-
     }
 
     $scope.swiperInitialise = function (type) {
@@ -132,7 +192,8 @@ myApp.controller('SchoolProfileCtrl', function ($scope, $state, $stateParams, Te
     }
     $scope.swiperInitialise(0);
     // END-SWIPER
-
+    // FUNCTIONS END
+    // COMMON SECTION END
     // flex-slider
     setTimeout(function () {
         $('.performanceathlete-slider .flexslider').flexslider({
@@ -149,8 +210,6 @@ myApp.controller('SchoolProfileCtrl', function ($scope, $state, $stateParams, Te
             itemMargin: 10
         });
     }, 100);
-
-
     // end flex
 
     // team-flex
@@ -169,7 +228,7 @@ myApp.controller('SchoolProfileCtrl', function ($scope, $state, $stateParams, Te
             itemMargin: 10
         });
     }, 100);
-    // enflex
+    // endflex
 
     $scope.performMedal = [{
         medal: "08",
@@ -217,7 +276,6 @@ myApp.controller('SchoolProfileCtrl', function ($scope, $state, $stateParams, Te
         tperf: "1",
         yperf: "131"
     }]
-
 
     $scope.oneAtATime = true;
     $scope.status = {
@@ -399,7 +457,6 @@ myApp.controller('SchoolProfileCtrl', function ($scope, $state, $stateParams, Te
             '/img/oldSfa/bg-draw.jpg'
         ]
     }]
-
 
     $scope.myAccord = [{
         name: 'Swimming',
@@ -644,7 +701,6 @@ myApp.controller('SchoolProfileCtrl', function ($scope, $state, $stateParams, Te
 
     }, {
         name: 'karate',
-
         played: '123',
         won: '456',
         lost: '789',
@@ -781,7 +837,6 @@ myApp.controller('SchoolProfileCtrl', function ($scope, $state, $stateParams, Te
                 $scope.schoolprofile.active = 'highlights';
                 break;
         }
-
         $state.go("schoolprofile", {
             name: url
         }, {

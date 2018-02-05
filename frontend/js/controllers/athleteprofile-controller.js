@@ -12,6 +12,22 @@ myApp.controller('AthleteProfileCtrl', function ($scope, $state, $stateParams, T
     }
     // VARIABLE INITIALISATIONS END
 
+    // HIGHLIGHTS PAGE
+    // HIGHLIGHTS PAGE END
+    // STATISTICS PAGE
+    // STATISTICS PAGE END
+    // ACHIEVEMENTS PAGE
+    // ACHIEVEMENTS PAGE END
+    // VIDEOS PAGE
+    // VIDEOS PAGE END
+    // COMMON SECTION
+    // VARIABLES
+    // ARRAY OF SPORT NAMES
+    $scope.sporticon = ['Handball','Basketball','Volleyball','Throwball',
+    'Hockey','Kabaddi','Football','Badminton','Badminton Doubles', 'Tennis','Tennis Doubles','Tennis Mixed Doubles','Table Tennis','Table Tennis Doubles','Squash','Judo','Taekwondo','Boxing','Fencing','Karate','Karate Team Kumite','Sport MMA','Shooting','Shooting Air Rifle Peep Team','Shooting Air Rifle Open Team','Shooting Air Rifle Peep Team', 'Archery', 'Swimming', 'Swimming 4x50m Freestyle Relay', 'Swimming 4x50m Medley Relay', 'Water Polo', 'Carrom','Chess','Athletics','Athletics 4x100m Relay','Athletics 4x50m Relay','Athletics Medley Relay','Kho Kho'];
+    // ARRAY OF SPORT NAMES END
+    // VARIABLES END
+    // FUNCTIONS
     // SWIPER INITIALSE
     $scope.initSwiper = function(){
       $timeout(function () {
@@ -117,23 +133,7 @@ myApp.controller('AthleteProfileCtrl', function ($scope, $state, $stateParams, T
     }
     $scope.swiperInitialise(0);
     // SWIPER INITIALSE END
-
-
-
-    // API CALLS
-    $scope.getVideo = function(){
-        Athleteprofile.getVideo(function(data){
-          $scope.videoArray = data.data.videoArray;
-          console.log($scope.videoArray, 'array');
-        });
-    }
-    // API CALLS END
-
-    // ARRAY OF SPORT NAMES
-    $scope.sporticon = ['Handball','Basketball','Volleyball','Throwball',
-    'Hockey','Kabaddi','Football','Badminton','Badminton Doubles', 'Tennis','Tennis Doubles','Tennis Mixed Doubles','Table Tennis','Table Tennis Doubles','Squash','Judo','Taekwondo','Boxing','Fencing','Karate','Karate Team Kumite','Sport MMA','Shooting','Shooting Air Rifle Peep Team','Shooting Air Rifle Open Team','Shooting Air Rifle Peep Team', 'Archery', 'Swimming', 'Swimming 4x50m Freestyle Relay', 'Swimming 4x50m Medley Relay', 'Water Polo', 'Carrom','Chess','Athletics','Athletics 4x100m Relay','Athletics 4x50m Relay','Athletics Medley Relay','Kho Kho'];
-    // ARRAY OF SPORT NAMES END
-
+    // SELECT PAGE FUNCTION
     var allAthleteProfile = [ "frontend/views/content/athleteprofile/highlights.html", "frontend/views/content/athleteprofile/statistics.html", "frontend/views/content/athleteprofile/achievements.html", "frontend/views/content/athleteprofile/videos.html", "frontend/views/content/athleteprofile/gallery.html"];
     $scope.athleteprofile = {
       innerView: allAthleteProfile[0],
@@ -213,6 +213,18 @@ myApp.controller('AthleteProfileCtrl', function ($scope, $state, $stateParams, T
       })
     }
     // ON CLICK END
+    // SELECT PAGE FUNCTION END
+    // FUNCTIONS END
+    // COMMON SECTION END
+
+    // API CALLS
+    $scope.getVideo = function(){
+        Athleteprofile.getVideo(function(data){
+          $scope.videoArray = data.data.videoArray;
+          console.log($scope.videoArray, 'array');
+        });
+    }
+    // API CALLS END
 
     $scope.mySlides = [1,2,3,4,5,6];
     $scope.ySlides = [1,2,3];

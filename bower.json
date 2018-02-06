@@ -67,7 +67,8 @@
     "angular-promise-buttons": "^0.1.21",
     "fancybox": "^3.1.20",
     "swiper": "^3.4.2",
-    "angular-marquee": "*"
+    "angular-marquee": "*",
+    "angular-svg-round-progressbar": "0.4.8"
   },
   "resolutions": {
     "angular": "1.5.8"

@@ -962,7 +962,7 @@ $sport-primary: #0a1a72 !default;
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: cover;
-    margin-left: 86px;
+    margin-left: 82px;
     .school-yearsummarycontent {
         padding: 10px 10px 10px 40px;
         background-color: rgba(0, 0, 0, 0.5);
@@ -972,8 +972,8 @@ $sport-primary: #0a1a72 !default;
         width: 60px;
         height: auto;
         position: absolute;
-        top: -19px;
-        left: -33px;
+        top: -10px;
+        left: -30px;
     }
     .school-yearsummarycontent {
         font-size: 21px;
@@ -1111,6 +1111,7 @@ $sport-primary: #0a1a72 !default;
 //sport-wise-card
 .sportwise-statisticscard {
     margin-top: 30px;
+    box-shadow: 0px 2px 5px $light-grey;
     .statistics-cardhead {
         padding: 10px 10px 0px;
         background-color: #464646;
@@ -1119,7 +1120,6 @@ $sport-primary: #0a1a72 !default;
     }
     .statistics-cardcontent {
         padding: 10px 15px;
-        box-shadow: 0px 0px 5px $light-grey;
         border-top: none;
     }
     .sportwise-statisticstype {
@@ -1140,17 +1140,18 @@ $sport-primary: #0a1a72 !default;
     width: 60px;
     height: auto;
     top: -10px;
-    left: 0;
+    left: -5px;
 }
 
 .statisticscard-sporttitle {
     font-size: 22px;
-    padding: 0px 35px;
+    padding-left: 30px;
     @extend .fjalla-one;
 }
 
 .statistics-winpercentagewidth {
     width: 30%;
+    position: relative;
 }
 
 .statisticscard-sportrank {
@@ -1252,10 +1253,14 @@ $sport-primary: #0a1a72 !default;
     height: 80px;
     padding: 10px;
     text-align: center;
-    border: 1px solid;
-    border-radius: 50%;
+    // border: 1px solid;
+    // border-radius: 50%;
     vertical-align: middle;
     margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include transform(translate(-50%,-50%));
 }
 
 //   end sport-wise-card

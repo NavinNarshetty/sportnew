@@ -14,6 +14,14 @@ myApp.directive('img', function ($compile, $parse) {
                 } else {
                     $($element).addClass("doneLoading");
                 }
+                if(!attrs.alt || attrs.alt == ''){
+                  $($element).attr("alt", "Sports For All Photos");
+                  console.log("attrs added");
+                }
+                // if(!attrs.title || attrs.title == ''){
+                //   $($element).attr("title", "Sports For All");
+                //   console.log("attrs added");
+                // }
             }
         };
     })

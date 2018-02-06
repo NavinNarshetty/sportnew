@@ -40,7 +40,8 @@ var myApp = angular.module('myApp', [
     'toastr',
     'athleteprofile',
     'wu.masonry',
-    'angular-marquee'
+    'angular-marquee',
+    'angular-svg-round-progressbar'
 ]);
 
 // Define all the routes below

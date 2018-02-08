@@ -54,7 +54,7 @@
               <td ng-repeat="d in videos | limitTo:3">
                 <div class="text-center">
                   <p class="m-clear">
-                    <span ng-repeat="sport in SumTable track by $index"> 
+                    <span ng-repeat="sport in SumTable track by $index">
                             {{sport}}<span>,</span>
                     </span>
 
@@ -333,7 +333,7 @@
           <div uib-accordion-group class="panel-default" is-open="s.open" ng-repeat="s in myAccordian track by $index">
             <uib-accordion-heading class="clearfix">
               <i class="pull-right fa" ng-class="{'fa-minus': s.open, 'fa-plus': !s.open}"></i>
-              <ul class="list-inline text-uppercase">
+              <ul class="list-inline text-uppercase m-clear">
                 <li>{{s.gender}} </li>
                 <li>|</li>
                 <li>{{s.agegroup}} </li>

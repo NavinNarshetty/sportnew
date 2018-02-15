@@ -703,7 +703,7 @@ $sport-primary: #0a1a72 !default;
         margin: 10px 0;
     }
     .trackrecord-currentyear {
-        font-size: 85px;
+        font-size: 54px;
         line-height: 1;
         margin-right: 5px;
         letter-spacing: 2px;
@@ -712,7 +712,7 @@ $sport-primary: #0a1a72 !default;
         @extend .teko;
     }
     .trackrecord-detailwidth {
-        width: calc(100% - 124px);
+        width: calc(100% - 145px);
     }
 }
 

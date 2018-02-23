@@ -14,11 +14,6 @@
       "tableRef": "city",
       "placeholder": "Enter City",
       "id": "name",
-      "validation": [
-        "required",
-        "trim",
-        "unique"
-      ],
       "url": ""
     },
     {
@@ -27,11 +22,6 @@
       "tableRef": "venue",
       "placeholder": "Enter Venue",
       "id": "venue",
-      "validation": [
-        "",
-        "trim",
-        "unique"
-      ],
       "url": ""
     },
     {
@@ -40,11 +30,6 @@
       "tableRef": "year",
       "placeholder": "Enter Year",
       "id": "year",
-      "validation": [
-        "",
-        "trim",
-        "unique"
-      ],
       "url": ""
     },
     {
@@ -53,11 +38,6 @@
       "tableRef": "month",
       "placeholder": "Enter Month",
       "id": "month",
-      "validation": [
-        "",
-        "trim",
-        "unique"
-      ],
       "url": ""
     },
     {
@@ -66,11 +46,6 @@
       "tableRef": "institutionType",
       "placeholder": "Enter Institution Type",
       "id": "institutionType",
-      "validation": [
-        "",
-        "trim",
-        "unique"
-      ],
       "url": ""
     },
     {
@@ -79,11 +54,6 @@
       "tableRef": "eventYear",
       "placeholder": "Enter Event Year",
       "id": "eventYear",
-      "validation": [
-        "",
-        "trim",
-        "unique"
-      ],
       "url": ""
     }
   ],

@@ -1,0 +1,115 @@
+{
+  "title": "Create Event",
+  "name": "Event",
+  "jsonPage": "viewEvent",
+  "desciption": "",
+  "pageType": "create",
+  "urlFields": [
+    "Event"
+  ],
+  "fields": [
+    {
+      "name": "City",
+      "type": "text",
+      "tableRef": "city",
+      "placeholder": "Enter City",
+      "id": "name",
+      "validation": [
+        "required",
+        "trim",
+        "unique"
+      ],
+      "url": ""
+    },
+    {
+      "name": "Venue",
+      "type": "text",
+      "tableRef": "venue",
+      "placeholder": "Enter Venue",
+      "id": "venue",
+      "validation": [
+        "",
+        "trim",
+        "unique"
+      ],
+      "url": ""
+    },
+    {
+      "name": "Year",
+      "type": "text",
+      "tableRef": "year",
+      "placeholder": "Enter Year",
+      "id": "year",
+      "validation": [
+        "",
+        "trim",
+        "unique"
+      ],
+      "url": ""
+    },
+    {
+      "name": "Month",
+      "type": "text",
+      "tableRef": "month",
+      "placeholder": "Enter Month",
+      "id": "month",
+      "validation": [
+        "",
+        "trim",
+        "unique"
+      ],
+      "url": ""
+    },
+    {
+      "name": "Institution Type",
+      "type": "text",
+      "tableRef": "institutionType",
+      "placeholder": "Enter Institution Type",
+      "id": "institutionType",
+      "validation": [
+        "",
+        "trim",
+        "unique"
+      ],
+      "url": ""
+    },
+    {
+      "name": "Event Year",
+      "type": "text",
+      "tableRef": "eventYear",
+      "placeholder": "Enter Event Year",
+      "id": "eventYear",
+      "validation": [
+        "",
+        "trim",
+        "unique"
+      ],
+      "url": ""
+    }
+  ],
+  "action": [
+    {
+      "name": "submit",
+      "action": "submitUser",
+      "stateName": {
+        "page": "page",
+        "json": {
+          "id": "viewEvent"
+        }
+      }
+    },
+    {
+      "name": "cancel",
+      "sideMenuRedirect": true,
+      "stateName": {
+        "page": "page",
+        "json": {
+          "id": "viewEvent"
+        }
+      }
+    }
+  ],
+  "apiCall": {
+    "url": "Event/save"
+  }
+}

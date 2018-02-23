@@ -1,8 +1,4 @@
 var schema = new Schema({
-    name: {
-        type: String
-    },
-
     institutionType: {
         type: String,
     },
@@ -11,6 +7,10 @@ var schema = new Schema({
     year: String,
     month: String,
     eventYear: String
+
+
+
+
 
 });
 

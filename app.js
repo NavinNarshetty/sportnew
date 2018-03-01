@@ -24,9 +24,11 @@ process.chdir(__dirname);
 var mongoose;
 mongoose = require('mongoose');
 
-global["database"] = "database";
+global["database"] = "test-sfa";
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost:27017/' + database, function (err) {
+mongoose.connect('mongodb://localhost:27017/' + database, {
+    useMongoClient: true
+}, function (err) {
     if (err) {
         console.log(err);
     }

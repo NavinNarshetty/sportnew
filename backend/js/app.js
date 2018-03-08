@@ -71,6 +71,32 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
             controller: 'EditCountryCtrl'
         })
 
+        // ***************AD BANNERS**************
+        .state('adgallery', {
+            url: "/adgallery",
+            templateUrl: "views/template.html",
+            controller: 'AdGalleryCtrl'
+        })
+
+        .state('detailadgallery', {
+            url: "/detailadgallery",
+            templateUrl: "views/template.html",
+            controller: 'DetailAdGalleryCtrl'
+        })
+
+        .state('advideo', {
+            url: "/advideo",
+            templateUrl: "views/template.html",
+            controller: 'AdVideoCtrl'
+        })
+
+        .state('detailadvideo', {
+            url: "/detailadvideo",
+            templateUrl: "views/template.html",
+            controller: 'DetailAdVideoCtrl'
+        })
+        // ***************AD BANNERS END**************
+
         .state('schema-creator', {
             url: "/schema-creator",
             templateUrl: "views/template.html",

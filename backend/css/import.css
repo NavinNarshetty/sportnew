@@ -1,7 +1,7 @@
 @charset "UTF-8";
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300italic,400italic,600,600italic,700,700italic);
 /*
- * jQuery FlexSlider v2.7.0
+ * jQuery FlexSlider v2.6.3
  * http://www.woothemes.com/flexslider/
  *
  * Copyright 2012 WooThemes
@@ -31673,6 +31673,9 @@ a,
 .mt20 {
   margin-top: 20px; }
 
+.m-clear {
+  margin: 0px; }
+
 .logo img {
   max-height: 100%;
   width: auto; }
@@ -32705,6 +32708,9 @@ img.uploadingImage {
 
 .mce-container img {
   opacity: 1; }
+
+.table-widget {
+  margin-bottom: 20px; }
 
 body {
   overflow: visible !important; }

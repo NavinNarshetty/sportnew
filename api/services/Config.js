@@ -104,6 +104,7 @@ var models = {
     },
 
     uploadFile: function (filename, callback) {
+        console.log(filename, "in config")
         var id = mongoose.Types.ObjectId();
         var extension = filename.split(".").pop();
         extension = extension.toLowerCase();

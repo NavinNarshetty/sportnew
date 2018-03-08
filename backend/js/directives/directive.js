@@ -33,10 +33,11 @@ myApp.directive('uploadImage', function ($http, $filter, $timeout) {
         scope: {
             model: '=ngModel',
             type: "@type",
+            ispdf: "@ispdf",
             callback: "&ngCallback"
         },
         link: function ($scope, element, attrs) {
-            console.log($scope.model);
+            console.log($scope.model, attrs);
             $scope.showImage = function () {};
             $scope.check = true;
             if (!$scope.type) {
@@ -61,7 +62,20 @@ myApp.directive('uploadImage', function ($http, $filter, $timeout) {
                 console.log(newVal, oldVal);
                 isArr = _.isArray(newVal);
                 if (!isArr && newVal && newVal.file) {
-                    $scope.uploadNow(newVal);
+                    if ($scope.type === 'pdf' && $scope.ispdf == 'true') {
+                        $scope.uploadStatus = '';
+                        if (_.endsWith(newVal.file.name, ".pdf")) {
+                            $scope.uploadNow(newVal);
+                            console.log("pdf Successs");
+                            $scope.incorrectFile = false;
+                        } else {
+                            console.log("Incorrect Filesssssss");
+                            $scope.incorrectFile = true;
+                        }
+                    } else {
+
+                        $scope.uploadNow(newVal);
+                    }
                 } else if (isArr && newVal.length > 0 && newVal[0].file) {
 
                     $timeout(function () {
@@ -104,13 +118,17 @@ myApp.directive('uploadImage', function ($http, $filter, $timeout) {
                 var Template = this;
                 image.hide = true;
                 var formData = new FormData();
+                console.log(image, "upload");
+                console.log(image.file.name, "upload");
                 formData.append('file', image.file, image.name);
+                console.log(formData, "formdata");
                 $http.post(uploadurl, formData, {
                     headers: {
                         'Content-Type': undefined
                     },
                     transformRequest: angular.identity
                 }).then(function (data) {
+                    console.log('data', data, $scope.model);
                     data = data.data;
                     $scope.uploadStatus = "uploaded";
                     if ($scope.isMultiple) {
@@ -131,7 +149,7 @@ myApp.directive('uploadImage', function ($http, $filter, $timeout) {
                             $scope.type = "image";
                         }
                         $scope.model = data.data[0];
-                        console.log($scope.model, 'model means blob');
+                        console.log($scope.model, 'model means blob')
 
                     }
                     $timeout(function () {

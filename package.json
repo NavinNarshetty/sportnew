@@ -5,6 +5,8 @@
   "description": "A Wohlig Application",
   "keywords": [],
   "dependencies": {
+    "@google-cloud/datastore": "^1.3.5",
+    "@google-cloud/storage": "^1.6.0",
     "autoprefixer": "^6.7.7",
     "chalk": "^1.1.3",
     "connect-history-api-fallback": "^1.3.0",
@@ -61,7 +63,8 @@
     "sails-disk": "~0.10.9",
     "sails-wohlig-controller": "latest",
     "sails-wohlig-service": "latest",
-    "sendgrid": "^5.0.0"
+    "sendgrid": "^5.0.0",
+    "skipper-gclouds": "^1.0.1"
   },
   "scripts": {
     "debug": "node debug app.js",

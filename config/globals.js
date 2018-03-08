@@ -28,7 +28,7 @@ module.exports.globals = {
      *                                                                           *
      ****************************************************************************/
 
-    // async: true,
+    async: false,
 
     /****************************************************************************
      *                                                                           *
@@ -64,10 +64,9 @@ module.exports.globals = {
 
 // Mongoose Globals
 global["mongoose"] = require('mongoose');
-global["ObjectId"] = mongoose.Types.ObjectId;
 global["deepPopulate"] = require('mongoose-deep-populate')(mongoose);
 global["uniqueValidator"] = require('mongoose-unique-validator');
-global["timestamps"] = require('mongoose-timestamp');
+global["timestamps"] = require('mongoose-timestamp-plugin');
 global["validators"] = require('mongoose-validators');
 global["monguurl"] = require('monguurl');
 require('mongoose-middleware').initialize(mongoose);
@@ -77,9 +76,13 @@ global["gfs"] = Grid(mongoose.connections[0].db, mongoose);
 global["http"] = require('http');
 gfs.mongo = mongoose.mongo;
 
+global["async"] = require('async');
+
 //Image Library
 global["stream"] = require('stream');
 global["Jimp"] = require("jimp");
+
+global["ObjectId"] = mongoose.Types.ObjectId;
 
 // Util Globals
 global["moment"] = require("moment");

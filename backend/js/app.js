@@ -97,6 +97,21 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
         })
         // ***************AD BANNERS END**************
 
+        // ***************CITY RULE**************
+        .state('cityrule', {
+            url: "/cityrule/:city/:type",
+            templateUrl: "views/template.html",
+            controller: 'CityruleCtrl'
+        })
+
+        .state('detailcityrule', {
+            url: "/detailcityrule",
+            templateUrl: "views/template.html",
+            controller: 'DetailCityRuleCtrl'
+        })
+
+        // ***************CITY RULE END**************
+
         .state('schema-creator', {
             url: "/schema-creator",
             templateUrl: "views/template.html",

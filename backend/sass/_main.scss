@@ -1191,5 +1191,16 @@
 
  /* Start writing sass here */
 
+ //  COMMON CLASS
+ .table-font {
+     th {
+         font-size: 12px;
+         text-transform: capitalize;
+         text-align: center;
+     }
+     td {
+         font-size: 12px;
+     }
+ } // COMMON CLASS END
  @import "fancybox-override";
  @import "other/mobile";

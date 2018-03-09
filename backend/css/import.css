@@ -32752,6 +32752,14 @@ body {
   line-height: 120%; }
 
 /* Start writing sass here */
+.table-font th {
+  font-size: 12px;
+  text-transform: capitalize;
+  text-align: center; }
+
+.table-font td {
+  font-size: 12px; }
+
 #fancybox-loading, .fancybox-close, .fancybox-next span, .fancybox-prev span {
   background-image: url(../img/fancybox_sprite.png); }
 

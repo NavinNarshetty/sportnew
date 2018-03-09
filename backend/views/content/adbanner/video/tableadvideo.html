@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col-md-12 col-sm-12 col-xs-12">
       <div class="heading-profile">
-        <h4 class="m-clear">AD GALLERY</h4>
+        <h4 class="m-clear">AD VIDEO</h4>
       </div>
     </div>
   </div>
@@ -90,13 +90,13 @@
                   </td>
                   <td>
                     <div>
-                      <p title="{{item.desktop.adLink}}"><b>Desktop</b></span> - <span>{{item.desktop.adLink}}</p>
-                      <p title="{{item.mobile.mobileLink}}"><b>Mobile</b></span> - <span>{{item.mobile.mobileLink}}</p>
+                      <p title="{{item.desktop.adLink}}"><b>Desktop</b></span> - <span>{{item.desktop.adLink | truncate:25}}</p>
+                      <p title="{{item.mobile.mobileLink}}"><b>Mobile</b></span> - <span>{{item.mobile.mobileLink | truncate:25}}</p>
                     </div>
                   </td>
                   <td>
                     <div>
-                        <a class="btn btn-primary" target="_blank" ui-sref="detailadvideo({id:item._id})">
+                        <a class="btn btn-primary" target="_new" ui-sref="detailadvideo({id:item._id})">
                             <i class="fa fa-pencil"></i> 
                           </a>
                           <a class="btn btn-danger" ng-click="confirmDelete(item._id)">

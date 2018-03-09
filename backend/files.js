@@ -52,6 +52,7 @@ module.exports = [
     'backend/js/services/template.js',
     'backend/js/services/jsonService.js',
     'backend/js/services/deleteService.js',
+    'backend/js/services/saveService.js',
 
     //Factories
     'backend/js/factories/navigation.js',

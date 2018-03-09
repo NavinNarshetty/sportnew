@@ -79,7 +79,7 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
         })
 
         .state('detailadgallery', {
-            url: "/detailadgallery",
+            url: "/detailadgallery/:id",
             templateUrl: "views/template.html",
             controller: 'DetailAdGalleryCtrl'
         })
@@ -91,7 +91,7 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
         })
 
         .state('detailadvideo', {
-            url: "/detailadvideo",
+            url: "/detailadvideo/:id",
             templateUrl: "views/template.html",
             controller: 'DetailAdVideoCtrl'
         })

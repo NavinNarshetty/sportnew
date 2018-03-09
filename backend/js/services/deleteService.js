@@ -5,13 +5,13 @@ myApp.service('deleteService', function ($http, TemplateService, $state, toastr,
   this.data;
   this.url;
   // VARIABLES
-  console.log(this, "global variable");
 
   // OPEN MODAL FUNCTION
   this.confirmDelete = function (data, urlType, varScope) {
+    // console.log(varScope, "global variable");
     this.data = data;
     this.url = urlType;
-    console.log(data, urlType, "i am in service");
+    // console.log(data, urlType, "i am in service");
     modalInstance = $uibModal.open({
       animation: true,
       scope: varScope,
@@ -27,15 +27,16 @@ myApp.service('deleteService', function ($http, TemplateService, $state, toastr,
   this.confirmYes = function () {
     var constraints = {};
     constraints._id = this.data;
-    console.log(constraints, "check this again");
-    console.log(this.url, this.data, "check this");
+    // console.log(constraints, "check this again");
+    // console.log(this.url, this.data, "check this");
     NavigationService.apiCall(this.url, constraints, function (data) {
-      // if (data.value) {
-      //   toastr.success("Successfully Deleted", 'Success');
-      //   modalInstance.close();
-      // } else {
-      //   toastr.error("Something Went Wrong", 'Deleted');
-      // }
+      if (data.value) {
+        toastr.success("Successfully Deleted", 'Success');
+        modalInstance.close();
+        $state.reload();
+      } else {
+        toastr.error("Something Went Wrong", 'Deleted');
+      }
     })
   }
 

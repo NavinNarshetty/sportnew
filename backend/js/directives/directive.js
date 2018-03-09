@@ -120,7 +120,7 @@ myApp.directive('uploadImage', function ($http, $filter, $timeout) {
                 var formData = new FormData();
                 console.log(image, "upload");
                 console.log(image.file.name, "upload");
-                formData.append('file', image.file, image.name);
+                formData.append('file', image.file, image.file.name);
                 console.log(formData, "formdata");
                 $http.post(uploadurl, formData, {
                     headers: {

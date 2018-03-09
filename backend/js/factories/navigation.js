@@ -9,44 +9,89 @@ myApp.factory('NavigationService', function ($http) {
     var data = $.jStorage.get('profile').accessLevel;
     switch (data) {
         case "Admin":
-        var navigation = [{
-            name: "Users",
-            classis: "active",
-            sref: "#!/page/viewUser//",
-            icon: "phone"
-        },
-        {
-            name: "Events",
-            classis: "active",
-            sref: "#!/page/viewEvent//",
-            icon: "phone"
-        }, {
-            name: "Ad Banners",
-            classis: "activeColor",
-            sref: "",
-            icon: "phone",
-            subnav: [{
-                name: "Gallery",
-                classis: "activeColor",
-                sref: "#!/adgallery",
-                icon: "phone",
-            }, {
-                name: "Video",
-                classis: "activeColor",
-                sref: "#!/advideo",
-                icon: "phone",
-            }]
-        }
-    ];
+            var navigation = [{
+                    name: "Users",
+                    classis: "active",
+                    sref: "#!/page/viewUser//",
+                    icon: "phone"
+                },
+                {
+                    name: "Events",
+                    classis: "active",
+                    sref: "#!/page/viewEvent//",
+                    icon: "phone"
+                }, {
+                    name: "Ad Banners",
+                    classis: "activeColor",
+                    sref: "",
+                    icon: "phone",
+                    subnav: [{
+                        name: "Gallery",
+                        classis: "activeColor",
+                        sref: "#!/adgallery",
+                        icon: "phone",
+                    }, {
+                        name: "MtachVideo",
+                        classis: "activeColor",
+                        sref: "#!/advideo",
+                        icon: "phone",
+                    }]
+                }, {
+                    name: "Featured",
+                    classis: "activeColor",
+                    sref: "",
+                    icon: "phone",
+                    subnav: [{
+                        name: "FeaturedGallery",
+                        classis: "activeColor",
+                        sref: "#!/featuredgallery",
+                        icon: "phone",
+                    }, {
+                        name: "FeatureVideo",
+                        classis: "activeColor",
+                        sref: "#!/featuredvideo",
+                        icon: "phone",
+                    }]
+                }, {
+                    name: "City Rule",
+                    classis: "activeColor",
+                    sref: "",
+                    icon: "phone",
+                    subnav: [{
+                            name: "Mumbai School",
+                            classis: "activeColor",
+                            sref: "#!/cityrule/mumbai/school",
+                            icon: "phone",
+                        }, {
+                            name: "Mumbai College",
+                            classis: "activeColor",
+                            sref: "#!/cityrule/mumbai/college",
+                            icon: "phone",
+                        },
+                        {
+                            name: "Hyderabad School",
+                            classis: "activeColor",
+                            sref: "#!/cityrule/hyderabad/school",
+                            icon: "phone",
+                        },
+                        {
+                            name: "Hyderabad College",
+                            classis: "activeColor",
+                            sref: "#!/cityrule/hyderabad/college",
+                            icon: "phone",
+                        }
+                    ]
+                }
+            ];
             break;
-    
+
         default:
-        var navigation = [{
-            name: "Users",
-            classis: "active",
-            sref: "#!/page/viewUser//",
-            icon: "phone"
-        }];
+            var navigation = [{
+                name: "Users",
+                classis: "active",
+                sref: "#!/page/viewUser//",
+                icon: "phone"
+            }];
             break;
     }
 

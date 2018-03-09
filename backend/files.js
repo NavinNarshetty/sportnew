@@ -60,4 +60,5 @@ module.exports = [
     // Contorllers
     'backend/js/controllers/controller.js',
     'backend/js/controllers/adbanners.js',
+    'backend/js/controllers/cityrulecontroller.js',
 ];

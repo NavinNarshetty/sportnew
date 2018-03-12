@@ -1,0 +1,132 @@
+<div class="heading-sec">
+  <div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12 column">
+      <div class="heading-profile">
+        <h2>{{title}} Gallery</h2>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="panel-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="widget">
+        <div class="form-elements-sec">
+          <!-- FORM -->
+          <form name="detailFeaturedGalleryForm" role="form" class="sec">
+            <!-- MEDIA TYPE -->
+            <div class="col-md-12">
+              <div class="form-group">
+                <label>MediaType</label>
+                <input type="text" name="mediatype" id="mediaType" ng-model="formData.mediaType" class="form-control" placeholder="Enter Media Type"
+                  readonly>
+              </div>
+            </div>
+            <!-- MEDIA TYPE END -->
+
+            <!-- ALBUM TITLE -->
+            <div class="col-md-12">
+              <div class="form-group">
+                <label for="album">Album Title</label>
+                <input type="text" name="albumtitle" id="albumtitle" ng-model="formData.albumTitle" class="form-control" placeholder="Enter Album Title"
+                  required>
+                <div class="error-msg" ng-if="detailFeaturedGalleryForm.albumtitle.$invalid && detailFeaturedGalleryForm.albumtitle.$touched">Please Enter Valid Title *</div>
+              </div>
+            </div>
+            <!-- ALBUM TITLE END -->
+
+            <!-- CONTENT GALLERY -->
+            <div class="col-md-12">
+              <div class="form-group text-center">
+                <label for="">Gallery Table</label>
+              </div>
+              <div class="form-group text-right">
+                <button type="submit" class="btn btn-primary" ng-click="addRow(formData)">Add</button>
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <div class="form-group table-responsive table-font reduce-tablepadding">
+                <table class="table table-striped ">
+                  <thead>
+                    <th>
+                      <div>
+                        Sr.no
+                      </div>
+                    </th>
+                    <th>
+                      <div>
+                        Image
+                      </div>
+                    </th>
+                    <th>
+                      <div>
+                        Title
+                      </div>
+                    </th>
+                    <th>
+                      <div>
+                        Thumbnail
+                      </div>
+                    </th>
+                    <th>
+                      <div>
+                        Action
+                      </div>
+                    </th>
+                  </thead>
+                  <tbody class="">
+                    <tr ng-repeat="feature in formData.featuredContentGallery track by $index">
+                      <td>
+                        <div class="text-center">
+                          {{$index + 1}}
+                        </div>
+                      </td>
+                      <td>
+                        <div class="text-center override-margin">
+                          <upload-image ng-model="feature.image"></upload-image>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="override-height">
+                          <input type="text" name="imagetitle" id="" class="form-control" ng-model="feature.title" placeholder="Enter Title">
+                        </div>
+                      </td>
+                      <td>
+                        <div class="text-center">
+                          <input type="checkbox" name="imagethumbnail" id="" class="" ng-model="feature.thumbnail">
+                        </div>
+                      </td>
+                      <td>
+                        <div class="text-center">
+                          <button type="submit" class="btn btn-danger" ng-click="deleteRow(formData,$index)">Delete</button>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+
+                </table>
+              </div>
+            </div>
+            <!-- CONTENT GALLERY END -->
+
+            <!-- BUTTON -->
+            <div class="col-md-12">
+              <div class="text-center mt20 odd-even-button">
+                <button class="btn btn-default" type="submit" ng-click="saveData(formData)">Save</button>
+                <button class="btn btn-default" ui-sref="featuredgallery">Cancel</button>
+              </div>
+            </div>
+            <!-- BUTTON END -->
+
+
+
+          </form>
+          <!-- FORM END -->
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

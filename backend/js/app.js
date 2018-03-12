@@ -97,6 +97,30 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
         })
         // ***************AD BANNERS END**************
 
+
+        // ***************FEATURED **************
+        .state('featuredgallery', {
+            url: "/featuredgallery",
+            templateUrl: "views/template.html",
+            controller: 'featuredGalleryCtrl'
+        })
+        .state('detailfeaturedgallery', {
+            url: "/detailfeaturedgallery/:id",
+            templateUrl: "views/template.html",
+            controller: 'detailFeaturedGalleryCtrl'
+        })
+        .state('featuredvideo', {
+            url: "/featuredvideo",
+            templateUrl: "views/template.html",
+            controller: 'featuredVideoCtrl'
+        })
+        .state('detailfeaturedvideo', {
+            url: "/detailfeaturedvideo/:id",
+            templateUrl: "views/template.html",
+            controller: 'detailFeaturedVideoCtrl'
+        })
+        // ***************FEATURED  END**************
+
         // ***************CITY RULE**************
         .state('cityrule', {
             url: "/cityrule/:city/:type",
@@ -111,6 +135,7 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
         })
 
         // ***************CITY RULE END**************
+
 
         .state('schema-creator', {
             url: "/schema-creator",

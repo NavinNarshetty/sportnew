@@ -1,9 +1,9 @@
-// TABLE AD GALLERY
-// TABLE GALLERY
-myApp.controller('AdGalleryCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $state, toastr, $uibModal, deleteService) {
+// TABLE FEATURED GALLERY
+
+myApp.controller('featuredGalleryCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $state, toastr, $uibModal, deleteService) {
   //Used to name the .html file
-  $scope.template = TemplateService.changecontent("adbanner/gallery/tableadgallery");
-  $scope.menutitle = NavigationService.makeactive("Ad Gallery");
+  $scope.template = TemplateService.changecontent("feature/featuregallery/tablefeaturegallery");
+  $scope.menutitle = NavigationService.makeactive("Featured Gallery");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
 
@@ -27,10 +27,10 @@ myApp.controller('AdGalleryCtrl', function ($scope, TemplateService, NavigationS
 
   // VIEW TABLE
   $scope.viewTable = function () {
-    $scope.url = "AdBanners/search";
+    $scope.url = "FeatureContent/search";
     $scope.formData.page = $scope.formData.page++;
-    $scope.formData.filter = {};
-    $scope.formData.filter.pageType = 'gallery';
+    $scope.formData.filter = {}
+    $scope.formData.filter.mediaType = 'gallery';
     NavigationService.apiCall($scope.url, $scope.formData, function (data) {
       console.log("data.value", data);
       $scope.items = data.data.results;
@@ -41,37 +41,40 @@ myApp.controller('AdGalleryCtrl', function ($scope, TemplateService, NavigationS
   $scope.viewTable();
   // VIEW TABLE
 
+
   // DELETE
   $scope.deleteService = deleteService;
-  var url = "AdBanners/delete";
+  var url = "FeatureContent/delete";
   $scope.confirmDelete = function (data) {
     deleteService.confirmDelete(data, url, $scope);
   }
   // DELETE END
-
-
-
-
 });
-// TABLE AD GALLERY END
+// TABLE FEATURED GALLERY END
 
-// DETAIL AD BANNER
-myApp.controller('DetailAdGalleryCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $state, toastr, $uibModal, saveService) {
+
+// DETAIL FEATURED GALLERY
+myApp.controller('detailFeaturedGalleryCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $state, toastr, $uibModal, deleteService, saveService) {
   //Used to name the .html file
-  $scope.template = TemplateService.changecontent("adbanner/gallery/detailadgallery");
-  $scope.menutitle = NavigationService.makeactive("DetailAdGallery");
+  $scope.template = TemplateService.changecontent("feature/featuregallery/detailfeaturegallery");
+  $scope.menutitle = NavigationService.makeactive("Detail Featured Gallery");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
+
 
   $scope.title = 'Create';
   $scope.formData = {};
-  $scope.formData.pageType = 'gallery';
+  $scope.formData.featuredContentGallery = [];
+
+
+  // DEFAULT VARIABLES
+  $scope.formData.mediaType = 'gallery';
 
 
   // GET ONE
   if ($stateParams.id != '') {
     $scope.title = 'Edit';
-    $scope.url = "AdBanners/getOne"
+    $scope.url = "FeatureContent/getOne"
     $scope.constraints = {};
     $scope.constraints._id = $stateParams.id;
     $scope.getOneAdGallery = function () {
@@ -84,32 +87,57 @@ myApp.controller('DetailAdGalleryCtrl', function ($scope, TemplateService, Navig
   }
   // GET ONE END
 
+  $scope.addRow = function (formData) {
+    if (!formData) {
+      $scope.formData.featuredContentGallery.push({
+        "image": '',
+        "title": '',
+        "thumbnail": ''
+      })
+    } else {
+      formData.featuredContentGallery.push({
+        "image": '',
+        "title": '',
+        "thumbnail": ''
+      })
+    }
+
+
+  }
+  $scope.addRow();
+
+  $scope.deleteRow = function (formData, index) {
+    console.log("index", index);
+    formData.featuredContentGallery.splice(index, 1);
+  }
 
   // SAVE FUNCTION
-  var state = 'adgallery'
-  var url = 'AdBanners/Save'
+  var state = 'featuredgallery'
+  var url = 'FeatureContent/Save'
   $scope.saveData = function (data) {
+    // console.log(data, "save data");
     saveService.saveData(data, url, state);
+
   }
   // SAVE FUNCTION END
 
-
 });
-// DETAIL AD BANNER END
+// DETAIL FEATURED GALLERY END
 
-// TABLE VIDEO 
-myApp.controller('AdVideoCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $state, toastr, $uibModal, deleteService) {
+// TABLE FEATURED VIDEO
+
+myApp.controller('featuredVideoCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $state, toastr, $uibModal, deleteService) {
   //Used to name the .html file
-  $scope.template = TemplateService.changecontent("adbanner/video/tableadvideo");
-  $scope.menutitle = NavigationService.makeactive("Ad Video");
+  $scope.template = TemplateService.changecontent("feature/featurevideo/tablefeaturevideo");
+  $scope.menutitle = NavigationService.makeactive("Featured Video");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
 
-  // VAR
   $scope.formData = {};
   $scope.formData.page = 1;
   $scope.formData.type = '';
   $scope.formData.keyword = '';
+
 
   // SEARCHTABLE
   $scope.searchInTable = function (data) {
@@ -125,10 +153,10 @@ myApp.controller('AdVideoCtrl', function ($scope, TemplateService, NavigationSer
 
   // VIEW TABLE
   $scope.viewTable = function () {
-    $scope.url = "AdBanners/search";
+    $scope.url = "FeatureContent/search";
     $scope.formData.page = $scope.formData.page++;
-    $scope.formData.filter = {};
-    $scope.formData.filter.pageType = 'video';
+    $scope.formData.filter = {}
+    $scope.formData.filter.mediaType = 'video';
     NavigationService.apiCall($scope.url, $scope.formData, function (data) {
       console.log("data.value", data);
       $scope.items = data.data.results;
@@ -137,40 +165,40 @@ myApp.controller('AdVideoCtrl', function ($scope, TemplateService, NavigationSer
     });
   }
   $scope.viewTable();
-
   // VIEW TABLE
+
 
   // DELETE
   $scope.deleteService = deleteService;
-  var url = "AdBanners/delete";
+  var url = "FeatureContent/delete";
   $scope.confirmDelete = function (data) {
     deleteService.confirmDelete(data, url, $scope);
   }
   // DELETE END
-
-
-
 });
-// TABLE VIDEO  END
 
-// DETAIL VIDEO 
-myApp.controller('DetailAdVideoCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $state, toastr, $uibModal, saveService) {
+// TABLE FEATURED VIDEO END
+
+// DETAIL FEATURED VIDEO
+
+myApp.controller('detailFeaturedVideoCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $state, toastr, $uibModal, deleteService, saveService) {
   //Used to name the .html file
-  $scope.template = TemplateService.changecontent("adbanner/video/detailadvideo");
-  $scope.menutitle = NavigationService.makeactive("Detail Ad Video");
+  $scope.template = TemplateService.changecontent("feature/featurevideo/detailfeaturevideo");
+  $scope.menutitle = NavigationService.makeactive("Detail Featured Video");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
 
-
-  $scope.title = 'Create'
+  // VARIABLES
+  $scope.title = 'Create';
   $scope.formData = {};
-  $scope.formData.pageType = 'video';
-
+  $scope.formData.featuredContentVideo = [];
+  // DEFAULT VARIABLES
+  $scope.formData.mediaType = 'video';
 
   // GET ONE
   if ($stateParams.id != '') {
     $scope.title = 'Edit';
-    $scope.url = "AdBanners/getOne"
+    $scope.url = "FeatureContent/getOne"
     $scope.constraints = {};
     $scope.constraints._id = $stateParams.id;
     $scope.getOneAdGallery = function () {
@@ -184,12 +212,40 @@ myApp.controller('DetailAdVideoCtrl', function ($scope, TemplateService, Navigat
   // GET ONE END
 
 
+
+
   // SAVE FUNCTION
-  var state = 'advideo'
-  var url = 'AdBanners/Save'
+  var state = 'featuredvideo'
+  var url = 'FeatureContent/Save'
   $scope.saveData = function (data) {
+    // console.log(data, "save data");
     saveService.saveData(data, url, state);
+
   }
   // SAVE FUNCTION END
-})
-// DETAIL VIDEO  END
+
+
+  $scope.addRow = function (formData) {
+    if (!formData) {
+      $scope.formData.featuredContentVideo.push({
+        "source": '',
+        "link": '',
+      })
+    } else {
+      formData.featuredContentVideo.push({
+        "source": '',
+        "link": '',
+      })
+    }
+
+
+  }
+  $scope.addRow();
+
+  $scope.deleteRow = function (formData, index) {
+    console.log("index", index);
+    formData.featuredContentVideo.splice(index, 1);
+  }
+});
+
+// DETAIL FEATURED VIDEO END

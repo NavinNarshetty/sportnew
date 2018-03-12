@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col-md-12 col-sm-12 col-xs-12">
       <div class="heading-profile">
-        <h4 class="m-clear">AD GALLERY</h4>
+        <h4 class="m-clear">FEATURED GALLERY</h4>
       </div>
     </div>
   </div>
@@ -25,7 +25,7 @@
               </div>
               <div class="col-md-7 col-sm-6 col-xs-12">
                 <div class="widget-holder text-right">
-                  <button type="submit" class="btn btn-success" ui-sref="detailadgallery">Create</button>
+                  <button type="submit" class="btn btn-success" ui-sref="detailfeaturedgallery">Create</button>
                 </div>
               </div>
             </div>
@@ -47,21 +47,6 @@
                 </th>
                 <th>
                   <div>
-                    Placement/link-type
-                  </div>
-                </th>
-                <th>
-                  <div>
-                    status
-                  </div>
-                </th>
-                <th>
-                  <div>
-                    Link
-                  </div>
-                </th>
-                <th>
-                  <div>
                     Action
                   </div>
                 </th>
@@ -69,37 +54,21 @@
               <tbody>
                 <tr ng-repeat="item in items track by $index">
                   <td>
-                    <div>
+                    <div class="text-center">
                       {{($index + 1)+((formData.page-1)*maxRow)}}
                     </div>
                   </td>
                   <td>
-                    <div>
-                      <span>{{item.title}}</span>
+                    <div class="text-center">
+                      <span>{{item.albumTitle}}</span>
                     </div>
                   </td>
                   <td>
-                    <div>
-                      <span>{{item.adPlacement}}</span> | <span>{{item.linkType}}</span>
-                    </div>
-                  </td>
-                  <td>
-                    <div>
-                      <b> {{item.status}}</b>
-                    </div>
-                  </td>
-                  <td>
-                    <div>
-                      <p title="{{item.desktop.adLink}}"><b>Desktop</b></span> - <span>{{item.desktop.adLink | truncate:25}}</p>
-                      <p title="{{item.mobile.mobileLink}}"><b>Mobile</b></span> - <span>{{item.mobile.mobileLink | truncate:25}}</p>
-                    </div>
-                  </td>
-                  <td>
-                    <div>
-                        <a class="btn btn-primary" target="_new" ui-sref="detailadgallery({id:item._id})">
+                    <div class="text-center">
+                      <a class="btn btn-primary" target="_new" ui-sref="detailfeaturedgallery({id:item._id})">
                             <i class="fa fa-pencil"></i> 
                           </a>
-                          <a class="btn btn-danger" ng-click="confirmDelete(item._id)">
+                      <a class="btn btn-danger" ng-click="confirmDelete(item._id)">
                             <i class="fa fa-trash"></i> 
                         </a>
                     </div>

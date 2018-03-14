@@ -14,7 +14,9 @@ myApp.service('saveService', function ($http, TemplateService, $state, toastr, $
       } else {
         toastr.error("Something went wrong", "Error");
       }
-    })
-  }
+    });
+  };
+
+
 
 });

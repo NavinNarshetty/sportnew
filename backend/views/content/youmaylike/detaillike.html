@@ -1,13 +1,3 @@
-<div class="heading-sec">
-  <div class="row">
-    <div class="col-md-12 col-sm-12 col-xs-12 column">
-      <div class="heading-profile">
-        <h2>{{title}} Ad Banner</h2>
-      </div>
-    </div>
-  </div>
-</div>
-
 <!-- Top Bar Chart -->
 <div class="panel-content">
   <div class="row">
@@ -20,12 +10,12 @@
               <!-- CITY -->
               <div class="col-md-12">
                 <div class="form-group">
-                  <label for="">Status</label>
+                  <label for="">CITY</label>
                   <select name="status" id="status" ng-model="formData.city" class="form-control">
-                    <option value="All">All</option>
-                    <option value="Mumbai">Mumbai</option>
-                    <option value="Hyderabad">Hyderabad</option>
-                  </select>
+                      <option value="All">All</option>
+                      <option value="Mumbai">Mumbai</option>
+                      <option value="Hyderabad">Hyderabad</option>
+                    </select>
                 </div>
               </div>
               <!-- CITY -->
@@ -49,28 +39,16 @@
               </div>
               <!-- TITLE END -->
 
-              <!-- STATUS -->
-              <div class="col-md-12">
-                <div class="form-group">
-                  <label for="">Status</label>
-                  <select name="status" id="status" ng-model="formData.status" class="form-control">
-                      <option value="enable">Enable</option>
-                      <option value="disable">Disable</option>
-                    </select>
-                </div>
-              </div>
-              <!-- STATUS -->
-
               <!-- LINK TYPE -->
               <div class="col-md-12">
                 <div class="form-group">
                   <label for="linktype">Link Type</label>
                   <select name="linktype" id="linktype" ng-model="formData.linkType" class="form-control">
-                      <option value="internal">INTERNAL</option>
-                      <option value="external">EXTERNAL</option>
-                      <option value="videolink">VIDEO LINK</option>
-                      <option value="nolink">NO LINK</option>
-                    </select>
+                        <option value="internal">INTERNAL</option>
+                        <option value="external">EXTERNAL</option>
+                        <option value="videolink">VIDEO LINK</option>
+                        <option value="nolink">NO LINK</option>
+                      </select>
                 </div>
               </div>
               <!-- LINK TYPE END -->
@@ -78,8 +56,8 @@
               <!-- UPLOAD FILE -->
               <div class="col-md-12">
                 <div class="form-group">
-                  <label>Ad Banner</label>
-                  <span> -<strong>Note:</strong> <span>For desktop size <strong>1170 x 130</strong> </span> </span>
+                  <label>Desktop Image</label>
+                  <span> -<strong>Note:</strong> <span class="hide">For desktop size <strong>1170 x 130</strong> </span>                  </span>
                   <upload-image ng-model="formData.desktop.adBanner"></upload-image>
                 </div>
               </div>
@@ -88,30 +66,14 @@
               <!-- AD LINK -->
               <div class="col-md-12" ng-if="formData.linkType !='nolink'">
                 <div class="form-group">
-                  <label>Ad Link</label> <span><b>For eg:https://player.vimeo.com/video/255187744?autoplay=1&loop=1&autopause=0</b></span>
+                  <label>Desktop Link</label> - <span ng-if="formData.linkType =='videolink'"><b>For eg:https://player.vimeo.com/video/255187744?autoplay=1&loop=1&autopause=0</b></span>
                   <!-- <p class="m-clear">Note:<b>If you want autoplay for the videos </b> </p> -->
-                  <!-- <span>Please add the following link-https://player.vimeo.com/video/255187744?autoplay=1&loop=1&autopause=0</span> -->
+                  <!-- <span >Please add the following link-https://player.vimeo.com/video/255187744?autoplay=1&loop=1&autopause=0</span> -->
                   <input type="text" name="adlink" ng-model="formData.desktop.adLink" id="" class="form-control" placeholder="Enter Link" required>
                   <div class="error-msg" ng-if="detailAdForm.adlink.$invalid && detailAdForm.adlink.$touched">Please Enter Valid Link *</div>
                 </div>
               </div>
               <!-- AD LINK END -->
-
-              <!-- PLACEMENT -->
-              <div class="col-md-12">
-                <div class="form-group">
-                  <label>Ad Placement</label>
-                  <select name="adplacement" id="" class="form-control" title="Please enter the placement" ng-model="formData.adPlacement"
-                    required>
-                      <option value="1stbanner">1st Banner-(Top)</option>
-                      <option value="2ndbanner">2nd Banner-(Middle)</option>
-                      <option value="3rdbanner">3rd Banner-(Bottom)</option>
-                    </select>
-                </div>
-              </div>
-              <!-- PLACEMENT END -->
-
-
 
               <!-- *****************************MOBILE****************************************** -->
               <div class="text-center col-md-12">
@@ -119,10 +81,11 @@
               </div>
 
               <!-- MOBILE LINK -->
-              <div class="col-md-12">
+              <div class="col-md-12" ng-if="formData.linkType !='nolink'">
                 <div class="form-group">
-                  <label>Ad Link</label> <span><b>For eg:https://player.vimeo.com/video/255187744?autoplay=1&loop=1&autopause=0</b></span>
-                  <input type="text" name="mobilelink" ng-model="formData.mobile.mobileLink" class="form-control" id="" required>
+                  <label>Mobile Link</label> - <span ng-if="formData.linkType =='videolink'"><b>For eg:https://player.vimeo.com/video/255187744?autoplay=1&loop=1&autopause=0</b></span>
+                  <input type="text" name="mobilelink" ng-model="formData.mobile.mobileLink" class="form-control" id="" placeholder="Enter Link"
+                    required>
                   <div class="error-msg" ng-if="detailAdForm.mobilelink.$invalid && detailAdForm.mobilelink.$touched">Please Enter Valid Link *</div>
                 </div>
               </div>
@@ -131,8 +94,8 @@
               <!-- MOBILE UPLOAD -->
               <div class="col-md-12">
                 <div class="form-group">
-                  <label>Mobile Ad Banner</label>
-                  <span>-<strong>Note:</strong> <span>For Mobile size <strong>1180 x 511</strong> </span> </span>
+                  <label>Mobile Image</label>
+                  <span>-<strong>Note:</strong> <span class="hide">For Mobile size <strong>1180 x 511</strong> </span> </span>
                   <upload-image ng-model="formData.mobile.mobileAdBanner"></upload-image>
                 </div>
               </div>
@@ -142,7 +105,7 @@
               <div class="col-md-12">
                 <div class="text-center mt20 odd-even-button">
                   <button class="btn btn-default" type="submit" ng-click="saveData(formData)">Save</button>
-                  <button class="btn btn-default" ui-sref="adgallery">Cancel</button>
+                  <button class="btn btn-default" ui-sref="like">Cancel</button>
                 </div>
               </div>
               <!-- BUTTON END -->

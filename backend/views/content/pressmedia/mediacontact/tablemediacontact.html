@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col-md-12 col-sm-12 col-xs-12">
       <div class="heading-profile">
-        <h4 class="m-clear">AD VIDEO</h4>
+        <h4 class="m-clear">Media Contact</h4>
       </div>
     </div>
   </div>
@@ -21,11 +21,11 @@
           <div class="table-widget">
             <div class="row">
               <div class="col-md-5 col-sm-6 col-xs-12">
-                <h5 class="m-clear">List of Ad Video <span>Total :</span> <span></span></h5>
+                <h5 class="m-clear">List of Media Contact <span>Total :</span> <span></span></h5>
               </div>
               <div class="col-md-7 col-sm-6 col-xs-12">
                 <div class="widget-holder text-right">
-                  <button type="submit" class="btn btn-success" ui-sref="detailadvideo">Create</button>
+                  <button type="submit" class="btn btn-success" ui-sref="detailmediacontact">Create</button>
                 </div>
               </div>
             </div>
@@ -47,17 +47,7 @@
                 </th>
                 <th>
                   <div>
-                    Placement/link-type
-                  </div>
-                </th>
-                <th>
-                  <div>
-                    status / city
-                  </div>
-                </th>
-                <th>
-                  <div>
-                    Link
+                    Designation
                   </div>
                 </th>
                 <th>
@@ -69,38 +59,26 @@
               <tbody>
                 <tr ng-repeat="item in items track by $index">
                   <td>
-                    <div>
+                    <div class="text-center">
                       {{($index + 1)+((formData.page-1)*maxRow)}}
-                      <!-- <img ng-src="{{item.desktop.adBanner | uploadpath}}" alt="" class="img-responsive"> -->
                     </div>
                   </td>
                   <td>
-                    <div>
-                      <span>{{item.title}}</span>
+                    <div class="text-center">
+                      <span>{{item.name}}</span>
                     </div>
                   </td>
                   <td>
-                    <div>
-                      <span>{{item.adPlacement}}</span> | <span>{{item.linkType}}</span>
+                    <div class="text-center">
+                      <span>{{item.designation}}</span>
                     </div>
                   </td>
                   <td>
-                    <div>
-                      <span><b> {{item.status}}</b></span> / <span>{{item.city}}</span>
-                    </div>
-                  </td>
-                  <td>
-                    <div>
-                      <p title="{{item.desktop.adLink}}"><b>Desktop</b></span> - <span>{{item.desktop.adLink | truncate:25}}</p>
-                      <p title="{{item.mobile.mobileLink}}"><b>Mobile</b></span> - <span>{{item.mobile.mobileLink | truncate:25}}</p>
-                    </div>
-                  </td>
-                  <td>
-                    <div>
-                        <a class="btn btn-primary" target="_new" ui-sref="detailadvideo({id:item._id})">
+                    <div class="text-center">
+                      <a class="btn btn-primary" target="_new" ui-sref="detailmediacontact({id:item._id})">
                             <i class="fa fa-pencil"></i> 
                           </a>
-                          <a class="btn btn-danger" ng-click="confirmDelete(item._id)">
+                      <a class="btn btn-danger" ng-click="confirmDelete(item._id)">
                             <i class="fa fa-trash"></i> 
                         </a>
                     </div>

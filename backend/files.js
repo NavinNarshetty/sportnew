@@ -35,6 +35,7 @@ module.exports = [
     'bower_components/textAngular/dist/textAngular-rangy.min.js',
     'bower_components/textAngular/dist/textAngular-sanitize.min.js',
     'bower_components/textAngular/dist/textAngular.min.js',
+    'bower_components/angular-ui-date/dist/date.js',
 
     //App.js
     'backend/js/app.js',
@@ -62,4 +63,6 @@ module.exports = [
     'backend/js/controllers/adbanners.js',
     'backend/js/controllers/cityrulecontroller.js',
     'backend/js/controllers/featured.js',
+    'backend/js/controllers/youmaylike.js',
+    'backend/js/controllers/pressmedia.js',
 ];

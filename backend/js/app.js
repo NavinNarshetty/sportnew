@@ -17,7 +17,8 @@ var myApp = angular.module('myApp', [
     'ngMap',
     'toggle-switch',
     'cfp.hotkeys',
-    'ui.sortable'
+    'ui.sortable',
+    'ui.date'
 ]);
 
 myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider) {
@@ -129,13 +130,59 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
         })
 
         .state('detailcityrule', {
-            url: "/detailcityrule",
+            url: "/detailcityrule/:city/:type/:id",
             templateUrl: "views/template.html",
             controller: 'DetailCityRuleCtrl'
         })
 
         // ***************CITY RULE END**************
 
+
+        // *************** YOU MAY ALSO LIKE **********
+        .state('like', {
+            url: "/like",
+            templateUrl: "views/template.html",
+            controller: 'MaylikeCtrl'
+        })
+
+        .state('detaillike', {
+            url: "/detaillike/:id",
+            templateUrl: "views/template.html",
+            controller: 'DetailmaylikeCtrl'
+        })
+
+
+        // *************** YOU MAY ALSO LIKE END **********
+
+
+        // *************** PRESS MEDIA *******************
+
+        .state('mediacontact', {
+            url: "/mediacontact",
+            templateUrl: "views/template.html",
+            controller: 'mediaContactCtrl'
+        })
+
+        .state('detailmediacontact', {
+            url: "/detailmediacontact/:id",
+            templateUrl: "views/template.html",
+            controller: 'detailMediaContactCtrl'
+        })
+
+        .state('pressreleases', {
+            url: "/pressreleases",
+            templateUrl: "views/template.html",
+            controller: 'pressReleasesCtrl'
+        })
+
+        .state('detailpressreleases', {
+            url: "/detailpressreleases/:id",
+            templateUrl: "views/template.html",
+            controller: 'detailPressReleasesCtrl'
+        })
+
+
+        // *************** PRESS MEDIA END***************
 
         .state('schema-creator', {
             url: "/schema-creator",

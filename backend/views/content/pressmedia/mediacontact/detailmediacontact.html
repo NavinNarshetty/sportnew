@@ -1,0 +1,74 @@
+<div class="heading-sec">
+  <div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12 column">
+      <div class="heading-profile">
+        <h2>{{title}} Media Contact</h2>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Top Bar Chart -->
+<div class="panel-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="widget">
+        <div class="form-elements-sec">
+          <form name="detailAdForm" role="form" class="sec">
+            <div class="row">
+              <!-- NAME -->
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label>Name</label>
+                  <input type="text" name="name" ng-model="formData.name" class="form-control" placeholder="Enter Title" required>
+                  <div class="error-msg" ng-if="detailAdForm.name.$invalid && detailAdForm.name.$touched">Please Enter Valid Name *</div>
+                </div>
+              </div>
+              <!-- NAME END -->
+
+              <!-- DESIGNATION -->
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label>Designation</label>
+                  <input type="text" name="designation" ng-model="formData.designation" class="form-control" placeholder="Enter Title" required>
+                  <div class="error-msg" ng-if="detailAdForm.designation.$invalid && detailAdForm.designation.$touched">Please Enter Valid Designation *</div>
+                </div>
+              </div>
+              <!-- DESIGNATION END -->
+
+              <!-- MOBILE NO -->
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label>Mobile No</label>
+                  <input type="text" name="mobileno" ng-model="formData.mobileNo" class="form-control" placeholder="Enter Title" required>
+                  <div class="error-msg" ng-if="detailAdForm.mobileno.$invalid && detailAdForm.mobileno.$touched">Please Enter Valid Mobile no *</div>
+                </div>
+              </div>
+              <!-- MOBILE NO END -->
+
+              <!-- EMAIL -->
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label>Email Id</label>
+                  <input type="text" name="email" ng-model="formData.emailId" class="form-control" placeholder="Enter Title" required>
+                  <div class="error-msg" ng-if="detailAdForm.email.$invalid && detailAdForm.email.$touched">Please Enter Valid Email *</div>
+                </div>
+              </div>
+              <!-- EMAIL END -->
+
+              <!-- BUTTON -->
+              <div class="col-md-12">
+                <div class="text-center mt20 odd-even-button">
+                  <button class="btn btn-default" type="submit" ng-click="saveData(formData)">Save</button>
+                  <button class="btn btn-default" ui-sref="mediacontact">Cancel</button>
+                </div>
+              </div>
+              <!-- BUTTON END -->
+
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

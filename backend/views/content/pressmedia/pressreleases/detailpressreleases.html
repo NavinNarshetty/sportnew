@@ -1,0 +1,97 @@
+<div class="heading-sec">
+  <div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12 column">
+      <div class="heading-profile">
+        <h2>{{title}} Media Contact</h2>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Top Bar Chart -->
+<div class="panel-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="widget">
+        <div class="form-elements-sec">
+          <form name="detailpressForm" role="form" class="sec">
+            <div class="row">
+              <!-- <pre>{{ detailpressForm | json }}</pre> -->
+              <!-- CITY -->
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="city">City</label>
+                    <select name="city" id="city" ng-model="formData.city" class="form-control" required>
+                            <option value="all">All</option>
+                            <option value="mumbai">Mumbai</option>
+                            <option value="hyderabad">Hyderabad</option>
+                      </select>
+                    <div class="error-msg" ng-if="detailpressForm.city.$invalid && detailpressForm.city.$touched">Please Enter Valid City *</div>
+                  </div>
+                </div>
+              </div>
+              <!-- CITY END -->
+
+              <!-- DATE -->
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label>Date</label>
+                  <input ui-date="dateOptions" name="releasedate" ng-model="formData.releaseDate" class="form-control" placeholder="Enter Date"
+                    ng-required="true">
+                  <div class="error-msg" ng-if="detailpressForm.date.$invalid && detailpressForm.date.$touched">Please Enter Valid Date *</div>
+                </div>
+              </div>
+              <!-- DATE END-->
+
+              <!-- NAME -->
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label>Title</label>
+                  <input type="text" name="title" ng-model="formData.title" class="form-control" placeholder="Enter Title" required>
+                  <div class="error-msg" ng-if="detailpressForm.title.$invalid && detailpressForm.title.$touched">Please Enter Valid Title *</div>
+                </div>
+              </div>
+              <!-- NAME END -->
+
+              <!-- DESCRIPTION -->
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="">Header Description</label>
+                  <div class="textholder tinymce">
+                    <text-angular ng-model="formData.description" name="description" required></text-angular>
+                    <div class="error-msg" ng-if="detailpressForm.description.$invalid && detailpressForm.description.$touched">Please Enter Valid Description *</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- DESCRIPTION END -->
+
+              <!-- CONTENT -->
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="">Content</label>
+                  <div class="textholder tinymce">
+                    <text-angular ng-model="formData.content" name="content" required></text-angular>
+                    <div class="error-msg" ng-if="detailpressForm.content.$invalid && detailpressForm.content.$touched">Please Enter Valid Content *</div>
+                  </div>
+                </div>
+              </div>
+              <!-- CONTENT END -->
+
+              <!-- BUTTON -->
+              <div class="col-md-12">
+                <div class="text-center mt20 odd-even-button">
+                  <button class="btn btn-default" type="submit" ng-click="saveData(formData)">Save</button>
+                  <button class="btn btn-default" ui-sref="pressreleases">Cancel</button>
+                </div>
+              </div>
+              <!-- BUTTON END -->
+
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

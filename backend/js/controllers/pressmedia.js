@@ -1,9 +1,9 @@
-// TABLE FEATURED GALLERY
-
-myApp.controller('featuredGalleryCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $state, toastr, $uibModal, deleteService) {
+// TABLE MEDIA CONTACT
+// TABLE GALLERY
+myApp.controller('mediaContactCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $state, toastr, $uibModal, deleteService) {
   //Used to name the .html file
-  $scope.template = TemplateService.changecontent("feature/featuregallery/tablefeaturegallery");
-  $scope.menutitle = NavigationService.makeactive("Featured Gallery");
+  $scope.template = TemplateService.changecontent("pressmedia/mediacontact/tablemediacontact");
+  $scope.menutitle = NavigationService.makeactive("Media Contact");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
 
@@ -27,10 +27,8 @@ myApp.controller('featuredGalleryCtrl', function ($scope, TemplateService, Navig
 
   // VIEW TABLE
   $scope.viewTable = function () {
-    $scope.url = "FeatureContent/search";
+    $scope.url = "Mediacontact/search";
     $scope.formData.page = $scope.formData.page++;
-    $scope.formData.filter = {}
-    $scope.formData.filter.mediaType = 'gallery';
     NavigationService.apiCall($scope.url, $scope.formData, function (data) {
       console.log("data.value", data);
       $scope.items = data.data.results;
@@ -41,40 +39,30 @@ myApp.controller('featuredGalleryCtrl', function ($scope, TemplateService, Navig
   $scope.viewTable();
   // VIEW TABLE
 
-
   // DELETE
   $scope.deleteService = deleteService;
-  var url = "FeatureContent/delete";
+  var url = "Mediacontact/delete";
   $scope.confirmDelete = function (data) {
     deleteService.confirmDelete(data, url, $scope);
   }
   // DELETE END
 });
-// TABLE FEATURED GALLERY END
+// TABLE MEDIA CONTACT END
 
-
-// DETAIL FEATURED GALLERY
-myApp.controller('detailFeaturedGalleryCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $state, toastr, $uibModal, deleteService, saveService) {
+// DETAIL MEDIA CONTACT
+myApp.controller('detailMediaContactCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $state, toastr, $uibModal, deleteService, saveService) {
   //Used to name the .html file
-  $scope.template = TemplateService.changecontent("feature/featuregallery/detailfeaturegallery");
-  $scope.menutitle = NavigationService.makeactive("Detail Featured Gallery");
+  $scope.template = TemplateService.changecontent("pressmedia/mediacontact/detailmediacontact");
+  $scope.menutitle = NavigationService.makeactive("Media Contact");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
-
-
   $scope.title = 'Create';
-  $scope.formData = {};
-  $scope.formData.featuredContentGallery = [];
-
-
-  // DEFAULT VARIABLES
-  $scope.formData.mediaType = 'gallery';
 
 
   // GET ONE
   if ($stateParams.id) {
     $scope.title = 'Edit';
-    $scope.url = "FeatureContent/getOne"
+    $scope.url = "Mediacontact/getOne"
     $scope.constraints = {};
     $scope.constraints._id = $stateParams.id;
     $scope.getOneAdGallery = function () {
@@ -87,57 +75,30 @@ myApp.controller('detailFeaturedGalleryCtrl', function ($scope, TemplateService,
   }
   // GET ONE END
 
-  $scope.addRow = function (formData) {
-    if (!formData) {
-      $scope.formData.featuredContentGallery.push({
-        "image": '',
-        "title": '',
-        "thumbnail": ''
-      })
-    } else {
-      formData.featuredContentGallery.push({
-        "image": '',
-        "title": '',
-        "thumbnail": ''
-      })
-    }
-
-
-  }
-  $scope.addRow();
-
-  $scope.deleteRow = function (formData, index) {
-    console.log("index", index);
-    formData.featuredContentGallery.splice(index, 1);
-  }
 
   // SAVE FUNCTION
-  var state = 'featuredgallery'
-  var url = 'FeatureContent/Save'
+  var state = 'mediacontact'
+  var url = 'Mediacontact/Save'
   $scope.saveData = function (data) {
-    // console.log(data, "save data");
     saveService.saveData(data, url, state);
-
   }
   // SAVE FUNCTION END
-
 });
-// DETAIL FEATURED GALLERY END
+// DETAIL MEDIA CONTACT END
 
-// TABLE FEATURED VIDEO
-
-myApp.controller('featuredVideoCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $state, toastr, $uibModal, deleteService) {
+// TABLE PRESS RELEASES
+myApp.controller('pressReleasesCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $state, toastr, $uibModal, deleteService) {
   //Used to name the .html file
-  $scope.template = TemplateService.changecontent("feature/featurevideo/tablefeaturevideo");
-  $scope.menutitle = NavigationService.makeactive("Featured Video");
+  $scope.template = TemplateService.changecontent("pressmedia/pressreleases/tablepressreleases");
+  $scope.menutitle = NavigationService.makeactive("Press Releases");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
 
+  // VAR
   $scope.formData = {};
   $scope.formData.page = 1;
   $scope.formData.type = '';
   $scope.formData.keyword = '';
-
 
   // SEARCHTABLE
   $scope.searchInTable = function (data) {
@@ -153,10 +114,8 @@ myApp.controller('featuredVideoCtrl', function ($scope, TemplateService, Navigat
 
   // VIEW TABLE
   $scope.viewTable = function () {
-    $scope.url = "FeatureContent/search";
+    $scope.url = "Pressrelease/search";
     $scope.formData.page = $scope.formData.page++;
-    $scope.formData.filter = {}
-    $scope.formData.filter.mediaType = 'video';
     NavigationService.apiCall($scope.url, $scope.formData, function (data) {
       console.log("data.value", data);
       $scope.items = data.data.results;
@@ -167,85 +126,66 @@ myApp.controller('featuredVideoCtrl', function ($scope, TemplateService, Navigat
   $scope.viewTable();
   // VIEW TABLE
 
-
   // DELETE
   $scope.deleteService = deleteService;
-  var url = "FeatureContent/delete";
+  var url = "Pressrelease/delete";
   $scope.confirmDelete = function (data) {
     deleteService.confirmDelete(data, url, $scope);
   }
   // DELETE END
-});
+})
+// TABLE PRESS RELEASES END
 
-// TABLE FEATURED VIDEO END
 
-// DETAIL FEATURED VIDEO
-
-myApp.controller('detailFeaturedVideoCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $state, toastr, $uibModal, deleteService, saveService) {
+// DETAIL PRESS RELEASES
+myApp.controller('detailPressReleasesCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $state, toastr, $uibModal, deleteService, saveService) {
   //Used to name the .html file
-  $scope.template = TemplateService.changecontent("feature/featurevideo/detailfeaturevideo");
-  $scope.menutitle = NavigationService.makeactive("Detail Featured Video");
+  $scope.template = TemplateService.changecontent("pressmedia/pressreleases/detailpressreleases");
+  $scope.menutitle = NavigationService.makeactive("Press Releases");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
-
-  // VARIABLES
   $scope.title = 'Create';
+
   $scope.formData = {};
-  $scope.formData.featuredContentVideo = [];
-  // DEFAULT VARIABLES
-  $scope.formData.mediaType = 'video';
+  $scope.formData.releaseDate = ''
+
+  // UI DATE PICKER
+  $scope.dateOptions = {
+    dateFormat: "dd/mm/yy",
+    changeYear: true,
+    changeMonth: true,
+    yearRange: "1900:2050"
+  };
+
+  $scope.dateSet = function (data) {
+    console.log(data);
+    $scope.formData.releaseDate = data;
+  }
+  // UI DATE PICKER END
+
 
   // GET ONE
-  if ($stateParams.id) {
+  if ($stateParams.id != '') {
     $scope.title = 'Edit';
-    $scope.url = "FeatureContent/getOne"
+    $scope.url = "Pressrelease/getOne"
     $scope.constraints = {};
     $scope.constraints._id = $stateParams.id;
-    $scope.getOneAdGallery = function () {
+    $scope.getOneData = function () {
       NavigationService.apiCall($scope.url, $scope.constraints, function (data) {
         console.log(data, "get on data");
         $scope.formData = data.data;
       })
     }
-    $scope.getOneAdGallery();
+    $scope.getOneData();
   }
   // GET ONE END
 
-
-
-
   // SAVE FUNCTION
-  var state = 'featuredvideo'
-  var url = 'FeatureContent/Save'
+  var state = 'pressreleases'
+  var url = 'Pressrelease/Save'
   $scope.saveData = function (data) {
-    // console.log(data, "save data");
     saveService.saveData(data, url, state);
-
   }
   // SAVE FUNCTION END
-
-
-  $scope.addRow = function (formData) {
-    if (!formData) {
-      $scope.formData.featuredContentVideo.push({
-        "source": '',
-        "link": '',
-      })
-    } else {
-      formData.featuredContentVideo.push({
-        "source": '',
-        "link": '',
-      })
-    }
-
-
-  }
-  $scope.addRow();
-
-  $scope.deleteRow = function (formData, index) {
-    console.log("index", index);
-    formData.featuredContentVideo.splice(index, 1);
-  }
-});
-
-// DETAIL FEATURED VIDEO END
+})
+// DETAIL PRESS RELEASES END

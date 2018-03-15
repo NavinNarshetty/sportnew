@@ -74,4 +74,5 @@ module.exports = [
   'frontend/js/controllers/gallery.js',
   'frontend/js/controllers/liveUpdateController.js',
   'frontend/js/controllers/matchvideos.js',
+  'frontend/js/controllers/sportpage-controller.js',
 ];

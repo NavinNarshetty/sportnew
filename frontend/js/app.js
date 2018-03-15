@@ -127,6 +127,11 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
             url: "/matchvideo",
             templateUrl: tempateURL,
             controller: 'MatchVideoCtrl'
+        })
+        .state('sportpage', {
+            url: "/sport",
+            templateUrl: tempateURL,
+            controller: 'SportPageCtrl'
         });
     $urlRouterProvider.otherwise("/");
     $locationProvider.html5Mode(isproduction);

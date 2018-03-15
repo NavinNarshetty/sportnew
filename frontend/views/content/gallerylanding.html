@@ -69,8 +69,27 @@
       <!-- HEADER END -->
 
       <!-- SCHOOL / COLLEGE CONTENT -->
-      <div class="gallery-sfachampions-schoolcollege" ng-repeat="championCard in sfaChampions track by $index">
-        <h3 class="fjalla-one text-uppercase">{{championCard.name}}</h3>
+      <div class="gallery-sfachampions-schoolcollege">
+        <h3 class="fjalla-one text-uppercase">SCHOOL</h3>
+        <div class="row">
+          <div class="col-md-3 col-sm-6 col-xs-12" ng-repeat="album in schoolAlbums track by $index">
+            <div class="album-holder">
+              <div class="album-pic-holder" style="background-image:url('{{album.mediaLink | mediapathtwo}}')">
+              </div>
+              <div class="album-title-holder">
+                <p class="fjalla-one text-capitalize m-clear album-subtitle ">{{album.eventTitle}}</p>
+                <p class="galleryalbum-count"><span>
+                 <i class="fa fa-picture-o color-darkgrey"></i></span><span> <span>{{album.totalCount}}</span> <span>Albums</span></span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- SCHOOL  CONTENT END -->
+      <!--  COLLEGE CONTENT -->
+      <!-- <div class="gallery-sfachampions-schoolcollege">
+        <h3 class="fjalla-one text-uppercase">COLLEGE</h3>
         <div class="row">
           <div class="col-md-3 col-sm-6 col-xs-12" ng-repeat="yearCard in championCard.sfaCards track by $index">
             <div class="album-holder">
@@ -85,8 +104,8 @@
             </div>
           </div>
         </div>
-      </div>
-      <!-- SCHOOL / COLLEGE CONTENT END -->
+      </div> -->
+      <!-- COLLEGE CONTENT END -->
 
     </div>
     <!-- SFA CHAMPIONS END -->
@@ -108,11 +127,11 @@
       </div>
       <div class="gallery-landing-photovideoholder">
         <div class="row" masonry preserve-order>
-          <div class="col-md-4 col-sm-4 col-xs-6 masonry-brick" ng-repeat="galleryImage in Images track by $index">
+          <div class="col-md-4 col-sm-4 col-xs-6 masonry-brick" ng-repeat="galleryImage in photosVideos track by $index">
             <div class="photovideo-galleryimage relate pointer">
-              <img ng-src="img/{{galleryImage.img}}" alt="| Sport For All" class="img-responsive" ng-if="galleryImage.type==='photo'">
-              <img ng-src="img/{{galleryImage.thumbnail}}" alt="| Sport For All" class="img-responsive" ng-if="galleryImage.type==='video'">
-              <div class="absolute video-playbtn" ng-if="galleryImage.type==='video'">
+              <img ng-src="{{galleryImage.mediaLink | mediapathtwo}} " alt="| Sport For All" class="img-responsive" ng-if="galleryImage.mediatype =='photo'">
+              <img ng-src="{{galleryImage.thumbnail}}" alt="| Sport For All" class="img-responsive" ng-if="galleryImage.mediatype==='video'">
+              <div class="absolute video-playbtn" ng-if="galleryImage.mediatype =='video'">
                 <div class="vide-customplay">
                   <i class="fa fa-play"></i>
                 </div>

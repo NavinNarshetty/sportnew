@@ -1738,4 +1738,26 @@ $sport-primary: #0a1a72 !default;
 
 .featurevideo-sportsholder {
     margin: 40px 0px;
-} // FEATURED VIDEO END
+}
+// FEATURED VIDEO END
+// PRESSMEDIA PAGE
+// PRESSMEDIA NAV
+.pressmedia-nav{
+  .landingnav-option{
+    padding: 5px 10px;
+    margin: 5px;
+    font-size: 15px;
+    cursor: pointer;
+    &.active{
+      border-bottom: 3px solid #27b465;
+      font-weight: 700;
+    }
+  }
+}
+// PRESSMEDIA NAV END
+// PRESSMEDIA MAIN PAGE
+.pressmedia-page{
+  min-height: 100vh;
+}
+// PRESSMEDIA MAIN PAGE END
+// PRESSMEDIA PAGE END

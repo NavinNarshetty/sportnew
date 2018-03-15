@@ -1,0 +1,25 @@
+<div class="pressmedia-page">
+  <!-- HEADER -->
+  <section class="pressmedia-header"></section>
+  <!-- HEADER END -->
+  <!-- MEDIA NAV -->
+  <section class="pressmedia-nav">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="pressmedia-navscroll">
+            <ul class="list-inline text-uppercase">
+              <li class="landingnav-option" ng-click="getTab(0);" ng-class="{'active': pressmedia.active=='inthenews'}">in the news</li>
+              <li class="landingnav-option" ng-click="getTab(1);" ng-class="{'active': pressmedia.active=='pressreleases'}">press releases</li>
+              <li class="landingnav-option" ng-click="getTab(2);" ng-class="{'active': pressmedia.active=='mediacontact'}">media contact</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- MEDIA NAV END -->
+  <!-- PRESS MEDIA CONTENT -->
+  <div class="pressmedia-content" ng-include="pressmedia.innerView"></div>
+  <!-- PRESS MEDIA CONTENT END -->
+</div>

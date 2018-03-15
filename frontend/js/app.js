@@ -132,6 +132,18 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
             url: "/sport",
             templateUrl: tempateURL,
             controller: 'SportPageCtrl'
+        })
+        .state('pressmedia-without', {
+            url: "/pressmedia",
+            templateUrl: tempateURL,
+            controller: 'PressMediaCtrl',
+            reloadOnSearch: false
+        })
+        .state('pressmedia', {
+            url: "/pressmedia/:name",
+            templateUrl: tempateURL,
+            controller: 'PressMediaCtrl',
+            reloadOnSearch: false
         });
     $urlRouterProvider.otherwise("/");
     $locationProvider.html5Mode(isproduction);

@@ -144,6 +144,11 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
             templateUrl: tempateURL,
             controller: 'PressMediaCtrl',
             reloadOnSearch: false
+        })
+        .state('pressarticle', {
+            url: "/pressmedia/pressreleases/article",
+            templateUrl: tempateURL,
+            controller: 'PressArticleCtrl'
         });
     $urlRouterProvider.otherwise("/");
     $locationProvider.html5Mode(isproduction);

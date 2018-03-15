@@ -92,14 +92,19 @@ myApp.factory('NavigationService', function ($http) {
                     sref: "",
                     icon: "phone",
                     subnav: [{
-                        name: "Media Contact",
+                        name: "Press News",
                         classis: "activeColor",
-                        sref: "#!/mediacontact",
+                        sref: "#!/pressnews",
                         icon: "phone",
                     }, {
                         name: "Press Releases",
                         classis: "activeColor",
                         sref: "#!/pressreleases",
+                        icon: "phone",
+                    }, {
+                        name: "Media Contact",
+                        classis: "activeColor",
+                        sref: "#!/mediacontact",
                         icon: "phone",
                     }]
                 }

@@ -1,5 +1,5 @@
 // TABLE GALLERY
-myApp.controller('MaylikeCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $state, toastr, $uibModal, deleteService) {
+myApp.controller('MaylikeCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $state, toastr, $uibModal, deleteService, crudService) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("youmaylike/tablelike");
   $scope.menutitle = NavigationService.makeactive("You May Like");
@@ -39,51 +39,45 @@ myApp.controller('MaylikeCtrl', function ($scope, TemplateService, NavigationSer
   // VIEW TABLE
 
   // DELETE
-  $scope.deleteService = deleteService;
+  $scope.crudService = crudService;
   var url = "Youmaylike/delete";
   $scope.confirmDelete = function (data) {
-    deleteService.confirmDelete(data, url, $scope);
+    crudService.confirmDelete(data, url, $scope);
   }
   // DELETE END
 });
 // TABLE GALLERY END
 
 // DETAIL GALLERY
-myApp.controller('DetailmaylikeCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $state, toastr, $uibModal, deleteService, saveService) {
+myApp.controller('DetailmaylikeCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $state, toastr, $uibModal, deleteService, saveService, crudService) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("youmaylike/detaillike");
   $scope.menutitle = NavigationService.makeactive("You May Like");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
+  var url = 'Youmaylike'
 
   // VAR
   $scope.formData = {};
   $scope.formData.pageType = 'youmaylike';
 
   // GET ONE
-  // GET ONE
-  if ($stateParams.id != '') {
+  if ($stateParams.id) {
     $scope.title = 'Edit';
-    $scope.url = "Youmaylike/getOne"
-    $scope.constraints = {};
-    $scope.constraints._id = $stateParams.id;
-    $scope.getOneAdGallery = function () {
-      NavigationService.apiCall($scope.url, $scope.constraints, function (data) {
-        console.log(data, "get on data");
-        $scope.formData = data.data;
-      })
-    }
-    $scope.getOneAdGallery();
+    var id = $stateParams.id;
+    crudService.getOneData(url, id, function (data) {
+      if (data) {
+        $scope.formData = data;
+      }
+    })
   }
-  // GET ONE END
   // GET ONE END
 
 
   // SAVE FUNCTION
   var state = 'like'
-  var url = 'Youmaylike/Save'
   $scope.saveData = function (data) {
-    saveService.saveData(data, url, state);
+    crudService.saveData(data, url, state);
   }
   // SAVE FUNCTION END
 

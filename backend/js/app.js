@@ -181,6 +181,17 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
             controller: 'detailPressReleasesCtrl'
         })
 
+        .state('pressnews', {
+            url: "/pressnews",
+            templateUrl: "views/template.html",
+            controller: 'pressNewsCtrl'
+        })
+
+        .state('detailpressnews', {
+            url: "/detailpressnews/:id",
+            templateUrl: "views/template.html",
+            controller: 'DetailPressNewsCtrl'
+        })
 
         // *************** PRESS MEDIA END***************
 

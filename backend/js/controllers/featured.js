@@ -1,6 +1,6 @@
 // TABLE FEATURED GALLERY
 
-myApp.controller('featuredGalleryCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $state, toastr, $uibModal, deleteService) {
+myApp.controller('featuredGalleryCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $state, toastr, $uibModal, deleteService, crudService) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("feature/featuregallery/tablefeaturegallery");
   $scope.menutitle = NavigationService.makeactive("Featured Gallery");
@@ -43,10 +43,10 @@ myApp.controller('featuredGalleryCtrl', function ($scope, TemplateService, Navig
 
 
   // DELETE
-  $scope.deleteService = deleteService;
+  $scope.crudService = crudService;
   var url = "FeatureContent/delete";
   $scope.confirmDelete = function (data) {
-    deleteService.confirmDelete(data, url, $scope);
+    crudService.confirmDelete(data, url, $scope);
   }
   // DELETE END
 });
@@ -54,12 +54,13 @@ myApp.controller('featuredGalleryCtrl', function ($scope, TemplateService, Navig
 
 
 // DETAIL FEATURED GALLERY
-myApp.controller('detailFeaturedGalleryCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $state, toastr, $uibModal, deleteService, saveService) {
+myApp.controller('detailFeaturedGalleryCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $state, toastr, $uibModal, deleteService, saveService, crudService) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("feature/featuregallery/detailfeaturegallery");
   $scope.menutitle = NavigationService.makeactive("Detail Featured Gallery");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
+  var url = 'FeatureContent'
 
 
   $scope.title = 'Create';
@@ -74,16 +75,12 @@ myApp.controller('detailFeaturedGalleryCtrl', function ($scope, TemplateService,
   // GET ONE
   if ($stateParams.id) {
     $scope.title = 'Edit';
-    $scope.url = "FeatureContent/getOne"
-    $scope.constraints = {};
-    $scope.constraints._id = $stateParams.id;
-    $scope.getOneAdGallery = function () {
-      NavigationService.apiCall($scope.url, $scope.constraints, function (data) {
-        console.log(data, "get on data");
-        $scope.formData = data.data;
-      })
-    }
-    $scope.getOneAdGallery();
+    var id = $stateParams.id;
+    crudService.getOneData(url, id, function (data) {
+      if (data) {
+        $scope.formData = data;
+      }
+    })
   }
   // GET ONE END
 
@@ -113,11 +110,8 @@ myApp.controller('detailFeaturedGalleryCtrl', function ($scope, TemplateService,
 
   // SAVE FUNCTION
   var state = 'featuredgallery'
-  var url = 'FeatureContent/Save'
   $scope.saveData = function (data) {
-    // console.log(data, "save data");
-    saveService.saveData(data, url, state);
-
+    crudService.saveData(data, url, state);
   }
   // SAVE FUNCTION END
 
@@ -126,7 +120,7 @@ myApp.controller('detailFeaturedGalleryCtrl', function ($scope, TemplateService,
 
 // TABLE FEATURED VIDEO
 
-myApp.controller('featuredVideoCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $state, toastr, $uibModal, deleteService) {
+myApp.controller('featuredVideoCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $state, toastr, $uibModal, deleteService, crudService) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("feature/featurevideo/tablefeaturevideo");
   $scope.menutitle = NavigationService.makeactive("Featured Video");
@@ -169,10 +163,10 @@ myApp.controller('featuredVideoCtrl', function ($scope, TemplateService, Navigat
 
 
   // DELETE
-  $scope.deleteService = deleteService;
+  $scope.crudService = crudService;
   var url = "FeatureContent/delete";
   $scope.confirmDelete = function (data) {
-    deleteService.confirmDelete(data, url, $scope);
+    crudService.confirmDelete(data, url, $scope);
   }
   // DELETE END
 });
@@ -181,12 +175,13 @@ myApp.controller('featuredVideoCtrl', function ($scope, TemplateService, Navigat
 
 // DETAIL FEATURED VIDEO
 
-myApp.controller('detailFeaturedVideoCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $state, toastr, $uibModal, deleteService, saveService) {
+myApp.controller('detailFeaturedVideoCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $state, toastr, $uibModal, deleteService, saveService, crudService) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("feature/featurevideo/detailfeaturevideo");
   $scope.menutitle = NavigationService.makeactive("Detail Featured Video");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
+  var url = 'FeatureContent';
 
   // VARIABLES
   $scope.title = 'Create';
@@ -198,16 +193,12 @@ myApp.controller('detailFeaturedVideoCtrl', function ($scope, TemplateService, N
   // GET ONE
   if ($stateParams.id) {
     $scope.title = 'Edit';
-    $scope.url = "FeatureContent/getOne"
-    $scope.constraints = {};
-    $scope.constraints._id = $stateParams.id;
-    $scope.getOneAdGallery = function () {
-      NavigationService.apiCall($scope.url, $scope.constraints, function (data) {
-        console.log(data, "get on data");
-        $scope.formData = data.data;
-      })
-    }
-    $scope.getOneAdGallery();
+    var id = $stateParams.id;
+    crudService.getOneData(url, id, function (data) {
+      if (data) {
+        $scope.formData = data;
+      }
+    })
   }
   // GET ONE END
 
@@ -216,11 +207,8 @@ myApp.controller('detailFeaturedVideoCtrl', function ($scope, TemplateService, N
 
   // SAVE FUNCTION
   var state = 'featuredvideo'
-  var url = 'FeatureContent/Save'
   $scope.saveData = function (data) {
-    // console.log(data, "save data");
-    saveService.saveData(data, url, state);
-
+    crudService.saveData(data, url, state);
   }
   // SAVE FUNCTION END
 

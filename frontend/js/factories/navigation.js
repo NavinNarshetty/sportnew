@@ -49,10 +49,17 @@ myApp.factory('NavigationService', function ($http) {
                 method: 'POST'
             }).then(callback);
         },
-        apiCallWithoutParams: function ( url, callback) {
+        apiCallWithoutParams: function (url, callback) {
             $http({
                 url: adminurl + url,
-               method: 'POST'
+                method: 'POST'
+            }).then(callback);
+        },
+        search: function (filter, url, callback) {
+            $http({
+                url: adminurl + url,
+                data: filter,
+                method: 'POST'
             }).then(callback);
         }
     };

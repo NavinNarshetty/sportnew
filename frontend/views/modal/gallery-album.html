@@ -1,0 +1,56 @@
+<div class="album-popup">
+  <div class="modal-header" hidden>
+    <div class="modal-close " ng-click="$dismiss()">
+      <span class="fa fa-times"></span>
+    </div>
+    <h4>{{currentAlbum.albumName}}</h4>
+  </div>
+  <div class="modal-body">
+    <div class="albumview-holder">
+      <div class="albumview-swipper">
+        <!-- ALBUM GALLERY SWIPER -->
+        <div class="albumview-gallery">
+          <div class="swiper-container">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide" ng-repeat="pic in currentAlbum.featuredContentGallery track by $index">
+                <div class="albumview-swiper">
+                  <div class="album-picholder">
+                    <img ng-src="{{pic.image|serverimage}}" alt="Image gallery | {{currentAlbum.title}}" class="img-responsive">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-button-prev albumview-prev"></div>
+            <div class="swiper-button-next albumview-next"></div>
+          </div>
+        </div>
+        <!-- ALBUM GALLERY SWIPER END -->
+        <!-- ALBUM THUMBS SWIPER -->
+        <div class="albumview-thumbs">
+          <div class="swiper-container">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide" ng-repeat="pic in currentAlbum.featuredContentGallery track by $index">
+                <div class="albumview-swiper">
+                  <div class="album-picholder">
+                    <img ng-src="{{pic.image|serverimage}}" alt="Image gallery | {{currentAlbum.title}}" class="img-responsive">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- ALBUM THUMBS SWIPER END -->
+      </div>
+
+      <!-- <div class="row" >
+              <div class="col-md-4 col-sm-4 col-xs-6" ng-repeat="pic in currentAlbum.albumImages track by $index">
+                  <a class="various" href="{{pic.image|uploadpath}}" rel="gallery.{{currentAlbum._id}}" fancybox>
+                      <div class="album-picholder">
+                          <img ng-src="{{pic.image|uploadpath}}" alt="Image gallery | {{currentAlbum.albumName}}" class="img-responsive">
+                      </div>
+                  </a>
+              </div>
+          </div> -->
+    </div>
+  </div>
+</div>

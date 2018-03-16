@@ -29,13 +29,13 @@
         <div class="row">
           <div class="col-md-6 col-sm-6 col-xs-12" ng-repeat="card in feature track by $index">
             <div class="cardholder">
-              <div class="feature-cardholder" ng-repeat="subcard in card.featureCard track by $index">
+              <div class="feature-cardholder" ng-repeat="subcard in card track by $index" ng-click="openAlbumView(subcard);">
                 <div class="card1"></div>
                 <div class="feature-card-image">
-                  <img ng-src="img/{{subcard.img}}" alt="| Sport For All" class="img-responsive">
+                  <img ng-src="{{subcard.image.image|serverimage}}" alt="{{subcard.albumTitle}} | Sport For All" class="img-responsive">
                 </div>
-                <div class="feature-card-footer" title="{{subcard.content}}">
-                  {{subcard.content | truncate:'46'}}
+                <div class="feature-card-footer" title="{{subcard.albumTitle}}">
+                  {{subcard.albumTitle | truncate:'46'}}
                 </div>
                 <div class="card-slip"></div>
                 <div class="card-slip2"></div>
@@ -69,7 +69,7 @@
       <!-- HEADER END -->
 
       <!-- SCHOOL / COLLEGE CONTENT -->
-      <div class="gallery-sfachampions-schoolcollege">
+      <div class="gallery-sfachampions-schoolcollege" ng-if="schoolAlbums.length>0">
         <h3 class="fjalla-one text-uppercase">SCHOOL</h3>
         <div class="row">
           <div class="col-md-3 col-sm-6 col-xs-12" ng-repeat="album in schoolAlbums track by $index">
@@ -88,23 +88,23 @@
       </div>
       <!-- SCHOOL  CONTENT END -->
       <!--  COLLEGE CONTENT -->
-      <!-- <div class="gallery-sfachampions-schoolcollege">
+      <div class="gallery-sfachampions-schoolcollege" ng-if="collegeAlbums.length>0">
         <h3 class="fjalla-one text-uppercase">COLLEGE</h3>
         <div class="row">
-          <div class="col-md-3 col-sm-6 col-xs-12" ng-repeat="yearCard in championCard.sfaCards track by $index">
+          <div class="col-md-3 col-sm-6 col-xs-12" ng-repeat="item in collegeAlbums track by $index">
             <div class="album-holder">
-              <div class="album-pic-holder" style="background-image:url('{{yearCard.img}}')">
+              <div class="album-pic-holder" style="background-image:url('{{item.mediaLink | mediapathtwo }}')">
               </div>
               <div class="album-title-holder">
-                <p class="fjalla-one text-capitalize m-clear album-subtitle ">{{yearCard.title}}</p>
+                <p class="fjalla-one text-capitalize m-clear album-subtitle ">{{item.eventTitle}}</p>
                 <p class="galleryalbum-count"><span>
-                          <i class="fa fa-picture-o color-darkgrey"></i></span><span> <span>{{yearCard.count}}</span> <span>Albums</span></span>
+                          <i class="fa fa-picture-o color-darkgrey"></i></span><span> <span>{{item.totalCount}}</span> <span>Albums</span></span>
                 </p>
               </div>
             </div>
           </div>
         </div>
-      </div> -->
+      </div>
       <!-- COLLEGE CONTENT END -->
 
     </div>

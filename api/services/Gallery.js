@@ -198,10 +198,13 @@ var model = {
             function (finalData, callback) {
                 var finalArr = [];
                 var obj = {};
+
                 finalData = _.groupBy(finalData, 'eventTitle');
+                // finalData=  _.unionBy(finalData, 'folderName');
                 async.forEachOf(finalData, function (value, key, callback) {
                     if (key) {
                         obj.eventTitle = key;
+                        value = _.unionBy(value, 'folderName');
                         obj.totalCount = value.length;
                         obj.mediaLink = value[0].mediaLink;
                         obj.eventData = value[0].eventData;

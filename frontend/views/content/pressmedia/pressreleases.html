@@ -1,3 +1,58 @@
+<!-- PRESS RELEASES -->
 <div class="pressreleases-page">
-  <h1>press releases</h1>
+  <!-- CONTAINER -->
+  <div class="container">
+
+    <!-- FILTER -->
+    <div class="releasefilter-holder">
+      <div class="row">
+        <!-- YEAR FILTER -->
+        <div class="col-md-2 col-sm-3 col-xs-6">
+          <select name="releaseyearfilter" class="form-control" id="releaseyearfilter" ng-model="yearData" ng-change="yearFilter(yearData)">
+                        <option value="2016">2016</option>
+                        <option value="2017">2017</option>
+                        <option value="2018">2018</option>
+                      </select>
+        </div>
+        <!-- YEAR FILTER END -->
+
+        <!-- CITY FILTER -->
+        <div class="col-md-2 col-sm-3 col-xs-6">
+          <select name="releasecity" id="releasecity" class="form-control">
+                            <option value="All">All</option>
+                            <option value="Mumbai">Mumbai</option>
+                            <option value="Hyderabad">Hyderabad</option>
+                      </select>
+        </div>
+        <!-- CITY FILTER END -->
+      </div>
+    </div>
+
+    <!-- FILTER END -->
+    <!-- <pre>{{pressReleaseData | json}}</pre> -->
+    <!-- {{busy}} -->
+    <!-- PAGINATION HOLDER -->
+    <div class="pressrelease-pagination" infinite-scroll="myPagingFunction()" infinite-scroll-distance="2" infinite-scroll-disabled='busy'>
+      <!-- PRESS RELEASE HOLDER -->
+      <div class="pressreleases-cardholder" ng-repeat="pressCard in pressReleaseData track by $index">
+        <!-- CARD HEADER -->
+        <div class="pressrelease-cardheader">
+          <h3 class="fjalla-one text-uppercase color-darkgrey m-clear">
+            {{pressCard._id.monthyear}}
+          </h3>
+        </div>
+        <!-- CARD HEADER END -->
+        <!-- PRESS RELEASE CARD -->
+        <div class="pressrelease-carddetail" ng-repeat="pressCarddetail in pressCard.newsArr track by $index">
+          <p class="opensans-regular m-clear pressrelease-title">{{pressCarddetail.title}}</p>
+          <p class="opensans-semibold pressrelease-date"><span ng-if="pressCarddetail.city !='all'" class="text-capitalize">{{pressCarddetail.city}} :</span> <span>{{pressCarddetail.releaseDate | englishNumeralCustomDate}}</span>            </p>
+        </div>
+        <!-- PRESS RELEASE CARD END -->
+      </div>
+      <!-- PRESS RELEASE HOLDER END -->
+    </div>
+    <!-- PAGINATION HOLDER END -->
+  </div>
+  <!-- CONTAINER END -->
 </div>
+<!-- PRESS RELEASES END -->

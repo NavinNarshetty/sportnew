@@ -38,6 +38,7 @@ var myApp = angular.module('myApp', [
     // 'ui.swiper',
     'angularPromiseButtons',
     'toastr',
+    'infinite-scroll',
     'athleteprofile',
     'wu.masonry',
     'angular-marquee',

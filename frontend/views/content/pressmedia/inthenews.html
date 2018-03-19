@@ -1,3 +1,69 @@
+<!-- IN THE NEWS -->
 <div class="inthenews-page">
-  <h1>In the news</h1>
+  <!-- CONTAINER -->
+  <div class="container">
+    <!-- FILTER -->
+    <div class="newsfilter-holder">
+      <div class="row">
+        <!-- YEAR -->
+        <div class="col-md-2 col-sm-3 col-xs-6">
+          <select name="newsyearfilter" class="form-control" id="newsyearfilter" ng-model="edf">
+            <option value="2016">2016</option>
+            <option value="2017">2017</option>
+            <option value="2018">2018</option>
+          </select>
+        </div>
+        <!-- YEAR -->
+
+        <!-- CITY -->
+        <div class="col-md-2 col-sm-3 col-xs-6">
+          <select name="newscityfilter" id="newscityfilter" class="form-control" ng-model="abc">
+                <option value="All">All</option>
+                <option value="mumbai">Mumbai</option>
+                <option value="hyderabad">Hyderabad</option>
+          </select>
+        </div>
+
+        <!-- CITY END -->
+      </div>
+    </div>
+    <!-- FILTER END -->
+
+    <!-- CONTENT -->
+    <div class="newcontent-header">
+      <!-- HEADER -->
+      <h3 class="fjalla-one text-uppercase">
+        Press articles
+      </h3>
+      <!-- HEADER END -->
+    </div>
+    <!-- CONTENT END -->
+
+    <!--ARTICLE CARD  -->
+    <div class="newsarticlecard-holder">
+      <div class="row">
+        <div class="col-md-4 col-sm-6 col-xs-12" ng-repeat="card in newsData track by $index">
+          <div class="newsarticle-card">
+            <a data-fancybox="group" href="{{card.mediaLink}}" rel="press media">
+              <!-- BACKGROUND IMAGE -->
+              <div class="newsarticle-cardimage" style="background-image:url('{{card.mediaLink}}')">
+
+                <div class="newsarticle-cardoverlay"></div>
+              </div>
+              <!-- BACKGROUND IMAGE END -->
+              <!-- TITLE -->
+              <div class="newarticle-cardtitleholder">
+                <p class="opensans-semibold newarticle-cardtitle m-clear">{{card.mediaTitle}}</p>
+                <p class="color-darkgrey newsarticle-carddate m-clear"> <span>{{card.newsDate | date}}</span> </p>
+              </div>
+              <!-- TITLE END -->
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--ARTICLE CARD END  -->
+  </div>
+  <!-- CONTAINER END -->
 </div>
+<!-- IN THE NEWS END -->

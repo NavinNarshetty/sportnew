@@ -1252,15 +1252,14 @@ $sport-primary: #0a1a72 !default;
     width: 80px;
     height: 80px;
     padding: 10px;
-    text-align: center;
-    // border: 1px solid;
+    text-align: center; // border: 1px solid;
     // border-radius: 50%;
     vertical-align: middle;
     margin: 0 auto;
     position: absolute;
     top: 50%;
     left: 50%;
-    @include transform(translate(-50%,-50%));
+    @include transform(translate(-50%, -50%));
 }
 
 //   end sport-wise-card
@@ -1739,25 +1738,109 @@ $sport-primary: #0a1a72 !default;
 .featurevideo-sportsholder {
     margin: 40px 0px;
 }
+
 // FEATURED VIDEO END
 // PRESSMEDIA PAGE
 // PRESSMEDIA NAV
-.pressmedia-nav{
-  .landingnav-option{
-    padding: 5px 10px;
-    margin: 5px;
-    font-size: 15px;
-    cursor: pointer;
-    &.active{
-      border-bottom: 3px solid #27b465;
-      font-weight: 700;
+.pressmedia-nav {
+    .landingnav-option {
+        padding: 5px 10px;
+        margin: 5px;
+        font-size: 15px;
+        cursor: pointer;
+        &.active {
+            border-bottom: 3px solid #27b465;
+            font-weight: 700;
+        }
     }
-  }
 }
+
 // PRESSMEDIA NAV END
 // PRESSMEDIA MAIN PAGE
-.pressmedia-page{
-  min-height: 100vh;
+.pressmedia-page {
+    min-height: 100vh;
 }
+
 // PRESSMEDIA MAIN PAGE END
 // PRESSMEDIA PAGE END
+// MEDIA CONTACT
+.contact-profile {
+    p {
+        margin: 0px;
+        font-weight: 400;
+        a {
+            text-decoration: none;
+            color: #1a1a1a;
+        }
+    }
+}
+
+// MEDIA CONTACT END
+// MEDIA PRESS RELEASE
+.pressrelease-cardheader {
+    margin-top: 25px;
+}
+
+.releasefilter-holder {
+    margin: 40px 0px;
+}
+
+.pressrelease-carddetail {
+    border-bottom: 1px solid $grey;
+    padding: 15px 0px;
+    .pressrelease-title {
+        font-size: 16px;
+        font-weight: 500;
+    }
+    .pressrelease-date {
+        color: #8c8c8c;
+        font-weight: 400;
+    }
+}
+
+// MEDIA PRESS RELEASE END
+// COMMON PRESS HEADER 
+.pressmedia-header,
+.newsfilter-holder {
+    margin: 40px 0px;
+}
+
+.pressmedia-headertitle {
+    font-size: 45px;
+}
+
+// PRESS HEADER
+// PRESS NEWS CARD
+.newsarticle-card {
+    margin: 10px 0px;
+    cursor: pointer;
+}
+
+.newsarticle-cardimage {
+    margin: 8px 0px;
+    height: 200px;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+    box-shadow: 3px 3px 10px 0px #959595;
+    position: relative;
+}
+
+.newsarticle-cardoverlay {
+    position: absolute;
+    top: 0px;
+    background: rgba(0, 0, 0, .43);
+    width: 100%;
+    height: 100%;
+    &:hover {
+        background: rgba(0, 0, 0, 0);
+        transition: .5s ease;
+    }
+}
+
+.newarticle-cardtitle {
+    font-size: 18px;
+    color: #1a1a1a;
+}
+
+// PRESS NEWS CARD END

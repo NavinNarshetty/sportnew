@@ -176,9 +176,22 @@ myApp.controller('detailPressReleasesCtrl', function ($scope, TemplateService, N
 
 
   // SAVE FUNCTION
-  var state = 'pressreleases'
   $scope.saveData = function (data) {
-    crudService.saveData(data, url, state);
+    $scope.url = 'Pressrelease/savePressrelease'
+    NavigationService.apiCall($scope.url, data, function (data) {
+      console.log("savedata api", data);
+      if (data.value) {
+        if (data.data.nModified) {
+          toastr.success("Data Modified Successfully", "Success");
+        } else {
+          toastr.success("Data Saved Successfully", "Success");
+        }
+        $state.go('pressreleases');
+
+      } else {
+        toastr.error("Something went wrong", "Error");
+      }
+    })
   }
   // SAVE FUNCTION END
 

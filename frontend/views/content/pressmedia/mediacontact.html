@@ -1,3 +1,28 @@
+<!-- MEDIA CONTACT -->
 <div class="mediacontact-page">
-  <h1>Media contact</h1>
+  <div class="container">
+    <!-- CARD HOLDER -->
+    <div class="row">
+      <div class="col-md-4 col-sm-6 col-xs-12" ng-repeat="person in mediaData track by $index">
+        <div class="mediacard-holder">
+          <div class="contact-name" title="{{person.name}}">
+            <h4 class="opensans-semibold text-capitalize">{{person.name}}</h4>
+          </div>
+          <div class="contact-profile">
+            <p title="{{person.designation}}">{{person.designation}}</p>
+            <p title="{{person.mobileNo}}">
+              <a href="tel:{{person.mobileNo}}">{{person.mobileNo}}</a>
+            </p>
+            <p title="{{person.emailId}}">
+              <a href="mailto:{{person.emailId}}" target="_top">{{person.emailId}}</a>
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD HOLDER END -->
+  </div>
 </div>
+<!-- MEDIA CONTACT END -->

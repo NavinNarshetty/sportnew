@@ -15,15 +15,15 @@ module.exports = mongoose.model('Pressrelease', schema);
 
 var exports = _.cloneDeep(require("sails-wohlig-service")(schema));
 var model = {
-   savePressrelease: function (data, callback) {
-    //    var obj=
+    savePressrelease: function (data, callback) {
+        //    var obj=
         if (data) {
             data.year = moment(data.releaseDate).subtract(1, "days").format('YYYY');
             data.monthYear = moment(data.releaseDate).subtract(1, "days").format('MMMM YYYY');
-            console.log("data",data);
+            console.log("data", data);
             Pressrelease.saveData(data, function (err, saved) {
                 if (err) {
-                   callback(err,null);
+                    callback(err, null);
                 } else {
                     callback(null, saved);
                 }
@@ -48,8 +48,12 @@ var model = {
                 {
                     $group: {
                         _id: {
-                            year: { $year: "$releaseDate" },
-                            month: { $month: "$releaseDate" },
+                            year: {
+                                $year: "$releaseDate"
+                            },
+                            month: {
+                                $month: "$releaseDate"
+                            },
                             monthyear: "$monthYear"
                         },
                         newsArr: {
@@ -72,7 +76,8 @@ var model = {
                         "_id.month": -1,
 
                     }
-                }];
+                }
+            ];
 
         return returnPipeline;
 
@@ -108,8 +113,8 @@ var model = {
                     pipelineOne.push({
                         $skip: options.start
                     }, {
-                            $limit: options.count
-                        });
+                        $limit: options.count
+                    });
                     Pressrelease.aggregate(pipelineOne, function (err, found) {
                         if (err) {
                             callback(err, null);
@@ -150,12 +155,19 @@ var model = {
                 }
 
             });
-        } else if (!_.isEmpty(data.city) || !_.isEmpty(data.year)) {
+        } else if (data.city || data.year) {
             console.log("im in  else if");
             var cityOrYearWisePipeline = Pressrelease.getAggregatePipeline();
             cityOrYearWisePipeline.splice(0, 0, {
                 $match: {
-                    $or: [{ city: { $regex: data.city, $options: "i" } }, { year: data.year }]
+                    $or: [{
+                        city: {
+                            $regex: data.city,
+                            $options: "i"
+                        }
+                    }, {
+                        year: data.year
+                    }]
                 }
             });
             async.waterfall([
@@ -163,8 +175,8 @@ var model = {
                     cityOrYearWisePipeline.push({
                         $skip: options.start
                     }, {
-                            $limit: options.count
-                        });
+                        $limit: options.count
+                    });
                     Pressrelease.aggregate(cityOrYearWisePipeline, function (err, found) {
                         if (err) {
                             callback(err, null);
@@ -214,8 +226,8 @@ var model = {
                     pipelineOne.push({
                         $skip: options.start
                     }, {
-                            $limit: options.count
-                        });
+                        $limit: options.count
+                    });
                     Pressrelease.aggregate(pipelineOne,
                         function (err, returnResult) {
                             if (err) {

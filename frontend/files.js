@@ -9,6 +9,7 @@ module.exports = [
   'bower_components/swiper/dist/js/swiper.jquery.js',
 
 
+
   //Angular Libs
   'bower_components/angular/angular.js',
   // 'bower_components/angular-sanitize/angular-sanitize.js',
@@ -37,6 +38,7 @@ module.exports = [
   'bower_components/angular-masonry/angular-masonry.js',
   'bower_components/angular-marquee/src/marquee.js',
   'bower_components/angular-svg-round-progressbar/build/roundProgress.min.js',
+  'bower_components/ngInfiniteScroll/build/ng-infinite-scroll.min.js',
 
   //App.js
   'frontend/js/app.js',

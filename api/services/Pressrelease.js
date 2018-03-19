@@ -15,12 +15,15 @@ module.exports = mongoose.model('Pressrelease', schema);
 
 var exports = _.cloneDeep(require("sails-wohlig-service")(schema));
 var model = {
-
-    savePressrelease: function (data, callback) {
+   savePressrelease: function (data, callback) {
+    //    var obj=
         if (data) {
+            data.year = moment(data.releaseDate).subtract(1, "days").format('YYYY');
+            data.monthYear = moment(data.releaseDate).subtract(1, "days").format('MMMM YYYY');
+            console.log("data",data);
             Pressrelease.saveData(data, function (err, saved) {
                 if (err) {
-
+                   callback(err,null);
                 } else {
                     callback(null, saved);
                 }

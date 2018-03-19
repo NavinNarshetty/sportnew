@@ -200,7 +200,6 @@ var model = {
                 var obj = {};
 
                 finalData = _.groupBy(finalData, 'eventTitle');
-                // finalData=  _.unionBy(finalData, 'folderName');
                 async.forEachOf(finalData, function (value, key, callback) {
                     if (key) {
                         obj.eventTitle = key;
@@ -235,6 +234,10 @@ var model = {
 
 
     }
+
+
+
+    
 
 };
 module.exports = _.assign(module.exports, exports, model);

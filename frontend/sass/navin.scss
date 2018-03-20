@@ -1641,11 +1641,12 @@ $sport-primary: #0a1a72 !default;
     }
     .gallery-likepic-holder {
         // background-image: url("../img/dishapatani1.jpg");
-        background-position: 50% 50%;
-        background-repeat: no-repeat;
-        background-size: cover;
-        height: 170px;
+        // background-position: 50% 50%;
+        // background-repeat: no-repeat;
+        // background-size: cover;
         margin: 8px 0px;
+        height: 170px;
+        overflow: hidden;
     }
     .gallery-like {
         margin: 40px 0;
@@ -1844,3 +1845,15 @@ $sport-primary: #0a1a72 !default;
 }
 
 // PRESS NEWS CARD END
+// test
+// .youmaylikeflex-holder {
+//     display: flex;
+//     flex-direction: row;
+//     flex-wrap: nowrap;
+//     overflow-x: auto;
+// }
+// .youmaylikeflex {
+//     flex: 1;
+//     margin: 0 10px 10px 0;
+// }
+// test

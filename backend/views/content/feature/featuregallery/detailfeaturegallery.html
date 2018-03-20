@@ -41,9 +41,17 @@
               <div class="form-group text-center">
                 <label for="">Gallery Table</label>
               </div>
-              <div class="form-group text-right">
-                <button type="submit" class="btn btn-primary" ng-click="addRow(formData)">Add</button>
+              <div class="form-group">
+                <label class="label label-danger">
+                  Note:Image should be of size 600 x 400 only 
+                </label>
+                <div class="pull-right">
+                  <button type="submit" class="btn btn-primary" ng-click="addRow(formData)">Add</button>
+                </div>
               </div>
+
+
+
             </div>
 
             <div class="col-md-12">
@@ -85,7 +93,7 @@
                       </td>
                       <td>
                         <div class="text-center override-margin">
-                          <upload-image ng-model="feature.image"></upload-image>
+                          <upload-image ng-model="feature.image" no-view></upload-image>
                         </div>
                       </td>
                       <td>

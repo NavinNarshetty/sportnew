@@ -1,143 +1,152 @@
 @media (max-width: $screen-sm-max) {
-     // Tablet SCCREENS
-    //  COMMON
-    .titledescription-holder{
+  // Tablet SCCREENS
+  //  COMMON
+  .titledescription-holder {
+    width: 100%;
+  } //  COMMON END
+  // PHOTO VIDEO POPUP
+  .photovideo-popup {
+    padding-right: 200px;
+  }
+  .photovideo-nav {
+    font-size: 36px;
+  }
+  .photovideo-navleft {
+    left: -30px;
+  }
+  .photovideo-navright {
+    right: -30px;
+  }
+  .photovideo-sidesection {
+    width: 200px;
+    padding: 10px;
+  }
+  .photovideo-sidetitle {
+    font-size: 14px;
+  }
+  .photovideo-footer {
+    font-size: 10px;
+  } // PHOTO VIDEO POPUP END
+  // ATHLETE PROFILE PAGE
+  // ATHLETE PROFILE CARD
+  .athleteprofile-mainsection {
+    margin: 0;
+  }
+  .athleteprofile-cardholder {
+    .athleteprofile-card {
+      text-align: center;
+    }
+    .athleteprofile-picture {
+      margin-bottom: 15px;
+    }
+    .athleteprofile-details {
       width: 100%;
-    }
-    //  COMMON END
-    // PHOTO VIDEO POPUP
-    .photovideo-popup{
-      padding-right: 200px;
-    }
-    .photovideo-nav{
-      font-size: 36px;
-    }
-    .photovideo-navleft{
-      left: -30px;
-    }
-    .photovideo-navright{
-      right: -30px;
-    }
-    .photovideo-sidesection{
-      width: 200px;
-      padding: 10px;
-    }
-    .photovideo-sidetitle{
-      font-size: 14px;
-    }
-    .photovideo-footer{
-      font-size: 10px;
-    }
-    // PHOTO VIDEO POPUP END
-     // ATHLETE PROFILE PAGE
-     // ATHLETE PROFILE CARD
-     .athleteprofile-mainsection{
-       margin: 0;
-     }
-     .athleteprofile-cardholder{
-       .athleteprofile-card{
-         text-align: center;
-       }
-       .athleteprofile-picture{
-         margin-bottom: 15px;
-       }
-       .athleteprofile-details{
-         width: 100%;
-         padding: 0;
-         text-align: center;
-       }
-       .athletedetails-ratio{
-         width: 60%;
-         margin: 0 auto;
-         display: block;
-       }
-       .athletedetail-ratiocount{
-         display: none;
-       }
-     }
-     // ATHLETE PROFILE CARD END
-    //  ATHLETE NAV BAR
-    .athleteprofile-nav{
-       .athleteprofile-navcity{
-         padding: 5px 10px;
-         top: -30px;
-         &:after{
-           border-bottom: 30px solid #b7b7b7;
-         }
-       }
-    }
-    //  ATHLETE NAV BAR END
-    // ATHLETE PROFILE ACHIEVEMENTS
-    .athleteachievement-certificate{
-      width: auto;
-    }
-    .athleteachievement-intro{
-      width: 100%;
-    }
-    .athleteachievement-certificatedetail{
-      width: calc(100% - 145px);
-      h3{
-        font-size: 21px;
-      }
-      p{
-        font-size: 12px;
-      }
-    }
-    .athleteachievement-certificateholder{
-      width: 120px;
-    }
-    .athleteachievement-partnerholder{
-      margin-left: 70px;
-    }
-
-    .achievementexcellence-certificatedetail{
-      width: calc(100% - 145px);
-      padding: 10px;
-    }
-    .athleteachievement-certificatepic{
-      padding: 10px;
-    }
-    .achievementexcellence-table{
-      width: 100%;
-      .achievementexcellence-tableholder{
-        display: none;
-      }
-    }
-    .achievementexcellence-medal{
       padding: 0;
-      .achievementexcellence-medalholder{
-        display: inline-block;
-        vertical-align: middle;
-      }
-      p{
-        display: inline-block;
-        vertical-align: middle;
-      }
+      text-align: center;
     }
-    .viewstatistics-list{
-      display: none !important;
+    .athletedetails-ratio {
+      width: 60%;
+      margin: 0 auto;
+      display: block;
     }
-    .athleteachievement-participationcertificate{
-      width: 150px;
+    .athletedetail-ratiocount {
+      display: none;
     }
-    // ATHLETE PROFILE ACHIEVEMENTS END
-    // ATHLETE PROFILE STATISTICS
-    .statisticsport-content{
-      margin: 0px 5px;
-    }
-    .statisticsport-medaldetails{
-      padding: 10px 15px;
-      text-align: left;
-      li{
-        margin: 5px 0;
-      }
-      .statsmedaldetail-sport{
-        width: 100%;
-      }
-      .medaldetails-schoolname{
-        width: calc(100% - 30px);
+  } // ATHLETE PROFILE CARD END
+  //  ATHLETE NAV BAR
+  .athleteprofile-nav {
+    .athleteprofile-navcity {
+      padding: 5px 10px;
+      top: -30px;
+      &:after {
+        border-bottom: 30px solid #b7b7b7;
       }
     }
-    // ATHLETE PROFILE STATISTICS END
-     // ATHLETE PROFILE PAGE END
+  } //  ATHLETE NAV BAR END
+  // ATHLETE PROFILE ACHIEVEMENTS
+  .athleteachievement-certificate {
+    width: auto;
+  }
+  .athleteachievement-intro {
+    width: 100%;
+  }
+  .athleteachievement-certificatedetail {
+    width: calc(100% - 145px);
+    h3 {
+      font-size: 21px;
+    }
+    p {
+      font-size: 12px;
+    }
+  }
+  .athleteachievement-certificateholder {
+    width: 120px;
+  }
+  .athleteachievement-partnerholder {
+    margin-left: 70px;
+  }
+  .achievementexcellence-certificatedetail {
+    width: calc(100% - 145px);
+    padding: 10px;
+  }
+  .athleteachievement-certificatepic {
+    padding: 10px;
+  }
+  .achievementexcellence-table {
+    width: 100%;
+    .achievementexcellence-tableholder {
+      display: none;
+    }
+  }
+  .achievementexcellence-medal {
+    padding: 0;
+    .achievementexcellence-medalholder {
+      display: inline-block;
+      vertical-align: middle;
+    }
+    p {
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+  .viewstatistics-list {
+    display: none !important;
+  }
+  .athleteachievement-participationcertificate {
+    width: 150px;
+  } // ATHLETE PROFILE ACHIEVEMENTS END
+  // ATHLETE PROFILE STATISTICS
+  .statisticsport-content {
+    margin: 0px 5px;
+  }
+  .statisticsport-medaldetails {
+    padding: 10px 15px;
+    text-align: left;
+    li {
+      margin: 5px 0;
+    }
+    .statsmedaldetail-sport {
+      width: 100%;
+    }
+    .medaldetails-schoolname {
+      width: calc(100% - 30px);
+    }
+  } // ATHLETE PROFILE STATISTICS END
+  // ATHLETE PROFILE PAGE END
+  //  GALLERY LANDING MODAL
+  .liveupdate-albumholder {
+    width: auto;
+    float: none;
+  }
+  .liveupdate-photoholder {
+    width: auto;
+    float: none;
+  }
+  .liveupdates-eventholder {
+    width: auto;
+    float: none;
+  }
+  .liveupdate-eventcard {
+    padding: 40px 15px;
+  } //  GALLERY LANDING MODAL END
 }

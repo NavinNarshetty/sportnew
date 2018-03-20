@@ -3,13 +3,15 @@
   <div class="container">
     <!-- HEADER -->
     <div class="gallery-landing-header">
-      <div class="gallery-landing-mainheader fjalla-one text-uppercase color-primary">
+      <div class="gallery-landing-mainheader fjalla-one text-uppercase color-primary ">
         Gallery
       </div>
       <div class="gallery-headercontent">
-        <p class="">The Championship Gallery. Experience victory and defeat, passion and talent, on-court skills and off-court smiles; everything that goes down at the SFA Championships.</p>
-        <p class="hide">Spotted yourself? Log in through your athlete profile and tag yourself for the picture to appear on your personal profile page.</p>
-    </div>
+        <p class="">The Championship Gallery. Experience victory and defeat, passion and talent, on-court skills and off-court smiles;
+          everything that goes down at the SFA Championships.</p>
+        <p class="hide">Spotted yourself? Log in through your athlete profile and tag yourself for the picture to appear on your personal
+          profile page.</p>
+      </div>
     </div>
     <!-- HEADER END -->
 
@@ -17,12 +19,12 @@
     <div class="gallery-checkout" ng-if="feature.length>0">
       <!-- GALLERY_CHECKOUT HEADER -->
       <div class="gallery-checkout-header">
-        <h3 class="fjalla-one text-uppercase light-blue">check out our young and rising sport stars in action</h3>
+        <h3 class="fjalla-one text-uppercase light-blue gallery--responsive-header">check out our young and rising sport stars in action</h3>
       </div>
       <!-- GALLERY_CHECKOUT HEADER END -->
 
       <!-- FEATURE IMAGE START -->
-      <div class="gallery-feature" >
+      <div class="gallery-feature">
         <div class="text-uppercase color-darkgrey gallery-feature-subtitle">Featured</div>
         <div class="row">
           <div class="col-md-6 col-sm-6 col-xs-12" ng-repeat="card in feature track by $index">
@@ -33,7 +35,7 @@
                   <img ng-src="{{subcard.image.image|serverimage}}" alt="{{subcard.albumTitle}} | Sport For All" class="img-responsive">
                 </div>
                 <div class="feature-card-footer" title="{{subcard.albumTitle}}">
-                  {{subcard.albumTitle | truncate:'46'}}
+                  {{subcard.albumTitle | truncate:'48'}}
                 </div>
                 <div class="card-slip"></div>
                 <div class="card-slip2"></div>
@@ -54,12 +56,12 @@
         <!-- NO LINK -->
         <div class="ad-nolink" ng-if="firstAdBanner.linkType=='nolink'">
           <!-- DESKTOP -->
-          <img ng-src="{{firstAdBanner.desktop.adBanner | serverimage2}}" alt="{{firstAdBanner.title}}" title="{{firstAdBanner.title}}"
+          <img ng-src="{{firstAdBanner.desktop.adBanner | serverimage}}" alt="{{firstAdBanner.title}}" title="{{firstAdBanner.title}}"
             class="img-responsive hidden-xs">
           <!-- DESKTOP END -->
 
           <!-- MOBILE -->
-          <img ng-src="{{firstAdBanner.mobile.mobileAdBanner | serverimage2}}" alt="{{firstAdBanner.title}}" title="{{firstAdBanner.title}}"
+          <img ng-src="{{firstAdBanner.mobile.mobileAdBanner | serverimage}}" alt="{{firstAdBanner.title}}" title="{{firstAdBanner.title}}"
             class="img-responsive  visible-xs">
           <!-- MOBILE END -->
         </div>
@@ -69,13 +71,13 @@
         <div class="ad-internal-external" ng-if="firstAdBanner.linkType=='internal' || firstAdBanner.linkType=='external'">
           <!-- DESKTOP -->
           <a href="{{firstAdBanner.desktop.adLink}}" target="{{firstAdBanner.linkType=='external' ? '_new' : '_self'}}">
-              <img ng-src="{{firstAdBanner.desktop.adBanner | serverimage2}}"  alt="{{firstAdBanner.title}}" title="{{firstAdBanner.title}}"  class="img-responsive hidden-xs">
+              <img ng-src="{{firstAdBanner.desktop.adBanner | serverimage}}"  alt="{{firstAdBanner.title}}" title="{{firstAdBanner.title}}"  class="img-responsive hidden-xs">
           </a>
           <!-- DESKTOP END -->
 
           <!-- MOBILE  -->
           <a href="{{firstAdBanner.mobile.mobileLink}}" target="{{firstAdBanner.linkType=='external' ? '_new' : '_self'}}">
-            <img ng-src="{{firstAdBanner.mobile.mobileAdBanner | serverimage2}}"  alt="{{firstAdBanner.title}}" title="{{firstAdBanner.title}}"  class="img-responsive  visible-xs">
+            <img ng-src="{{firstAdBanner.mobile.mobileAdBanner | serverimage}}"  alt="{{firstAdBanner.title}}" title="{{firstAdBanner.title}}"  class="img-responsive  visible-xs">
           </a>
           <!-- MOBILE  END -->
 
@@ -85,14 +87,14 @@
         <!-- VIDEO -->
         <div class="ad-video" ng-if="firstAdBanner.linkType=='videolink'">
           <!-- DESKTOP -->
-          <a class="fancybox.iframe hidden-xs" fancybox href="{{firstAdBanner.desktop.adLink}}">
-            <img ng-src="{{firstAdBanner.desktop.adBanner | serverimage2 }}"  alt="image" class="img-responsive">
+          <a class="fancybox.iframe hidden-xs" fancybox data-fancybox="group" href="{{firstAdBanner.desktop.adLink}}">
+            <img ng-src="{{firstAdBanner.desktop.adBanner | serverimage }}"  alt="image" class="img-responsive">
           </a>
           <!-- DESKTOP END -->
 
           <!-- MOBILE -->
-          <a class="fancybox.iframe visible-xs" fancybox href="{{firstAdBanner.mobile.mobileLink}}">
-            <img ng-src="{{firstAdBanner.mobile.mobileAdBanner | serverimage2 }}"  alt="image" class="img-responsive">
+          <a class="fancybox.iframe visible-xs" fancybox data-fancybox="group" href="{{firstAdBanner.mobile.mobileLink}}">
+            <img ng-src="{{firstAdBanner.mobile.mobileAdBanner | serverimage }}"  alt="image" class="img-responsive">
           </a>
           <!-- MOBILE END -->
         </div>
@@ -106,7 +108,7 @@
     <div class="gallery-landing-sfachampions" ng-if="schoolAlbums.length>0 || collegeAlbums.length>0">
       <!-- HEADER -->
       <div class="gallery-sfachampions-header">
-        <h3 class="fjalla-one text-uppercase light-blue">
+        <h3 class="fjalla-one text-uppercase light-blue gallery--responsive-header">
           Sfa champions-Mumbai
         </h3>
       </div>
@@ -114,7 +116,7 @@
 
       <!-- SCHOOL / COLLEGE CONTENT -->
       <div class="gallery-sfachampions-schoolcollege" ng-if="schoolAlbums.length>0">
-        <h3 class="fjalla-one text-uppercase">SCHOOL</h3>
+        <h3 class="fjalla-one text-uppercase gallery--responsive-header">SCHOOL</h3>
         <div class="row">
           <div class="col-md-3 col-sm-6 col-xs-12" ng-repeat="album in schoolAlbums track by $index">
             <div class="album-holder" title="{{album.eventTitle}}">
@@ -133,7 +135,7 @@
       <!-- SCHOOL  CONTENT END -->
       <!--  COLLEGE CONTENT -->
       <div class="gallery-sfachampions-schoolcollege" ng-if="collegeAlbums.length>0">
-        <h3 class="fjalla-one text-uppercase">COLLEGE</h3>
+        <h3 class="fjalla-one text-uppercase gallery--responsive-header">COLLEGE</h3>
         <div class="row">
           <div class="col-md-3 col-sm-6 col-xs-12" ng-repeat="item in collegeAlbums track by $index">
             <div class="album-holder" title="{{item.eventTitle}}">
@@ -161,12 +163,12 @@
         <!-- NO LINK -->
         <div class="ad-nolink" ng-if="secondAdBanner.linkType=='nolink'">
           <!-- DESKTOP -->
-          <img ng-src="{{secondAdBanner.desktop.adBanner | serverimage2}}" alt="{{secondAdBanner.title}}" title="{{secondAdBanner.title}}"
+          <img ng-src="{{secondAdBanner.desktop.adBanner | serverimage}}" alt="{{secondAdBanner.title}}" title="{{secondAdBanner.title}}"
             class="img-responsive hidden-xs">
           <!-- DESKTOP END -->
 
           <!-- MOBILE -->
-          <img ng-src="{{secondAdBanner.mobile.mobileAdBanner | serverimage2}}" alt="{{secondAdBanner.title}}" title="{{secondAdBanner.title}}"
+          <img ng-src="{{secondAdBanner.mobile.mobileAdBanner | serverimage}}" alt="{{secondAdBanner.title}}" title="{{secondAdBanner.title}}"
             class="img-responsive  visible-xs">
           <!-- MOBILE END -->
         </div>
@@ -176,13 +178,13 @@
         <div class="ad-internal-external" ng-if="secondAdBanner.linkType=='internal' || secondAdBanner.linkType=='external'">
           <!-- DESKTOP -->
           <a href="{{secondAdBanner.desktop.adLink}}" target="{{secondAdBanner.linkType=='external' ? '_new' : '_self'}}">
-              <img ng-src="{{secondAdBanner.desktop.adBanner | serverimage2}}"  alt="{{secondAdBanner.title}}" title="{{secondAdBanner.title}}"  class="img-responsive hidden-xs">
+              <img ng-src="{{secondAdBanner.desktop.adBanner | serverimage}}"  alt="{{secondAdBanner.title}}" title="{{secondAdBanner.title}}"  class="img-responsive hidden-xs">
           </a>
           <!-- DESKTOP END -->
 
           <!-- MOBILE  -->
           <a href="{{secondAdBanner.mobile.mobileLink}}" target="{{secondAdBanner.linkType=='external' ? '_new' : '_self'}}">
-            <img ng-src="{{secondAdBanner.mobile.mobileAdBanner | serverimage2}}"  alt="{{secondAdBanner.title}}" title="{{secondAdBanner.title}}"  class="img-responsive  visible-xs">
+            <img ng-src="{{secondAdBanner.mobile.mobileAdBanner | serverimage}}"  alt="{{secondAdBanner.title}}" title="{{secondAdBanner.title}}"  class="img-responsive  visible-xs">
           </a>
           <!-- MOBILE  END -->
 
@@ -192,14 +194,14 @@
         <!-- VIDEO -->
         <div class="ad-video" ng-if="secondAdBanner.linkType=='videolink'">
           <!-- DESKTOP -->
-          <a class="fancybox.iframe hidden-xs" fancybox href="{{secondAdBanner.desktop.adLink}}">
-            <img ng-src="{{secondAdBanner.desktop.adBanner | serverimage2 }}"  alt="image" class="img-responsive">
+          <a class="hidden-xs" fancybox data-fancybox="group" rel="galleryLandingvideo" href="{{secondAdBanner.desktop.adLink}}">
+            <img ng-src="{{secondAdBanner.desktop.adBanner | serverimage }}"  alt="image" class="img-responsive">
           </a>
           <!-- DESKTOP END -->
 
           <!-- MOBILE -->
-          <a class="fancybox.iframe visible-xs" fancybox href="{{secondAdBanner.mobile.mobileLink}}">
-            <img ng-src="{{secondAdBanner.mobile.mobileAdBanner | serverimage2 }}"  alt="image" class="img-responsive">
+          <a class="visible-xs" fancybox data-fancybox="group" rel="galleryLandingvideo" href="{{secondAdBanner.mobile.mobileLink}}">
+            <img ng-src="{{secondAdBanner.mobile.mobileAdBanner | serverimage }}"  alt="image" class="img-responsive">
           </a>
           <!-- MOBILE END -->
         </div>
@@ -212,7 +214,7 @@
     <!-- PHOTOS AND VIDEOS MASONARY-->
     <div class="gallery-landing-photovideo" ng-if="photosVideos.length>0">
       <div class="gallery-photovideo-header">
-        <h3 class="fjalla-one text-uppercase light-blue">
+        <h3 class="fjalla-one text-uppercase light-blue gallery--responsive-header">
           PHOTOS & Videos
         </h3>
       </div>
@@ -221,13 +223,13 @@
           <div class="col-md-4 col-sm-4 col-xs-6 masonry-brick" ng-repeat="galleryImage in photosVideos track by $index">
             <a href="{{galleryImage.mediaLink | mediapathtwo}}" data-fancybox="group" rel="galleryLanding" ng-if="galleryImage.mediatype =='photo'">
               <div class="photovideo-galleryimage relate pointer">
-                <img ng-src="{{galleryImage.mediaLink | mediapathtwo}} " alt="Photos | Sport For All" class="img-responsive" >
+                <img ng-src="{{galleryImage.mediaLink | mediapathtwo}} " alt="Photos | Sport For All" class="img-responsive">
               </div>
             </a>
             <a href="{{galleryImage.medialink|linkvideo:galleryImage.videotype}}" data-fancybox="group" rel="galleryLanding" ng-if="galleryImage.mediatype==='video'">
               <div class="photovideo-galleryimage relate pointer">
-                <img ng-src="{{galleryImage.thumbnail}}" alt="Videos | Sport For All" class="img-responsive" >
-                <div class="absolute video-playbtn" >
+                <img ng-src="{{galleryImage.thumbnail}}" alt="Videos | Sport For All" class="img-responsive">
+                <div class="absolute video-playbtn">
                   <div class="vide-customplay">
                     <i class="fa fa-play"></i>
                   </div>
@@ -243,14 +245,67 @@
     <!-- LIKE -->
     <div class="gallery-like">
       <div class="gallery-like-header">
-        <h3 class="fjalla-one text-uppercase light-blue">You may also like</h3>
+        <h3 class="fjalla-one text-uppercase light-blue gallery--responsive-header">You may also like</h3>
       </div>
       <div class="row">
-        <div class="col-md-3 col-sm-6 col-xs-12" ng-repeat="like in likeImage track by $index">
-          <div class="gallery-likepic-holder pointer" style="background-image:url('{{like.img}}')">
+        <!-- <pre>{{youMayLikeData | json}}</pre> -->
+        <!-- <div class="youmaylikeflex-holder">
+        <div class="youmaylikeflex" ng-repeat="likeCard in youMayLikeData track by $index"> -->
+        <div class="col-md-3 col-sm-6 col-xs-6" ng-repeat="likeCard in youMayLikeData track by $index">
+          <div class="gallery-likepic-holder pointer relate">
+            <!-- NO LINK -->
+            <div class="nolink-div" ng-if="likeCard.linkType=='nolink'">
+              <!-- DESKTOP -->
+              <img ng-src="{{ likeCard.desktop.adBanner | serverimage}}" alt="{{likeCard.title}}" class="img-responsive hidden-xs">
+              <!-- DESKTOP END -->
+              <!-- MOBILE -->
+              <img ng-src="{{ likeCard.mobile.mobileAdBanner | serverimage}}" alt="{{likeCard.title}}" class="img-responsive visible-xs">
+              <!-- MOBILE END -->
+            </div>
+            <!-- NO LINK END -->
+
+            <!-- EXTERNAL / INTERNAL -->
+            <div class="external-internal" ng-if="likeCard.linkType=='external' || likeCard.linkType=='internal'">
+              <!-- DESKTOP -->
+              <a href="{{likeCard.desktop.adLink}}" target="{{likeCard.linkType=='external' ? '_new' : '_self'}}">
+                <img ng-src="{{likeCard.desktop.adBanner | serverimage}}"  alt="{{likeCard.title}}" title="{{likeCard.title}}"  class="img-responsive hidden-xs">
+                </a>
+              <!-- DESKTOP END -->
+              <!-- MOBILE  -->
+              <a href="{{likeCard.mobile.mobileLink}}" target="{{likeCard.linkType=='external' ? '_new' : '_self'}}">
+                   <img ng-src="{{likeCard.mobile.mobileAdBanner | serverimage}}"  alt="{{likeCard.title}}" title="{{likeCard.title}}"  class="img-responsive  visible-xs">
+                </a>
+              <!-- MOBILE  END -->
+            </div>
+            <!-- EXTERNAL END -->
+
+            <!-- VIDEO LINK -->
+            <div class="video-link-holder " ng-if="likeCard.linkType=='videolink'">
+              <!-- DESKTOP -->
+              <a class="hidden-xs" fancybox data-fancybox="group" rel="galleryLandingvideo" href="{{likeCard.desktop.adLink}}">
+                        <img ng-src="{{likeCard.desktop.adBanner | serverimage }}"  alt="image" class="img-responsive">
+              </a>
+              <!-- DESKTOP END -->
+
+              <!-- MOBILE -->
+              <a class="visible-xs" fancybox data-fancybox="group" rel="galleryLandingvideo" href="{{likeCard.mobile.mobileLink}}">
+                        <img ng-src="{{likeCard.mobile.mobileAdBanner | serverimage }}"  alt="image" class="img-responsive">
+              </a>
+              <!-- MOBILE END -->
+              <!-- PLAY BUTTON -->
+              <div class=" absolute video-playbtn">
+                <div class="vide-customplay">
+                  <i class="fa fa-play"></i>
+                </div>
+              </div>
+              <!-- PLAY BUTTON END -->
+            </div>
+            <!-- VIDEO LINK END -->
           </div>
         </div>
       </div>
+      <!-- </div> -->
+      <!-- </div> -->
     </div>
     <!-- LIKE END -->
   </div>

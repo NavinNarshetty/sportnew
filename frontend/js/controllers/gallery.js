@@ -4,97 +4,9 @@ myApp.controller('GalleryLandingCtrl', function ($scope, $state, $stateParams, T
   $scope.navigation = NavigationService.getNavigation();
 
 
-  // FEATURE JSON
-  // $scope.featureCard = [1, 2, 3];
-
-  $scope.feature = [{
-    featureCard: [{
-      img: 'day-04.png',
-      content: '10 Moments of Basketball court you cannot miss abcd'
-    }, {
-      img: 'day-03.png',
-      content: '10 Moments of Volleyball court you cannot miss abcd'
-    }, {
-      img: 'day-03.png',
-      content: '10 Moments of Table-Tennis court you cannot miss abcd'
-    }]
-  }, {
-    featureCard: [{
-      img: 'day-04.png',
-      content: '10 Moments of Volleyball court you cannot miss abcd'
-    }, {
-      img: 'day-04.png',
-      content: '10 Moments of Tennis court you cannot miss abcd'
-    }, {
-      img: 'day-04.png',
-      content: '10 Moments of Badminton court you cannot miss abcd'
-    }]
-  }]
-  // FEATURE JSON END
 
 
-  // SFA CHAMPIONS
-  $scope.sfaChampions = [{
-    name: 'School',
-    sfaCards: [{
-      img: '/img/day-04.png',
-      title: 'Sfa Mumbai 2015-16',
-      count: '11'
-    }, {
-      img: '/img/day-04.png',
-      title: 'Sfa Mumbai 2015-17',
-      count: '12'
-    }, {
-      img: '/img/day-04.png',
-      title: 'Sfa Mumbai 2015-18',
-      count: '13'
-    }, {
-      img: '/img/day-04.png',
-      title: 'Sfa Mumbai 2015-18',
-      count: '13'
-    }]
-  }, {
-    name: 'College',
-    sfaCards: [{
-      img: '/img/day-03.png',
-      title: 'Sfa Mumbai 2015-16',
-      count: '11'
-    }, {
-      img: '/img/day-03.png',
-      title: 'Sfa Mumbai 2015-17',
-      count: '12'
-    }]
-  }]
-  // SFA CHAMPIONS END
 
-  $scope.Images = [{
-    img: 'dishapatani1.jpg',
-    type: 'photo'
-  }, {
-    thumbnail: 'mobweb-3.jpg',
-    type: 'video'
-  }, {
-    img: 'sa2.jpg',
-    type: 'photo'
-  }, {
-    thumbnail: 'sa3.jpg',
-    type: 'video'
-  }, {
-    img: 'sa4.jpg',
-    type: 'photo'
-  }, {
-    thumbnail: 'dishapatani1.jpg',
-    type: 'video'
-  }, {
-    img: 'mobweb-3.jpg',
-    type: 'photo'
-  }, {
-    img: 'sa4.jpg',
-    type: 'photo'
-  }, {
-    img: 'sa2.jpg',
-    type: 'photo'
-  }]
 
   $scope.likeImage = [{
     img: '/img/dishapatani1.jpg'
@@ -194,7 +106,60 @@ myApp.controller('GalleryLandingCtrl', function ($scope, $state, $stateParams, T
   }
   getFeaturedPhotos();
 
-//SWIPER
+
+
+  // AD BANNERS
+  function getAdBanners() {
+    $scope.url = 'AdBanners/search';
+    $scope.constraints = {};
+    $scope.constraints.filter = {};
+    $scope.constraints.filter.pageType = 'gallery';
+    NavigationService.getDataApiCall($scope.constraints, $scope.url, function (data) {
+      console.log(data, "ad data");
+      $scope.adBanners = data.data.data.results;
+      $scope.positionadBanners = _.each($scope.adBanners, function (key) {
+        console.log(key, "inside key");
+        if (key.adPlacement === '2ndbanner') {
+          if (key.status == 'enable') {
+            $scope.secondAdBanner = key;
+          } else {
+            $scope.secondAdBanner = ' ';
+          }
+        } else if (key.adPlacement === '1stbanner') {
+          if (key.status === 'enable') {
+            $scope.firstAdBanner = key;
+          } else {
+            $scope.firstAdBanner = ' ';
+          }
+        }
+      })
+    })
+
+  }
+  getAdBanners()
+  // AD BANNERS END
+
+
+  function getYoumaylike() {
+    $scope.url = 'Youmaylike/search';
+    NavigationService.apiCallWithoutParams($scope.url, function (data) {
+      if (data.data.value) {
+        console.log(data, "you may like");
+        $scope.youMayLikeData = data.data.data.results;
+        // console.log($scope.youMayLikeData, "see herere")
+        $scope.youMayLikeData = _.shuffle($scope.youMayLikeData);
+        // console.log($scope.youMayLikeData, "shuffle");
+        $scope.youMayLikeData = _.take($scope.youMayLikeData, 4);
+        // console.log($scope.youMayLikeData, "take");
+        $scope.likeData = _.each($scope.youMayLikeData, function (key) {
+          console.log(key, "maylike data")
+        });
+      }
+
+    });
+  }
+  getYoumaylike();
+  //SWIPER
 
   $scope.initSwiper = function () {
     $timeout(function () {

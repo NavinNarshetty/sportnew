@@ -1,6 +1,6 @@
 // TABLE AD GALLERY
 // TABLE GALLERY
-myApp.controller('AdGalleryCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $state, toastr, $uibModal, deleteService) {
+myApp.controller('AdGalleryCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $state, toastr, $uibModal, deleteService, crudService) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("adbanner/gallery/tableadgallery");
   $scope.menutitle = NavigationService.makeactive("Ad Gallery");
@@ -42,10 +42,10 @@ myApp.controller('AdGalleryCtrl', function ($scope, TemplateService, NavigationS
   // VIEW TABLE
 
   // DELETE
-  $scope.deleteService = deleteService;
+  $scope.crudService = crudService;
   var url = "AdBanners/delete";
   $scope.confirmDelete = function (data) {
-    deleteService.confirmDelete(data, url, $scope);
+    crudService.confirmDelete(data, url, $scope);
   }
   // DELETE END
 
@@ -56,7 +56,7 @@ myApp.controller('AdGalleryCtrl', function ($scope, TemplateService, NavigationS
 // TABLE AD GALLERY END
 
 // DETAIL AD BANNER
-myApp.controller('DetailAdGalleryCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $state, toastr, $uibModal, saveService) {
+myApp.controller('DetailAdGalleryCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $state, toastr, $uibModal, saveService, crudService) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("adbanner/gallery/detailadgallery");
   $scope.menutitle = NavigationService.makeactive("DetailAdGallery");
@@ -67,29 +67,26 @@ myApp.controller('DetailAdGalleryCtrl', function ($scope, TemplateService, Navig
   $scope.formData = {};
   $scope.formData.pageType = 'gallery';
 
-
+  var url = 'AdBanners'
   // GET ONE
-  if ($stateParams.id != '') {
+  // GET ONE
+  if ($stateParams.id) {
     $scope.title = 'Edit';
-    $scope.url = "AdBanners/getOne"
-    $scope.constraints = {};
-    $scope.constraints._id = $stateParams.id;
-    $scope.getOneAdGallery = function () {
-      NavigationService.apiCall($scope.url, $scope.constraints, function (data) {
-        console.log(data, "get on data");
-        $scope.formData = data.data;
-      })
-    }
-    $scope.getOneAdGallery();
+    var id = $stateParams.id;
+    crudService.getOneData(url, id, function (data) {
+      if (data) {
+        $scope.formData = data;
+      }
+    })
   }
+  // GET ONE END
   // GET ONE END
 
 
   // SAVE FUNCTION
   var state = 'adgallery'
-  var url = 'AdBanners/Save'
   $scope.saveData = function (data) {
-    saveService.saveData(data, url, state);
+    crudService.saveData(data, url, state);
   }
   // SAVE FUNCTION END
 
@@ -98,7 +95,7 @@ myApp.controller('DetailAdGalleryCtrl', function ($scope, TemplateService, Navig
 // DETAIL AD BANNER END
 
 // TABLE VIDEO 
-myApp.controller('AdVideoCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $state, toastr, $uibModal, deleteService) {
+myApp.controller('AdVideoCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $state, toastr, $uibModal, deleteService, crudService) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("adbanner/video/tableadvideo");
   $scope.menutitle = NavigationService.makeactive("Ad Video");
@@ -141,10 +138,10 @@ myApp.controller('AdVideoCtrl', function ($scope, TemplateService, NavigationSer
   // VIEW TABLE
 
   // DELETE
-  $scope.deleteService = deleteService;
+  $scope.crudService = crudService;
   var url = "AdBanners/delete";
   $scope.confirmDelete = function (data) {
-    deleteService.confirmDelete(data, url, $scope);
+    crudService.confirmDelete(data, url, $scope);
   }
   // DELETE END
 
@@ -154,7 +151,7 @@ myApp.controller('AdVideoCtrl', function ($scope, TemplateService, NavigationSer
 // TABLE VIDEO  END
 
 // DETAIL VIDEO 
-myApp.controller('DetailAdVideoCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $state, toastr, $uibModal, saveService) {
+myApp.controller('DetailAdVideoCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $state, toastr, $uibModal, saveService, crudService) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("adbanner/video/detailadvideo");
   $scope.menutitle = NavigationService.makeactive("Detail Ad Video");
@@ -166,29 +163,24 @@ myApp.controller('DetailAdVideoCtrl', function ($scope, TemplateService, Navigat
   $scope.formData = {};
   $scope.formData.pageType = 'video';
 
-
+  var url = 'AdBanners'
   // GET ONE
-  if ($stateParams.id != '') {
+  if ($stateParams.id) {
     $scope.title = 'Edit';
-    $scope.url = "AdBanners/getOne"
-    $scope.constraints = {};
-    $scope.constraints._id = $stateParams.id;
-    $scope.getOneAdGallery = function () {
-      NavigationService.apiCall($scope.url, $scope.constraints, function (data) {
-        console.log(data, "get on data");
-        $scope.formData = data.data;
-      })
-    }
-    $scope.getOneAdGallery();
+    var id = $stateParams.id;
+    crudService.getOneData(url, id, function (data) {
+      if (data) {
+        $scope.formData = data;
+      }
+    })
   }
   // GET ONE END
 
 
   // SAVE FUNCTION
   var state = 'advideo'
-  var url = 'AdBanners/Save'
   $scope.saveData = function (data) {
-    saveService.saveData(data, url, state);
+    crudService.saveData(data, url, state);
   }
   // SAVE FUNCTION END
 })

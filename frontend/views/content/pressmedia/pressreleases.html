@@ -43,7 +43,7 @@
         </div>
         <!-- CARD HEADER END -->
         <!-- PRESS RELEASE CARD -->
-        <div class="pressrelease-carddetail" ng-repeat="pressCarddetail in pressCard.newsArr track by $index">
+        <div class="pressrelease-carddetail pointer" ng-repeat="pressCarddetail in pressCard.newsArr track by $index" ui-sref="pressarticle({id:pressCarddetail._id})">
           <p class="opensans-regular m-clear pressrelease-title">{{pressCarddetail.title}}</p>
           <p class="opensans-semibold pressrelease-date"><span ng-if="pressCarddetail.city !='all'" class="text-capitalize">{{pressCarddetail.city}} :</span> <span>{{pressCarddetail.releaseDate | englishNumeralCustomDate}}</span>            </p>
         </div>

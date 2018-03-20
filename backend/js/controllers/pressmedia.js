@@ -142,7 +142,7 @@ myApp.controller('detailPressReleasesCtrl', function ($scope, TemplateService, N
   $scope.navigation = NavigationService.getnav();
   $scope.title = 'Create';
   var url = 'Pressrelease';
-
+  $(".date-picker").datepicker();
   $scope.formData = {};
   $scope.formData.releaseDate = ''
 

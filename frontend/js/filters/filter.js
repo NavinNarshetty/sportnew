@@ -295,7 +295,7 @@ myApp.filter('mediapathtwo', function () {
 myApp.filter('englishNumeralCustomDate', function () {
   return function (value) {
     if (value) {
-      return moment(new Date(value)).format("DD MMMM YYYY");
+      return moment(new Date(value)).subtract(1, 'days').format("DD MMMM YYYY");
     }
   };
-})
+});

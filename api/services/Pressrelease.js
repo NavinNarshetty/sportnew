@@ -16,13 +16,8 @@ module.exports = mongoose.model('Pressrelease', schema);
 var exports = _.cloneDeep(require("sails-wohlig-service")(schema));
 var model = {
     savePressrelease: function (data, callback) {
-        //    var obj=
         if (data) {
-            // data.year = moment(data.releaseDate).subtract(1, "days").format('YYYY');
-            var releaseDate = moment(data.releaseDate).subtract(1, "days");
-            data.year = moment(releaseDate).format('YYYY');
-            data.monthYear = moment(releaseDate).format('MMMM YYYY');
-            console.log("data", data);
+            data.releaseDate = moment(data.releaseDate).add(1, "days");
             Pressrelease.saveData(data, function (err, saved) {
                 if (err) {
                     callback(err, null);
@@ -56,12 +51,12 @@ var model = {
                             month: {
                                 $month: "$releaseDate"
                             },
-                            monthyear: "$monthYear"
+                            // monthyear: "$monthYear"
                         },
                         newsArr: {
                             $push: {
                                 "year": "$year",
-                                "monthYear": "$monthYear",
+                                // "monthYear": "$monthYear",
                                 "city": "$city",
                                 "content": "$content",
                                 "title": "$title",
@@ -83,6 +78,24 @@ var model = {
             ];
 
         return returnPipeline;
+
+    },
+    getMonthNames: function (data, callback) {
+        var monthNames = ["", "January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+        ];
+        async.concatSeries(data, function (n, callback) {
+            console.log("n", n);
+            n._id.month = monthNames[n._id.month];
+            callback(null, n);
+        }, function (err, data) {
+            if (err) {
+                callback(err, null);
+            } else {
+                callback(null, data);
+            }
+        });
+
 
     },
 
@@ -116,8 +129,8 @@ var model = {
                     pipelineOne.push({
                         $skip: options.start
                     }, {
-                        $limit: options.count
-                    });
+                            $limit: options.count
+                        });
                     Pressrelease.aggregate(pipelineOne, function (err, found) {
                         if (err) {
                             callback(err, null);
@@ -125,6 +138,17 @@ var model = {
                             callback(null, found);
                         }
                     });
+                },
+                function (found, callback) {
+                    Pressrelease.getMonthNames(found, function (err, found) {
+                        if (err) {
+                            callback(err, null);
+                        } else {
+                            callback(null, found);
+                        }
+
+                    });
+
                 },
                 function (found, callback) {
                     //GET TOTAL COUNT
@@ -184,8 +208,8 @@ var model = {
                     cityOrYearWisePipeline.push({
                         $skip: options.start
                     }, {
-                        $limit: options.count
-                    });
+                            $limit: options.count
+                        });
                     Pressrelease.aggregate(cityOrYearWisePipeline, function (err, found) {
                         if (err) {
                             callback(err, null);
@@ -193,6 +217,17 @@ var model = {
                             callback(null, found);
                         }
                     });
+                },
+                function (found, callback) {
+                    Pressrelease.getMonthNames(found, function (err, found) {
+                        if (err) {
+                            callback(err, null);
+                        } else {
+                            callback(null, found);
+                        }
+
+                    });
+
                 },
                 function (found, callback) {
                     //GET TOTAL COUNT
@@ -235,8 +270,8 @@ var model = {
                     pipelineOne.push({
                         $skip: options.start
                     }, {
-                        $limit: options.count
-                    });
+                            $limit: options.count
+                        });
                     Pressrelease.aggregate(pipelineOne,
                         function (err, returnResult) {
                             if (err) {
@@ -247,6 +282,17 @@ var model = {
                         }
                     );
 
+
+                },
+                function (found, callback) {
+                    Pressrelease.getMonthNames(found, function (err, returnResult) {
+                        if (err) {
+                            callback(err, null);
+                        } else {
+                            callback(null, returnResult);
+                        }
+
+                    });
 
                 },
                 function (returnResult, callback) {

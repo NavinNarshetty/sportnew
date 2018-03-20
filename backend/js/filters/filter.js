@@ -177,5 +177,13 @@ myApp.filter('indianCurrency', function () {
             // return '₹' + finalNumber;
             return finalNumber;
         }
-    }
+    };
+});
+
+myApp.filter('englishNumeralCustomDate', function () {
+    return function (value) {
+        if (value) {
+            return moment(new Date(value)).subtract(1, 'days').format("DD MMMM YYYY");
+        }
+    };
 });

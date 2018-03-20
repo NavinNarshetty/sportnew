@@ -74,7 +74,8 @@ myApp.controller('PressMediaCtrl', function ($scope, TemplateService, Navigation
       console.log("data of contact", data);
       $scope.mediaData = data.data.data.results;
     });
-  }
+  };
+
   $scope.pressReleaseData = [];
   $scope.busy = false;
   $scope.pressRelease = function () {
@@ -88,6 +89,8 @@ myApp.controller('PressMediaCtrl', function ($scope, TemplateService, Navigation
       console.log("$scope.filter", $scope.filter);
       if (data.data.data.result.length > 0 && $scope.pressReleaseData.length <= data.data.data.total) {
         _.each(data.data.data.result, function (value) {
+          console.log("value", value);
+          value._id.monthyear = value._id.month + ' ' + value._id.year;
           $scope.pressReleaseData.push(value);
           $scope.busy = false;
 
@@ -104,10 +107,10 @@ myApp.controller('PressMediaCtrl', function ($scope, TemplateService, Navigation
 
 
   $scope.myPagingFunction = function () {
-    $scope.busy = false
+    $scope.busy = false;
     // ++$scope.filter.page;
     $scope.pressRelease();
-  }
+  };
   // FUNCTIONS END
 
   // PRESS RELEASE
@@ -139,6 +142,32 @@ myApp.controller('PressMediaCtrl', function ($scope, TemplateService, Navigation
   };
   // PRESS RELEASE END
 
+  // PRESS NEWS START
+  $scope.filterPressnews = {};
+  $scope.pressNewsData = [];
+  $scope.filterPressnews.page = 0;
+
+  $scope.getPressnews = function () {
+    $scope.url = 'Pressnews/getPressNews';
+    ++$scope.filterPressnews.page;
+    NavigationService.getDataApiCall($scope.filterPressnews, $scope.url, function (data) {
+      if (data.data.value) {
+        console.log("data of PressNews", data.data);
+        if (data.data.data.result.length > 0 && $scope.pressNewsData.length <= data.data.data.total) {
+          _.each(data.data.data.result, function (obj) {
+            $scope.pressNewsData.push(obj);
+          });
+        }
+      }
+    });
+
+  };
+
+
+  // LOAD MORE 
+  // PRESS NEWS END
+
+
   // MAIN PAGE
   // PAGE NAVIGATION
   var allPressMedia = ["frontend/views/content/pressmedia/inthenews.html", "frontend/views/content/pressmedia/pressreleases.html", "frontend/views/content/pressmedia/mediacontact.html"];
@@ -155,6 +184,7 @@ myApp.controller('PressMediaCtrl', function ($scope, TemplateService, Navigation
         innerView: allPressMedia[0],
         active: "inthenews"
       };
+      $scope.getPressnews();
       break;
     case "pressreleases":
       $scope.pressmedia = {
@@ -185,8 +215,10 @@ myApp.controller('PressMediaCtrl', function ($scope, TemplateService, Navigation
     var url = "inthenews";
     switch (view) {
       case 0:
+        console.log("im in case 0");
         url = "inthenews";
         $scope.pressmedia.active = "inthenews";
+        $scope.getPressnews();
         break;
       case 1:
         url = "pressreleases";

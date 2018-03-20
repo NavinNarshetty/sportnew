@@ -94,7 +94,7 @@ var model = {
             count: maxLimit
         };
 
-        if (data.city && data.city != '' && data.city != 'all' && data.year && data.year != '') {
+        if (data.city && data.city != " " && data.year && data.year != " ") {
             console.log("im in  if");
             var pipelineOne;
             async.waterfall([
@@ -113,8 +113,8 @@ var model = {
                     pipelineOne.push({
                         $skip: options.start
                     }, {
-                        $limit: options.count
-                    });
+                            $limit: options.count
+                        });
                     Pressrelease.aggregate(pipelineOne, function (err, found) {
                         if (err) {
                             callback(err, null);
@@ -157,26 +157,32 @@ var model = {
             });
         } else if (data.city || data.year) {
             console.log("im in  else if");
+            console.log("data.city", data.city);
             var cityOrYearWisePipeline = Pressrelease.getAggregatePipeline();
-            cityOrYearWisePipeline.splice(0, 0, {
-                $match: {
-                    $or: [{
+            if (data.city && data.city != " ") {
+                cityOrYearWisePipeline.splice(0, 0, {
+                    $match: {
                         city: {
                             $regex: data.city,
                             $options: "i"
                         }
-                    }, {
+                    }
+                });
+            } else if (data.year && data.year != " ") {
+                cityOrYearWisePipeline.splice(0, 0, {
+                    $match: {
                         year: data.year
-                    }]
-                }
-            });
+                    }
+                });
+            }
+
             async.waterfall([
                 function (callback) {
                     cityOrYearWisePipeline.push({
                         $skip: options.start
                     }, {
-                        $limit: options.count
-                    });
+                            $limit: options.count
+                        });
                     Pressrelease.aggregate(cityOrYearWisePipeline, function (err, found) {
                         if (err) {
                             callback(err, null);
@@ -226,8 +232,8 @@ var model = {
                     pipelineOne.push({
                         $skip: options.start
                     }, {
-                        $limit: options.count
-                    });
+                            $limit: options.count
+                        });
                     Pressrelease.aggregate(pipelineOne,
                         function (err, returnResult) {
                             if (err) {

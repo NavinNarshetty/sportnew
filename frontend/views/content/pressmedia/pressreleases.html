@@ -8,7 +8,7 @@
       <div class="row">
         <!-- YEAR FILTER -->
         <div class="col-md-2 col-sm-3 col-xs-6">
-          <select name="releaseyearfilter" class="form-control" id="releaseyearfilter" ng-model="yearData" ng-change="yearFilter(yearData)">
+          <select name="releaseyearfilter" class="form-control" id="releaseyearfilter" ng-model="yearData" ng-change="yearFilter(yearData , 'Year')">
                         <option value="2016">2016</option>
                         <option value="2017">2017</option>
                         <option value="2018">2018</option>
@@ -18,7 +18,7 @@
 
         <!-- CITY FILTER -->
         <div class="col-md-2 col-sm-3 col-xs-6">
-          <select name="releasecity" id="releasecity" class="form-control">
+          <select name="releasecity" id="releasecity" class="form-control" ng-model="cityName" ng-change="yearFilter(cityName,'City')">
                             <option value="All">All</option>
                             <option value="Mumbai">Mumbai</option>
                             <option value="Hyderabad">Hyderabad</option>
@@ -32,7 +32,7 @@
     <!-- <pre>{{pressReleaseData | json}}</pre> -->
     <!-- {{busy}} -->
     <!-- PAGINATION HOLDER -->
-    <div class="pressrelease-pagination" infinite-scroll="myPagingFunction()" infinite-scroll-distance="2" infinite-scroll-disabled='busy'>
+    <div class="pressrelease-pagination" infinite-scroll="myPagingFunction()" infinite-scroll-immediate-check="false" infinite-scroll-disabled='busy'>
       <!-- PRESS RELEASE HOLDER -->
       <div class="pressreleases-cardholder" ng-repeat="pressCard in pressReleaseData track by $index">
         <!-- CARD HEADER -->
@@ -51,6 +51,7 @@
       </div>
       <!-- PRESS RELEASE HOLDER END -->
     </div>
+    <div ng-if="showMessage && pressReleaseData.length == 0 ">No News Available</div>
     <!-- PAGINATION HOLDER END -->
   </div>
   <!-- CONTAINER END -->

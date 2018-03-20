@@ -85,18 +85,22 @@ myApp.controller('PressMediaCtrl', function ($scope, TemplateService, Navigation
     NavigationService.getDataApiCall($scope.filter, $scope.url, function (data) {
       console.log("data of contact", data);
       console.log("length", $scope.pressReleaseData.length);
-
-      if ($scope.pressReleaseData.length <= data.data.data.total) {
+      console.log("$scope.filter", $scope.filter);
+      if (data.data.data.result.length > 0 && $scope.pressReleaseData.length <= data.data.data.total) {
         _.each(data.data.data.result, function (value) {
           $scope.pressReleaseData.push(value);
           $scope.busy = false;
 
-        })
+        });
 
       }
+      if ($scope.filter.page == 1 && data.data.data.result.length == 0) {
+        $scope.showMessage = true;
+      }
+
 
     });
-  }
+  };
 
 
   $scope.myPagingFunction = function () {
@@ -107,15 +111,32 @@ myApp.controller('PressMediaCtrl', function ($scope, TemplateService, Navigation
   // FUNCTIONS END
 
   // PRESS RELEASE
-  $scope.yearFilter = function (data) {
-    console.log(data, "ng-change");
+  $scope.yearData = '';
+  $scope.cityName = '';
+  $scope.yearFilter = function (data, type) {
     $scope.busy = false;
-    $scope.filter.year = data;
-    $scope.filter.city = '';
     $scope.filter.page = 0;
     $scope.pressReleaseData = [];
+    if (type == 'Year') {
+      $scope.yearData = data;
+    }
+    if (type == 'City') {
+      $scope.cityName = data;
+    }
+
+    if (!$scope.yearData && $scope.yearData == '' && $scope.cityName && $scope.cityName != '') {
+      $scope.filter.year = '';
+      $scope.filter.city = $scope.cityName;
+    } else if ($scope.yearData && $scope.yearData != '' && !$scope.cityName && $scope.cityName == '') {
+      $scope.filter.year = $scope.yearData;
+      $scope.filter.city = '';
+    } else if ($scope.yearData && $scope.yearData != '' && $scope.cityName && $scope.cityName != '') {
+      $scope.filter.year = $scope.yearData;
+      $scope.filter.city = $scope.cityName;
+
+    }
     $scope.pressRelease();
-  }
+  };
   // PRESS RELEASE END
 
   // MAIN PAGE
@@ -185,8 +206,8 @@ myApp.controller('PressMediaCtrl', function ($scope, TemplateService, Navigation
     $state.go("pressmedia", {
       name: url
     }, {
-      notify: false
-    })
+        notify: false
+      })
   }
   // ON CLICK END
   // PAGE NAVIGATION END

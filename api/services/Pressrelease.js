@@ -18,8 +18,10 @@ var model = {
     savePressrelease: function (data, callback) {
         //    var obj=
         if (data) {
-            data.year = moment(data.releaseDate).subtract(1, "days").format('YYYY');
-            data.monthYear = moment(data.releaseDate).subtract(1, "days").format('MMMM YYYY');
+            // data.year = moment(data.releaseDate).subtract(1, "days").format('YYYY');
+            var releaseDate = moment(data.releaseDate).subtract(1, "days");
+            data.year = moment(releaseDate).format('YYYY');
+            data.monthYear = moment(releaseDate).format('MMMM YYYY');
             console.log("data", data);
             Pressrelease.saveData(data, function (err, saved) {
                 if (err) {
@@ -63,7 +65,8 @@ var model = {
                                 "city": "$city",
                                 "content": "$content",
                                 "title": "$title",
-                                "releaseDate": "$releaseDate"
+                                "releaseDate": "$releaseDate",
+                                "_id": "$_id"
                             }
                         }
                     }
@@ -113,8 +116,8 @@ var model = {
                     pipelineOne.push({
                         $skip: options.start
                     }, {
-                            $limit: options.count
-                        });
+                        $limit: options.count
+                    });
                     Pressrelease.aggregate(pipelineOne, function (err, found) {
                         if (err) {
                             callback(err, null);
@@ -181,8 +184,8 @@ var model = {
                     cityOrYearWisePipeline.push({
                         $skip: options.start
                     }, {
-                            $limit: options.count
-                        });
+                        $limit: options.count
+                    });
                     Pressrelease.aggregate(cityOrYearWisePipeline, function (err, found) {
                         if (err) {
                             callback(err, null);
@@ -232,8 +235,8 @@ var model = {
                     pipelineOne.push({
                         $skip: options.start
                     }, {
-                            $limit: options.count
-                        });
+                        $limit: options.count
+                    });
                     Pressrelease.aggregate(pipelineOne,
                         function (err, returnResult) {
                             if (err) {

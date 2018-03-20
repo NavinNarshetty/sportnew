@@ -1,3 +1,88 @@
+<!-- ARTICLE PAGE -->
 <div class="pressarticle-page">
-  <h1>Press Article</h1>
+  <!-- <pre>{{articleData | json}}</pre> -->
+  <!-- CONTAINER -->
+  <div class="container">
+    <!-- HEADER SECTION -->
+    <section>
+      <div class="row">
+        <div class="col-md-offset-1 col-md-10 col-sm-offset-1 col-sm-10 col-xs-12">
+          <!-- HEADER -->
+          <div class="pressarticle-header fjalla-one color-primary text-center">
+            {{articleData.title}}
+          </div>
+          <!-- HEADER END -->
+
+          <!-- DATE -->
+          <div class="pressarticle-date text-center color-darkgrey opensans-regular ">
+            {{articleData.releaseDate | englishNumeralCustomDate}}
+          </div>
+          <!-- DATE END -->
+        </div>
+      </div>
+    </section>
+    <!-- HEADER SECTION END -->
+
+    <!-- HEADER DESCRIPTION -->
+    <section>
+      <div class="row">
+        <div class="col-md-offset-1 col-md-10 col-sm-offset-1 col-sm-10 col-xs-12">
+          <!-- DESCRIPTION -->
+          <div class="pressarticle-description opensans-regular" ng-bind-html="articleData.description">
+          </div>
+          <!-- DESCRIPTION END -->
+
+          <!-- EMAIL AND PRINT -->
+          <div class="pressarticle-emailprint text-center">
+            <!-- EMAIL -->
+            <div class="pressarticle-email pointer">
+              <a href="mailto:?subject=I wanted you to see this site&amp;body=Check out this site http://localhost:8081/pressmedia/pressreleases/article/{{parameters._id}}"
+                title="Share by Email">
+               <i class="fa fa-envelope fa-2x custom-env" aria-hidden="true"></i>
+             </a>
+            </div>
+            <!-- EMAIL END -->
+
+            <!-- PRINT -->
+            <div class="pressarticle-print pointer">
+              <i class="fa fa-print fa-2x custom-env" aria-hidden="true"></i>
+            </div>
+            <!-- PRINT END -->
+          </div>
+          <!-- EMAIL AND PRINT END -->
+
+
+        </div>
+      </div>
+    </section>
+    <!-- HEADER DESCRIPTION END -->
+
+    <!-- ARTICLE CONTENT -->
+    <section>
+      <div class="row">
+        <div class="col-md-offset-1 col-md-10 col-sm-offset-1 col-sm-10 col-xs-12">
+
+          <div class="pressarticle-content" ng-bind-html="articleData.content"></div>
+
+        </div>
+      </div>
+    </section>
+    <!-- ARTICLE CONTENT END -->
+
+    <!-- ARTICLE FOOTER -->
+    <section>
+      <div class="row">
+        <div class="col-md-offset-1 col-md-10 col-sm-offset-1 col-sm-10 col-xs-12">
+          <div class="pressarticle-footer text-center">
+            <p class="m-clear"><strong>Contact Us</strong></p>
+            <p>For media inquires, send an email to <span ng-repeat="person in mediaData track by $index" title="{{person.emailId}}"><a href="mailto:{{person.emailId}}" class="pressarticle-footercontact" target="_top">{{person.emailId}}</a> <span ng-if="mediaData.length > 1 && mediaData.length-1 != $index">,</span>              </span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ARTICLE FOOTER END -->
+  </div>
+  <!-- CONTAINER END -->
 </div>
+<!-- ARTICLE PAGE END -->

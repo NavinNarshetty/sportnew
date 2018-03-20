@@ -51,11 +51,12 @@ var model = {
                             month: {
                                 $month: "$releaseDate"
                             },
+                            city: "$city"
                             // monthyear: "$monthYear"
                         },
                         newsArr: {
                             $push: {
-                                "year": "$year",
+                                // "year": "$year",
                                 // "monthYear": "$monthYear",
                                 "city": "$city",
                                 "content": "$content",
@@ -116,22 +117,25 @@ var model = {
             async.waterfall([
                 function (callback) {
                     pipelineOne = Pressrelease.getAggregatePipeline();
-                    pipelineOne.splice(0, 0, {
+                    console.log("pipelineOne", pipelineOne);
+                    pipelineOne.splice(2, 0, {
                         $match: {
-                            city: {
+                            "_id.city": {
                                 $regex: data.city,
                                 $options: "i"
                             },
-                            year: data.year
+                            "_id.year": parseInt(data.year)
                         }
                     });
+                    console.log("pipelineOne after", pipelineOne);
 
                     pipelineOne.push({
                         $skip: options.start
                     }, {
-                            $limit: options.count
-                        });
+                        $limit: options.count
+                    });
                     Pressrelease.aggregate(pipelineOne, function (err, found) {
+                        console.log("found", found);
                         if (err) {
                             callback(err, null);
                         } else {
@@ -185,9 +189,11 @@ var model = {
         } else if (data.city || data.year) {
             console.log("im in  else if");
             console.log("data.city", data.city);
+            console.log("data.year", data.year);
             var cityOrYearWisePipeline = Pressrelease.getAggregatePipeline();
+            console.log("cityOrYearWisePipeline", cityOrYearWisePipeline);
             if (data.city && data.city != " ") {
-                cityOrYearWisePipeline.splice(0, 0, {
+                cityOrYearWisePipeline.splice(2, 0, {
                     $match: {
                         city: {
                             $regex: data.city,
@@ -196,21 +202,26 @@ var model = {
                     }
                 });
             } else if (data.year && data.year != " ") {
-                cityOrYearWisePipeline.splice(0, 0, {
+                cityOrYearWisePipeline.splice(2, 0, {
+
+                    // Stage 2
+
                     $match: {
-                        year: data.year
+                        "_id.year": 2017
                     }
+
                 });
             }
-
+            console.log("cityOrYearWisePipeline after", cityOrYearWisePipeline);
             async.waterfall([
                 function (callback) {
                     cityOrYearWisePipeline.push({
                         $skip: options.start
                     }, {
-                            $limit: options.count
-                        });
+                        $limit: options.count
+                    });
                     Pressrelease.aggregate(cityOrYearWisePipeline, function (err, found) {
+                        console.log("found", found);
                         if (err) {
                             callback(err, null);
                         } else {
@@ -270,8 +281,8 @@ var model = {
                     pipelineOne.push({
                         $skip: options.start
                     }, {
-                            $limit: options.count
-                        });
+                        $limit: options.count
+                    });
                     Pressrelease.aggregate(pipelineOne,
                         function (err, returnResult) {
                             if (err) {

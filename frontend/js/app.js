@@ -147,7 +147,7 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
             reloadOnSearch: false
         })
         .state('pressarticle', {
-            url: "/pressmedia/pressreleases/article",
+            url: "/pressmedia/pressreleases/article/:id",
             templateUrl: tempateURL,
             controller: 'PressArticleCtrl'
         });

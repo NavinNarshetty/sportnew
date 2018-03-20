@@ -1845,6 +1845,63 @@ $sport-primary: #0a1a72 !default;
 }
 
 // PRESS NEWS CARD END
+// PRESS ARTICLE
+.pressarticle-header,
+.pressarticle-description,
+.pressarticle-content,
+.pressarticle-content {
+    margin: 40px 0px;
+}
+
+.pressarticle-header {
+    font-size: 30px;
+}
+
+.pressarticle-date {
+    font-size: 21px;
+}
+
+.pressarticle-email {
+    margin: 10px 0px;
+}
+
+.pressarticle-emailprint {
+    border-top: 1px solid #e1e1e1;
+    border-bottom: 1px solid #e1e1e1;
+}
+
+.pressarticle-email {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    margin-right: 10px;
+    border-radius: 100%;
+    /* padding: 8px; */
+    background-color: #3a9f75;
+    display: inline-block;
+    .custom-env {
+        font-size: 18px;
+        color: #fff;
+    }
+}
+
+.pressarticle-print {
+    @extend .pressarticle-email;
+    background-color: #6877a0;
+    margin-right: 0px;
+    margin-left: 10px;
+}
+
+.pressarticle-footer {
+    margin: 40px 0px;
+    border: 1px solid #e1e1e1;
+    padding: 25px;
+    a {
+        text-decoration: underline;
+    }
+}
+
+// PRESS ARTICLE END
 // test
 // .youmaylikeflex-holder {
 //     display: flex;

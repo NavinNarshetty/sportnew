@@ -45,8 +45,22 @@ var model = {
                                 // Stage 2
                                 {
                                     $match: {
+                                        // "eventyear": parseInt(data.year),
+                                        // "city": { $regex: data.city, $options: "i" },
+
+                                        $or: [{
+                                            city: {
+                                                $regex: data.city,
+                                                $options: "i"
+                                            }
+                                        }, {
+                                            city: {
+                                                $regex: "allcities",
+                                                $options: "i"
+                                            }
+                                        }],
                                         "eventyear": parseInt(data.year),
-                                        "city": { $regex: data.city, $options: "i" }
+
                                     }
                                 },
 
@@ -94,8 +108,21 @@ var model = {
                                 // Stage 2
                                 {
                                     $match: {
+                                        // "eventyear": parseInt(data.year),
+                                        // "city": { $regex: data.city, $options: "i" }
+
+                                        $or: [{
+                                            city: {
+                                                $regex: data.city,
+                                                $options: "i"
+                                            }
+                                        }, {
+                                            city: {
+                                                $regex: "allcities",
+                                                $options: "i"
+                                            }
+                                        }],
                                         "eventyear": parseInt(data.year),
-                                        "city": { $regex: data.city, $options: "i" }
                                     }
                                 },
 
@@ -176,7 +203,18 @@ var model = {
                     console.log("immi city");
                     pipeline.splice(1, 0, {
                         $match: {
-                            "city": { $regex: data.city, $options: "i" }
+                            // "city": { $regex: data.city, $options: "i" }
+                            $or: [{
+                                city: {
+                                    $regex: data.city,
+                                    $options: "i"
+                                }
+                            }, {
+                                city: {
+                                    $regex: "allcities",
+                                    $options: "i"
+                                }
+                            }]
                         }
                     });
                 } else if (data.year && data.year != " ") {

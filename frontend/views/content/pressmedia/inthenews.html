@@ -7,7 +7,7 @@
       <div class="row">
         <!-- YEAR -->
         <div class="col-md-2 col-sm-3 col-xs-6">
-          <select name="newsyearfilter" class="form-control" id="newsyearfilter" ng-model="edf">
+          <select name="newsyearfilter" class="form-control" id="newsyearfilter" ng-model="newsYear" ng-change="filterPressnews(newsYear,'year')">
             <option value="2016">2016</option>
             <option value="2017">2017</option>
             <option value="2018">2018</option>
@@ -17,7 +17,7 @@
 
         <!-- CITY -->
         <div class="col-md-2 col-sm-3 col-xs-6">
-          <select name="newscityfilter" id="newscityfilter" class="form-control" ng-model="abc">
+          <select name="newscityfilter" id="newscityfilter" class="form-control" ng-model="newsCity" ng-change="filterPressnews(newsCity,'city')">
                 <option value="All">All</option>
                 <option value="mumbai">Mumbai</option>
                 <option value="hyderabad">Hyderabad</option>
@@ -41,12 +41,12 @@
 
     <!--ARTICLE CARD  -->
     <div class="newsarticlecard-holder">
-      <div class="row">
-        <div class="col-md-4 col-sm-6 col-xs-12" ng-repeat="card in newsData track by $index">
+      <div class="row" infinite-scroll="getPressnews()" infinite-scroll-immediate-check="false" infinite-scroll-disabled='scroll.busy'>
+        <div class="col-md-4 col-sm-6 col-xs-12" ng-repeat="card in pressNewsData track by $index">
           <div class="newsarticle-card">
-            <a data-fancybox="group" href="{{card.mediaLink}}" rel="press media">
+            <a data-fancybox="group" href="{{card.mediaLink | serverimage}}" rel="press media">
               <!-- BACKGROUND IMAGE -->
-              <div class="newsarticle-cardimage" style="background-image:url('{{card.mediaLink}}')">
+              <div class="newsarticle-cardimage" style="background-image:url('{{card.mediaLink | serverimage}}')">
 
                 <div class="newsarticle-cardoverlay"></div>
               </div>

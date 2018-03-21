@@ -17,6 +17,7 @@ var exports = _.cloneDeep(require("sails-wohlig-service")(schema));
 var model = {
     savePressrelease: function (data, callback) {
         if (data) {
+            data.year=moment(data.releaseDate).add(1, "days").format("YYYY");
             data.releaseDate = moment(data.releaseDate).add(1, "days");
             Pressrelease.saveData(data, function (err, saved) {
                 if (err) {
@@ -51,12 +52,11 @@ var model = {
                             month: {
                                 $month: "$releaseDate"
                             },
-                            city: "$city"
                             // monthyear: "$monthYear"
                         },
                         newsArr: {
                             $push: {
-                                // "year": "$year",
+                                "year": "$year",
                                 // "monthYear": "$monthYear",
                                 "city": "$city",
                                 "content": "$content",
@@ -120,11 +120,11 @@ var model = {
                     console.log("pipelineOne", pipelineOne);
                     pipelineOne.splice(2, 0, {
                         $match: {
-                            "_id.city": {
+                            city: {
                                 $regex: data.city,
                                 $options: "i"
                             },
-                            "_id.year": parseInt(data.year)
+                            year: data.year
                         }
                     });
                     console.log("pipelineOne after", pipelineOne);
@@ -193,7 +193,7 @@ var model = {
             var cityOrYearWisePipeline = Pressrelease.getAggregatePipeline();
             console.log("cityOrYearWisePipeline", cityOrYearWisePipeline);
             if (data.city && data.city != " ") {
-                cityOrYearWisePipeline.splice(2, 0, {
+                cityOrYearWisePipeline.splice(0, 0, {
                     $match: {
                         city: {
                             $regex: data.city,
@@ -202,12 +202,11 @@ var model = {
                     }
                 });
             } else if (data.year && data.year != " ") {
-                cityOrYearWisePipeline.splice(2, 0, {
-
-                    // Stage 2
+                cityOrYearWisePipeline.splice(0, 0, {
+ // Stage 2
 
                     $match: {
-                        "_id.year": 2017
+                        year: data.year
                     }
 
                 });

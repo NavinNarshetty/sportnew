@@ -100,8 +100,6 @@ myApp.controller('PressMediaCtrl', function ($scope, TemplateService, Navigation
       if ($scope.filter.page == 1 && data.data.data.result.length == 0) {
         $scope.showMessage = true;
       }
-
-
     });
   };
 
@@ -146,25 +144,59 @@ myApp.controller('PressMediaCtrl', function ($scope, TemplateService, Navigation
   $scope.filterPressnews = {};
   $scope.pressNewsData = [];
   $scope.filterPressnews.page = 0;
+  $scope.scroll = {};
+  $scope.scroll.busy = false;
 
-  $scope.getPressnews = function () {
-    $scope.url = 'Pressnews/getPressNews';
-    ++$scope.filterPressnews.page;
-    NavigationService.getDataApiCall($scope.filterPressnews, $scope.url, function (data) {
-      if (data.data.value) {
-        console.log("data of PressNews", data.data);
-        if (data.data.data.result.length > 0 && $scope.pressNewsData.length <= data.data.data.total) {
-          _.each(data.data.data.result, function (obj) {
-            $scope.pressNewsData.push(obj);
-          });
-        }
-      }
-    });
+  // $scope.getPressnews = function () {
+  //   $scope.url = 'Pressnews/getPressNews';
+  //   ++$scope.filterPressnews.page;
+  //   if ($scope.scroll.busy) return;
+  //   $scope.scroll.busy = true;
+  //   console.log("$scope.filterPressnews", $scope.filterPressnews);
+  //   NavigationService.getDataApiCall($scope.filterPressnews, $scope.url, function (data) {
+  //     if (data.data.value) {
+  //       console.log("data of PressNews", data.data);
+  //       if (data.data.data.result.length > 0 && $scope.pressNewsData.length <= data.data.data.total) {
+  //         _.each(data.data.data.result, function (obj) {
+  //           $scope.pressNewsData.push(obj);
+  //           $scope.scroll.busy = false;
+  //         });
+  //       }
+  //     }
+  //   });
+
+  // };
+
+  //FILTER PRESSNEWS DATA CITY OR YEAR WISE
+
+  $scope.yearNews = '';
+  $scope.cityNews = '';
+  $scope.filterPressnews = function (data, type) {
+
+    $scope.scroll.busy = false;
+    $scope.filterPressnews.page = 0;
+    $scope.pressNewsData = [];
+    if (type == 'Year') {
+      $scope.yearNews = data;
+    }
+    if (type == 'City') {
+      $scope.cityNews = data;
+    }
+
+    if (!$scope.yearNews && $scope.yearNews == '' && $scope.cityName && $scope.cityName != '') {
+      $scope.filter.year = '';
+      $scope.filter.city = $scope.cityName;
+    } else if ($scope.yearNews && $scope.yearNews != '' && !$scope.cityName && $scope.cityName == '') {
+      $scope.filter.year = $scope.yearNews;
+      $scope.filter.city = '';
+    } else if ($scope.yearNews && $scope.yearNews != '' && $scope.cityName && $scope.cityName != '') {
+      $scope.filter.year = $scope.yearNews;
+      $scope.filter.city = $scope.cityName;
+
+    }
+    $scope.pressRelease();
 
   };
-
-
-  // LOAD MORE 
   // PRESS NEWS END
 
 
@@ -184,7 +216,7 @@ myApp.controller('PressMediaCtrl', function ($scope, TemplateService, Navigation
         innerView: allPressMedia[0],
         active: "inthenews"
       };
-      $scope.getPressnews();
+      // $scope.getPressnews();
       break;
     case "pressreleases":
       $scope.pressmedia = {

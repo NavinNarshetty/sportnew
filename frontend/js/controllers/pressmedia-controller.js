@@ -176,6 +176,8 @@ myApp.controller('PressMediaCtrl', function ($scope, TemplateService, Navigation
 
   //FILTER PRESSNEWS DATA CITY OR YEAR WISE
 
+  $scope.newsYear = ' ';
+  $scope.newsCity = ' ';
   $scope.yearNews = '';
   $scope.cityNews = '';
   $scope.filterPressnews = function (data, type) {
@@ -280,8 +282,8 @@ myApp.controller('PressMediaCtrl', function ($scope, TemplateService, Navigation
     $state.go("pressmedia", {
       name: url
     }, {
-        notify: false
-      })
+      notify: false
+    })
   }
   // ON CLICK END
   // PAGE NAVIGATION END

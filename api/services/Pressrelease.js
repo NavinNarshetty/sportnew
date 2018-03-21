@@ -118,7 +118,7 @@ var model = {
                 function (callback) {
                     pipelineOne = Pressrelease.getAggregatePipeline();
                     console.log("pipelineOne", pipelineOne);
-                    pipelineOne.splice(2, 0, {
+                    pipelineOne.splice(0, 0, {
                         $match: {
                             city: {
                                 $regex: data.city,
@@ -244,10 +244,13 @@ var model = {
                     var finalData = {};
                     finalData.result = found;
                     if (found.length > 0) {
+                        console.log("before 1",cityOrYearWisePipeline);
+                       
                         cityOrYearWisePipeline.splice(4, 2);
                         cityOrYearWisePipeline.push({
                             $count: "count"
                         });
+                        console.log("after 1",cityOrYearWisePipeline);
                         Pressrelease.aggregate(cityOrYearWisePipeline, function (err, total) {
                             if (err) {
                                 callback(err, null);

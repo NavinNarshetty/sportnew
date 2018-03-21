@@ -141,31 +141,31 @@ myApp.controller('PressMediaCtrl', function ($scope, TemplateService, Navigation
   // PRESS RELEASE END
 
   // PRESS NEWS START
-  $scope.filterPressnews = {};
+  $scope.filterInPressNews = {};
   $scope.pressNewsData = [];
-  $scope.filterPressnews.page = 0;
+  $scope.filterInPressNews.page = 0;
   $scope.scroll = {};
   $scope.scroll.busy = false;
 
-  // $scope.getPressnews = function () {
-  //   $scope.url = 'Pressnews/getPressNews';
-  //   ++$scope.filterPressnews.page;
-  //   if ($scope.scroll.busy) return;
-  //   $scope.scroll.busy = true;
-  //   console.log("$scope.filterPressnews", $scope.filterPressnews);
-  //   NavigationService.getDataApiCall($scope.filterPressnews, $scope.url, function (data) {
-  //     if (data.data.value) {
-  //       console.log("data of PressNews", data.data);
-  //       if (data.data.data.result.length > 0 && $scope.pressNewsData.length <= data.data.data.total) {
-  //         _.each(data.data.data.result, function (obj) {
-  //           $scope.pressNewsData.push(obj);
-  //           $scope.scroll.busy = false;
-  //         });
-  //       }
-  //     }
-  //   });
+  $scope.getPressnews = function () {
+    $scope.url = 'Pressnews/getPressNews';
+    ++$scope.filterInPressNews.page;
+    if ($scope.scroll.busy) return;
+    $scope.scroll.busy = true;
+    console.log("$scope.filterInPressNews", $scope.filterInPressNews);
+    NavigationService.getDataApiCall($scope.filterInPressNews, $scope.url, function (data) {
+      if (data.data.value) {
+        console.log("data of PressNews", data.data);
+        if (data.data.data.result.length > 0 && $scope.pressNewsData.length <= data.data.data.total) {
+          _.each(data.data.data.result, function (obj) {
+            $scope.pressNewsData.push(obj);
+            $scope.scroll.busy = false;
+          });
+        }
+      }
+    });
 
-  // };
+  };
 
   //FILTER PRESSNEWS DATA CITY OR YEAR WISE
 
@@ -173,8 +173,9 @@ myApp.controller('PressMediaCtrl', function ($scope, TemplateService, Navigation
   $scope.cityNews = '';
   $scope.filterPressnews = function (data, type) {
 
+    // console.log("i am in", data, type);
     $scope.scroll.busy = false;
-    $scope.filterPressnews.page = 0;
+    $scope.filterInPressNews.page = 0;
     $scope.pressNewsData = [];
     if (type == 'Year') {
       $scope.yearNews = data;
@@ -184,17 +185,19 @@ myApp.controller('PressMediaCtrl', function ($scope, TemplateService, Navigation
     }
 
     if (!$scope.yearNews && $scope.yearNews == '' && $scope.cityName && $scope.cityName != '') {
-      $scope.filter.year = '';
-      $scope.filter.city = $scope.cityName;
+      $scope.filterInPressNews.year = '';
+      $scope.filterInPressNews.city = $scope.cityName;
     } else if ($scope.yearNews && $scope.yearNews != '' && !$scope.cityName && $scope.cityName == '') {
-      $scope.filter.year = $scope.yearNews;
-      $scope.filter.city = '';
+      $scope.filterInPressNews.year = $scope.yearNews;
+      $scope.filterInPressNews.city = '';
     } else if ($scope.yearNews && $scope.yearNews != '' && $scope.cityName && $scope.cityName != '') {
-      $scope.filter.year = $scope.yearNews;
-      $scope.filter.city = $scope.cityName;
+      $scope.filterInPressNews.year = $scope.yearNews;
+      $scope.filterInPressNews.city = $scope.cityName;
 
     }
-    $scope.pressRelease();
+    // $scope.pressRelease();
+    $scope.getPressnews();
+
 
   };
   // PRESS NEWS END
@@ -216,7 +219,7 @@ myApp.controller('PressMediaCtrl', function ($scope, TemplateService, Navigation
         innerView: allPressMedia[0],
         active: "inthenews"
       };
-      // $scope.getPressnews();
+      $scope.getPressnews();
       break;
     case "pressreleases":
       $scope.pressmedia = {
@@ -270,8 +273,8 @@ myApp.controller('PressMediaCtrl', function ($scope, TemplateService, Navigation
     $state.go("pressmedia", {
       name: url
     }, {
-        notify: false
-      })
+      notify: false
+    })
   }
   // ON CLICK END
   // PAGE NAVIGATION END

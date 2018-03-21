@@ -115,8 +115,14 @@ var model = {
 
                             ], function (err, found) {
                                 console.log("found", found);
+                                console.log("returnResult", returnResult);
+                                if (found.length > 0) {
+                                    finalData.total = found[0].count;
+                                } else {
+                                    finalData.total = 0;
+                                }
                                 finalData.result = returnResult;
-                                finalData.total = found[0].count;
+
                                 if (err) {
                                     callback(err, null);
                                 } else {
@@ -145,9 +151,6 @@ var model = {
                                 "eventyear": { $year: "$newsDate" }
                             }
                         },
-
-                        // Stage 2
-
 
                         // Stage 3
                         {

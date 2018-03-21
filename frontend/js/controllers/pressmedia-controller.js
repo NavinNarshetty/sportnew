@@ -99,6 +99,8 @@ myApp.controller('PressMediaCtrl', function ($scope, TemplateService, Navigation
       }
       if ($scope.filter.page == 1 && data.data.data.result.length == 0) {
         $scope.showMessage = true;
+      } else {
+        $scope.showMessage = false;
       }
     });
   };
@@ -162,6 +164,11 @@ myApp.controller('PressMediaCtrl', function ($scope, TemplateService, Navigation
             $scope.scroll.busy = false;
           });
         }
+        if ($scope.filterInPressNews.page == 1 && data.data.data.result.length == 0) {
+          $scope.noPressNews = true;
+        } else {
+          $scope.noPressNews = false;
+        }
       }
     });
 
@@ -184,18 +191,18 @@ myApp.controller('PressMediaCtrl', function ($scope, TemplateService, Navigation
       $scope.cityNews = data;
     }
 
-    if (!$scope.yearNews && $scope.yearNews == '' && $scope.cityName && $scope.cityName != '') {
+    if (!$scope.yearNews && $scope.yearNews == '' && $scope.cityNews && $scope.cityNews != '') {
       $scope.filterInPressNews.year = '';
-      $scope.filterInPressNews.city = $scope.cityName;
-    } else if ($scope.yearNews && $scope.yearNews != '' && !$scope.cityName && $scope.cityName == '') {
+      $scope.filterInPressNews.city = $scope.cityNews;
+    } else if ($scope.yearNews && $scope.yearNews != '' && !$scope.cityNews && $scope.cityNews == '') {
       $scope.filterInPressNews.year = $scope.yearNews;
       $scope.filterInPressNews.city = '';
-    } else if ($scope.yearNews && $scope.yearNews != '' && $scope.cityName && $scope.cityName != '') {
+    } else if ($scope.yearNews && $scope.yearNews != '' && $scope.cityNews && $scope.cityNews != '') {
       $scope.filterInPressNews.year = $scope.yearNews;
-      $scope.filterInPressNews.city = $scope.cityName;
+      $scope.filterInPressNews.city = $scope.cityNews;
 
     }
-    // $scope.pressRelease();
+
     $scope.getPressnews();
 
 
@@ -273,8 +280,8 @@ myApp.controller('PressMediaCtrl', function ($scope, TemplateService, Navigation
     $state.go("pressmedia", {
       name: url
     }, {
-      notify: false
-    })
+        notify: false
+      })
   }
   // ON CLICK END
   // PAGE NAVIGATION END

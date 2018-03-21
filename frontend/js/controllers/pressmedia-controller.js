@@ -114,8 +114,8 @@ myApp.controller('PressMediaCtrl', function ($scope, TemplateService, Navigation
   // FUNCTIONS END
 
   // PRESS RELEASE
-  $scope.yearData = '';
-  $scope.cityName = '';
+  $scope.yearData = ' ';
+  $scope.cityName = ' ';
   $scope.yearFilter = function (data, type) {
     $scope.busy = false;
     $scope.filter.page = 0;

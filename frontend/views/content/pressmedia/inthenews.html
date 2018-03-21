@@ -55,7 +55,7 @@
               <!-- TITLE -->
               <div class="newarticle-cardtitleholder">
                 <p class="opensans-semibold newarticle-cardtitle m-clear">{{card.mediaTitle}}</p>
-                <p class="color-darkgrey newsarticle-carddate m-clear"> <span>{{card.newsDate | date}}</span> </p>
+                <p class="color-darkgrey newsarticle-carddate m-clear"> <span class="text-capitalize" ng-if="card.city !='allcities'">{{card.city}} : </span> <span>{{card.newsDate | date}}</span>                  </p>
               </div>
               <!-- TITLE END -->
             </a>

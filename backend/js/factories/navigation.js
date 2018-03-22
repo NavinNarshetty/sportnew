@@ -6,7 +6,12 @@ var uploadurl = imgurl;
 
 
 myApp.factory('NavigationService', function ($http) {
-    var data = $.jStorage.get('profile').accessLevel;
+    var data;
+    if ($.jStorage.get('profile')) {
+        data = $.jStorage.get('profile').accessLevel;
+    } else {
+        data = 'default';
+    }
     switch (data) {
         case "Admin":
             var navigation = [{

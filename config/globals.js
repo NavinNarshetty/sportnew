@@ -81,7 +81,7 @@ global["async"] = require('async');
 
 // Storage
 global.storageBucket = "sfa-chunks";
-// global.storageBucket = "test-master-chunks";
+// global.storageBucket = "master-chunks";
 global.skipper = require('skipper-gclouds');
 global.gCloudKey = './config/googleKey/SFA New-f0fd1402dc91.json';
 global.Storage = require('@google-cloud/storage');

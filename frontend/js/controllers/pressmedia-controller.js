@@ -282,7 +282,7 @@ myApp.controller('PressMediaCtrl', function ($scope, TemplateService, Navigation
     $state.go("pressmedia", {
       name: url
     }, {
-      notify: true
+      notify: false
     })
   }
   // ON CLICK END

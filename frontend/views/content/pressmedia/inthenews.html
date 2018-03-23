@@ -45,7 +45,7 @@
       <div class="row" infinite-scroll="getPressnews()" infinite-scroll-immediate-check="false" infinite-scroll-disabled='scroll.busy'>
         <div class="col-md-4 col-sm-6 col-xs-12" ng-repeat="card in pressNewsData track by $index">
           <div class="newsarticle-card">
-            <a fancyboxBox href="{{card.mediaLink | serverimage}}" data-fancybox="group" rel="pressMedia">
+            <a fancybox href="{{card.mediaLink | serverimage}}" data-fancybox="group" rel="pressMedia">
               <!-- BACKGROUND IMAGE -->
               <div class="newsarticle-cardimage" style="background-image:url('{{card.mediaLink | serverimage}}')">
 

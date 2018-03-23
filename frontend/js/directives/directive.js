@@ -47,7 +47,7 @@ myApp.directive('img', function ($compile, $parse) {
     })
 
 
-    .directive('fancybox', function ($compile, $parse) {
+    .directive('fancybox2', function ($compile, $parse) {
         return {
             restrict: 'EA',
             replace: false,
@@ -72,7 +72,7 @@ myApp.directive('img', function ($compile, $parse) {
         };
     })
 
-    .directive('fancyboxBox', function ($document) {
+    .directive('fancybox', function ($document) {
         return {
             restrict: 'EA',
             replace: false,
@@ -90,9 +90,26 @@ myApp.directive('img', function ($compile, $parse) {
                     closeEffect: 'fade',
                     overflow: 'hidden',
                     closeBtn: true,
+                    arrows : true,
+                    keyboard : true,
+                    protect : true,
                     helpers: {
-                        media: {}
-                    }
+                      media: {
+                        youtube : {
+                          autoplay : 1
+                        }
+                      }
+                    },
+                    buttons: [
+                      // 'fullScreen',
+                      //'download',
+                      // 'thumbs',
+                      'zoom',
+                      // 'tag',
+                      // 'share', //default share
+                      // 'sharing', //custom share
+                      'close',
+                    ]
                 });
             }
         };

@@ -214,7 +214,7 @@ myApp.controller('PressMediaCtrl', function ($scope, TemplateService, Navigation
 
   // MAIN PAGE
   // PAGE NAVIGATION
-  var allPressMedia = ["frontend/views/content/pressmedia/inthenews.html", "frontend/views/content/pressmedia/pressreleases.html", "frontend/views/content/pressmedia/mediacontact.html"];
+  var allPressMedia = ["../views/content/pressmedia/inthenews.html", "../views/content/pressmedia/pressreleases.html", "../views/content/pressmedia/mediacontact.html"];
 
   $scope.pressmedia = {
     innerView: allPressMedia[0],

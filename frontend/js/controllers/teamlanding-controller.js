@@ -48,7 +48,7 @@ myApp.controller('TeamLandingCtrl', function ($scope, $state, $stateParams, Temp
 
 
   $scope.cityList = ['mumbai', 'ahmedabad', 'hyderabad'];
-  var allTeamLanding = ["frontend/views/content/teamlanding/school.html", "frontend/views/content/teamlanding/college.html"];
+  var allTeamLanding = ["../views/content/teamlanding/school.html", "../views/content/teamlanding/college.html"];
 
   $scope.teamlanding = {
     innerView: allTeamLanding[0],

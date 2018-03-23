@@ -754,10 +754,10 @@ myApp.controller('SchoolProfileCtrl', function ($scope, $state, $stateParams, Te
         type: 'Draw'
     }]
 
-    var allSchoolProfile = ["frontend/views/content/schoolprofile/highlights.html", "frontend/views/content/schoolprofile/trackrecord.html",
-        "frontend/views/content/schoolprofile/team.html",
-        "frontend/views/content/schoolprofile/statistics.html",
-        "frontend/views/content/schoolprofile/achievements.html", "frontend/views/content/schoolprofile/videos.html"
+    var allSchoolProfile = ["../views/content/schoolprofile/highlights.html", "../views/content/schoolprofile/trackrecord.html",
+        "../views/content/schoolprofile/team.html",
+        "../views/content/schoolprofile/statistics.html",
+        "../views/content/schoolprofile/achievements.html", "../views/content/schoolprofile/videos.html"
     ];
     $scope.schoolprofile = {
         innerView: allSchoolProfile[0],

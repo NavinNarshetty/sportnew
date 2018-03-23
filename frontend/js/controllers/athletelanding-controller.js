@@ -40,7 +40,7 @@ myApp.controller('AthleteLandingCtrl', function ($scope, $state, $stateParams, T
   }
   // VIEW MORE SCHOOLS  END
 
-  var allAthleteLanding = ["frontend/views/content/athletelanding/school.html", "frontend/views/content/athletelanding/college.html"];
+  var allAthleteLanding = ["../views/content/athletelanding/school.html", "../views/content/athletelanding/college.html"];
 
   $scope.athletelanding = {
     innerView: allAthleteLanding[0],

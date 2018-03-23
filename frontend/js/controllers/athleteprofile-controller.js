@@ -161,7 +161,7 @@ myApp.controller('AthleteProfileCtrl', function ($scope, $state, $stateParams, T
     $scope.swiperInitialise(0);
     // SWIPER INITIALSE END
     // SELECT PAGE FUNCTION
-    var allAthleteProfile = [ "frontend/views/content/athleteprofile/highlights.html", "frontend/views/content/athleteprofile/statistics.html", "frontend/views/content/athleteprofile/achievements.html", "frontend/views/content/athleteprofile/videos.html", "frontend/views/content/athleteprofile/gallery.html"];
+    var allAthleteProfile = [ "../views/content/athleteprofile/highlights.html", "../views/content/athleteprofile/statistics.html", "../views/content/athleteprofile/achievements.html", "../views/content/athleteprofile/videos.html", "../views/content/athleteprofile/gallery.html"];
     $scope.athleteprofile = {
       innerView: allAthleteProfile[0],
       active : "highlights"

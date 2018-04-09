@@ -164,6 +164,7 @@ var model = {
                 }
             });
     },
+
     filterSchool: function (data, callback) {
         var maxRow = Config.maxRow;
         console.log(data);

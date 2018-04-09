@@ -1191,7 +1191,11 @@
 
  /* Start writing sass here */
 
- //  COMMON CLASS
+ .filter-athlete-dropdown {
+     li {
+         padding: 5px;
+     }
+ } //  COMMON CLASS
  .table-font {
      .table {
          border: 1px solid #e1e1e1;

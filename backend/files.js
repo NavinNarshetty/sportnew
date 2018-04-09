@@ -55,6 +55,7 @@ module.exports = [
     'backend/js/services/deleteService.js',
     'backend/js/services/saveService.js',
     'backend/js/services/crudService.js',
+    'backend/js/services/excelService.js',
 
     //Factories
     'backend/js/factories/navigation.js',
@@ -66,4 +67,6 @@ module.exports = [
     'backend/js/controllers/featured.js',
     'backend/js/controllers/youmaylike.js',
     'backend/js/controllers/pressmedia.js',
+    'backend/js/controllers/athlete.js',
+    'backend/js/controllers/school.js',
 ];

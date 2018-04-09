@@ -195,6 +195,31 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
 
         // *************** PRESS MEDIA END***************
 
+        // ***************REGISTRATION *******************
+        .state('tableathlete', {
+            url: "/tableathlete",
+            templateUrl: "views/template.html",
+            controller: 'AthleteCtrl'
+        })
+        .state('detailathlete', {
+            url: "/detailathlete/:id",
+            templateUrl: "views/template.html",
+            controller: 'DetailAthleteCtrl'
+        })
+
+        .state('tableschool', {
+            url: "/tableschool",
+            templateUrl: "views/template.html",
+            controller: 'SchoolCtrl'
+        })
+        .state('detailschool', {
+            url: "/detailschool/:id",
+            templateUrl: "views/template.html",
+            controller: 'DetailSchoolCtrl'
+        })
+
+        // ***************REGISTRATION END**************** 
+
         .state('schema-creator', {
             url: "/schema-creator",
             templateUrl: "views/template.html",

@@ -21,6 +21,23 @@ myApp.factory('NavigationService', function ($http) {
                     icon: "phone"
                 },
                 {
+                    name: "Registration",
+                    classis: "activeColor",
+                    sref: "",
+                    icon: "phone",
+                    subnav: [{
+                        name: "Athlete",
+                        classis: "activeColor",
+                        sref: "#!/tableathlete",
+                        icon: "phone",
+                    }, {
+                        name: "School",
+                        classis: "activeColor",
+                        sref: "#!/tableschool",
+                        icon: "phone",
+                    }]
+                },
+                {
                     name: "Events",
                     classis: "active",
                     sref: "#!/page/viewEvent//",

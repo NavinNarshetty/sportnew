@@ -150,6 +150,11 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
             url: "/pressmedia/pressreleases/article/:id",
             templateUrl: tempateURL,
             controller: 'PressArticleCtrl'
+        })
+        .state('aboutchampionship', {
+            url: "/aboutchampionship",
+            templateUrl: tempateURL,
+            controller: 'aboutChampionshipCtrl'
         });
     $urlRouterProvider.otherwise("/");
     $locationProvider.html5Mode(isproduction);

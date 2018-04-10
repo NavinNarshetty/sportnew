@@ -79,4 +79,5 @@ module.exports = [
   'frontend/js/controllers/sportpage-controller.js',
   'frontend/js/controllers/pressmedia-controller.js',
   'frontend/js/controllers/pressarticle-controller.js',
+  'frontend/js/controllers/aboutchampionship.js',
 ];

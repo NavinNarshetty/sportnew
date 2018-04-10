@@ -101,7 +101,8 @@ var schema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'OldAthelete',
         index: true
-    }
+    },
+    refundAmount: Number,
 });
 
 schema.plugin(deepPopulate, {});
@@ -193,6 +194,18 @@ var model = {
                     }
                 });
             },
+            function (found, callback) {
+                if (found.photoImageCheck == true) {
+                    found.photoImage = undefined;
+                }
+                if (found.birthImageCheck) {
+                    found.birthImage = undefined;
+                }
+                if (found.photographCheck) {
+                    found.photographCheck = undefined
+                }
+                callback(null, found);
+            }
 
         ], function (err, complete) {
             if (err) {

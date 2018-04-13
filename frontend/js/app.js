@@ -152,7 +152,7 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
             controller: 'PressArticleCtrl'
         })
         .state('aboutchampionship', {
-            url: "/aboutchampionship",
+            url: "/aboutchampionship/:city",
             templateUrl: tempateURL,
             controller: 'aboutChampionshipCtrl'
         });

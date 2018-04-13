@@ -1,4 +1,5 @@
 var schema = new Schema({
+    city: String,
     title: String,
     mediaType: String,
     mediaLink: String,

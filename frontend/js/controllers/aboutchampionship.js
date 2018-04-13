@@ -14,6 +14,8 @@ myApp.controller('aboutChampionshipCtrl', function ($scope, $sce, $state, $state
   $scope.getChampionshipData = function () {
     $scope.url = "Aboutchampionship/search";
     $scope.formData.page = $scope.formData.page++;
+    $scope.formData.filter = {};
+    $scope.formData.filter.city = $stateParams.city;
     NavigationService.getDataApiCall($scope.formData, $scope.url, function (data) {
       console.log("data.value", data);
       $scope.championshipData = data.data.data.results[0];

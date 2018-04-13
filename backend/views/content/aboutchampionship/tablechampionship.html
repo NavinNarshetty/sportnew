@@ -21,9 +21,12 @@
           <div class="table-widget">
             <div class="row">
               <div class="col-md-5 col-sm-6 col-xs-12">
-                <h5 class="m-clear">List of Like <span>Total :</span> <span></span></h5>
+                <h5 class="m-clear">List of Like
+                  <span>Total :</span>
+                  <span></span>
+                </h5>
               </div>
-              <div class="col-md-7 col-sm-6 col-xs-12" ng-if="items.length !=1">
+              <div class="col-md-7 col-sm-6 col-xs-12" ng-if="items.length !=2">
                 <div class="widget-holder text-right">
                   <button type="submit" class="btn btn-success" ui-sref="detailaboutchampionship">Create</button>
                 </div>
@@ -46,6 +49,11 @@
                   </div>
                 </th>
                 <th>
+                  <div class="text-capitalize">
+                    City
+                  </div>
+                </th>
+                <th>
                   <div>
                     Action
                   </div>
@@ -64,13 +72,20 @@
                     </div>
                   </td>
                   <td>
+                    <div class="text-center">
+                      <span>
+                        {{item.city}}
+                      </span>
+                    </div>
+                  </td>
+                  <td>
                     <div>
                       <a class="btn btn-primary" target="_new" ui-sref="detailaboutchampionship({id:item._id})">
-                                <i class="fa fa-pencil"></i> 
-                              </a>
+                        <i class="fa fa-pencil"></i>
+                      </a>
                       <a class="btn btn-danger" ng-click="confirmDelete(item._id)">
-                                <i class="fa fa-trash"></i> 
-                            </a>
+                        <i class="fa fa-trash"></i>
+                      </a>
                     </div>
                   </td>
                 </tr>

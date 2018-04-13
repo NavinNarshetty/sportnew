@@ -7,6 +7,17 @@
           <form name="detailChampionsform" role="form" class="sec">
             <div class="row">
 
+              <!-- CITY -->
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label>City</label>
+                  <select name="city" id="city" ng-model="formData.city" class="form-control" autocomplete="city">
+                    <option value="Mumbai">Mumbai</option>
+                    <option value="Hyderabad">Hyderabad</option>
+                  </select>
+                </div>
+              </div>
+              <!-- CITY END -->
               <!-- TITLE -->
               <div class="col-md-12">
                 <div class="form-group">
@@ -21,8 +32,8 @@
                 <div class="form-group">
                   <label for="">Banner Type</label>
                   <select name="mediatype" id="mediatype" ng-model="formData.mediaType" class="form-control">
-                        <option value="image">Image</option>
-                        <option value="video">Video</option>
+                    <option value="image">Image</option>
+                    <option value="video">Video</option>
                   </select>
                 </div>
               </div>
@@ -33,9 +44,9 @@
                 <div class="form-group">
                   <label>Video Source</label>
                   <select name="videosource" id="videosource" ng-model="formData.mediaSource" class="form-control">
-                          <option value="youtube">Youtube</option>
-                          <option value="vimeo">Vimeo</option>
-                    </select>
+                    <option value="youtube">Youtube</option>
+                    <option value="vimeo">Vimeo</option>
+                  </select>
                 </div>
               </div>
               <!-- VIDEO SOURCE END -->
@@ -52,7 +63,10 @@
               <!-- IMAGE LINK -->
               <div class="col-md-12" ng-if="formData.mediaType=='image'">
                 <div class="form-group">
-                  <label>Image: </label> <span><b>Banner Size-1920 x 600 only</b></span>
+                  <label>Image: </label>
+                  <span>
+                    <b>Banner Size-1920 x 600 only</b>
+                  </span>
                   <upload-image ng-model="formData.mediaLink"></upload-image>
                 </div>
               </div>
@@ -126,9 +140,9 @@
                         <td>
                           <div class="text-center">
                             <select name="linktype" id="linktype" ng-model="item.buttonLinkType" class="form-control" style="margin:0px;">
-                                  <option value="internal">INTERNAL</option>
-                                  <option value="external">EXTERNAL</option>
-                              </select>
+                              <option value="internal">INTERNAL</option>
+                              <option value="external">EXTERNAL</option>
+                            </select>
                           </div>
                         </td>
                         <td>

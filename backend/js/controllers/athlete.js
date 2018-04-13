@@ -225,25 +225,32 @@ myApp.controller('AthleteCtrl', function ($scope, TemplateService, excelService,
   // for SPORTOPS LOGIN END
 
   // SAVE REFUND AMOUNT
-  $scope.saveRefund = function (athleteID, ageData, photoData, refundData) {
-    console.log(athleteID, ageData, photoData, refundData, "data");
-    if (refundData == undefined || refundData == '' || !refundData) {
-      toastr.error("Please enter the refund amount", 'Error')
-    } else {
-      $scope.url = "";
-      $scope.constraints = {
-        id: athleteID,
-        age: ageData,
-        photo: photoData,
-        refundAmount: refundData
-      }
-      NavigationService.apiCall($scope.url, $scope.constraints, function (data) {
+  $scope.saveRefund = function (athleteID, photoImageData, birthImageData, photoData, refundData) {
+    console.log(athleteID, photoImageData, birthImageData, photoData, refundData, "data");
+    $scope.constraints = {};
+    $scope.constraints._id = athleteID;
+    $scope.constraints.refundAmount = refundData;
 
-      });
+    $scope.constraints.photoImageCheck = photoImageData;
+    $scope.constraints.birthImageCheck = birthImageData
+
+    if (photoData) {
+      $scope.constraints.photographCheck = true
     }
+    console.log($scope.constraints, "check");
 
-
-
+    $scope.url = "Athelete/Save";
+    NavigationService.apiCall($scope.url, $scope.constraints, function (data) {
+      console.log(data, "save data");
+      if (data.value) {
+        if (data.data.nModified) {
+          toastr.success("Data Saved Successfully", 'Save');
+        } else {
+          toastr.error("No Data to Update", 'Error');
+        }
+      }
+    })
+    $scope.filterAthlete();
   }
   // SAVE REFUND AMOUNT END
 });

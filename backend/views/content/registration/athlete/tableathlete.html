@@ -25,8 +25,8 @@
                   <div class="mtp5">
                     <div class="dropdown">
                       <button class="btn default btn-md dropdown-toggle" type="button" data-toggle="dropdown">Filter
-                                                <span class="caret"></span>
-                                            </button>
+                        <span class="caret"></span>
+                      </button>
                       <ul class="dropdown-menu filter-athlete-dropdown">
                         <li>
                           <input type="radio" id="radio8" ng-model="formData.type" ng-change="changeAll()" value="">
@@ -55,12 +55,12 @@
                         <li>
                           <input type="radio" id="radio3" ng-model="formData.type" value="School Name" ng-change="changeInput()">
                           <label for="radio3">School Name
-                                                    </label>
+                          </label>
                         </li>
                         <li>
                           <input type="radio" id="radio7" ng-model="formData.type" value="Athlete Name" ng-change="changeInput()">
                           <label for="radio7">Athlete Name
-                                                    </label>
+                          </label>
                         </li>
                         <li class="hide">
                           <input type="radio" id="radio4" ng-model="formData.type" value="Payment Mode" ng-change="changeInput()">
@@ -106,9 +106,13 @@
                     <input type="text" ng-keydown="$event.keyCode === 13 && searchInAthlete(search)" placeholder="Search Here..." ng-model="search"
                     />
                   </form>
-                  <a class="btn btn-success" ng-click="loginPopup(formData,'excel')"> <span style="font-size:12px;">Excel Export</span></a>
+                  <a class="btn btn-success" ng-click="loginPopup(formData,'excel')">
+                    <span style="font-size:12px;">Excel Export</span>
+                  </a>
                   <!-- <a class="btn btn-success" ng-click="loginPopup(formData,'excel')">Login</a> -->
-                  <a class="btn btn-success" ng-click="loginPopup('','targetexcel')"> <span style="font-size:12px;" >Target Export</span></a>
+                  <a class="btn btn-success" ng-click="loginPopup('','targetexcel')">
+                    <span style="font-size:12px;">Target Export</span>
+                  </a>
                   <a class="btn btn-danger" ng-click="logout()" ng-if="!showAccess && jAtheletOps!=null">Logout</a>
                 </div>
               </div>
@@ -145,7 +149,12 @@
                   </th>
                   <th>
                     <div class="text-capitalize">
-                      Age Proof
+                      Photo Image
+                    </div>
+                  </th>
+                  <th>
+                    <div class="text-capitalize">
+                      Birth Image
                     </div>
                   </th>
                   <th>
@@ -174,12 +183,17 @@
                   </td>
                   <td>
                     <div class="text-center">
-                      <input type="checkbox" name="ageproof" ng-model="item.ageprooof" id="ageproof">
+                      <input type="checkbox" name="photoImage" ng-model="item.photoImageCheck" id="photoImage">
                     </div>
                   </td>
                   <td>
                     <div class="text-center">
-                      <input type="checkbox" name="photoid" id="photoid" ng-model="item.photoid">
+                      <input type="checkbox" name="birthImage" ng-model="item.birthImageCheck" id="birthImageCheck">
+                    </div>
+                  </td>
+                  <td>
+                    <div class="text-center">
+                      <input type="checkbox" name="photographCheck" id="photographCheck" ng-model="item.photographCheck">
                     </div>
                   </td>
                   <td>
@@ -189,7 +203,7 @@
                   </td>
                   <td>
                     <!-- SAVE -->
-                    <a class="btn btn-success" target="_new" ng-click="saveRefund(item._id,item.ageprooof,item.photoid,item.refundAmount)">
+                    <a class="btn btn-success" target="_new" ng-click="saveRefund(item._id,item.photoImageCheck,item.birthImageCheck,item.photographCheck,item.refundAmount)">
                       Save
                     </a>
                     <!-- SAVE END -->
@@ -200,8 +214,8 @@
                     </a>
                     <!-- VIEW END -->
                     <a class="btn btn-link hide" ng-click="transferToWebsite(item._id)" ng-if="showAccess">
-                                            <i class="fa  fa-user"></i> Access
-                     </a>
+                      <i class="fa  fa-user"></i> Access
+                    </a>
                   </td>
                 </tr>
               </tbody>

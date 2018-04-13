@@ -1915,7 +1915,8 @@ $sport-primary: #0a1a72 !default;
 }
 
 .aboutchampionship-page-buttons,
-.aboutchampionship-page-abjeethega {
+.aboutchampionship-page-abjeethega,
+.aboutchampionship-page {
     margin: 40px 0px;
 }
 
@@ -1924,11 +1925,11 @@ $sport-primary: #0a1a72 !default;
     background-position: 50% 30%;
     background-repeat: no-repeat;
     background-size: cover;
-    box-shadow: 0 5px 15px #ccc;
+    box-shadow: 0 5px 15px #ebebeb;
 }
 
 .aboutchampionship-page-buttonholder {
-    box-shadow: 4px 4px 5px 0 #757575;
+    box-shadow: 4px 4px 5px 0 #ebebeb;
     a {
         &:hover {
             text-decoration: none;
@@ -1939,7 +1940,7 @@ $sport-primary: #0a1a72 !default;
 }
 
 .aboutchampionship-page-abjeethega {
-    font-size: 24px;
+    font-size: 28px;
 }
 
 // ABOUT CHAMPIONSHIP END

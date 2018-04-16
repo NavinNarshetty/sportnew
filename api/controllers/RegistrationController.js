@@ -10,6 +10,16 @@ var controller = {
             });
         }
     },
+    getSearch: function (req, res) {
+        if (req.body) {
+            Registration.getSearch(req.body, res.callback);
+        } else {
+            res.json({
+                value: false,
+                data: "Invalid Request"
+            });
+        }
+    },
     filterSchool: function (req, res) {
         if (req.body) {
             Registration.filterSchool(req.body, res.callback);

@@ -250,7 +250,7 @@ var model = {
     getSearch: function (data, callback) {
         var Model = this;
         var Const = this(data);
-        var maxRow = 50;
+        var maxRow = 10;
 
         var page = 1;
         if (data.page) {

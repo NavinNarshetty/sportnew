@@ -165,6 +165,59 @@ var model = {
             });
     },
 
+    getSearch: function (data, callback) {
+
+        var Model = this;
+        var Const = this(data);
+        var maxRow = 50;
+
+        var page = 1;
+        if (data.page) {
+            page = data.page;
+        }
+        var field = data.field;
+        var options = {
+            field: data.field,
+            filters: {
+                keyword: {
+                    fields: [],
+                    term: data.keyword
+                }
+            },
+            sort: {
+                asc: 'createdAt'
+            },
+            start: (page - 1) * maxRow,
+            count: maxRow
+        };
+
+
+        var matchObj = {
+            $or: [{
+                sfaID: {
+                    $regex: data.keyword,
+                    $options: "i"
+                }
+            }, {
+                schoolName: {
+                    $regex: data.keyword,
+                    $options: "i"
+                }
+            }]
+        };
+
+        var Search = Model.find(matchObj, '_id sfaID schoolName mobile email')
+            .order(options)
+            .keyword(options)
+            .page(options, function (err, found) {
+                if (err) {
+                    callback(err, null);
+                } else {
+                    callback(null, found);
+                }
+            });
+    },
+
     filterSchool: function (data, callback) {
         var maxRow = Config.maxRow;
         console.log(data);

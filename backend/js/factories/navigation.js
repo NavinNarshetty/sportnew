@@ -129,6 +129,11 @@ myApp.factory('NavigationService', function ($http) {
                         sref: "#!/mediacontact",
                         icon: "phone",
                     }]
+                }, {
+                    name: "About Championship",
+                    classis: "active",
+                    sref: "#!/tableaboutchampionship",
+                    icon: "phone"
                 }
             ];
             break;

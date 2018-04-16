@@ -247,6 +247,71 @@ var model = {
         //     });
     },
 
+    getSearch: function (data, callback) {
+        var Model = this;
+        var Const = this(data);
+        var maxRow = 50;
+
+        var page = 1;
+        if (data.page) {
+            page = data.page;
+        }
+        var field = data.field;
+        var options = {
+            field: data.field,
+            filters: {
+                keyword: {
+                    fields: [],
+                    term: data.keyword
+                }
+            },
+            sort: {
+                asc: 'createdAt'
+            },
+            start: (page - 1) * maxRow,
+            count: maxRow
+        };
+
+
+        var matchObj = {
+            $or: [{
+                    sfaId: {
+                        $regex: data.keyword,
+                        $options: "i"
+                    }
+                }, {
+                    firstName: {
+                        $regex: data.keyword,
+                        $options: "i"
+                    }
+                },
+                {
+                    middleName: {
+                        $regex: data.keyword,
+                        $options: "i"
+                    }
+                },
+                {
+                    surname: {
+                        $regex: data.keyword,
+                        $options: "i"
+                    }
+                }
+            ]
+        };
+
+        Athelete.find(matchObj, 'sfaId firstName middleName surname mobile email _id')
+            .order(options)
+            .keyword(options)
+            .page(options, function (err, found) {
+                if (err) {
+                    callback(err, null);
+                } else {
+                    callback(null, found);
+                }
+            });
+    },
+
     getAthlete: function (data, callback) {
         async.waterfall([
             function (err) {

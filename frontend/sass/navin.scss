@@ -8,6 +8,10 @@ $sport-primary: #0a1a72 !default;
 //     width: 600px;
 //     height: 300px;
 // }
+.sfa-header-title {
+    font-size: 45px;
+}
+
 .adspace {
     height: 130px;
     margin: 40px 0px;
@@ -1901,16 +1905,42 @@ $sport-primary: #0a1a72 !default;
     }
 }
 
-// PRESS ARTICLE END
-// test
-// .youmaylikeflex-holder {
-//     display: flex;
-//     flex-direction: row;
-//     flex-wrap: nowrap;
-//     overflow-x: auto;
-// }
-// .youmaylikeflex {
-//     flex: 1;
-//     margin: 0 10px 10px 0;
-// }
-// test
+// ABOUT CHAMPIONSHIP
+.aboutchampionship-page-headertitle {
+    // margin: 30px 0px;
+}
+
+.aboutchampionship-page-bannerholder {
+    margin: 10px 0px 40px 0px;
+}
+
+.aboutchampionship-page-buttons,
+.aboutchampionship-page-abjeethega,
+.aboutchampionship-page {
+    margin: 40px 0px;
+}
+
+.about-championship-page-image {
+    height: calc(100vh - 30vh);
+    background-position: 50% 30%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 0 5px 15px #ebebeb;
+}
+
+.aboutchampionship-page-buttonholder {
+    box-shadow: 4px 4px 5px 0 #ebebeb;
+    a {
+        &:hover {
+            text-decoration: none;
+            background-color: $sport-primary;
+            color: #fff;
+        }
+    }
+}
+
+.aboutchampionship-page-abjeethega {
+    font-size: 28px;
+}
+
+// ABOUT CHAMPIONSHIP END

@@ -69,4 +69,5 @@ module.exports = [
     'backend/js/controllers/pressmedia.js',
     'backend/js/controllers/athlete.js',
     'backend/js/controllers/school.js',
+    'backend/js/controllers/aboutchampionship.js',
 ];

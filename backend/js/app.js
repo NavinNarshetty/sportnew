@@ -220,6 +220,22 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
 
         // ***************REGISTRATION END**************** 
 
+
+        // ***************ABOUT CHAMPIONSHIP**************
+        .state('tableaboutchampionship', {
+            url: "/tableaboutchampionship",
+            templateUrl: "views/template.html",
+            controller: 'aboutChampionshipCtrl'
+        })
+
+        .state('detailaboutchampionship', {
+            url: "/detailaboutchampionship/:id",
+            templateUrl: "views/template.html",
+            controller: 'detailAboutChampionshipCtrl'
+        })
+
+        // ***************ABOUT CHAMPIONSHIP END**********
+
         .state('schema-creator', {
             url: "/schema-creator",
             templateUrl: "views/template.html",

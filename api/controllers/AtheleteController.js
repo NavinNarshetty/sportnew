@@ -10,6 +10,16 @@ var controller = {
             });
         }
     },
+    getSearch: function (req, res) {
+        if (req.body) {
+            Athelete.getSearch(req.body, res.callback);
+        } else {
+            res.json({
+                value: false,
+                data: "Invalid Request"
+            });
+        }
+    },
     filterAthlete: function (req, res) {
         if (req.body) {
             Athelete.filterAthlete(req.body, res.callback);

@@ -139,43 +139,112 @@ var model = {
         };
 
 
-        var matchObj = {
-            $or: [{
-                    sfaId: {
-                        $regex: data.keyword,
-                        $options: "i"
-                    }
-                }, {
-                    firstName: {
-                        $regex: data.keyword,
-                        $options: "i"
+        // var matchObj = {
+        //     $or: [{
+        //             sfaId: {
+        //                 $regex: data.keyword,
+        //                 $options: "i"
+        //             }
+        //         }, {
+        //             firstName: {
+        //                 $regex: data.keyword,
+        //                 $options: "i"
+        //             }
+        //         },
+        //         {
+        //             middleName: {
+        //                 $regex: data.keyword,
+        //                 $options: "i"
+        //             }
+        //         },
+        //         {
+        //             surname: {
+        //                 $regex: data.keyword,
+        //                 $options: "i"
+        //             }
+        //         }
+        //     ]
+        // };
+        Athelete.aggregate(
+            [ // Stage 1
+                {
+                    $project: {
+                        fullName: {
+                            $concat: ["$firstName", " ", "$middleName", " ", "$surname"]
+                        },
+                        sfaId: "$sfaId",
+                        firstName: "$firstName",
+                        middleName: "$middleName",
+                        surname: "$surname",
+                        mobile: "$mobile",
+                        email: "$email",
                     }
                 },
-                {
-                    middleName: {
-                        $regex: data.keyword,
-                        $options: "i"
-                    }
-                },
-                {
-                    surname: {
-                        $regex: data.keyword,
-                        $options: "i"
-                    }
-                }
-            ]
-        };
 
-        Athelete.find(matchObj, 'sfaId firstName middleName surname mobile email _id')
-            .order(options)
-            .keyword(options)
-            .page(options, function (err, found) {
+                // Stage 2
+                {
+                    $match: {
+                        $or: [{
+                            sfaId: {
+                                $regex: data.keyword,
+                                $options: "i"
+                            }
+                        }, {
+                            fullName: {
+                                $regex: data.keyword,
+                                $options: "i"
+                            }
+                        }]
+                    }
+                },
+
+                {
+                    $sort: {
+                        "createdAt": -1
+                    }
+                },
+            ],
+            function (err, returnReq) {
+                console.log("returnReq : ", returnReq);
                 if (err) {
-                    callback(err, null);
+                    console.log(err);
+                    callback(null, err);
                 } else {
-                    callback(null, found);
+                    if (_.isEmpty(returnReq)) {
+                        var count = returnReq.length;
+                        console.log("count", count);
+
+                        var data = {};
+                        data.options = options;
+
+                        data.results = returnReq;
+                        data.total = count;
+                        callback(null, data);
+                    } else {
+                        var count = returnReq.length;
+                        console.log("count", count);
+
+                        var data = {};
+                        data.options = options;
+
+                        data.results = returnReq;
+                        data.total = count;
+                        callback(null, data);
+
+                    }
                 }
             });
+
+        // Athelete.find(matchObj, 'sfaId firstName middleName surname mobile email _id')
+        //     .order(options)
+        //     .keyword(options)
+        //     .page(options, function (err, found) {
+        //         if (err) {
+        //             callback(err, null);
+        //         } else {
+        //             callback(null, found);
+        //         }
+        //     });
     },
 
     getAthlete: function (data, callback) {

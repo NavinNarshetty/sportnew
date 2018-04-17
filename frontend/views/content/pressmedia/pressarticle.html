@@ -38,8 +38,8 @@
             <div class="pressarticle-email pointer">
               <a href="mailto:?subject=I wanted you to see this site&amp;body=Check out this site http://localhost:8081/pressmedia/pressreleases/article/{{parameters._id}}"
                 title="Share by Email">
-               <i class="fa fa-envelope fa-2x custom-env" aria-hidden="true"></i>
-             </a>
+                <i class="fa fa-envelope fa-2x custom-env" aria-hidden="true"></i>
+              </a>
             </div>
             <!-- EMAIL END -->
 
@@ -62,7 +62,9 @@
       <div class="row">
         <div class="col-md-offset-1 col-md-10 col-sm-offset-1 col-sm-10 col-xs-12">
 
-          <div class="pressarticle-content" ng-bind-html="articleData.content"></div>
+          <div class="pressarticle-content">
+            <p ng-bind-html="articleData.content"></p>
+          </div>
 
         </div>
       </div>
@@ -74,8 +76,14 @@
       <div class="row">
         <div class="col-md-offset-1 col-md-10 col-sm-offset-1 col-sm-10 col-xs-12">
           <div class="pressarticle-footer text-center">
-            <p class="m-clear"><strong>Contact Us</strong></p>
-            <p>For media inquires, send an email to <span ng-repeat="person in mediaData track by $index" title="{{person.emailId}}"><a href="mailto:{{person.emailId}}" class="pressarticle-footercontact" target="_top">{{person.emailId}}</a> <span ng-if="mediaData.length > 1 && mediaData.length-1 != $index">,</span>              </span>
+            <p class="m-clear">
+              <strong>Contact Us</strong>
+            </p>
+            <p>For media inquires, send an email to
+              <span ng-repeat="person in mediaData track by $index" title="{{person.emailId}}">
+                <a href="mailto:{{person.emailId}}" class="pressarticle-footercontact" target="_top">{{person.emailId}}</a>
+                <span ng-if="mediaData.length > 1 && mediaData.length-1 != $index">,</span>
+              </span>
             </p>
           </div>
         </div>

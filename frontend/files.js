@@ -7,6 +7,7 @@ module.exports = [
   'bower_components/smart-app-banner/smart-app-banner.js',
   'bower_components/moment/min/moment.min.js',
   'bower_components/swiper/dist/js/swiper.jquery.js',
+  'bower_components/bootstrap-select/dist/js/bootstrap-select.min.js',
 
 
 

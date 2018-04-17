@@ -8,6 +8,11 @@ myApp.controller('PressMediaCtrl', function ($scope, TemplateService, Navigation
   // INITIALISE VARIABLES
   // INITIALISE VARIABLES END
 
+  // SELECT PICKER
+  $timeout(function () {
+    $('.selectpicker').selectpicker()
+  }, 200);
+  // SELECT PICKER END
 
   $scope.newsData = [{
     mediaTitle: 'Andhra Jyothi',
@@ -209,25 +214,39 @@ myApp.controller('PressMediaCtrl', function ($scope, TemplateService, Navigation
 
 
   };
-  $scope.getCityYearPressnews=function(){
-    var url='Pressnews/getAllCityYear';
-    NavigationService.apiCallWithoutParams(url,function(data){
-if(data.data.value){
-   $scope.pressNewsCityYear=data.data.data;
- }
-});
-};
-  $scope.getCityYearPressnews();
-  $scope.getPressReleaseCityYear=function(){
-var url='Pressrelease/getAllCityYear';
-NavigationService.apiCallWithoutParams(url,function(data){
-if(data.data.value){
- $scope.pressReleaseCityYear=data.data.data;
-  console.log("data", $scope.pressReleaseCityYear);
-}
-});
+
+  $scope.getCityYearPressnews = function () {
+    var url = 'Pressnews/getAllCityYear';
+    NavigationService.apiCallWithoutParams(url, function (data) {
+      if (data.data.value) {
+        // console.log("data in pressnews", data)
+        $scope.pressNewsCityYear = data.data.data;
+        $scope.pressNewsYear = _.uniqBy($scope.pressNewsCityYear, 'year');
+        $scope.pressNewsCity = _.uniqBy($scope.pressNewsCityYear, 'city');
+        // console.log($scope.pressNewsCity, "only year");
+      }
+    });
   };
-  $scope.getPressReleaseCityYear();
+
+
+
+
+
+  $scope.getPressReleaseCityYear = function () {
+    var url = 'Pressrelease/getAllCityYear';
+    NavigationService.apiCallWithoutParams(url, function (data) {
+      if (data.data.value) {
+        console.log($stateParams, "state params");
+        $scope.pressReleaseCityYear = data.data.data;
+        $scope.pressReleaseYear = _.uniqBy($scope.pressReleaseCityYear, 'year');
+        // $scope.pressReleaseYear=$scope.pressReleaseYear.push()
+        $scope.pressReleaseCity = _.uniqBy($scope.pressReleaseCityYear, 'city');
+        console.log("data", $scope.pressReleaseYear);
+      }
+    });
+  };
+
+
   // PRESS NEWS END
 
 
@@ -248,6 +267,7 @@ if(data.data.value){
         active: "inthenews"
       };
       $scope.getPressnews();
+      $scope.getCityYearPressnews();
       break;
     case "pressreleases":
       $scope.pressmedia = {
@@ -255,7 +275,7 @@ if(data.data.value){
         active: "pressreleases"
       };
       $scope.pressRelease();
-
+      $scope.getPressReleaseCityYear();
       break;
     case "mediacontact":
       $scope.pressmedia = {
@@ -282,11 +302,13 @@ if(data.data.value){
         url = "inthenews";
         $scope.pressmedia.active = "inthenews";
         $scope.getPressnews();
+        $scope.getCityYearPressnews();
         break;
       case 1:
         url = "pressreleases";
         $scope.pressmedia.active = "pressreleases";
         $scope.pressRelease();
+        $scope.getPressReleaseCityYear();
         break;
       case 2:
         url = "mediacontact";
@@ -301,8 +323,8 @@ if(data.data.value){
     $state.go("pressmedia", {
       name: url
     }, {
-        notify: false
-      });
+      notify: false
+    });
   };
   // ON CLICK END
   // PAGE NAVIGATION END

@@ -1769,6 +1769,11 @@ $sport-primary: #0a1a72 !default;
 // PRESSMEDIA MAIN PAGE END
 // PRESSMEDIA PAGE END
 // MEDIA CONTACT
+.mediacard-holder {
+    margin: 40px 0px;
+    padding-left: 10px;
+}
+
 .contact-profile {
     p {
         margin: 0px;
@@ -1792,14 +1797,16 @@ $sport-primary: #0a1a72 !default;
 
 .pressrelease-carddetail {
     border-bottom: 1px solid $grey;
-    padding: 15px 0px;
+    padding: 30px 0px;
     .pressrelease-title {
         font-size: 16px;
         font-weight: 500;
+        margin-bottom: 8px;
     }
     .pressrelease-date {
         color: #8c8c8c;
         font-weight: 400;
+        font-style: italic;
     }
 }
 
@@ -1819,6 +1826,10 @@ $sport-primary: #0a1a72 !default;
 .newsarticle-card {
     margin: 10px 0px;
     cursor: pointer;
+}
+
+.newsarticle-carddate {
+    font-style: italic;
 }
 
 .newsarticle-cardimage {
@@ -1861,8 +1872,13 @@ $sport-primary: #0a1a72 !default;
     font-size: 30px;
 }
 
+.pressmedia-headercontent {
+    color: #757575;
+}
+
 .pressarticle-date {
     font-size: 21px;
+    font-style: italic;
 }
 
 .pressarticle-email {

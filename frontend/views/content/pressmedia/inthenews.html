@@ -7,21 +7,22 @@
       <div class="row">
         <!-- YEAR -->
         <div class="col-md-2 col-sm-3 col-xs-6">
-          <select name="newsyearfilter" class="form-control" id="newsyearfilter" ng-model="newsYear" ng-change="filterPressnews(newsYear,'Year')">
+          <label for="newsyearfilter">Year</label>
+          <select name="newsyearfilter" class="form-control" id="newsyearfilter" ng-model="newsYear" ng-change="filterPressnews(newsYear,'Year')"
+            placeholder="Year">
+
             <option value=" ">All</option>
-            <option value="2016">2016</option>
-            <option value="2017">2017</option>
-            <option value="2018">2018</option>
+            <option value="{{year.year}}" ng-repeat="year in pressNewsYear track by $index">{{year.year}}</option>
           </select>
         </div>
         <!-- YEAR -->
 
         <!-- CITY -->
         <div class="col-md-2 col-sm-3 col-xs-6">
-          <select name="newscityfilter" id="newscityfilter" class="form-control" ng-model="newsCity" ng-change="filterPressnews(newsCity,'City')">
-                <option value=" ">All</option>
-                <option value="mumbai">Mumbai</option>
-                <option value="hyderabad">Hyderabad</option>
+          <label for="newscityfilter">City</label>
+          <select name="newscityfilter" id="newscityfilter" class="form-control text-capitalize" ng-model="newsCity" ng-change="filterPressnews(newsCity,'City')">
+            <option value=" ">All</option>
+            <option class="text-capitalize" value="{{city.city}}" ng-repeat="city in pressNewsCity track by $index">{{city.city}}</option>
           </select>
         </div>
 
@@ -55,7 +56,10 @@
               <!-- TITLE -->
               <div class="newarticle-cardtitleholder">
                 <p class="opensans-semibold newarticle-cardtitle m-clear">{{card.mediaTitle}}</p>
-                <p class="color-darkgrey newsarticle-carddate m-clear"> <span class="text-capitalize" ng-if="card.city !='allcities'">{{card.city}} : </span> <span>{{card.newsDate | date}}</span>                  </p>
+                <p class="color-darkgrey newsarticle-carddate m-clear">
+                  <span class="text-capitalize" ng-if="card.city !='allcities'">{{card.city}} : </span>
+                  <span>{{card.newsDate | date}}</span>
+                </p>
               </div>
               <!-- TITLE END -->
             </a>

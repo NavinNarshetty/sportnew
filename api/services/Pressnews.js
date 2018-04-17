@@ -315,6 +315,20 @@ var model = {
             }
 
         }
+    },
+    getAllCityYear: function (data, callback) {
+        Pressnews.find({}, 'city year').lean().exec(function (err, found) {
+            if (err) {
+                callback(err, null);
+            } else {
+                if (_.isEmpty(found)) {
+                    callback(null, []);
+                } else {
+                    callback(null, found);
+                }
+            }
+
+        });
     }
 
 };

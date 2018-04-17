@@ -209,6 +209,25 @@ myApp.controller('PressMediaCtrl', function ($scope, TemplateService, Navigation
 
 
   };
+  $scope.getCityYearPressnews=function(){
+    var url='Pressnews/getAllCityYear';
+    NavigationService.apiCallWithoutParams(url,function(data){
+if(data.data.value){
+   $scope.pressNewsCityYear=data.data.data;
+ }
+});
+};
+  $scope.getCityYearPressnews();
+  $scope.getPressReleaseCityYear=function(){
+var url='Pressrelease/getAllCityYear';
+NavigationService.apiCallWithoutParams(url,function(data){
+if(data.data.value){
+ $scope.pressReleaseCityYear=data.data.data;
+  console.log("data", $scope.pressReleaseCityYear);
+}
+});
+  };
+  $scope.getPressReleaseCityYear();
   // PRESS NEWS END
 
 
@@ -282,11 +301,11 @@ myApp.controller('PressMediaCtrl', function ($scope, TemplateService, Navigation
     $state.go("pressmedia", {
       name: url
     }, {
-      notify: false
-    })
-  }
+        notify: false
+      });
+  };
   // ON CLICK END
   // PAGE NAVIGATION END
   // MAIN PAGE END
 
-})
+});

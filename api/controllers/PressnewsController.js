@@ -20,6 +20,16 @@ var controller = {
         value: false
       });
     }
+  },
+  getAllCityYear: function (req, res) {
+    if (req.body) {
+      Pressnews.getAllCityYear(req.body, res.callback);
+    } else {
+      res.json({
+        data: 'Invalid Request',
+        value: false
+      });
+    }
   }
 
 };

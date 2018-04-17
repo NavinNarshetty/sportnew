@@ -17,7 +17,7 @@ var exports = _.cloneDeep(require("sails-wohlig-service")(schema));
 var model = {
     savePressrelease: function (data, callback) {
         if (data) {
-            data.year=moment(data.releaseDate).add(1, "days").format("YYYY");
+            data.year = moment(data.releaseDate).add(1, "days").format("YYYY");
             data.releaseDate = moment(data.releaseDate).add(1, "days");
             Pressrelease.saveData(data, function (err, saved) {
                 if (err) {
@@ -132,8 +132,8 @@ var model = {
                     pipelineOne.push({
                         $skip: options.start
                     }, {
-                        $limit: options.count
-                    });
+                            $limit: options.count
+                        });
                     Pressrelease.aggregate(pipelineOne, function (err, found) {
                         console.log("found", found);
                         if (err) {
@@ -203,7 +203,7 @@ var model = {
                 });
             } else if (data.year && data.year != " ") {
                 cityOrYearWisePipeline.splice(0, 0, {
- // Stage 2
+                    // Stage 2
 
                     $match: {
                         year: data.year
@@ -217,8 +217,8 @@ var model = {
                     cityOrYearWisePipeline.push({
                         $skip: options.start
                     }, {
-                        $limit: options.count
-                    });
+                            $limit: options.count
+                        });
                     Pressrelease.aggregate(cityOrYearWisePipeline, function (err, found) {
                         console.log("found", found);
                         if (err) {
@@ -244,13 +244,13 @@ var model = {
                     var finalData = {};
                     finalData.result = found;
                     if (found.length > 0) {
-                        console.log("before 1",cityOrYearWisePipeline);
-                       
+                        console.log("before 1", cityOrYearWisePipeline);
+
                         cityOrYearWisePipeline.splice(4, 2);
                         cityOrYearWisePipeline.push({
                             $count: "count"
                         });
-                        console.log("after 1",cityOrYearWisePipeline);
+                        console.log("after 1", cityOrYearWisePipeline);
                         Pressrelease.aggregate(cityOrYearWisePipeline, function (err, total) {
                             if (err) {
                                 callback(err, null);
@@ -283,8 +283,8 @@ var model = {
                     pipelineOne.push({
                         $skip: options.start
                     }, {
-                        $limit: options.count
-                    });
+                            $limit: options.count
+                        });
                     Pressrelease.aggregate(pipelineOne,
                         function (err, returnResult) {
                             if (err) {
@@ -344,6 +344,21 @@ var model = {
         }
 
     },
+
+    getAllCityYear: function (data, callback) {
+        Pressrelease.find({}, 'city year').lean().exec(function (err, found) {
+            if (err) {
+                callback(err, null)
+            } else {
+                if (_.isEmpty(found)) {
+                    callback(null, []);
+                } else {
+                    callback(null, found);
+                }
+            }
+        });
+
+    }
 
 
 };

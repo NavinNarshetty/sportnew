@@ -324,25 +324,31 @@ var model = {
                     callback(null, err);
                 } else {
                     if (_.isEmpty(returnReq)) {
-                        var count = returnReq.length;
-                        console.log("count", count);
+                        var count;
+                        Athelete.find().exec(function (err, found) {
+                            count = found.length;
+                            console.log("count", count);
+                            var data = {};
+                            data.options = options;
 
-                        var data = {};
-                        data.options = options;
+                            data.results = returnReq;
+                            data.total = count;
+                            callback(null, data);
+                        });
 
-                        data.results = returnReq;
-                        data.total = count;
-                        callback(null, data);
                     } else {
-                        var count = returnReq.length;
-                        console.log("count", count);
+                        var count;
+                        Athelete.find().exec(function (err, found) {
+                            count = found.length;
+                            var data = {};
+                            data.options = options;
 
-                        var data = {};
-                        data.options = options;
+                            data.results = returnReq;
+                            data.total = count;
+                            callback(null, data);
+                        });
 
-                        data.results = returnReq;
-                        data.total = count;
-                        callback(null, data);
+
 
                     }
                 }

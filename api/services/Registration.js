@@ -169,7 +169,7 @@ var model = {
 
         var Model = this;
         var Const = this(data);
-        var maxRow = 20;
+        var maxRow = 10;
 
         var page = 1;
         if (data.page) {

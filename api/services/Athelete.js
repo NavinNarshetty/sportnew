@@ -271,88 +271,51 @@ var model = {
             start: (page - 1) * maxRow,
             count: maxRow
         };
-
-        Athelete.aggregate(
-            [ // Stage 1
-                {
-                    $project: {
-                        fullName: {
-                            $concat: ["$firstName", " ", "$middleName", " ", "$surname"]
-                        },
-                        sfaId: "$sfaId",
-                        firstName: "$firstName",
-                        middleName: "$middleName",
-                        surname: "$surname",
-                        mobile: "$mobile",
-                        email: "$email",
-                    }
-                },
-
-                // Stage 2
-                {
-                    $match: {
-                        $or: [{
-                            sfaId: {
-                                $regex: data.keyword,
-                                $options: "i"
-                            }
-                        }, {
-                            fullName: {
-                                $regex: data.keyword,
-                                $options: "i"
-                            }
-                        }]
-                    }
-                },
-
-                {
-                    $sort: {
-                        "createdAt": -1
-                    }
-                },
-                {
-                    $skip: options.start
-                },
-                {
-                    $limit: options.count
-                }
-            ],
-            function (err, returnReq) {
-                console.log("returnReq : ", returnReq);
-                if (err) {
-                    console.log(err);
-                    callback(null, err);
-                } else {
-                    if (_.isEmpty(returnReq)) {
-                        var count;
-                        Athelete.find().exec(function (err, found) {
-                            count = found.length;
-                            console.log("count", count);
-                            var data = {};
-                            data.options = options;
-
-                            data.results = returnReq;
-                            data.total = count;
-                            callback(null, data);
-                        });
-
+        if (data.keyword == "") {
+            Athelete.find({}, 'sfaId firstName middleName surname mobile email _id')
+                .order(options)
+                .keyword(options)
+                .page(options, function (err, found) {
+                    if (err) {
+                        callback(err, null);
                     } else {
-                        var count;
-                        Athelete.find().exec(function (err, found) {
-                            count = found.length;
-                            var data = {};
-                            data.options = options;
-
-                            data.results = returnReq;
-                            data.total = count;
-                            callback(null, data);
-                        });
-
-
-
+                        callback(null, found);
                     }
+                });
+        } else {
+            var count = 0;
+            var pipeLine = Athelete.getAggregatePipeline(data);
+            var newPipeLine = _.cloneDeep(pipeLine);
+            Athelete.aggregate(pipeLine, function (err, matchData) {
+                if (err) {
+                    callback(err, null);
+                } else {
+                    newPipeLine.push({
+                        $skip: options.start
+                    }, {
+                        $limit: options.count
+                    });
+                    Athelete.aggregate(newPipeLine, function (err, returnReq) {
+                        if (err) {
+                            console.log(err);
+                            callback(err, "error in mongoose");
+                        } else {
+                            if (_.isEmpty(returnReq)) {
+                                callback(null, []);
+                            } else {
+                                count = matchData.length;
+                                console.log("count", count);
+                                var data = {};
+                                data.options = options;
+                                data.results = returnReq;
+                                data.total = count;
+                                callback(null, data);
+                            }
+                        }
+                    });
                 }
             });
+        }
     },
 
     getAthlete: function (data, callback) {
@@ -784,7 +747,49 @@ var model = {
                 });
 
         }
-    }
+    },
+
+    getAggregatePipeline: function (data) {
+        var pipeline = [ // Stage 1
+            {
+                $project: {
+                    fullName: {
+                        $concat: ["$firstName", " ", "$middleName", " ", "$surname"]
+                    },
+                    sfaId: "$sfaId",
+                    firstName: "$firstName",
+                    middleName: "$middleName",
+                    surname: "$surname",
+                    mobile: "$mobile",
+                    email: "$email",
+                }
+            },
+
+            // Stage 2
+            {
+                $match: {
+                    $or: [{
+                        sfaId: {
+                            $regex: data.keyword,
+                            $options: "i"
+                        }
+                    }, {
+                        fullName: {
+                            $regex: data.keyword,
+                            $options: "i"
+                        }
+                    }]
+                }
+            },
+
+            {
+                $sort: {
+                    "createdAt": -1
+                }
+            },
+        ];
+        return pipeline;
+    },
 
 
 };

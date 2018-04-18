@@ -250,7 +250,7 @@ var model = {
     getSearch: function (data, callback) {
         var Model = this;
         var Const = this(data);
-        var maxRow = 5;
+        var maxRow = 20;
 
         var page = 1;
         if (data.page) {
@@ -310,6 +310,12 @@ var model = {
                         "createdAt": -1
                     }
                 },
+                {
+                    $skip: options.start
+                },
+                {
+                    $limit: options.count
+                }
             ],
             function (err, returnReq) {
                 console.log("returnReq : ", returnReq);
@@ -341,43 +347,6 @@ var model = {
                     }
                 }
             });
-        // var matchObj = {
-        //     $or: [{
-        //             sfaId: {
-        //                 $regex: data.keyword,
-        //                 $options: "i"
-        //             }
-        //         }, {
-        //             firstName: {
-        //                 $regex: data.keyword,
-        //                 $options: "i"
-        //             }
-        //         },
-        //         {
-        //             middleName: {
-        //                 $regex: data.keyword,
-        //                 $options: "i"
-        //             }
-        //         },
-        //         {
-        //             surname: {
-        //                 $regex: data.keyword,
-        //                 $options: "i"
-        //             }
-        //         }
-        //     ]
-        // };
-
-        // Athelete.find(matchObj, 'sfaId firstName middleName surname mobile email _id')
-        //     .order(options)
-        //     .keyword(options)
-        //     .page(options, function (err, found) {
-        //         if (err) {
-        //             callback(err, null);
-        //         } else {
-        //             callback(null, found);
-        //         }
-        //     });
     },
 
     getAthlete: function (data, callback) {

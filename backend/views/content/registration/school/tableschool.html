@@ -14,44 +14,57 @@
       <div class="widget ">
         <div class="table-area ">
           <div class="widget-title ">
-            <h3>List of Registered School<span class="tableTotal ">(Total : {{totalItems}}) </span></h3>
+            <h3>List of Registered School
+              <span class="tableTotal ">(Total : {{totalItems}}) </span>
+            </h3>
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group">
                   <div class="mtp5">
                     <div class="dropdown">
                       <button class="btn default btn-md dropdown-toggle" type="button" data-toggle="dropdown">Filter
-                                                    <span class="caret"></span></button>
+                        <span class="caret"></span>
+                      </button>
                       <ul class="dropdown-menu filter-athlete-dropdown">
-                        <li><input type="radio" id="radio1" ng-model="formData.type" ng-change="changeAll()" value="">
+                        <li>
+                          <input type="radio" id="radio1" ng-model="formData.type" ng-change="changeAll()" value="">
                           <label for="radio1">All</label>
                         </li>
-                        <li><input type="radio" id="radio7" ng-model="formData.type" value="Date">
+                        <li>
+                          <input type="radio" id="radio7" ng-model="formData.type" value="Date">
                           <label for="radio7">Date</label>
                         </li>
-                        <li><input type="radio" id="radio2" ng-model="formData.type" ng-change="changeInput()" value="SFA-ID">
+                        <li>
+                          <input type="radio" id="radio2" ng-model="formData.type" ng-change="changeInput()" value="SFA-ID">
                           <label for="radio2">SFA-ID</label>
                         </li>
-                        <li><input type="radio" id="radio3" ng-model="formData.type" ng-change="changeInput()" value="School Name">
+                        <li>
+                          <input type="radio" id="radio3" ng-model="formData.type" ng-change="changeInput()" value="School Name">
                           <label for="radio3">School Name
-                                                            </label>
+                          </label>
                         </li>
-                        <li class="hide"><input type="radio" id="radio9" ng-model="formData.type" value="UTM_Source" ng-change="changeInput()">
+                        <li class="hide">
+                          <input type="radio" id="radio9" ng-model="formData.type" value="UTM_Source" ng-change="changeInput()">
                           <label for="radio9">UTM_Source</label>
                         </li>
-                        <li class="hide"><input type="radio" id="radio10" ng-model="formData.type" value="UTM_Medium" ng-change="changeInput()">
+                        <li class="hide">
+                          <input type="radio" id="radio10" ng-model="formData.type" value="UTM_Medium" ng-change="changeInput()">
                           <label for="radio10">UTM_Medium</label>
                         </li>
-                        <li class="hide"><input type="radio" id="radio11" ng-model="formData.type" value="UTM_Campaign" ng-change="changeInput()">
+                        <li class="hide">
+                          <input type="radio" id="radio11" ng-model="formData.type" value="UTM_Campaign" ng-change="changeInput()">
                           <label for="radio11">UTM_Campaign</label>
                         </li>
-                        <li class="hide"><input type="radio" id="radio4" ng-model="formData.type" ng-change="changeInput()" value="Payment Mode">
+                        <li class="hide">
+                          <input type="radio" id="radio4" ng-model="formData.type" ng-change="changeInput()" value="Payment Mode">
                           <label for="radio4">Payment Mode</label>
                         </li>
-                        <li class="hide"><input type="radio" id="radio5" ng-model="formData.type" ng-change="changeInput()" value="Payment Status">
+                        <li class="hide">
+                          <input type="radio" id="radio5" ng-model="formData.type" ng-change="changeInput()" value="Payment Status">
                           <label for="radio5">Payment Status</label>
                         </li>
-                        <li class="hide"><input type="radio" id="radio6" ng-model="formData.type" ng-change="changeInput()" value="Verified Status">
+                        <li class="hide">
+                          <input type="radio" id="radio6" ng-model="formData.type" ng-change="changeInput()" value="Verified Status">
                           <label for="radio6">Verified Status</label>
                         </li>
                       </ul>
@@ -93,7 +106,7 @@
             </div>
           </div>
           <!--<div class="table-responsive ">-->
-          <div class="table-responsive " ng-show="totalItems>0 ">
+          <div class="table-responsive table-font reduce-tablepadding" ng-show="totalItems>0 ">
             <table class="table">
               <thead>
                 <tr>
@@ -105,13 +118,10 @@
                     School Name
                   </th>
                   <th>
-                    Verification Status
+                    Mobile No
                   </th>
-                  <th class="hide">
-                    Payment Mode
-                  </th>
-                  <th class="hide">
-                    Payment Status
+                  <th>
+                    Email
                   </th>
                   <th>Actions</th>
                 </tr>
@@ -123,17 +133,20 @@
                   <td>{{($index + 1)+((formData.page-1)*maxRow)}}</td>
                   <td>{{item.sfaID}}</td>
                   <td>{{item.schoolName}}</td>
-                  <td>{{item.status}}</td>
-                  <td class="hide">{{item.registrationFee}}</td>
-                  <td class="hide">
-                    {{item.paymentStatus}}
+                  <td>
+                    <input type="text" ng-model="item.mobile" class="form-control" placeholder="Enter Mobile No">
                   </td>
                   <td>
-                    <a class="btn btn-info" target="_new" ui-sref="detailschool({id:item._id})">
-                                                <i class="fa fa-eye"></i> View
-                                            </a>
-                    <a class="btn btn-link hide" ng-click="transferToWebsite(item._id)" target="_new" ng-if="showAccess"><i class="fa  fa-user"></i> Access
-                    </a>
+                    <input type="text" ng-model="item.email" class="form-control" placeholder="Enter Email ID">
+                  </td>
+                  <td>
+                    <a class="btn btn-success" style="margin: 0px 5px;" target="_new" ng-click="saveData(item._id,item.mobile,item.email)">Save</button>
+                      <a class="btn btn-info" target="_new" ui-sref="detailschool({id:item._id})">
+                        <i class="fa fa-eye"></i>
+                      </a>
+                      <a class="btn btn-link hide" ng-click="transferToWebsite(item._id)" target="_new" ng-if="showAccess">
+                        <i class="fa  fa-user"></i> Access
+                      </a>
 
                   </td>
                 </tr>

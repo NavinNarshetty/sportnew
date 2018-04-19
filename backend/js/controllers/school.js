@@ -152,6 +152,20 @@ myApp.controller('SchoolCtrl', function ($scope, TemplateService, NavigationServ
   }
 
   // FOR SPORTOPS END
+
+  // SAVE FUNCTION
+  var url = 'Registration';
+  var state = 'tableschool';
+  $scope.saveData = function (schoolId, mobile, email) {
+    // console.log(mobile, email);
+    $scope.constraints = {},
+      $scope.constraints._id = schoolId;
+    $scope.constraints.mobile = mobile;
+    $scope.constraints.email = email;
+    console.log($scope.constraints, "check this");
+    crudService.saveData($scope.constraints, url, state);
+  }
+  // SAVE FUNCTION END
 });
 // TABLE ATHLETE END
 
@@ -172,6 +186,8 @@ myApp.controller('DetailSchoolCtrl', function ($scope, TemplateService, Navigati
     });
   };
   $scope.getOneSchoolById();
+
+
 })
 
 // DETAIL ATHLETE  END

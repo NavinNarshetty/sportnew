@@ -289,9 +289,14 @@ myApp.controller('DetailAthleteCtrl', function ($scope, TemplateService, Navigat
 
   // SAVE FUNCTION
   var state = 'tableathlete'
-  $scope.saveData = function (data) {
-    // console.log(data, "check this");
-    crudService.saveData(data, url, state);
+  $scope.saveData = function (athleteId, mobile, email) {
+    // console.log(mobile, email);
+    $scope.constraints = {},
+      $scope.constraints._id = athleteId;
+    $scope.constraints.mobile = mobile;
+    $scope.constraints.email = email;
+    // console.log($scope.constraints, "check this");
+    crudService.saveData($scope.constraints, url, state);
   }
   // SAVE FUNCTION END
 })

@@ -263,6 +263,11 @@ myApp.controller('DetailAthleteCtrl', function ($scope, TemplateService, Navigat
   $scope.menutitle = NavigationService.makeactive("Detail Athlete");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
+
+  // VARIABLES
+  var url = 'Athelete/Save';
+
+
   $scope.getOneAthleteById = function () {
     $scope.url = 'Athelete/getOne';
     $scope.constraints = {};
@@ -281,6 +286,14 @@ myApp.controller('DetailAthleteCtrl', function ($scope, TemplateService, Navigat
     });
   };
   $scope.getOneAthleteById();
+
+  // SAVE FUNCTION
+  var state = 'tableathlete'
+  $scope.saveData = function (data) {
+    // console.log(data, "check this");
+    crudService.saveData(data, url, state);
+  }
+  // SAVE FUNCTION END
 })
 
 // DETAIL ATHLETE  END

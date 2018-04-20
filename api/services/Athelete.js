@@ -272,7 +272,11 @@ var model = {
             count: maxRow
         };
         if (data.keyword == "") {
-            Athelete.find({}, 'sfaId firstName middleName surname mobile email _id')
+            Athelete.find({
+                    sfaId: {
+                        $ne: ""
+                    }
+                }, 'sfaId firstName middleName surname mobile email _id')
                 .order(options)
                 .keyword(options)
                 .page(options, function (err, found) {
@@ -770,6 +774,7 @@ var model = {
                 $match: {
                     $or: [{
                         sfaId: {
+                            $ne: "",
                             $regex: data.keyword,
                             $options: "i"
                         }

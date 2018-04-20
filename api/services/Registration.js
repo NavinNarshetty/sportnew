@@ -191,10 +191,10 @@ var model = {
             count: maxRow
         };
 
-
         var matchObj = {
             $or: [{
                 sfaID: {
+                    $ne: "",
                     $regex: data.keyword,
                     $options: "i"
                 }

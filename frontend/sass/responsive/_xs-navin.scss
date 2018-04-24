@@ -204,4 +204,95 @@
   .sfa-header-title {
     font-size: 26px;
   } // *******************COMMON CLASSS END**********************
+  // SPORT PAGE
+  .sportpage-topperforming-atheleteholder {
+    .profileathlete-athletename {
+      font-size: 10px;
+    }
+    .profileathlete-athleteschool {
+      font-size: 9px;
+    }
+    .profileathlete-athletesports {
+      font-size: 9px;
+    }
+    .profile-bluemedals {
+      width: 10px;
+    }
+    .profileathletecard-medallist {
+      p {
+        font-size: 9px;
+      }
+    }
+    .profileathleteimage-holder {
+      width: 60px;
+      height: 60px;
+      border: none;
+    }
+    .profileathlete-cardcontent {
+      width: calc(100% - 75px);
+    }
+  }
+  .sportpage-topperforming-atheleteholder .profileathlete-card {
+    width: 250px;
+  }
+  .sportpage-trainingcard {
+    width: 210px;
+  }
+  .sportpage-trainingcard-name h5 {
+    font-size: 14px;
+  }
+  .sportpage-trainingcard-name {
+    p {
+      font-size: 12px;
+    }
+  }
+  .sportpage-trainingcard-image {
+    width: 80px;
+    height: 80px;
+  }
+  .sportpage-training-sports {
+    font-size: 12px;
+  }
+  .sportpage-training-acedemyrating {
+    p {
+      font-size: 12px;
+    }
+  }
+  .sportpage-icon {
+    width: 100px;
+    height: 100px;
+  }
+  .sportpage-sportname {
+    font-size: 20px;
+  }
+  .sportpage-iconname-holder {
+    bottom: -25px;
+  }
+  .sportpage-pdfheader {
+    font-size: 16px;
+  }
+  .sportpage-pdficonholder .sportpage-pdficon {
+    width: 40px;
+    height: 40px;
+  }
+  .sportpage-pdficonholder .sportpage-pdftitle {
+    font-size: 9px;
+  }
+  .sportpage-topperforming-header,
+  .sportpage-matchvideos-header,
+  .sportpage-rankingtable-header,
+  .sportpage-intresetedevents-header,
+  .sportpage-trainingacdemy-header {
+    font-size: 18px;
+  }
+  .sportpage-topperforming-institute {
+    h4 {
+      font-size: 14px;
+    }
+  }
+  .sportpage-rankingtable-championshipevent {
+    h4 {
+      font-size: 14px;
+    }
+  } // SPORT PAGE END
 }

@@ -60,9 +60,9 @@
     }
   } // END SCHOOL PROFILE CARD
   // SIDE AD SPACE
-  .side-adspace {
-    min-height: 446px;
-  } // END SIDE AD SPACE
+  // .side-adspace {
+  //   min-height: 446px;
+  // } // END SIDE AD SPACE
   //******************** END HIGHLIGHT PAGE **************
   // ********************TRACKRECORD PAGE*****************
   // YEAR BLUE DIV
@@ -122,4 +122,12 @@
       }
     }
   } // ***********END TEAM LANDING PAGE **********
+  // SPORT PAGE
+  .sportpage-rankingtable .side-adspace,
+  .sportpage-rankingtable .sportpage-intresetedevents-contentholder {
+    height: 302px;
+  }
+  .sportpage-pdfheader {
+    font-size: 26px;
+  } // SPORT PAGE END
 }

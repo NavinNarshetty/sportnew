@@ -1,24 +1,455 @@
 <div class="sportpage">
   <!-- HEAD BANNER -->
-  <section class="sportpage-banner">
-    <div class="container-fluid">
-      <div class="row">
-        <img src="img/icon/Judo.jpg" alt="" class="img-responsive">
+  <section class="sportpage-banner" style="background-image: url('img/backgrounds/bg-landing.jpg');height: 300px;">
+    <!-- CONTAINER -->
+    <div class="container">
+      <div class="sportpage-banner-relate">
+        <div class="sportpage-iconname-holder">
+          <div class="sportpage-icon">
+            <img src="img/sporticon/archery.png" alt="SFA Archery" class="img-responsive">
+          </div>
+          <div class="sportpage-sportname text-uppercase">
+            Archery
+          </div>
+        </div>
       </div>
     </div>
+    <!-- CONTAINER END -->
   </section>
   <!-- HEAD BANNER END -->
-  <!-- CONTENT -->
-  <section class="sportpage-content">
-    <div class="container">
-      <div class="">
-        <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum ut sapiente, sit ex eligendi beatae omnis sunt fuga soluta, magnam reiciendis, cupiditate ipsam vitae voluptatum sequi dicta tempore ad ratione!</span>
-        <span>Rem, veniam eos tenetur rerum et fugiat beatae, in non libero nihil, ullam cumque dolorem totam animi hic laudantium blanditiis ab a vitae, pariatur quae suscipit saepe numquam odit? Ratione.</span>
-        <span>Odio sit voluptatum amet? Nobis nemo aperiam expedita debitis dolor velit laborum earum eos recusandae. Molestiae harum minus animi eos adipisci praesentium asperiores ipsum, sapiente, voluptate quasi ex expedita suscipit!</span>
-        <span>Esse officiis, laborum alias, dicta rerum quaerat, consectetur odit incidunt facere eaque perspiciatis porro. Tenetur dolor pariatur temporibus nostrum laborum, consequuntur sapiente, porro rem vero, ducimus modi dolorem magnam perspiciatis.</span></p>
+  <div class="container">
+    <!-- CONTENT -->
+    <section class="sportpage-content">
+      <div class="sportpage-contentholder" ng-class="{'sportpage-content-hideread ':!readvariable,'sportpage-content-showread':readvariable}">
+        <p>
+          <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum ut sapiente, sit ex eligendi beatae omnis sunt
+            fuga soluta, magnam reiciendis, cupiditate ipsam vitae voluptatum sequi dicta tempore ad ratione!</span>
+          <span>Rem, veniam eos tenetur rerum et fugiat beatae, in non libero nihil, ullam cumque dolorem totam animi hic laudantium
+            blanditiis ab a vitae, pariatur quae suscipit saepe numquam odit? Ratione.</span>
+          <span>Odio sit voluptatum amet? Nobis nemo aperiam expedita debitis dolor velit laborum earum eos recusandae. Molestiae
+            harum minus animi eos adipisci praesentium asperiores ipsum, sapiente, voluptate quasi ex expedita suscipit!</span>
+          <span>Esse officiis, laborum alias, dicta rerum quaerat, consectetur odit incidunt facere eaque perspiciatis porro. Tenetur
+            dolor pariatur temporibus nostrum laborum, consequuntur sapiente, porro rem vero, ducimus modi dolorem magnam
+            perspiciatis.
+          </span>
+          <span>Esse officiis, laborum alias, dicta rerum quaerat, consectetur odit incidunt facere eaque perspiciatis porro. Tenetur
+            dolor pariatur temporibus nostrum laborum, consequuntur sapiente, porro rem vero, ducimus modi dolorem magnam
+            perspiciatis.
+          </span>
+          <span>Esse officiis, laborum alias, dicta rerum quaerat, consectetur odit incidunt facere eaque perspiciatis porro. Tenetur
+            dolor pariatur temporibus nostrum laborum, consequuntur sapiente, porro rem vero, ducimus modi dolorem magnam
+            perspiciatis.
+          </span>
+          <span>Esse officiis, laborum alias, dicta rerum quaerat, consectetur odit incidunt facere eaque perspiciatis porro. Tenetur
+            dolor pariatur temporibus nostrum laborum, consequuntur sapiente, porro rem vero, ducimus modi dolorem magnam
+            perspiciatis.
+          </span>
+        </p>
       </div>
-    </div>
-  </section>
-  <!-- CONTENT END -->
+      <div class="sportpage-readmore text-right">
+        <a ng-click="readMore()">
+          Read
+          <span ng-if="!readvariable">More</span>
+          <span ng-if="readvariable">Less</span>
+          </span>
+        </a>
+      </div>
+    </section>
+    <!-- CONTENT END -->
+
+    <!-- PDF / LINK -->
+    <section class="sportpage-pdf-link-holder">
+      <div class="row">
+        <div class="col-md-6 col-sm-6 col-xs-12">
+          <!-- PDF -->
+          <div class="sportpage-pdfholder">
+            <!-- HEADER -->
+            <div class="sportpage-pdfheader text-center fjalla-one color-primary text-uppercase">
+              SFA Championship Rules & Regulations
+            </div>
+            <!-- HEADER END -->
+
+            <!-- PDF ICON -->
+            <ul class="list-inline text-center">
+              <li class="sportpage-pdficonholder" ng-repeat="data in dummydata |limitTo:2 track by $index">
+                <a href="#">
+                  <div class="sportpage-pdficon inline-block m-auto">
+                    <img src="img/icon/pdf.png" alt="pdf" class="img-responsive">
+                  </div>
+                  <div class="sportpage-pdftitle text-uppercase">
+                    Download for School
+                  </div>
+                </a>
+              </li>
+            </ul>
+            <!-- PDF  ICON END-->
+          </div>
+          <!-- PDF END -->
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+          <div class="sportpage-linkholder" style="background-image: url('img/backgrounds/bg-teamlanding.jpg')">
+            <div class="sportpage-linkoverlay hide">
+              <div class="sportpage-linkoverlayheader text-center fjalla-one text-uppercase">
+                REGISTRATIONS FOR Badminton Now OPEN
+              </div>
+              <div class="sportpage-linoverlaybutton text-center opensans-regular">
+                <button type="submit" class="form-control btn btn-default">Register</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- PDF / LINK END -->
+
+    <!-- PHOTOS  -->
+    <section class="sportpage-photos">
+      <div class="sfa3card-galleryslider">
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide" ng-repeat="slide in allGallery.slidePhotos track by $index">
+              <div class="sfa3card-galleryslide">
+                <div class="row">
+                  <div class="col-md-6 col-sm-6 sfa3card-photoslide" ng-repeat="photoList in slide track by $index">
+                    <div class="sfa3card-photo">
+                      <div class="sfa3cardgallery-photoholder" ng-repeat="photo in photoList|limitTo:3">
+                        <img ng-src="{{photo.mediaLink}}" alt="Sports For All" class="img-responsive">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
+    </section>
+    <!-- PHOTOS END  -->
+
+    <!-- AD SPACE -->
+    <section class="sportpage-adspace">
+      <div class="adspace relate">
+        <div class="get-center">
+          AD SPACE
+        </div>
+      </div>
+    </section>
+    <!-- AD SPACE -->
+
+    <!-- TOP PERFORMING ATHLETE -->
+    <section class="sportpage-topperforming-athlete">
+      <!-- HEADER -->
+      <div class="sportpage-topperforming-header fjalla-one text-uppercase color-primary">
+        Top athletes from sfa championships
+      </div>
+      <!-- HEADER END -->
+
+      <!-- INSITUTE  -->
+      <div class="sportpage-topperforming-institute">
+        <h4 class="opensans-regular text-uppercase">School</h4>
+      </div>
+      <!-- INSITUTE  END -->
+
+      <!-- ATHLETE CARD -->
+      <div class="sportpage-topperforming-atheleteholder">
+        <div class="profileathlete-card relate" ng-init="school.type='school'" ng-class="{'card-school':school.type=='school','card-college':school.type=='college'}"
+          ng-repeat="data in dummydata track by $index">
+          <!-- IMAGE -->
+          <div class="inline-block v-top profileathlete-cardimgholder">
+            <div class="profileathleteimage-holder">
+              <img src="img/dishapatani1.jpg" class="img-responsive">
+            </div>
+          </div>
+          <!-- IMAGE END -->
+          <!-- CONTENT -->
+          <div class="inline-block v-top profileathlete-cardcontent relate">
+            <p class="profileathlete-athletename m-clear">Sudarshan Anandkumar</p>
+            <p class="profileathlete-athleteschool">Dr. Sarvepalli Radhakrishnan Hindi Secondary School ( Andheri )</p>
+            <p class="text-uppercase profileathlete-athletesports">
+              <span>sports</span> :
+              <span>Tennis</span> |
+              <span>Judo</span>
+            </p>
+            <!-- MEDALS -->
+            <div class="profileathletecard-medallist">
+              <ul class="list-inline">
+                <li>
+                  <div class="inline-block">
+                    <div class="profile-bluemedals">
+                      <img ng-src="{{'gold' | medalicon:'blue'}}" alt="" class="img-responsive">
+                    </div>
+                  </div>
+                  <div class="inline-block text-center lh1">
+                    <p class="m-clear color-primary">999</p>
+                    <p class="m-clear">Gold</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="inline-block">
+                    <div class="profile-bluemedals">
+                      <img ng-src="{{'silver' | medalicon:'blue'}}" alt="" class="img-responsive">
+                    </div>
+                  </div>
+                  <div class="inline-block text-center lh1">
+                    <p class="m-clear color-primary">999</p>
+                    <p class="m-clear">Silver</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="inline-block">
+                    <div class="profile-bluemedals">
+                      <img ng-src="{{'bronze' | medalicon:'blue'}}" alt="" class="img-responsive">
+                    </div>
+                  </div>
+                  <div class="inline-block  text-center lh1">
+                    <p class="m-clear color-primary">999</p>
+                    <p class="m-clear">Bronze</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <!-- MEDALS END -->
+          </div>
+          <!-- CONTENT END -->
+        </div>
+      </div>
+      <div class="sportpage-topperforming-viewnmore text-right">
+        <a href="#">View More</a>
+      </div>
+      <!-- ATHLETE CARD END -->
+    </section>
+    <!-- TOP PERFORMING ATHLETE END -->
+
+    <!-- MATCH VIDEOS -->
+    <section class="sportpage-matchvideos">
+      <!-- HEADER -->
+      <div class="sportpage-matchvideos-header fjalla-one text-uppercase color-primary">
+        Match videos from sfa championships
+      </div>
+      <!-- HEADER END -->
+
+      <!-- VIDEO CARD -->
+      <div class="sportpage-matchvideos-videoholder">
+        <div class="sportpage-matchvideo-videocard" ng-repeat="sportvideoCard in videoCard | limitTo:5 track by $index">
+          <a data-fancybox="group" href="https://www.youtube.com/embed/Gfhf2uWIg98" rel="video">
+            <div class="sportpage-matchvideo-videocardimage relate" style="background-image: url('{{sportvideoCard.videoImage}}')">
+              <div class="sportpage-matchvideo-videocardplay absolute">
+                <div class="vide-customplay">
+                  <i class="fa fa-play"></i>
+                </div>
+              </div>
+            </div>
+            <div class="sportpage-matchvideo-videocardcontent">
+              <p class="sportpage-matchvideo-videotitle fjalla-one m-clear" title="{{sportvideoCard.title}}">{{sportvideoCard.title | truncate:'25'}}</p>
+              <p class="sportpage-matchvideo-videodescription m-clear" title="{{sportvideoCard.description}}">{{sportvideoCard.description | truncate:'25'}}</p>
+            </div>
+          </a>
+
+        </div>
+      </div>
+      <!-- VIDEO CARD END -->
+
+    </section>
+    <!-- MATCH VIDEOS END -->
+
+    <!-- RANKING TABLE / AD SPACE -->
+    <section class="sportpage-rankingtable">
+      <!-- HEADER -->
+      <div class="sportpage-rankingtable-header fjalla-one color-primary text-uppercase">
+        Badminton ranking table
+      </div>
+      <!-- HEADER END -->
+
+      <!-- SUBHEADER -->
+      <div class="sportpage-rankingtable-championshipevent ">
+        <h4 class="text-uppercase opensans-regular">Sfa championship 2017-18</h4>
+      </div>
+      <!-- SUBHEADER END -->
+
+      <div class="row">
+        <!-- TABLE -->
+        <div class="col-md-7 col-sm-12 col-xs-12">
+          <div class="sportpage-rankingtable-tableimage" style="background-image: url(img/backgrounds/bg-ranktable.jpg)">
+            <div class="sportpage-rankingtable-tableholder table-responsive">
+              <table class="table">
+                <thead>
+                  <th>
+                    <div class="text-uppercase">
+                      Rank
+                    </div>
+                  </th>
+                  <th>
+                    <div class="text-uppercase">
+                      School Name
+                    </div>
+                  </th>
+                  <th>
+                    <div class="text-uppercase sportpage-profile-bluemedals">
+                      <img src="img/medalicon/gold-white.png" alt="Gold Medal" class="img-responsive">
+                    </div>
+                  </th>
+                  <th>
+                    <div class="text-uppercase sportpage-profile-bluemedals">
+                      <img src="img/medalicon/silver-white.png" alt="Silver Medal" class="img-responsive">
+                    </div>
+                  </th>
+                  <th>
+                    <div class="text-uppercase sportpage-profile-bluemedals">
+                      <img src="img/medalicon/bronze-white.png" alt="Bronze Medal" class="img-responsive">
+                    </div>
+                  </th>
+                  <th>
+                    <div class="text-uppercase">
+                      Points
+                    </div>
+                  </th>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="ranktable in sportRankingTable track by $index">
+                    <td>
+                      <div class="text-center">
+                        {{ranktable.rank}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="sportpage-schoolname">
+                        {{ranktable.name}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="text-center">
+                        {{ranktable.gold}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="text-center">
+                        {{ranktable.silver}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="text-center">
+                        {{ranktable.bronze}}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="text-center">{{ranktable.points}}</div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="sportpage-rankingtable-points">
+            <ul class="list-inline">
+              <li>
+                <div class="sportpage-rankingtable-pointsquare sportpage-rankingtable-gold">
+
+                </div>
+                <span class="text-uppercase">5 Points</span>
+              </li>
+              <li>
+                <div class="sportpage-rankingtable-pointsquare sportpage-rankingtable-silver">
+
+                </div>
+                <span class="text-uppercase">3 Points</span>
+              </li>
+              <li>
+                <div class="sportpage-rankingtable-pointsquare sportpage-rankingtable-bronze">
+
+                </div>
+                <span class="text-uppercase">1 Points</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- TABLE END -->
+
+        <!-- AD SPACE -->
+        <div class="col-md-5 col-sm-12 col-xs-12">
+          <div class="side-adspace relate">
+            <div class="get-center m-clear">AD SPACE</div>
+          </div>
+        </div>
+        <!-- AD SPACE END -->
+      </div>
+
+    </section>
+    <!-- RANKING TABLE END / AD SPACE -->
+
+    <!-- EVENTS YOU MAYBE INTRESENT IN -->
+    <section class="sportpage-intresetedevents">
+      <div class="sportpage-intresetedevents-header fjalla-one text-uppercase color-primary">
+        EVENTS you maybe intreseted in
+      </div>
+      <div class="row">
+        <div class="col-md-6" ng-repeat="event in dummydata | limitTo:'2' track by $index">
+          <div class="sportpage-intresetedevents-contentholder">
+            <div class="get-center m-clear">
+              EVENTS
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- EVENTS YOU MAYBE INTRESENT IN END -->
+
+    <!-- TRANING ACADEMY -->
+    <section class="sportpage-trainingacdemy">
+      <!-- HEADER -->
+      <div class="sportpage-trainingacdemy-header fjalla-one color-primary text-uppercase">
+        Training academics
+      </div>
+      <!-- HEADER END -->
+      <div class="">
+        <div class="sportpage-trainingcard-holder">
+          <!-- TRAINING CARD -->
+          <div class="sportpage-trainingcard" ng-repeat="academy in sportAcademy track by $index">
+            <!-- IMAGE -->
+            <div class="sportpage-trainingcard-image">
+              <img src="img/sa2.jpg" alt="" class="img-responsive">
+            </div>
+            <!-- IMAGE END -->
+
+            <!-- CONTENT -->
+            <div class="sportpage-trainingcard-content text-center">
+              <!-- TRAINING ACADEMY NAME AND PLACE -->
+              <div class="sportpage-trainingcard-name">
+                <h5 class="opensans-semibold color-primary text-capitalize">{{academy.name}}</h5>
+                <p class="opensans-regular color-darkgrey">{{academy.place}}</p>
+              </div>
+              <!-- TRAINING ACADEMY NAME AND PLACE END -->
+
+              <!-- TRAINING ACADEMY SPORTS -->
+              <div class="sportpage-training-sports">
+                <div class="sportpage-training-sportsheader opensans-semibold">
+                  Sports:
+                </div>
+                <div class="sportpage-training-sportnames color-darkgrey">
+                  <span class="text-capitalize" ng-repeat="sport in academy.sports">{{sport}} , </span>
+                </div>
+              </div>
+              <!-- TRAINING ACADEMY SPORTS END -->
+
+              <!-- TRANING RATING -->
+              <div class="sportpage-training-acedemyrating">
+                <p class="opensans-semibold m-clear text-capitalize">SFA Rating</p>
+                <span uib-rating ng-model="academy.rating" max="5" read-only="true" on-hover=false on-leave="overStar = null" titles="['one','two','three']"
+                  aria-labelledby="default-rating"></span>
+              </div>
+              <!-- TRANING RATING END -->
+            </div>
+            <!-- CONTENT END -->
+          </div>
+          <!-- TRAINING CARD END -->
+        </div>
+      </div>
+    </section>
+    <!-- TRANING ACADEMY END -->
+
+  </div>
+
+
 
 </div>

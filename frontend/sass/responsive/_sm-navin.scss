@@ -184,6 +184,34 @@
     }
   } // END ACCORDIAN
   // **********END ACHIEVEMENTS PAGE ***********
+  // SPORT PAGE
+  .sportpage-pdfholder {
+    margin: 10px 0px;
+  }
+  .sportpage-topperforming-atheleteholder {
+    overflow-x: auto;
+    .profileathlete-card {
+      flex: none;
+      width: 371px;
+    }
+  }
+  .sportpage-trainingcard-holder {
+    overflow-x: auto;
+    padding: 40px 0px;
+    margin: 0px;
+  }
+  .sportpage-trainingcard {
+    width: 360px;
+    flex: none;
+  }
+  .sfa3card-galleryslider .swiper-button-next,
+  .sfa3card-galleryslider .swiper-button-prev {
+    width: 15px;
+    height: 15px;
+  }
+  .sfa3card-galleryslider .swiper-button-prev {
+    left: -15px;
+  } // SPORT PAGE END
   // TEST
   // .youmaylikeflex {
   //   flex: none;

@@ -23,6 +23,12 @@ $sport-primary: #0a1a72 !default;
     }
 }
 
+.sfa-background-image {
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 0 5px 15px #ebebeb;
+}
+
 .light-blue {
     color: $light-blue;
 }
@@ -60,6 +66,60 @@ $sport-primary: #0a1a72 !default;
 }
 
 // end common class
+// ************************SFA GALLERY 3 CARD LAYOUT *****************************
+.sfa3card-galleryslider {
+    margin-top: 20px;
+    position: relative;
+    .swiper-button-next,
+    .swiper-button-prev {
+        width: 20px;
+        height: 20px;
+        margin-top: 0;
+        background-size: contain;
+        @include transform(translateY(-50%));
+    }
+    .swiper-button-next,
+    .swiper-container-rtl .swiper-button-prev {
+        right: -15px;
+        background-image: url('../img/icon/next-black.png');
+    }
+    .swiper-button-prev,
+    .swiper-container-rtl .swiper-button-next {
+        left: -25px;
+        background-image: url('../img/icon/prev-black.png');
+    }
+}
+
+.sfa3card-galleryslide {
+    width: 100%;
+}
+
+.sfa3cardgallery-photoholder {
+    width: 50%;
+    position: relative;
+    padding-right: 10px;
+    margin-bottom: 10px;
+    float: left;
+}
+
+.sfa3card-photoslide {
+    &:nth-child(odd) {
+        .sfa3cardgallery-photoholder {
+            &:first-child {
+                width: 100%;
+            }
+        }
+    }
+    &:nth-child(even) {
+        .sfa3cardgallery-photoholder {
+            &:nth-child(3) {
+                width: 100%;
+            }
+        }
+    }
+}
+
+// ************************SFA GALLERY 3 CARD LAYOUT END**************************
 //Ad-Space
 .highlight-adspace {
     height: 130px;
@@ -1263,7 +1323,8 @@ $sport-primary: #0a1a72 !default;
     position: absolute;
     top: 50%;
     left: 50%;
-    @include transform(translate(-50%, -50%));
+    @include transform(translate(-50%,
+    -50%));
 }
 
 //   end sport-wise-card
@@ -1960,3 +2021,316 @@ $sport-primary: #0a1a72 !default;
 }
 
 // ABOUT CHAMPIONSHIP END
+// SPORT PAGE
+.sportpage-banner {
+    @extend .sfa-background-image;
+    background-position: 50% 30%;
+}
+
+.sportpage-icon {
+    width: 140px;
+    height: 140px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.sportpage-sportname {
+    display: inline-block;
+    color: #fff;
+    font-weight: 600;
+    font-size: 45px;
+    vertical-align: middle;
+    @extend .opensans-regular;
+}
+
+.sportpage-content,
+.sportpage-pdf-link-holder {
+    margin: 40px 0px;
+}
+
+.sportpage-pdfholder {
+    border: 1px solid #e1e1e1;
+    padding: 15px;
+    &:hover {
+        box-shadow: 0 5px 15px #ebebeb;
+    }
+}
+
+.sportpage-pdfheader {
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+.sportpage-pdficonholder {
+    padding: 5px;
+    .sportpage-pdficon {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 8px;
+    }
+    .sportpage-pdftitle {
+        color: $dark-grey;
+        font-size: 12px;
+    }
+}
+
+.sportpage-linkholder {
+    position: relative;
+    @extend .sfa-background-image;
+    height: 190px;
+    background-position: 50% 50%;
+}
+
+.sportpage-linkoverlayheader {
+    margin-bottom: 8px;
+    color: #fff;
+    font-size: 24px;
+    @extend .fjalla-one;
+}
+
+.sportpage-linkoverlay {
+    padding: 15px;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    width: 45%;
+    height: 100%;
+    background: rgba(10, 26, 114, 0.82);
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0px;
+        right: 100%;
+        /* left: -58px; */
+        border-right: 7px solid rgba(10, 26, 114, 0.82);
+        border-left: 51px solid transparent;
+        border-bottom: 172px solid rgba(10, 26, 117, 0.82);
+        border-top: 18px solid transparent;
+    }
+}
+
+.sportpage-topperforming-athlete,
+.sportpage-matchvideos,
+.sportpage-rankingtable,
+.sportpage-intresetedevents,
+.sportpage-trainingacdemy {
+    margin: 40px 0px;
+}
+
+.sportpage-topperforming-header,
+.sportpage-matchvideos-header,
+.sportpage-rankingtable-header,
+.sportpage-intresetedevents-header,
+.sportpage-trainingacdemy-header {
+    font-size: 30px;
+    margin: 15px 0px;
+}
+
+.sportpage-matchvideo-videocard {
+    display: inline-block;
+    margin: 0px 12px 10px 0px;
+}
+
+.sportpage-matchvideo-videocardimage {
+    width: 215px;
+    height: 130px;
+    @extend .sfa-background-image;
+}
+
+.sportpage-matchvideo-videocardplay {
+    .vide-customplay {
+        font-size: 12px;
+    }
+    @extend .video-playbtn;
+}
+
+.sportpage-matchvideo-videocardcontent {
+    margin: 8px 0px;
+    .sportpage-matchvideo-videotitle {
+        font-size: 16px;
+        color: #000;
+    }
+    .sportpage-matchvideo-videodescription {
+        font-size: 12px;
+        color: #000;
+        @extend .opensans-regular;
+    }
+}
+
+.sportpage-rankingtable-tableimage {
+    // width: 650px;
+    // height: 400px;
+    @extend .sfa-background-image;
+}
+
+.sportpage-rankingtable-tableholder {
+    padding: 15px 10px; // width: 100%;
+    // height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.sportpage-profile-bluemedals {
+    width: 15px;
+    margin: 0 auto;
+}
+
+.sportpage-rankingtable-tableholder {
+    .sportpage-schoolname {
+        font-size: 12px;
+    }
+    .table {
+        // border: 1px solid #e1e1e1;
+        color: #fff;
+        margin-bottom: 0px;
+        @extend .opensans-regular;
+    }
+    .table>tbody>tr>td {
+        border-top: none;
+    }
+    .table>tbody>tr:nth-child(even) {
+        background-color: rgba(225, 225, 225, .65);
+    }
+    .table>tbody>tr:nth-child(odd) {
+        background-color: rgba(225, 225, 225, .22);
+    }
+    .table>thead {
+        background-color: $light-blue;
+    }
+    .table>thead>tr>th {
+        border-bottom: none;
+    }
+}
+
+.sportpage-rankingtable {
+    .side-adspace {
+        height: 288px;
+    }
+}
+
+.sportpage-rankingtable-points {
+    margin: 10px 0px;
+}
+
+.sportpage-rankingtable-pointsquare {
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+.sportpage-rankingtable-gold {
+    background: #ebce38;
+}
+
+.sportpage-rankingtable-silver {
+    background: #c7c7ce;
+}
+
+.sportpage-rankingtable-bronze {
+    background: #dda05e;
+}
+
+.sportpage-intresetedevents-contentholder {
+    @extend .side-adspace;
+    height: 300px;
+}
+
+.sportpage-trainingcard-holder {
+    display: flex;
+    margin: 50px 0px;
+}
+
+.sportpage-banner-relate {
+    position: relative;
+    height: 300px;
+}
+
+.sportpage-iconname-holder {
+    position: absolute;
+    bottom: -34px;
+    left: 0px;
+}
+
+.sportpage-trainingcard {
+    box-shadow: 0 5px 15px #ebebeb;
+    padding: 15px;
+    margin: 0px 10px;
+    flex: 1;
+}
+
+.sportpage-trainingcard-image {
+    width: 100px;
+    height: 100px;
+    margin: 0px auto;
+    margin-top: -55px;
+    border-radius: 100%;
+    overflow: hidden;
+}
+
+.sportpage-training-sports {
+    margin: 8px 0px;
+}
+
+.sportpage-trainingcard-name {
+    h5 {
+        font-size: 18px;
+    }
+}
+
+.sportpage-trainingcard-content {
+    padding: 20px;
+}
+
+.sportpage-trainingacdemy {
+    .sportpage-trainingcard {
+        .glyphicon-star:before {
+            content: "\f005";
+            color: $green-graph;
+            font: normal normal normal 14px/1 FontAwesome;
+        }
+        .glyphicon-star-empty:before {
+            content: "\f006";
+            color: $green-graph;
+            font: normal normal normal 14px/1 FontAwesome;
+        }
+    }
+}
+
+.sportpage-matchvideos-videoholder {
+    white-space: nowrap;
+    overflow-x: auto;
+}
+
+.sportpage-topperforming-atheleteholder {
+    display: flex;
+    .profileathlete-card {
+        flex: 1;
+        margin: 0px 5px;
+    }
+}
+
+.sportpage-topperforming-viewnmore,
+.sportpage-readmore {
+    margin: 8px 0px;
+    font-size: 12px;
+    a {
+        color: $dark-grey;
+        text-decoration: underline;
+    }
+}
+
+.sportpage-contentholder {
+    text-align: justify;
+}
+
+.sportpage-content-hideread {
+    max-height: 100px;
+    overflow: hidden;
+}
+
+.sportpage-content-showread {
+    max-height: fit-content
+}
+
+// SPORT PAGE

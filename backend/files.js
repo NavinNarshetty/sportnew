@@ -71,5 +71,6 @@ module.exports = [
     'backend/js/controllers/athlete.js',
     'backend/js/controllers/school.js',
     'backend/js/controllers/aboutchampionship.js',
-    'backend/js/controllers/access.js'
+    'backend/js/controllers/access.js',
+    'backend/js/controllers/sportpage.js',
 ];

@@ -1,0 +1,351 @@
+<!-- Top Bar Chart -->
+<div class="heading-sec">
+  <div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12 column">
+      <div class="heading-profile">
+        <h2>{{title}} Sport Page</h2>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="panel-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="widget">
+        <div class="form-elements-sec">
+          <form name="detailSportFormpage" role="form" class="sec">
+            <section>
+              <div class="row">
+                <!-- CITY -->
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label>City</label>
+                    <select name="city" id="city" ng-model="formData.city" class="form-control" autocomplete="city">
+                      <option value="Mumbai">Mumbai</option>
+                      <option value="Hyderabad">Hyderabad</option>
+                    </select>
+                  </div>
+                </div>
+                <!-- CITY END -->
+
+                <!-- SPORT NAME -->
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label>Sport Name</label>
+                    <ui-select name="selectsprttype" id="selectsprttype" theme="bootstrap" ng-model="formData.sportsListCategory" ng-change="searchsSportListCategory($select.selected._id)"
+                      required>
+                      <ui-select-match placeholder="Enter SportsListCategory" allow-clear="true">
+                        {{$select.selected.name}}
+                      </ui-select-match>
+                      <ui-select-choices repeat="item in sportlistcatitems | filter:$select.search" refresh="getAllSportListCategory($select.search)">
+                        <span ng-bind-html="item.name"></span>
+                      </ui-select-choices>
+                    </ui-select>
+                  </div>
+                </div>
+                <!-- SPORT NAME END -->
+
+                <!-- DESKTOP BANNER -->
+                <div class="col-md-6">
+                  <label>Desktop Banner</label>
+                  <div class="form-group smallimage-display">
+                    <upload-image ng-model="formData.banner.desktop"></upload-image>
+                  </div>
+                </div>
+                <!-- DESKTOP BANNER END -->
+
+                <!-- MOBILE BANNER -->
+                <div class="col-md-6">
+                  <label>Mobile Banner</label>
+                  <div class="form-group smallimage-display">
+                    <upload-image ng-model="formData.banner.mobile"></upload-image>
+                  </div>
+                </div>
+                <!-- MOBILE BANNER END -->
+
+
+
+
+                <!-- CONTENT -->
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label>Content :</label>
+                    <text-angular ng-model="formData.contentData" name="championshipcontent"></text-angular>
+                  </div>
+                </div>
+                <!-- CONTENT END -->
+
+
+
+
+
+
+
+              </div>
+            </section>
+
+            <section>
+
+              <!-- PDF DATA -->
+              <div class="row">
+                <div class="col-md-12">
+                  <label>Pdf header</label>
+                  <div class="form-group">
+                    <input type="text" class="form-control" ng-model="formData.pdfData.header" placeholder="Enter Header for PDF Card">
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-group text-center">
+                    <label for="">PDF Table</label>
+                  </div>
+                  <div class="form-group text-right">
+                    <button type="submit" class="btn btn-primary " ng-click="addRow(formData)">Add</button>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-group table-responsive table-font">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>
+                            <div class="text-capitalize">
+                              title
+                            </div>
+                          </th>
+                          <th>
+                            <div class="text-capitalize">
+                              Link
+                            </div>
+                          </th>
+                          <th>
+                            <div class="text-capitalize">
+                              Actions
+                            </div>
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr ng-repeat="item in formData.pdfData.pdf">
+                          <td>
+                            <div class="text-center">
+                              <input type="text" class="form-control" ng-model="item.title" placeholder="Enter Title">
+                            </div>
+                          </td>
+                          <td>
+                            <div class="text-center override-margin">
+                              <upload-image ng-model="item.link" type="pdf" ispdf=true></upload-image>
+                            </div>
+                          </td>
+                          <td>
+                            <div class="text-center">
+                              <button type="submit" class="btn btn-danger" ng-click="deleteRow(formData,$index)">Delete</button>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <!-- PDF DATA END -->
+
+              <!-- REGISTRATION -->
+              <div class="row">
+
+                <!-- HEADER -->
+                <div class="col-md-12">
+                  <div class="form-group text-center">
+                    <label>REGISTRATION CARD</label>
+                  </div>
+                </div>
+                <!-- HEADER END -->
+                <!-- TITLE -->
+                <div class="col-md-12">
+                  <label>Title</label>
+                  <div class="form-group">
+                    <input type="text" class="form-control" ng-model="formData.registrationData.title" placeholder="Enter title">
+                  </div>
+                </div>
+                <!-- TITLE END -->
+
+                <!-- MEDIA TYPE -->
+                <div class="col-md-12">
+                  <label>Type</label>
+                  <div class="form-group">
+                    <select name="mediatype" id="mediatype" class="form-control" ng-model="formData.registrationData.mediaType">
+                      <option value="image">Image</option>
+                      <option value="video">Video</option>
+                    </select>
+                  </div>
+                </div>
+                <!-- MEDIA TYPE END -->
+
+                <!-- BANNER IMAGE -->
+                <div class="col-md-12">
+                  <label for="">Image</label>
+                  <div class="form-group">
+                    <upload-image ng-model="formData.registrationData.image"></upload-image>
+                  </div>
+                </div>
+                <!-- BANNER IMAGE END -->
+
+                <!-- LINKTYPE -->
+                <div class="col-md-12">
+                  <label for="linktype">Link Type</label>
+                  <div class="form-group">
+                    <select name="linktype" id="linktype" class="form-control" ng-model="formData.registrationData.linkType">
+                      <option value="internal">INTERNAL</option>
+                      <option value="external">EXTERNAL</option>
+                      <option value="videoLink">VIDEO LINK</option>
+                    </select>
+                  </div>
+
+                </div>
+                <!-- LINKTYPE END -->
+
+                <!-- LINK -->
+                <div class="col-md-12">
+                  <label for="registrationlink">Link</label>
+                  <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Enter Link" ng-model="formData.registrationData.link">
+                  </div>
+                </div>
+                <!-- LINK END -->
+
+                <!-- LINK STATUS -->
+                <div class="col-md-12">
+                  <label for="linkstatus">Link Status</label>
+                  <div class="form-group">
+                    <select name="linkstatus" id="linkstatus" class="form-control" ng-model="formData.registrationData.linkStatus">
+                      <option value="enable">Enable</option>
+                      <option value="disable">Disable</option>
+                    </select>
+                  </div>
+                </div>
+                <!-- LINK STATUS END -->
+
+              </div>
+              <!-- REGISTRATION END -->
+            </section>
+
+            <section>
+              <div class="row">
+                <!-- HEADER -->
+                <div class="col-md-12">
+                  <div class="form-group text-center">
+                    EVENTS YOU MAYBE INTERESTED CARD
+                  </div>
+                  <div class="form-group text-right">
+                    <button type="submit" class="btn btn-primary " ng-click="addEventRow(formData)">Add</button>
+                  </div>
+                </div>
+                <!-- HEADER END -->
+
+                <!-- TABLE -->
+                <div class="col-md-12">
+                  <div class="form-group table-responsive table-font">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>
+                            <div class="text-capitalize">
+                              Type
+                            </div>
+                          </th>
+                          <th>
+                            <div class="text-capitalize">
+                              Image
+                            </div>
+                          </th>
+                          <th>
+                            <div class="text-capitalize">
+                              link Type
+                            </div>
+                          </th>
+                          <th>
+                            <div class="text-capitalize">
+                              Link
+                            </div>
+                          </th>
+                          <th>
+                            <div>
+                              title
+                            </div>
+                          </th>
+                          <th>
+                            <div>
+                              Action
+                            </div>
+                          </th>
+                        </tr>
+                      </thead>
+
+                      <tbody>
+                        <tr ng-repeat="item in formData.eventCard track by $index">
+                          <td>
+                            <div class="text-center">
+                              <select name="sportmediatype" id="sportmediatype" class="form-control" ng-model="item.mediaType">
+                                <option value="image">Image</option>
+                                <option value="video">Video</option>
+                              </select>
+                            </div>
+                          </td>
+                          <td>
+                            <div class="text-center override-margin">
+                              <upload-image ng-model="item.image" no-view></upload-image>
+                            </div>
+                          </td>
+                          <td>
+                            <div class="text-center">
+                              <select name="eventlinktype" id="eventlinktype" class="form-control" ng-model="item.linkType">
+                                <option value="interal">INTERNAL</option>
+                                <option value="external">EXTERNAL</option>
+                                <option value="videolink">VIDEO LINK</option>
+                              </select>
+                            </div>
+                          </td>
+                          <td>
+                            <div class="text-center">
+                              <input type="text" class="form-control" placeholder="Enter Link" ng-model="item.link">
+                            </div>
+                          </td>
+                          <td>
+                            <div class="text-center">
+                              <select name="eventlinkstatus" id="eventlinkstatus" ng-model="item.linkStatus" class="form-control">
+                                <option value="enable">Enable</option>
+                                <option value="disable">Disable</option>
+                              </select>
+                            </div>
+                          </td>
+                          <td>
+                            <div class="text-center">
+                              <button type="submit" class="btn btn-danger" ng-click="deleteEventRow(formData,$index)">Delete</button>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <!-- TABLE END -->
+              </div>
+            </section>
+            <section>
+              <div class="row">
+                <!-- BUTTON -->
+                <div class="col-md-12">
+                  <div class="text-center mt20 odd-even-button">
+                    <button class="btn btn-default" type="submit" ng-click="saveData(formData)">Save</button>
+                    <button class="btn btn-default" ui-sref="tablesportpage">Cancel</button>
+                  </div>
+                </div>
+                <!-- BUTTON END -->
+              </div>
+
+            </section>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

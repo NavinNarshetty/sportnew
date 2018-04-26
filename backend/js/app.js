@@ -236,6 +236,20 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
 
         // ***************ABOUT CHAMPIONSHIP END**********
 
+        // **************SPORTS **************************
+        .state('tablesportpage', {
+            url: "/tablesportpage",
+            templateUrl: "views/template.html",
+            controller: 'sportPageCtrl'
+        })
+
+        .state('detailsportpage', {
+            url: "/detailsportpage",
+            templateUrl: "views/template.html",
+            controller: 'detailSportPageCtrl'
+        })
+        // **************SPORTS END***********************
+
         // *******************ACCESS Starts**********************************
         .state('noaccess', {
             url: "/no-access",

@@ -1196,6 +1196,14 @@
          padding: 5px;
      }
  } //  COMMON CLASS
+ .commonspacing {
+     margin: 30px 0px;
+ }
+
+ .common-borderbotton {
+     border-bottom: 1px solid #757575;
+ }
+
  .table-font {
      .table {
          border: 1px solid #e1e1e1;
@@ -1238,6 +1246,16 @@
      border: none;
      border-radius: 20px;
  } //  OVERRIDE SELECT END
- // COMMON CLASS END
+ .m-auto {
+     margin: 0 auto;
+ } // COMMON CLASS END
+ .smallimage-display {
+     .img-box img {
+         width: 230px;
+         height: 180px;
+         overflow: hidden;
+     }
+ }
+
  @import "fancybox-override";
  @import "other/mobile";

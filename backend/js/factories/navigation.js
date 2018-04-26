@@ -12,12 +12,30 @@ myApp.factory('NavigationService', function ($http, $state) {
         data = $.jStorage.get('accessLevel');
     }
 
+
     var admin = [{
             name: "Events",
             classis: "active",
             sref: "#!/page/viewEvent//",
             icon: "phone"
         }, {
+            name: "Registration",
+            classis: "activeColor",
+            sref: "",
+            icon: "phone",
+            subnav: [{
+                name: "Athlete",
+                classis: "activeColor",
+                sref: "#!/tableathlete",
+                icon: "phone",
+            }, {
+                name: "School",
+                classis: "activeColor",
+                sref: "#!/tableschool",
+                icon: "phone",
+            }]
+        },
+        {
             name: "Ad Banners",
             classis: "activeColor",
             sref: "",
@@ -78,8 +96,50 @@ myApp.factory('NavigationService', function ($http, $state) {
                     icon: "phone",
                 }
             ]
+        }, {
+            name: "You May Like",
+            classis: "active",
+            sref: "#!/like",
+            icon: "phone"
+        }, {
+            name: "Press Media",
+            classis: "activeColor",
+            sref: "",
+            icon: "phone",
+            subnav: [{
+                name: "Press News",
+                classis: "activeColor",
+                sref: "#!/pressnews",
+                icon: "phone",
+            }, {
+                name: "Press Releases",
+                classis: "activeColor",
+                sref: "#!/pressreleases",
+                icon: "phone",
+            }, {
+                name: "Media Contact",
+                classis: "activeColor",
+                sref: "#!/mediacontact",
+                icon: "phone",
+            }]
+        }, {
+            name: "About Championship",
+            classis: "active",
+            sref: "#!/tableaboutchampionship",
+            icon: "phone"
+        }, {
+            name: "Sports",
+            classis: "activeColor",
+            sref: "",
+            icon: "phone",
+            subnav: [{
+                name: "Sport Page",
+                classis: "activeColor",
+                sref: "#!/tablesportpage",
+                icon: "phone",
+            }]
         }
-    ]
+    ];
 
     var superAdmin = _.concat([{
         name: "Users",

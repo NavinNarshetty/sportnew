@@ -548,18 +548,20 @@ myApp.controller('DashboardCtrl', function ($scope, TemplateService, NavigationS
         };
     })
 
-    .controller('LoginCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $state, toastr) {
+    .controller('LoginCtrl', function ($scope, TemplateService, LoginService, $timeout, $stateParams, $state, toastr) {
         //Used to name the .html file
-        $scope.menutitle = NavigationService.makeactive("Login");
         TemplateService.title = $scope.menutitle;
         $scope.template = TemplateService;
         $scope.currentHost = window.location.origin;
+        console.log("stateParams", $stateParams);
         if ($stateParams.id) {
             if ($stateParams.id === "AccessNotAvailable") {
-                toastr.error("You do not have access for the Backend.");
+                $state.go("noaccess");
             } else {
-                NavigationService.parseAccessToken($stateParams.id, function () {
-                    NavigationService.profile(function () {
+                console.log("Demo 1234");
+                LoginService.parseAccessToken($stateParams.id, $stateParams.accessLevel, function () {
+                    console.log("reached Herre");
+                    LoginService.profile(function () {
                         $state.go("dashboard");
                     }, function () {
                         $state.go("login");
@@ -567,7 +569,7 @@ myApp.controller('DashboardCtrl', function ($scope, TemplateService, NavigationS
                 });
             }
         } else {
-            NavigationService.removeAccessToken();
+            LoginService.removeAccessToken();
         }
 
     })
@@ -1136,8 +1138,15 @@ myApp.controller('DashboardCtrl', function ($scope, TemplateService, NavigationS
         };
     })
 
-    .controller('headerctrl', function ($scope, TemplateService, $uibModal) {
+    .controller('headerctrl', function ($scope, TemplateService, $uibModal,$rootScope, $location, $state) {
         $scope.template = TemplateService;
+        $rootScope.$watch(function () {
+            return $location.path()
+        }, function (newLocation, oldLocation) {
+            if ($rootScope.actualLocation === newLocation) {
+                $state.go("login");
+            }
+        });
         $scope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
             $(window).scrollTop(0);
         });

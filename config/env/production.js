@@ -27,7 +27,13 @@ module.exports = {
 
   port: 1337,
   realHost: "http://master.sfanow.in",
-  emails: ["chintan@wohlig.com", "jagruti@wohlig.com", "tushar@wohlig.com", "chirag@wohlig.com", "harsh@wohlig.com", "chintan@wohlig.com", "raj@wohlig.com", "supriya.bhartiya@wohlig.com", "rahi.shah@sfanow.in", "shiva.singh@sfanow.in", "venkatesh.rathod@sfanow.in", "sonia.chhabria@sfanow.in", "gargee.potdar@sfanow.in", "akshay.singh@sfanow.in"]
+  accessLevels:[{
+    name:"Super Admin",
+    emails:['pratik.patel@wohlig.com','rahi.shah@sfanow.in']
+},{
+    name:"Admin",
+    emails:['pratik.wohlig@gmail.com',"chintan@wohlig.com", "raj@wohlig.com", "supriya.bhartiya@wohlig.com", "shiva.singh@sfanow.in", "sunil.rathod@sfanow.in", "venkatesh.rathod@sfanow.in", "neeraj.jaiswal@sfanow.in", "suksha.khodake@wohlig.com", "sagar.mulchandani@wohlig.com", "navin.narshetty@wohlig.com"]
+}]
 
   /***************************************************************************
    * Set the log level in production environment to "silent"                 *

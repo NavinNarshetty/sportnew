@@ -22,5 +22,11 @@ module.exports = {
     // }
     port: 1337,
     realHost: "http://wohlig.io:1337",
-    emails: ["chintan@wohlig.com", "jagruti@wohlig.com", "tushar@wohlig.com", "chirag@wohlig.com", "harsh@wohlig.com"]
+    accessLevels:[{
+        name:"Super Admin",
+        emails:['rahi.shah@sfanow.in']
+    },{
+        name:"Admin",
+        emails:['pratik.wohlig@gmail.com',"chintan@wohlig.com", "raj@wohlig.com", "supriya.bhartiya@wohlig.com", "shiva.singh@sfanow.in", "sunil.rathod@sfanow.in", "venkatesh.rathod@sfanow.in", "neeraj.jaiswal@sfanow.in", "suksha.khodake@wohlig.com", "sagar.mulchandani@wohlig.com", "navin.narshetty@wohlig.com"]
+    }]
 };

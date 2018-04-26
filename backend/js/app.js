@@ -45,7 +45,7 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
         })
 
         .state('loginapp', {
-            url: "/login/:id",
+            url: "/login/:id/:accessLevel",
             templateUrl: "views/login.html",
             controller: 'LoginCtrl'
         })
@@ -235,6 +235,26 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
         })
 
         // ***************ABOUT CHAMPIONSHIP END**********
+
+        // *******************ACCESS Starts**********************************
+        .state('noaccess', {
+            url: "/no-access",
+            templateUrl: "views/content/access/noaccess.html",
+            controller: 'headerctrl'
+        })
+
+        .state('users', {
+            url: "/users",
+            templateUrl: "views/template.html",
+            controller: 'UsersCtrl'
+        })
+
+        .state('detail-users', {
+            url: "/detail-users/:id",
+            templateUrl: "views/template.html",
+            controller: 'DetailUsersCtrl'
+        })
+        // *******************ACCESS END**********************************
 
         .state('schema-creator', {
             url: "/schema-creator",

@@ -39,5 +39,19 @@ schema.plugin(timestamps);
 module.exports = mongoose.model('SportsListSubCategory', schema);
 
 var exports = _.cloneDeep(require("sails-wohlig-service")(schema));
-var model = {};
+var model = {
+    getSportByEvent: function (data, callback) {
+        SportsListSubCategory.find({ eventId: { $in: [ObjectId(data.eventId)] } }, function (err, found) {
+            if (err) {
+                callback(err, null);
+            } else if (_.isEmpty(found)) {
+                callback(null, []);
+            } else {
+                callback(null, found);
+            }
+
+        });
+
+    }
+};
 module.exports = _.assign(module.exports, exports, model);

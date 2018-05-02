@@ -36,5 +36,35 @@ schema.plugin(timestamps);
 module.exports = mongoose.model('Sportpage', schema);
 
 var exports = _.cloneDeep(require("sails-wohlig-service")(schema));
-var model = {};
+var model = {
+
+    getSportGallery: function (data, callback) {
+        Gallery.aggregate(
+            // Pipeline
+            [
+                // Stage 1
+                {
+                    $match: {
+                        "folderType": {
+                            $regex: "sport",
+                            $options: "i"
+                        },
+                        "folderName": { $regex: data.sportName, $options: "i" }
+                    }
+
+                },
+
+            ], function (err, found) {
+                if (err) {
+                    callback(err, null);
+                } else if (_.isEmpty(found)) {
+                    callback(null, []);
+                } else {
+                    callback(null, found);
+                }
+            });
+
+
+    }
+};
 module.exports = _.assign(module.exports, exports, model);

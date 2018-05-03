@@ -59,6 +59,7 @@ module.exports = [
   'frontend/js/services/athleteprofileservice.js',
   'frontend/js/services/mediapopup.js',
   'frontend/js/services/cityService.js',
+  'frontend/js/services/events.js',
   // 'frontend/js/services/mansonry-edited.js',
 
   //Factories

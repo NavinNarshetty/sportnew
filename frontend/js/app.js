@@ -130,7 +130,7 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
             controller: 'MatchVideoCtrl'
         })
         .state('sportpage', {
-            url: "/sport",
+            url: "/sport/:name/:id",
             templateUrl: tempateURL,
             controller: 'SportPageCtrl'
         })

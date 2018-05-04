@@ -52,12 +52,20 @@ myApp.controller('sportPageCtrl', function ($scope, TemplateService, NavigationS
 
 
 // DETAIL SPORT PAGE 
-myApp.controller('detailSportPageCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $state, toastr, $uibModal, deleteService, crudService) {
+myApp.controller('detailSportPageCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $state, toastr, $uibModal, deleteService, crudService, eventService) {
   //Used to name the .html file
   $scope.template = TemplateService.changecontent("sports/detailsportpage");
   $scope.menutitle = NavigationService.makeactive("Detail Sports");
   TemplateService.title = $scope.menutitle;
   $scope.navigation = NavigationService.getnav();
+
+  // VARIABLE
+
+  // VARIABLE END
+
+  // YEAR
+  $scope.currentYear = new Date().getFullYear();
+  // YEAR END
 
   // URL
   var url = 'Sportpage'
@@ -88,7 +96,7 @@ myApp.controller('detailSportPageCtrl', function ($scope, TemplateService, Navig
   $scope.addRow();
 
   $scope.deleteRow = function (formData, index) {
-    console.log("index", index);
+    // console.log("index", index);
     formData.pdfData.pdf.splice(index, 1);
   }
 
@@ -132,8 +140,16 @@ myApp.controller('detailSportPageCtrl', function ($scope, TemplateService, Navig
     crudService.getOneData(url, id, function (data) {
       if (data) {
         $scope.formData = data;
+        eventService.eventSearch($scope.formData.city, $scope.currentYear, function (data) {
+          // console.log(data, "inside service");
+          $scope.eventId = data._id;
+          $scope.sportData($scope.eventId);
+        })
       }
     })
+    // console.log($scope.formData, "cityyyyyy")
+
+
   }
   // GET ONE END
 
@@ -143,6 +159,28 @@ myApp.controller('detailSportPageCtrl', function ($scope, TemplateService, Navig
     crudService.saveData(data, url, state);
   }
   // SAVE FUNCTION END
+
+  // EVENT DATA AS PER CITY 
+  $scope.eventData = function (cityData) {
+    eventService.eventSearch(cityData, $scope.currentYear, function (data) {
+      // console.log(data, 'innnn');
+      $scope.eventId = data._id;
+      $scope.sportData($scope.eventId);
+    });
+  };
+  // EVENT DATA AS PER CITY  END
+
+  // SPORT DATA AS PER THE EVENT ID
+  $scope.sportData = function (data) {
+    $scope.url = 'SportsListSubCategory/getSportByEvent';
+    $scope.constraints = {};
+    $scope.constraints.eventId = data;
+    NavigationService.apiCall($scope.url, $scope.constraints, function (data) {
+      // console.log(data, "sport data");
+      $scope.sportlistcatitems = data.data;
+    });
+  };
+  // SPORT DATA AS PER THE EVENT ID END
 
 });
 // DETAIL SPORT PAGE  END

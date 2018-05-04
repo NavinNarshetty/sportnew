@@ -1257,5 +1257,11 @@
      }
  }
 
+ .banner-imageresize {
+     img {
+         height: 90px;
+     }
+ }
+
  @import "fancybox-override";
  @import "other/mobile";

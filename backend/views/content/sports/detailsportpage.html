@@ -15,12 +15,13 @@
         <div class="form-elements-sec">
           <form name="detailSportFormpage" role="form" class="sec">
             <section>
+              <!-- <pre>{{formData | json}}</pre> -->
               <div class="row">
                 <!-- CITY -->
-                <div class="col-md-12">
+                <div class="col-md-6">
                   <div class="form-group">
                     <label>City</label>
-                    <select name="city" id="city" ng-model="formData.city" class="form-control" autocomplete="city">
+                    <select name="city" id="city" ng-model="formData.city" ng-change="eventData(formData.city)" class="form-control" autocomplete="city">
                       <option value="Mumbai">Mumbai</option>
                       <option value="Hyderabad">Hyderabad</option>
                     </select>
@@ -29,15 +30,15 @@
                 <!-- CITY END -->
 
                 <!-- SPORT NAME -->
-                <div class="col-md-12">
+                <div class="col-md-6">
                   <div class="form-group">
                     <label>Sport Name</label>
-                    <ui-select name="selectsprttype" id="selectsprttype" theme="bootstrap" ng-model="formData.sportsListCategory" ng-change="searchsSportListCategory($select.selected._id)"
+                    <ui-select name="selectsprttype" id="selectsprttype" theme="bootstrap" ng-model="formData.sportName" ng-change="searchsSportListCategory($select.selected._id)"
                       required>
                       <ui-select-match placeholder="Enter SportsListCategory" allow-clear="true">
                         {{$select.selected.name}}
                       </ui-select-match>
-                      <ui-select-choices repeat="item in sportlistcatitems | filter:$select.search" refresh="getAllSportListCategory($select.search)">
+                      <ui-select-choices repeat="item.name as item in sportlistcatitems | filter:$select.search" refresh="getAllSportListCategory($select.search)">
                         <span ng-bind-html="item.name"></span>
                       </ui-select-choices>
                     </ui-select>
@@ -45,27 +46,36 @@
                 </div>
                 <!-- SPORT NAME END -->
 
+              </div>
+
+              <div class="row">
                 <!-- DESKTOP BANNER -->
                 <div class="col-md-6">
-                  <label>Desktop Banner</label>
-                  <div class="form-group smallimage-display">
-                    <upload-image ng-model="formData.banner.desktop"></upload-image>
+                  <div class="form-group">
+                    <label>Desktop Banner</label>
+                    <div class="form-group banner-imageresize">
+                      <upload-image ng-model="formData.banner.desktop"></upload-image>
+                    </div>
                   </div>
                 </div>
                 <!-- DESKTOP BANNER END -->
 
                 <!-- MOBILE BANNER -->
                 <div class="col-md-6">
-                  <label>Mobile Banner</label>
-                  <div class="form-group smallimage-display">
-                    <upload-image ng-model="formData.banner.mobile"></upload-image>
+                  <div class="form-group">
+                    <label>Mobile Banner</label>
+                    <div class="form-group banner-imageresize">
+                      <upload-image ng-model="formData.banner.mobile"></upload-image>
+                    </div>
                   </div>
                 </div>
                 <!-- MOBILE BANNER END -->
+              </div>
 
 
 
 
+              <div class="row">
                 <!-- CONTENT -->
                 <div class="col-md-12">
                   <div class="form-group">
@@ -74,18 +84,10 @@
                   </div>
                 </div>
                 <!-- CONTENT END -->
-
-
-
-
-
-
-
               </div>
             </section>
 
             <section>
-
               <!-- PDF DATA -->
               <div class="row">
                 <div class="col-md-12">
@@ -190,7 +192,7 @@
                 <!-- BANNER IMAGE END -->
 
                 <!-- LINKTYPE -->
-                <div class="col-md-12">
+                <div class="col-md-4">
                   <label for="linktype">Link Type</label>
                   <div class="form-group">
                     <select name="linktype" id="linktype" class="form-control" ng-model="formData.registrationData.linkType">
@@ -202,18 +204,16 @@
 
                 </div>
                 <!-- LINKTYPE END -->
-
                 <!-- LINK -->
-                <div class="col-md-12">
+                <div class="col-md-4">
                   <label for="registrationlink">Link</label>
                   <div class="form-group">
                     <input type="text" class="form-control" placeholder="Enter Link" ng-model="formData.registrationData.link">
                   </div>
                 </div>
                 <!-- LINK END -->
-
                 <!-- LINK STATUS -->
-                <div class="col-md-12">
+                <div class="col-md-4">
                   <label for="linkstatus">Link Status</label>
                   <div class="form-group">
                     <select name="linkstatus" id="linkstatus" class="form-control" ng-model="formData.registrationData.linkStatus">
@@ -223,6 +223,10 @@
                   </div>
                 </div>
                 <!-- LINK STATUS END -->
+
+
+
+
 
               </div>
               <!-- REGISTRATION END -->

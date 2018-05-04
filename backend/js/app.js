@@ -96,6 +96,20 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
             templateUrl: "views/template.html",
             controller: 'DetailAdVideoCtrl'
         })
+
+        .state('adsportpage', {
+            url: "/adsportpage",
+            templateUrl: "views/template.html",
+            controller: 'adSportPageCtrl'
+        })
+
+        .state('detailadsportpage', {
+            url: "/detailadsportpage/:id",
+            templateUrl: "views/template.html",
+            controller: 'detailAdSportPageCtrl'
+        })
+
+
         // ***************AD BANNERS END**************
 
 
@@ -244,7 +258,7 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
         })
 
         .state('detailsportpage', {
-            url: "/detailsportpage",
+            url: "/detailsportpage/:id",
             templateUrl: "views/template.html",
             controller: 'detailSportPageCtrl'
         })

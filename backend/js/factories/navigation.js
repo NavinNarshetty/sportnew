@@ -50,6 +50,11 @@ myApp.factory('NavigationService', function ($http, $state) {
                 classis: "activeColor",
                 sref: "#!/advideo",
                 icon: "phone",
+            }, {
+                name: "Sport Page",
+                classis: "activeColor",
+                sref: "#!/adsportpage",
+                icon: "phone",
             }]
         }, {
             name: "Featured",

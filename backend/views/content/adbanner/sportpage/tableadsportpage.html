@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col-md-12 col-sm-12 col-xs-12">
       <div class="heading-profile">
-        <h4 class="m-clear">SPORT PAGE</h4>
+        <h4 class="m-clear">AD Sports</h4>
       </div>
     </div>
   </div>
@@ -21,14 +21,14 @@
           <div class="table-widget">
             <div class="row">
               <div class="col-md-5 col-sm-6 col-xs-12">
-                <h5 class="m-clear">List of Sports
+                <h5 class="m-clear">List of Sports Ad
                   <span>Total :</span>
-                  <span></span>
+                  <span>{{totalItems}}</span>
                 </h5>
               </div>
-              <div class="col-md-7 col-sm-6 col-xs-12" ng-if="items.length !=2">
+              <div class="col-md-7 col-sm-6 col-xs-12">
                 <div class="widget-holder text-right">
-                  <button type="submit" class="btn btn-success" ui-sref="detailsportpage">Create</button>
+                  <button type="submit" class="btn btn-success" ui-sref="detailadsportpage">Create</button>
                 </div>
               </div>
             </div>
@@ -44,13 +44,18 @@
                   </div>
                 </th>
                 <th>
-                  <div class="text-capitalize">
+                  <div class="">
                     Sport Name
                   </div>
                 </th>
                 <th>
-                  <div class="text-capitalize">
-                    City
+                  <div>
+                    status/city
+                  </div>
+                </th>
+                <th class="hide">
+                  <div>
+                    Link
                   </div>
                 </th>
                 <th>
@@ -73,14 +78,27 @@
                   </td>
                   <td>
                     <div class="text-center">
-                      <span>
-                        {{item.city}}
-                      </span>
+                      <span class="text-capitalize">
+                        <b> {{item.banner.status}}</b>
+                      </span> /
+                      <span>{{item.city}}</span>
+                    </div>
+                  </td>
+                  <td class="hide">
+                    <div>
+                      <p title="{{item.desktop.adLink}}">
+                        <b>Desktop</b>
+                        </span> -
+                        <span>{{item.desktop.adLink | truncate:25}}</p>
+                      <p title="{{item.mobile.mobileLink}}">
+                        <b>Mobile</b>
+                        </span> -
+                        <span>{{item.mobile.mobileLink | truncate:25}}</p>
                     </div>
                   </td>
                   <td>
                     <div class="text-center">
-                      <a class="btn btn-primary" target="_new" ui-sref="detailsportpage({id:item._id})">
+                      <a class="btn btn-primary" target="_new" ui-sref="detailadsportpage({id:item._id})">
                         <i class="fa fa-pencil"></i>
                       </a>
                       <a class="btn btn-danger" ng-click="confirmDelete(item._id)">
@@ -103,8 +121,8 @@
           </div>
           <ul ng-if="totalItems" ng-change="viewTable();" uib-pagination total-items="totalItems" items-per-page="maxRow" ng-model="formData.page"
             max-size="template.pageMax" class="pagination-sm" boundary-links="true " force-ellipses="true "></ul>
-          <!-- PAGINATION END -->
 
+          <!-- PAGINATION END -->
         </div>
       </div>
       <!-- WHITE BOX END -->

@@ -1,0 +1,236 @@
+<div class="heading-sec">
+  <div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12 column">
+      <div class="heading-profile">
+        <h2>{{title}} Ad Banner</h2>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Top Bar Chart -->
+<div class="panel-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="widget">
+        <div class="form-elements-sec">
+
+          <form name="detailAdForm" role="form" class="sec">
+            <div class="row">
+              <!-- <pre>
+                {{formData | json}}
+              </pre> -->
+              <!-- CITY -->
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="">City</label>
+                  <select name="city" id="city" ng-model="formData.city" ng-change="cityChange(formData.city)" class="form-control" required>
+                    <option value="Mumbai">Mumbai</option>
+                    <option value="Hyderabad">Hyderabad</option>
+                  </select>
+                  <div class="error-msg" ng-if="detailAdForm.city.$invalid && detailAdForm.city.$touched">Please Enter Valid City *</div>
+                </div>
+              </div>
+              <!-- CITY -->
+
+              <!-- SPORT NAME -->
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Sport Name</label>
+                  <ui-select name="selectsprttype" id="selectsprttype" theme="bootstrap" ng-model="formData.sportName" ng-change="searchsSportListCategory($select.selected._id)"
+                    required>
+                    <ui-select-match placeholder="Enter Sports,Please select city first" allow-clear="true">
+                      {{$select.selected.name}}
+                    </ui-select-match>
+                    <ui-select-choices repeat="item.name as item in sportlistcatitems | filter:$select.search" refresh="getAllSportListCategory($select.search)">
+                      <span ng-bind-html="item.name"></span>
+                    </ui-select-choices>
+                  </ui-select>
+                  <div class="error-msg" ng-if="detailAdForm.selectsprttype.$invalid && detailAdForm.selectsprttype.$touched">Please Enter Valid Sport *</div>
+                </div>
+              </div>
+              <!-- SPORT NAME END -->
+
+
+
+              <!-- TITLE -->
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label>Title</label>
+                  <input type="text" name="title" ng-model="formData.banner.title" class="form-control" placeholder="Enter Title">
+                  <!-- <div class="error-msg" ng-if="detailAdForm.title.$invalid && detailAdForm.title.$touched">Please Enter Valid Title *</div> -->
+                </div>
+              </div>
+              <!-- TITLE END -->
+
+              <!-- STATUS -->
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="">Status</label>
+                  <select name="status" id="status" ng-model="formData.banner.status" class="form-control">
+                    <option value="enable">Enable</option>
+                    <option value="disable">Disable</option>
+                  </select>
+                </div>
+              </div>
+              <!-- STATUS -->
+
+              <!-- LINK TYPE -->
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="linktype">Link Type</label>
+                  <select name="linktype" id="linktype" ng-model="formData.banner.linkType" class="form-control">
+                    <option value="internal">INTERNAL</option>
+                    <option value="external">EXTERNAL</option>
+                    <option value="videolink">VIDEO LINK</option>
+                    <option value="nolink">NO LINK</option>
+                  </select>
+                </div>
+              </div>
+              <!-- LINK TYPE END -->
+
+              <!-- UPLOAD FILE -->
+              <div class="col-md-6">
+                <div class="form-group banner-imageresize ">
+                  <label>Desktop Ad Banner</label>
+                  <span> -
+                    <strong>Note:</strong>
+                    <span class="label label-danger">Note:For desktop size 1170 x 130 </span>
+                    <upload-image ng-model="formData.banner.desktop.adbanner"></upload-image>
+                </div>
+                <!-- AD LINK -->
+                <div class="form-group" ng-if="formData.linkType !='nolink'">
+                  <label>Desktop Ad Link</label>
+                  <div class="vsmall" ng-if="formData.banner.linkType ==='videolink'">
+                    <b>For eg:https://player.vimeo.com/video/255187744?autoplay=1&loop=1&autopause=0</b>
+                  </div>
+                  <!-- <p class="m-clear">Note:<b>If you want autoplay for the videos </b> </p> -->
+                  <!-- <span>Please add the following link-https://player.vimeo.com/video/255187744?autoplay=1&loop=1&autopause=0</span> -->
+                  <input type="text" name="adlink" ng-model="formData.banner.desktop.adlink" id="" class="form-control" placeholder="Enter Desktop Link">
+                  <!-- <div class="error-msg" ng-if="detailAdForm.adlink.$invalid && detailAdForm.adlink.$touched">Please Enter Valid Link *</div> -->
+                </div>
+
+                <!-- AD LINK END -->
+              </div>
+
+              <div class="col-md-6">
+                <div class="form-group banner-imageresize">
+                  <label>Mobile Ad Banner</label>
+                  <span> -
+                    <strong>Note:</strong>
+                    <span class="label label-danger">Note:For desktop size 1180 x 511 </span>
+                    <upload-image ng-model="formData.banner.mobile.adbanner"></upload-image>
+                </div>
+                <div class="form-group" ng-if="formData.linkType !='nolink'">
+                  <label>Mobile Ad Link</label>
+                  <div class="vsmall" ng-if="formData.banner.linkType ==='videolink'">
+                    <b>For eg:https://player.vimeo.com/video/255187744?autoplay=1&loop=1&autopause=0</b>
+                  </div>
+                  <!-- <p class="m-clear">Note:<b>If you want autoplay for the videos </b> </p> -->
+                  <!-- <span>Please add the following link-https://player.vimeo.com/video/255187744?autoplay=1&loop=1&autopause=0</span> -->
+                  <input type="text" name="adlink" ng-model="formData.banner.mobile.adlink" id="" class="form-control" placeholder="Enter Mobile Link">
+                  <!-- <div class="error-msg" ng-if="detailAdForm.adlink.$invalid && detailAdForm.adlink.$touched">Please Enter Valid Link *</div> -->
+                </div>
+              </div>
+              <!-- UPLOAD FILE END -->
+
+
+
+              <!-- *****************************MOBILE****************************************** -->
+              <div class="text-center col-md-12">
+                <h4 class="text-uppercase commonspacing">side ad space</h4>
+              </div>
+              <!-- SIDE AD SPACE TITLE -->
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label>Title</label>
+                  <input type="text" name="title" ng-model="formData.sideAdSpace.title" class="form-control" placeholder="Enter Title">
+                  <!-- <div class="error-msg" ng-if="detailAdForm.title.$invalid && detailAdForm.title.$touched">Please Enter Valid Title *</div> -->
+                </div>
+              </div>
+              <!-- SIDE AD SPACE TITLE END -->
+
+              <!-- STATUS -->
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="">Status</label>
+                  <select name="status" id="status" ng-model="formData.sideAdSpace.status" class="form-control">
+                    <option value="enable">Enable</option>
+                    <option value="disable">Disable</option>
+                  </select>
+                </div>
+              </div>
+              <!-- STATUS -->
+
+              <!-- LINK TYPE -->
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="linktype">Link Type</label>
+                  <select name="linktype" id="linktype" ng-model="formData.sideAdSpace.linkType" class="form-control">
+                    <option value="internal">INTERNAL</option>
+                    <option value="external">EXTERNAL</option>
+                    <option value="videolink">VIDEO LINK</option>
+                    <option value="nolink">NO LINK</option>
+                  </select>
+                </div>
+              </div>
+              <!-- LINK TYPE END -->
+
+              <!-- SIDE DESKTOP LINK -->
+              <div class="col-md-6">
+                <div class="form-group banner-imageresize ">
+                  <label>Desktop Side Ad Banner</label>
+                  <span class="label label-danger">Note:For Mobile size 473 x 329</span>
+                  <upload-image ng-model="formData.sideAdSpace.desktop.banner"></upload-image>
+                </div>
+                <div class="form-group">
+                  <label>Desktop Side Ad Link</label>
+                  <div class="vsmall" ng-if="formData.sideAdSpace.linkType==='videolink'">
+                    <b>For eg:https://player.vimeo.com/video/255187744?autoplay=1&loop=1&autopause=0</b>
+                  </div>
+                  <input type="text" name="mobilelink" ng-model="formData.sideAdSpace.desktop.link" class="form-control" id="">
+                  <!-- <div class="error-msg" ng-if="detailAdForm.mobilelink.$invalid && detailAdForm.mobilelink.$touched">Please Enter Valid Link *</div> -->
+                </div>
+              </div>
+              <!-- SIDE DESKTOP LINK END -->
+
+              <!-- SIDE MOBILE LINK -->
+              <div class="col-md-6">
+                <div class="form-group banner-imageresize ">
+                  <label>Mobile Side Ad Banner</label>
+                  <span class="label label-danger">Note:For Mobile size 1180 x 876</span>
+                  <upload-image ng-model="formData.sideAdSpace.mobile.banner"></upload-image>
+                </div>
+                <div class="form-group">
+                  <label>Mobile Side Ad Link</label>
+                  <div class="vsmall" ng-if="formData.sideAdSpace.linkType==='videolink'">
+                    <b>For eg:https://player.vimeo.com/video/255187744?autoplay=1&loop=1&autopause=0</b>
+                  </div>
+                  <input type="text" name="mobilelink" ng-model="formData.sideAdSpace.mobile.link" class="form-control" id="" required>
+                  <div class="error-msg" ng-if="detailAdForm.mobilelink.$invalid && detailAdForm.mobilelink.$touched">Please Enter Valid Link *</div>
+                </div>
+              </div>
+              <!-- SIDE MOBILE LINK END -->
+
+
+
+
+
+
+
+              <!-- BUTTON -->
+              <div class="col-md-12">
+                <div class="text-center mt20 odd-even-button">
+                  <button class="btn btn-default" type="submit" ng-click="saveData(formData)">Save</button>
+                  <button class="btn btn-default" ui-sref="adsportpage">Cancel</button>
+                </div>
+              </div>
+              <!-- BUTTON END -->
+
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -14,6 +14,7 @@ var schema = new Schema({
         linkStatus: String
     }],
     city: String,
+    sportName: String,
     banner: {
         desktop: String,
         mobile: String
@@ -49,12 +50,16 @@ var model = {
                             $regex: "sport",
                             $options: "i"
                         },
-                        "folderName": { $regex: data.sportName, $options: "i" }
+                        "folderName": {
+                            $regex: data.sportName,
+                            $options: "i"
+                        }
                     }
 
                 },
 
-            ], function (err, found) {
+            ],
+            function (err, found) {
                 if (err) {
                     callback(err, null);
                 } else if (_.isEmpty(found)) {

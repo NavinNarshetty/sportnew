@@ -2113,7 +2113,8 @@ $sport-primary: #0a1a72 !default;
 .sportpage-matchvideos,
 .sportpage-rankingtable,
 .sportpage-intresetedevents,
-.sportpage-trainingacdemy {
+.sportpage-trainingacdemy,
+.sportpage-adspace {
     margin: 40px 0px;
 }
 
@@ -2232,10 +2233,23 @@ $sport-primary: #0a1a72 !default;
 }
 
 .sportpage-intresetedevents-contentholder {
-    @extend .side-adspace;
+    // @extend .side-adspace;
+    margin: 8px 0px;
+    @extend .sfa-background-image;
     height: 300px;
 }
 
+// .sportpage-intresetedeventsholder {
+//     white-space: nowrap;
+//     overflow: auto;
+// }
+// .sportpage-intresetedeventscontent {
+//     width: 555px;
+//     height: auto;
+//     display: inline-block;
+//     margin: 8px;
+//     vertical-align: middle;
+// }
 .sportpage-trainingcard-holder {
     display: flex;
     margin: 50px 0px;
@@ -2331,6 +2345,11 @@ $sport-primary: #0a1a72 !default;
 
 .sportpage-content-showread {
     max-height: fit-content
+}
+
+.sportpage-sideadspaceimage {
+    @extend .sfa-background-image;
+    height: 288px;
 }
 
 // SPORT PAGE

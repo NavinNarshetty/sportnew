@@ -90,6 +90,7 @@ myApp.filter('truncate', function () {
 // FILTER FOR SPORT ICON AND HEADER IMG
 myApp.filter('sporticon', function () {
   return function (input, type) {
+    console.log(input, type, "filter inputs");
     var input = input.toLowerCase();
     var type = type.toLowerCase();
     var iconImg = "";

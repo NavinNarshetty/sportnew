@@ -1,4 +1,4 @@
-myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationService, $timeout) {
+myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state) {
         $scope.template = TemplateService.getHTML("content/home.html");
         TemplateService.title = "Home"; //This is the Title of the Website
         $scope.navigation = NavigationService.getNavigation();
@@ -18,6 +18,26 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
             i++;
             console.log("This is a button Click");
         };
+
+        $scope.sportsName = function () {
+            $scope.constraints = {};
+            $scope.constraints.page = 1;
+            $scope.constraints.type = '';
+            $scope.constraints.keyword = '';
+            $scope.url = "Sportpage/search";
+            NavigationService.getDataApiCall($scope.constraints, $scope.url, function (data) {
+                console.log(data, "check");
+                $scope.sportsData = data.data.data.results;
+            });
+        }
+        $scope.sportsName();
+
+        $scope.gotoSport = function (data, sportName) {
+            $state.go('sportpage', {
+                id: data,
+                name: sportName
+            })
+        }
 
 
 

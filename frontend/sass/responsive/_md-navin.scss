@@ -150,4 +150,20 @@
     font-size: 14px;
     line-height: 30px;
   } // *************MATCH VIDEO END**************** 
+  // **************SPORT PAGE *******************
+  .sportpage-topperforming-atheleteholder {
+    overflow-x: auto;
+  }
+  .sportpage-topperforming-atheleteholder .profileathlete-card {
+    width: 303px;
+    flex: none;
+  }
+  .sportpage-topperforming-atheleteholder {
+    .profileathlete-athleteschool {
+      font-size: 11px;
+    }
+    .sportpage-athletecard-medaldetailholder {
+      font-size: 12px;
+    }
+  } // **************SPORT PAGE ******************* 
 }

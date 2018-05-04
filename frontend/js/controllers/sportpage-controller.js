@@ -1,11 +1,113 @@
-myApp.controller('SportPageCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $http) {
+myApp.controller('SportPageCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $stateParams, $http, eventService) {
     $scope.template = TemplateService.getHTML("content/sportpage.html");
     TemplateService.title = "Sport"; //This is the Title of the Website
     $scope.navigation = NavigationService.getNavigation();
 
     $scope.dummydata = [1, 2, 3];
+
+    $timeout(function () {
+        $scope.ranktableHeight = $(".sportpage-rankingtable-tableholder").innerHeight();
+        // $scope.ranktableHeight = $scope.ranktableHeight;
+
+        console.log($scope.ranktableHeight, 'ranktableHeight');
+    }, 100)
+
+    // VARIABLES
+    $scope.currentYear = new Date().getFullYear();
     $scope.readvariable = false;
     $scope.showRead = false;
+    $scope.eventData = {};
+    $scope.sportPageData = {};
+    $scope.allGallery = {};
+    $scope.gallerySlides = [];
+    $scope.allGallery = {
+        'slidePhotos': []
+    };
+
+    // EVENT CALLING
+    eventService.eventSearch($scope.currentYear, function (data) {
+        console.log(data, "event data");
+        $scope.eventId = data._id;
+        $scope.eventYear = data.eventYear;
+        $scope.eventCity = data.city;
+        $scope.yearEvent = data.year;
+
+        // console.log($scope.eventCity, "city");
+        // console.log($scope.eventId, "event id");
+        if ($scope.eventId && $stateParams.name) {
+            $scope.url = "Rank/getRanksBySport";
+            $scope.eventconstraints = {};
+            $scope.eventconstraints.eventId = $scope.eventId;
+            $scope.eventconstraints.sportName = $stateParams.name;
+            NavigationService.getDataApiCall($scope.eventconstraints, $scope.url, function (data) {
+                $scope.sportRankingTable = data.data.data;
+                // console.log($scope.sportRankingTable, "rankingtable");
+            });
+        }
+        $scope.sportAdBanner = function () {
+            $scope.url = "Sportadbanner/search";
+            $scope.sportParameter = {};
+            $scope.sportParameter.page = 1;
+            $scope.sportParameter.type = '';
+            $scope.sportParameter.keyword = '';
+            $scope.sportParameter.filter = {};
+            $scope.sportParameter.filter.city = $scope.eventCity;
+            $scope.sportParameter.filter.sportName = $stateParams.name;
+            NavigationService.getDataApiCall($scope.sportParameter, $scope.url, function (data) {
+                // console.log(data, "Ad Banner data");
+                $scope.sportAdBannerData = data.data.data.results[0];
+                $scope.bannerData = $scope.sportAdBannerData.banner;
+                $scope.sideAdSpaceData = $scope.sportAdBannerData.sideAdSpace;
+            });
+
+        }
+        $scope.sportAdBanner();
+    });
+
+    // console.log($scope.eventData, "check for event data");
+    // EVENT CALLING END
+    console.log($stateParams.id, "adsa");
+    // *************API CALLING ***************
+
+    if ($stateParams.id) {
+        $scope.getOneSport = function () {
+            $scope.url = 'Sportpage/getOne';
+            $scope.constraints = {};
+            $scope.constraints._id = $stateParams.id;
+            NavigationService.getDataApiCall($scope.constraints, $scope.url, function (data) {
+                // console.log(data, "full data");
+                $scope.sportPageData = data.data.data;
+
+                $scope.getsportGallery($scope.sportPageData.sportName);
+            });
+        }
+        $scope.getOneSport();
+
+
+    }
+
+    $scope.getsportGallery = function (data) {
+        $scope.url = 'Sportpage/getSportGallery'
+        $scope.constraints = {};
+        $scope.constraints.sportName = data;
+        NavigationService.getDataApiCall($scope.constraints, $scope.url, function (data) {
+            console.log(data, "gallery data");
+            $scope.sportGallery = data.data.data;
+            $scope.gallerySlides = _.chunk($scope.sportGallery, 6);
+            // console.log($scope.gallerySlides, "slides");
+            _.each($scope.gallerySlides, function (n, nkey) {
+                console.log(nkey, "nnnn");
+                console.log(n, "each");
+                $scope.allGallery.slidePhotos[nkey] = _.chunk(n, 3);
+            });
+            console.log("picslide", $scope.allGallery);
+
+        });
+    }
+
+
+
+    // ************API CALLING END ************
 
     $scope.swiperInit = function () {
         $timeout(function () {
@@ -50,11 +152,21 @@ myApp.controller('SportPageCtrl', function ($scope, TemplateService, NavigationS
 
 
 
+    // TABLE HEIGHT
+    // $scope.setReadMore = function () {
+
+    // }
+    // TABLE HEIGHT END
 
 
 
     // READ MORE END
     // READ MORE END
+
+    // GALLERY CHUCK
+
+
+    // GALLERY CHUCK END
 
     $scope.videoCard = [{
         videoImage: 'img/featuredthumbnail.jpg',
@@ -141,116 +253,8 @@ myApp.controller('SportPageCtrl', function ($scope, TemplateService, NavigationS
         place: 'Kharghar',
         sports: ['basketball', 'cricket', 'badminton', 'swimming', 'tennis'],
         rating: '3'
-    }]
+    }];
 
 
-    // GALLERY JSON
-    $scope.allGallery = {};
-    $scope.allGallery.slidePhotos = [
-        [
-            [{
-                    "title": "",
-                    "mediaLink": "img/Indiagate.jpg",
-                    "_id": "5adaf7aa3e814c2de205f20c"
-                },
-                {
-                    "title": "",
-                    "mediaLink": "img/featuredthumbnail.jpg",
-                    "_id": "5adaf7aa3e814c2de205f20b"
-                },
-                {
-                    "title": "",
-                    "mediaLink": "img/Indiagate.jpg",
-                    "_id": "5adaf7aa3e814c2de205f20a"
-                }
-            ],
-            [{
-                    "title": "",
-                    "mediaLink": "img/featuredthumbnail.jpg",
-                    "_id": "5adaf7aa3e814c2de205f209"
-                },
-                {
-                    "title": "",
-                    "mediaLink": "img/Indiagate.jpg",
-                    "_id": "5adaf7aa3e814c2de205f208"
-                },
-                {
-                    "title": "",
-                    "mediaLink": "img/featuredthumbnail.jpg",
-                    "_id": "5adaf7aa3e814c2de205f207"
-                }
-            ]
-        ],
-        [
-            [{
-                    "title": "",
-                    "mediaLink": "img/Indiagate.jpg",
-                    "_id": "5adaf7aa3e814c2de205f206"
-                },
-                {
-                    "title": "",
-                    "mediaLink": "img/featuredthumbnail.jpg",
-                    "_id": "5adaf7aa3e814c2de205f205"
-                },
-                {
-                    "title": "",
-                    "mediaLink": "img/Indiagate.jpg",
-                    "_id": "5adaf7aa3e814c2de205f204"
-                }
-            ],
-            [{
-                    "title": "",
-                    "mediaLink": "img/Indiagate.jpg",
-                    "_id": "5adaf7aa3e814c2de205f203"
-                },
-                {
-                    "title": "",
-                    "mediaLink": "img/Indiagate.jpg",
-                    "_id": "5adaf7aa3e814c2de205f202"
-                },
-                {
-                    "title": "",
-                    "mediaLink": "img/featuredthumbnail.jpg",
-                    "_id": "5adaf7aa3e814c2de205f201"
-                }
-            ]
-        ],
-        [
-            [{
-                    "title": "",
-                    "mediaLink": "img/featuredthumbnail.jpg",
-                    "_id": "5adaf7aa3e814c2de205f200"
-                },
-                {
-                    "title": "",
-                    "mediaLink": "img/Indiagate.jpg",
-                    "_id": "5adaf7aa3e814c2de205f1ff"
-                },
-                {
-                    "title": "",
-                    "mediaLink": "img/Indiagate.jpg",
-                    "_id": "5adaf7aa3e814c2de205f1fe"
-                }
-            ],
-            [{
-                    "title": "",
-                    "mediaLink": "img/Indiagate.jpg",
-                    "_id": "5adaf7aa3e814c2de205f1fd"
-                },
-                {
-                    "title": "",
-                    "mediaLink": "img/Indiagate.jpg",
-                    "_id": "5adaf7aa3e814c2de205f1fc"
-                },
-                {
-                    "title": "",
-                    "mediaLink": "img/featuredthumbnail.jpg",
-                    "_id": "5adaf7aa3e814c2de205f1fb"
-                }
-            ]
-        ]
-    ]
-
-    // GALLERY JSON END
 
 })

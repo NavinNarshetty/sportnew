@@ -82,4 +82,5 @@ module.exports = [
   'frontend/js/controllers/pressmedia-controller.js',
   'frontend/js/controllers/pressarticle-controller.js',
   'frontend/js/controllers/aboutchampionship.js',
+  'frontend/js/controllers/contactus.js',
 ];

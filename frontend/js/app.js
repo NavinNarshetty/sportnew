@@ -155,6 +155,11 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
             url: "/aboutchampionship/:city",
             templateUrl: tempateURL,
             controller: 'aboutChampionshipCtrl'
+        })
+        .state('contactus', {
+            url: "/contactus",
+            templateUrl: tempateURL,
+            controller: 'ContactUsCtrl'
         });
     $urlRouterProvider.otherwise("/");
     $locationProvider.html5Mode(isproduction);

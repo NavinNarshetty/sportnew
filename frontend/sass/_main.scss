@@ -2065,7 +2065,103 @@ $tickerDuration: 60s;
     background-repeat: no-repeat;
     background-size: contain;
 }
+// CUSTOM TICKER END
+// LIVE UPDATES PAGE END
+// SPORT PAGE
+.sportpage{
+  min-height: 100vh;
+}
+.sportpage-content {
+  margin: 40px 0;
+}
+// SPORT PAGE END
+// CONTACT US PAGE
+.contactus-page{
+  min-height: 100vh;
+  padding: 30px 0 50px;
+  @extend .opensans-regular;
+}
+.contactus-content{
+  padding: 30px 0;
+  border-bottom: 1px solid $light-grey;
+}
+.contactus-enquirycard{
+  padding: 10px;
+  margin: 15px 0;
+  color: $dark-grey;
+  p{
+    margin-bottom: 5px;
+    font-size: 16px;
+  }
+  label{
+    margin-bottom: 0;
+  }
+  a{
+    color: $dark-grey;
+    &:active, &:hover, &:focus{
+      color: #606060;
+      text-decoration: underline;
+    }
+  }
+}
+.contactus-enquirycard-nologo {
+  padding-top: 60px;
+}
+.contactenquiry-logo{
+  width: auto;
+  height: 40px;
+  margin-bottom: 5px;
+  display: inline-block;
+  overflow: hidden;
+  img{
+    width: auto;
+    height: 100%;
+  }
+}
+.contactenquiry-cardtitle{
+  color: $brand-primary;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+.contactenquiry-cardcity{
+  color: #52d5ff;
+}
+.contactenquiry-mailholder{
+  &:last-child{
+    .seperator{
+      display: none;
+    }
+  }
+}
+.contactenquiry-phoneholder{
+  &:last-child{
+    .seperator{
+      display: none;
+    }
+  }
+}
+.contactus-headoffice{
+  .contactenquiry-cardtitle{
+    font-size: 27px;
+    text-transform: uppercase;
+    color: #adabab;
+  }
+  .contactenquiry-cardcity{
+    color: $base;
+  }
+  .contactus-maplink{
+    color: $brand-success;
+    i{
+      font-size: 18px;
+    }
+    &:active, &:focus, &:hover{
+      color: $brand-success;
+    }
+  }
+}
 
+// CONTACT US PAGE END
+// ANIMATIONS
 // **************************************************************************
 // TICKER ANIMATION
 // **************************************************************************
@@ -2096,13 +2192,4 @@ $tickerDuration: 60s;
 // **************************************************************************
 // TICKER ANIMATION END
 // **************************************************************************
-// CUSTOM TICKER END
-// LIVE UPDATES PAGE END
-// SPORT PAGE
-.sportpage{
-  min-height: 100vh;
-}
-.sportpage-content {
-  margin: 40px 0;
-}
-// SPORT PAGE END
+// ANIMATIONS END

@@ -1,0 +1,67 @@
+<div class="modal-header">
+  <h4 class="modal-title">New Enquiry</h4>
+</div>
+<div class="clearfix">
+  <!-- TITLE -->
+  <div class="col-md-6">
+    <div class="form-group">
+      <label>Title</label>
+      <input type="text" name="title" ng-model="newEnquiry.title" class="form-control" placeholder="Enter Title">
+    </div>
+  </div>
+  <!-- TITLE END -->
+
+  <!-- CITY -->
+  <div class="col-md-6">
+    <div class="form-group">
+      <label>City</label>
+      <select name="city" id="city" ng-model="newEnquiry.city" class="form-control">
+        <option value="All">All</option>
+        <option value="Mumbai">Mumbai</option>
+        <option value="Hyderabad">Hyderabad</option>
+      </select>
+    </div>
+  </div>
+  <!-- CITY END -->
+
+  <!-- NOTEs -->
+  <div class="col-md-6">
+    <div class="form-group">
+      <label>Note</label>
+      <input type="text" name="note" ng-model="newEnquiry.note" class="form-control" placeholder="Enter Note">
+    </div>
+  </div>
+  <!-- NOTEs END -->
+
+  <!-- MOBILE NO -->
+  <div class="col-md-12" >
+    <div class="form-group">
+      <label>Phone</label>
+      <input type="text" name="mobileno" ng-model="newEnquiry.phone" class="form-control" placeholder="Enter Phone No" ng-list>
+      <div class="error-msg">Enter Comma ( , ) Seperated Phone no(s)</div>
+    </div>
+  </div>
+  <!-- MOBILE NO END -->
+
+  <!-- EMAIL ID -->
+  <div class="col-md-12" >
+    <div class="form-group">
+      <label>Email</label>
+      <input type="text" name="email" ng-model="newEnquiry.email" class="form-control" placeholder="Enter Email" ng-list>
+      <div class="error-msg">Enter Comma ( , ) Seperated Emails</div>
+    </div>
+  </div>
+  <!-- EMAIL ID END -->
+
+  <div class="col-md-12">
+    <div class="form-group">
+      <label>Logo <label class="label label-danger">Note:Image should be of size 50 x 50 only</label></label>
+      <upload-image ng-model="newEnquiry.logo"></upload-image>
+    </div>
+  </div>
+
+</div>
+<div class="modal-footer">
+  <button class="btn btn-primary btn-outline btn-small" type="button" ng-click="addEnquiry()">Save</button>
+  <button class="btn btn-primary btn-outline btn-small" type="button" ng-click="$close()">Cancel</button>
+</div>

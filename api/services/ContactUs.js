@@ -4,6 +4,7 @@ var schema = new Schema({
     headoffice: {
         title: String,
         city: String,
+        address: String,
         note: String,
         email: [String],
         phone: [String],

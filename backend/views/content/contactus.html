@@ -1,0 +1,243 @@
+<div class="heading-sec">
+  <div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12 column">
+      <div class="heading-profile">
+        <h2>Contact Us</h2>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="panel-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="widget">
+        <div class="form-elements-sec">
+          <form name="detailAdForm" role="form" class="sec">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="">HEAD OFFICE DETAILS</label>
+                </div>
+              </div>
+              <!-- TITLE -->
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Title</label>
+                  <input type="text" name="title" ng-model="formData.headoffice.title" class="form-control" placeholder="Enter Title">
+                </div>
+              </div>
+              <!-- TITLE END -->
+
+              <!-- CITY -->
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>City</label>
+                  <select name="city" id="city" ng-model="formData.headoffice.city" class="form-control">
+                    <option value="All">All</option>
+                    <option value="Mumbai">Mumbai</option>
+                    <option value="Hyderabad">Hyderabad</option>
+                  </select>
+                </div>
+              </div>
+              <!-- CITY END -->
+
+              <!-- MAP LINK -->
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Map Link</label>
+                  <input type="text" name="link" ng-model="formData.headoffice.link" class="form-control" placeholder="Enter MAP Link">
+                </div>
+              </div>
+              <!-- MAP LINK END -->
+
+              <!-- ADDRESS -->
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="">Address</label>
+                  <text-angular ng-model="formData.headoffice.address" name="address"></text-angular>
+                </div>
+              </div>
+              <!-- ADDRESS END -->
+
+              <!-- MOBILE NO -->
+              <div class="col-md-12" hidden>
+                <div class="form-group">
+                  <label>Phone</label>
+                  <input type="text" name="mobileno" ng-model="formData.headoffice.phone" class="form-control" placeholder="Enter Phone No" ng-list>
+                  <div class="error-msg">Enter Comma ( , ) Seperated Phone no(s)</div>
+                </div>
+              </div>
+              <!-- MOBILE NO END -->
+
+              <!-- EMAIL ID -->
+              <div class="col-md-12" hidden>
+                <div class="form-group">
+                  <label>Email</label>
+                  <input type="text" name="email" ng-model="formData.headoffice.email" class="form-control" placeholder="Enter Email" ng-list>
+                  <div class="error-msg">Enter Comma ( , ) Seperated Emails</div>
+                </div>
+              </div>
+              <!-- EMAIL ID END -->
+
+              <!-- INFOLINE HEADER -->
+              <div class="col-md-12">
+                <div class="form-group">
+                  <div class="pull-right">
+                    <button type="submit" class="btn btn-primary" ng-click="addCityRow(formData)">Add</button>
+                  </div>
+                  <label>CITY INFOLINES</label>
+                </div>
+              </div>
+              <!-- INFOLINE HEADER END -->
+
+              <!-- INFOLINE TABLE -->
+              <div class="col-md-12">
+                <div class="form-group table-responsive table-font reduce-tablepadding">
+                  <table class="table table-striped ">
+                    <thead>
+                      <th>
+                        <div>
+                          Sr.no
+                        </div>
+                      </th>
+                      <th>
+                        <div>
+                          City
+                        </div>
+                      </th>
+                      <th>
+                        <div>
+                          Email
+                        </div>
+                      </th>
+                      <th>
+                        <div>
+                          Phone
+                        </div>
+                      </th>
+                      <th>
+                        <div>
+                          Action
+                        </div>
+                      </th>
+                    </thead>
+                    <tbody class="">
+                      <tr ng-repeat="city in formData.cities track by $index">
+                        <td>
+                          <div class="text-center">
+                            {{$index + 1}}
+                          </div>
+                        </td>
+                        <td>
+                          <div class="">
+                            <select name="status" id="status" ng-model="city.city" class="form-control">
+                              <option value="All">All</option>
+                              <option value="Mumbai">Mumbai</option>
+                              <option value="Hyderabad">Hyderabad</option>
+                            </select>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="">
+                            <input type="text" name="mobileno" ng-model="city.email" class="form-control" placeholder="Enter Email" ng-list>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="">
+                            <input type="text" name="mobileno" ng-model="city.phone" class="form-control" placeholder="Enter Phone No" ng-list>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="text-center">
+                            <button type="submit" class="btn btn-danger" ng-click="deleteCityRow(formData,$index)">Delete</button>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <!-- INFOLINE TABLE END -->
+
+              <!-- ENQUIRY HEADER -->
+              <div class="col-md-12">
+                <div class="form-group">
+                  <div class="pull-right">
+                    <button type="submit" class="btn btn-primary" ng-click="enquiryNew('', 'new')">Add</button>
+                  </div>
+                  <label>CONTACT DETAILS</label>
+                </div>
+              </div>
+              <!-- ENQUIRY HEADER END -->
+              <!-- INFOLINE TABLE -->
+              <div class="col-md-12">
+                <div class="form-group table-responsive table-font reduce-tablepadding">
+                  <table class="table table-striped ">
+                    <thead>
+                      <th>
+                        <div>
+                          Sr.no
+                        </div>
+                      </th>
+                      <th>
+                        <div>
+                          City
+                        </div>
+                      </th>
+                      <th>
+                        <div>
+                          Title
+                        </div>
+                      </th>
+                      <th>
+                        <div>
+                          Action
+                        </div>
+                      </th>
+                    </thead>
+                    <tbody class="">
+                      <tr ng-repeat="enquiry in formData.enquiries track by $index" ng-init="enquiry.order= $index">
+                        <td>
+                          <div class="text-center">
+                            {{$index + 1}}
+                          </div>
+                        </td>
+                        <td>
+                          <div class="">
+                            <input type="text" ng-model="enquiry.city" class="form-control" placeholder="Enter City" readonly>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="">
+                            <input type="text" ng-model="enquiry.title" class="form-control" placeholder="Enter Title" readonly>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="text-center">
+                            <button type="submit" class="btn btn-primary" ng-click="enquiryNew(enquiry, 'edit')">Edit</button>
+                            <button type="submit" class="btn btn-danger" ng-click="deleteEnquiryRow(formData,$index)">Delete</button>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <!-- INFOLINE TABLE END -->
+              <!-- BUTTON -->
+              <div class="col-md-12">
+                <div class="text-center mt20 odd-even-button">
+                  <button class="btn btn-default" type="button" ng-click="saveData(formData)">Save</button>
+                  <button class="btn btn-default" ui-sref="mediacontact">Cancel</button>
+                </div>
+              </div>
+              <!-- BUTTON END -->
+
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

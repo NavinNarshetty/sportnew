@@ -132,6 +132,11 @@ myApp.factory('NavigationService', function ($http, $state) {
             classis: "active",
             sref: "#!/tableaboutchampionship",
             icon: "phone"
+        },{
+            name: "Contact Details",
+            classis: "active",
+            sref: "#!/contactus",
+            icon: "phone"
         }, {
             name: "Sports",
             classis: "activeColor",

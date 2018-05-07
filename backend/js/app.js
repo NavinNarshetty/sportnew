@@ -232,7 +232,7 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
             controller: 'DetailSchoolCtrl'
         })
 
-        // ***************REGISTRATION END**************** 
+        // ***************REGISTRATION END****************
 
 
         // ***************ABOUT CHAMPIONSHIP**************
@@ -263,6 +263,14 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
             controller: 'detailSportPageCtrl'
         })
         // **************SPORTS END***********************
+
+        // **************CONTACT  US END***********************
+        .state('contactus', {
+            url: "/contactus",
+            templateUrl: "views/template.html",
+            controller: 'ContactUsCtrl'
+        })
+        // **************CONTACT  US END***********************
 
         // *******************ACCESS Starts**********************************
         .state('noaccess', {

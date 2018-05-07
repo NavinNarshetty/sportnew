@@ -88,20 +88,24 @@ myApp.controller('ContactUsCtrl', function ($scope, TemplateService, NavigationS
   // FUNCTIONS END
   // API CALLS
   // GET DATA
-  $scope.url = 'ContactUs/search';
-  $scope.form.page = $scope.form.page++;
-  $scope.form.filter = {}
-  NavigationService.apiCall($scope.url, $scope.form, function(data){
-    if (data.value == true) {
-      if (data.data.results.length != 0) {
-        $scope.formData = data.data.results[0];
+  $scope.contactSearch = function(){
+    $scope.url = 'ContactUs/search';
+    $scope.form.page = $scope.form.page++;
+    $scope.form.filter = {}
+    NavigationService.apiCall($scope.url, $scope.form, function(data){
+      if (data.value == true) {
+        if (data.data.results.length != 0) {
+          $scope.formData = data.data.results[0];
+        } else {
+          $scope.formData = {};
+        }
+        TemplateService.scrollTo('heading-sec', 'class');
       } else {
-        $scope.formData = {};
+        toaster.error("Data failed", "Error");
       }
-    } else {
-      toaster.error("Data failed", "Error");
-    }
-  });
+    });
+  }
+  $scope.contactSearch();
   // GET DATA END
   // API CALLS END
   // JSONS

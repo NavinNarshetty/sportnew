@@ -7,8 +7,8 @@
           <p class="contactenquiry-cardtitle fjalla-one"><span class="contactenquiry-cardcity" ng-if="headoffice.city != ''">{{headoffice.city}}</span> <span ng-if="headoffice.title != ''">{{headoffice.title}}</span></p>
           <div ng-if="headoffice.address != ''" ng-bind-html="headoffice.address | trustedHtml"></div>
           <p ng-if="headoffice.note">{{headoffice.note}}</p>
-          <p ng-if="headoffice.email != ''"><label>Email:</label> <span class="contactenquiry-mailholder" ng-repeat="mail in headoffice.email track by $index"><a href="mailto:mail">{{mail}}</a><span class="seperator"> / </span></span></p>
-          <p ng-if="headoffice.phone != ''"><label>Call:</label> <span class="contactenquiry-phoneholder" ng-repeat="call in headoffice.phone track by $index"><a href="mailto:call">{{call}}</a><span class="seperator"> / </span></span></p>
+          <p ng-if="headoffice.email != ''"><label>Email:</label> <span class="contactenquiry-mailholder" ng-repeat="mail in headoffice.email track by $index"><a href="mailto:{{mail}}">{{mail}}</a><span class="seperator"> / </span></span></p>
+          <p ng-if="headoffice.phone != ''"><label>Call:</label> <span class="contactenquiry-phoneholder" ng-repeat="call in headoffice.phone track by $index"><a href="tel:{{call}}">{{call}}</a><span class="seperator"> / </span></span></p>
           <a href="{{headoffice.link}}" target="_new" class="contactus-maplink" ng-if="headoffice.link != ''"><i class="fa fa-map-marker"></i> Get Directions</a>
         </div>
       </div>
@@ -18,8 +18,8 @@
             <div class="contactus-enquirycard">
               <p class="contactenquiry-cardtitle"><span ng-if="city.title">{{city.title}}</span> <span class="contactenquiry-cardcity" ng-if="city.city">{{city.city}}</span></p>
               <p ng-if="city.note != ''">{{city.note}}</p>
-              <p ng-if="city.email != ''"><label>Email:</label> <span class="contactenquiry-mailholder" ng-repeat="mail in city.email track by $index"><a href="mailto:mail">{{mail}}</a><span class="seperator"> / </span></span></p>
-              <p ng-if="city.phone != ''"><label>Call:</label> <span class="contactenquiry-phoneholder" ng-repeat="call in city.phone track by $index"><a href="mailto:call">{{call}}</a><span class="seperator"> / </span></span></p>
+              <p ng-if="city.email != ''"><label>Email:</label> <span class="contactenquiry-mailholder" ng-repeat="mail in city.email track by $index"><a href="mailto:{{mail}}">{{mail}}</a><span class="seperator"> / </span></span></p>
+              <p ng-if="city.phone != ''"><label>Call:</label> <span class="contactenquiry-phoneholder" ng-repeat="call in city.phone track by $index"><a href="tel:{{call}}">{{call}}</a><span class="seperator"> / </span></span></p>
             </div>
           </div>
         </div>
@@ -34,8 +34,8 @@
             </div>
             <p class="contactenquiry-cardtitle"><span ng-if="enquiry.title != ''">{{enquiry.title}}</span> <span class="contactenquiry-cardcity" ng-if="enquiry.city != ''">{{enquiry.city}}</span></p>
             <p ng-if="enquiry.note != ''">{{enquiry.note}}</p>
-            <p ng-if="enquiry.email != ''"><label>Email:</label> <span class="contactenquiry-mailholder" ng-repeat="mail in enquiry.email track by $index"><a href="mailto:mail">{{mail}}</a><span class="seperator"> / </span></span></p>
-            <p ng-if="enquiry.phone != ''"><label>Call:</label> <span class="contactenquiry-phoneholder" ng-repeat="call in enquiry.phone track by $index"><a href="mailto:call">{{call}}</a><span class="seperator"> / </span></span></p>
+            <p ng-if="enquiry.email != ''"><label>Email:</label> <span class="contactenquiry-mailholder" ng-repeat="mail in enquiry.email track by $index"><a href="mailto:{{mail}}">{{mail}}</a><span class="seperator"> / </span></span></p>
+            <p ng-if="enquiry.phone != ''"><label>Call:</label> <span class="contactenquiry-phoneholder" ng-repeat="call in enquiry.phone track by $index"><a href="tel:{{call}}">{{call}}</a><span class="seperator"> / </span></span></p>
           </div>
         </div>
       </div>

@@ -30,7 +30,7 @@
         <div class="col-md-4 col-sm-6 col-xs-12" ng-repeat = "enquiry in enquiries track by $index">
           <div class="contactus-enquirycard" ng-class="{'contactus-enquirycard-nologo': !enquiry.logo}">
             <div class="contactenquiry-logo" ng-if="enquiry.logo">
-              <img ng-src="{{enquiry.logo | serverimage}}" alt="{{enquiry.title}}" class="s">
+              <img ng-src="{{enquiry.logo}}" alt="{{enquiry.title}}" class="">
             </div>
             <p class="contactenquiry-cardtitle"><span ng-if="enquiry.title != ''">{{enquiry.title}}</span> <span class="contactenquiry-cardcity" ng-if="enquiry.city != ''">{{enquiry.city}}</span></p>
             <p ng-if="enquiry.note != ''">{{enquiry.note}}</p>

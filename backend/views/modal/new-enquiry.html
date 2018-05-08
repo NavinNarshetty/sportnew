@@ -55,8 +55,15 @@
 
   <div class="col-md-12">
     <div class="form-group">
-      <label>Logo <label class="label label-danger">Note:Image should be of size 50 x 50 only</label></label>
-      <upload-image ng-model="newEnquiry.logo"></upload-image>
+      <label>Logo <label class="label label-danger hide">Note:Image should be of size 50 x 50 only</label></label>
+      <!-- <upload-image ng-model="newEnquiry.logo"></upload-image> -->
+      <select name="city" id="logo" ng-model="newEnquiry.logo" class="form-control">
+        <option value="https://storage.googleapis.com/sportsforall/icons/contact-register.png">Register Icon</option>
+        <option value="https://storage.googleapis.com/sportsforall/icons/contact-businessenquiry.png">Business Inquiry Icon</option>
+        <option value="https://storage.googleapis.com/sportsforall/icons/contact-career.png">Career Icon</option>
+        <option value="https://storage.googleapis.com/sportsforall/icons/contact-press.png">Press Icon</option>
+        <option value="https://storage.googleapis.com/sportsforall/icons/contact-sponsor.png">Sponsor Icon</option>
+      </select>
     </div>
   </div>
 

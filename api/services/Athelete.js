@@ -1284,26 +1284,7 @@ var model = {
                         // } else {
                         //     obj.degree = "";
                         // }
-                        if (n.refundAmount) {
-                            obj.refundAmount = n.refundAmount;
-                        } else {
-                            obj.refundAmount = "";
-                        }
-                        if (n.photographCheck) {
-                            obj.photographCheck = n.photographCheck;
-                        } else {
-                            obj.photographCheck = "";
-                        }
-                        if (n.photoImageCheck) {
-                            obj.photoImageCheck = n.photoImageCheck;
-                        } else {
-                            obj.photoImageCheck = "";
-                        }
-                        if (n.birthImageCheck) {
-                            obj.birthImageCheck = n.birthImageCheck;
-                        } else {
-                            obj.birthImageCheck = "";
-                        }
+
                         // var parentInfo;
                         // var countParent = 0;
                         // var levelInfo;
@@ -1413,6 +1394,26 @@ var model = {
                         // } else {
                         //     obj.Age_Proof = "";
                         // }
+                        if (n.refundAmount) {
+                            obj.refundAmount = n.refundAmount;
+                        } else {
+                            obj.refundAmount = "";
+                        }
+                        if (n.photographCheck) {
+                            obj.photographCheck = n.photographCheck;
+                        } else {
+                            obj.photographCheck = "";
+                        }
+                        if (n.photoImageCheck) {
+                            obj.photoImageCheck = n.photoImageCheck;
+                        } else {
+                            obj.photoImageCheck = "";
+                        }
+                        if (n.birthImageCheck) {
+                            obj.birthImageCheck = n.birthImageCheck;
+                        } else {
+                            obj.birthImageCheck = "";
+                        }
                         excelData.push(obj);
                     });
                     Config.generateExcel("Athlete", excelData, res);

@@ -2,7 +2,7 @@ myApp.service('eventService', function ($http, TemplateService, $state, toastr, 
 
 
   this.eventSearch = function (yearData, callback) {
-    console.log(yearData, "in event service")
+    // console.log(yearData, "in event service")
     var url = "Event/search";
     var parameters = {};
     parameters.page = 1;
@@ -11,7 +11,7 @@ myApp.service('eventService', function ($http, TemplateService, $state, toastr, 
     parameters.filter = {};
     parameters.filter.city = 'Mumbai';
     parameters.filter.year = yearData - 1;
-    console.log(parameters, "params");
+    // console.log(parameters, "params");
     NavigationService.getDataApiCall(parameters, url, function (data) {
       // console.log(data, "event data in frontend");
       eventData = data.data.data.results[0];

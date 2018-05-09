@@ -5,13 +5,6 @@ myApp.controller('SportPageCtrl', function ($scope, TemplateService, NavigationS
 
     $scope.dummydata = [1, 2, 3];
 
-    $timeout(function () {
-        $scope.ranktableHeight = $(".sportpage-rankingtable-tableholder").innerHeight();
-        // $scope.ranktableHeight = $scope.ranktableHeight;
-
-        console.log($scope.ranktableHeight, 'ranktableHeight');
-    }, 100)
-
     // VARIABLES
     $scope.currentYear = new Date().getFullYear();
     $scope.readvariable = false;
@@ -24,49 +17,12 @@ myApp.controller('SportPageCtrl', function ($scope, TemplateService, NavigationS
         'slidePhotos': []
     };
 
-    // EVENT CALLING
-    eventService.eventSearch($scope.currentYear, function (data) {
-        console.log(data, "event data");
-        $scope.eventId = data._id;
-        $scope.eventYear = data.eventYear;
-        $scope.eventCity = data.city;
-        $scope.yearEvent = data.year;
 
-        // console.log($scope.eventCity, "city");
-        // console.log($scope.eventId, "event id");
-        if ($scope.eventId && $stateParams.name) {
-            $scope.url = "Rank/getRanksBySport";
-            $scope.eventconstraints = {};
-            $scope.eventconstraints.eventId = $scope.eventId;
-            $scope.eventconstraints.sportName = $stateParams.name;
-            NavigationService.getDataApiCall($scope.eventconstraints, $scope.url, function (data) {
-                $scope.sportRankingTable = data.data.data;
-                // console.log($scope.sportRankingTable, "rankingtable");
-            });
-        }
-        $scope.sportAdBanner = function () {
-            $scope.url = "Sportadbanner/search";
-            $scope.sportParameter = {};
-            $scope.sportParameter.page = 1;
-            $scope.sportParameter.type = '';
-            $scope.sportParameter.keyword = '';
-            $scope.sportParameter.filter = {};
-            $scope.sportParameter.filter.city = $scope.eventCity;
-            $scope.sportParameter.filter.sportName = $stateParams.name;
-            NavigationService.getDataApiCall($scope.sportParameter, $scope.url, function (data) {
-                // console.log(data, "Ad Banner data");
-                $scope.sportAdBannerData = data.data.data.results[0];
-                $scope.bannerData = $scope.sportAdBannerData.banner;
-                $scope.sideAdSpaceData = $scope.sportAdBannerData.sideAdSpace;
-            });
 
-        }
-        $scope.sportAdBanner();
-    });
 
-    // console.log($scope.eventData, "check for event data");
-    // EVENT CALLING END
-    console.log($stateParams.id, "adsa");
+
+
+    // console.log($stateParams.id, "adsa");
     // *************API CALLING ***************
 
     if ($stateParams.id) {
@@ -76,14 +32,16 @@ myApp.controller('SportPageCtrl', function ($scope, TemplateService, NavigationS
             $scope.constraints._id = $stateParams.id;
             NavigationService.getDataApiCall($scope.constraints, $scope.url, function (data) {
                 // console.log(data, "full data");
-                $scope.sportPageData = data.data.data;
+                if (data) {
+                    $scope.sportPageData = data.data.data;
 
-                $scope.getsportGallery($scope.sportPageData.sportName);
+                    $scope.getsportGallery($scope.sportPageData.sportName);
+                    $scope.getEventData($scope.currentYear);
+                }
+
             });
         }
         $scope.getOneSport();
-
-
     }
 
     $scope.getsportGallery = function (data) {
@@ -91,22 +49,66 @@ myApp.controller('SportPageCtrl', function ($scope, TemplateService, NavigationS
         $scope.constraints = {};
         $scope.constraints.sportName = data;
         NavigationService.getDataApiCall($scope.constraints, $scope.url, function (data) {
-            console.log(data, "gallery data");
+            // console.log(data, "gallery data");
             $scope.sportGallery = data.data.data;
             $scope.gallerySlides = _.chunk($scope.sportGallery, 6);
             // console.log($scope.gallerySlides, "slides");
             _.each($scope.gallerySlides, function (n, nkey) {
-                console.log(nkey, "nnnn");
-                console.log(n, "each");
+                // console.log(nkey, "nnnn");
+                // console.log(n, "each");
                 $scope.allGallery.slidePhotos[nkey] = _.chunk(n, 3);
             });
-            console.log("picslide", $scope.allGallery);
+            // console.log("picslide", $scope.allGallery);
 
         });
     }
 
+    $scope.getEventData = function (currentYear) {
+        eventService.eventSearch(currentYear, function (data) {
+            // console.log(data, "event data");
+            $scope.eventId = data._id;
+            $scope.eventYear = data.eventYear;
+            $scope.eventCity = data.city;
+            $scope.yearEvent = data.year;
+
+            // console.log($scope.eventCity, "city");
+            // console.log($scope.eventId, "event id");
+            if (data) {
+                if ($scope.eventId && $stateParams.name) {
+                    $scope.url = "Rank/getRanksBySport";
+                    $scope.eventconstraints = {};
+                    $scope.eventconstraints.eventId = $scope.eventId;
+                    $scope.eventconstraints.sportName = $stateParams.name;
+                    NavigationService.getDataApiCall($scope.eventconstraints, $scope.url, function (data) {
+                        $scope.sportRankingTable = data.data.data;
+                        // console.log($scope.sportRankingTable, "rankingtable");
+                    });
+                }
+                $scope.sportAdBanner($scope.eventCity, $stateParams.name);
+            }
 
 
+
+        });
+    }
+
+    $scope.sportAdBanner = function (eventCity, sportName) {
+        $scope.url = "Sportadbanner/search";
+        $scope.sportParameter = {};
+        $scope.sportParameter.page = 1;
+        $scope.sportParameter.type = '';
+        $scope.sportParameter.keyword = '';
+        $scope.sportParameter.filter = {};
+        $scope.sportParameter.filter.city = $scope.eventCity;
+        $scope.sportParameter.filter.sportName = $stateParams.name;
+        NavigationService.getDataApiCall($scope.sportParameter, $scope.url, function (data) {
+            // console.log(data, "Ad Banner data");
+            $scope.sportAdBannerData = data.data.data.results[0];
+            $scope.bannerData = $scope.sportAdBannerData.banner;
+            $scope.sideAdSpaceData = $scope.sportAdBannerData.sideAdSpace;
+        });
+
+    }
     // ************API CALLING END ************
 
     $scope.swiperInit = function () {
@@ -134,7 +136,7 @@ myApp.controller('SportPageCtrl', function ($scope, TemplateService, NavigationS
     $scope.setReadMore = function () {
         $timeout(function () {
             $scope.readHeight = $(".sportpage-contentholder").height();
-            console.log($scope.readHeight, 'height');
+            // console.log($scope.readHeight, 'height');
             if ($scope.readHeight < 100) {
                 $scope.showRead = false;
             } else {

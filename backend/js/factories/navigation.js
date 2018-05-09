@@ -132,7 +132,7 @@ myApp.factory('NavigationService', function ($http, $state) {
             classis: "active",
             sref: "#!/tableaboutchampionship",
             icon: "phone"
-        },{
+        }, {
             name: "Contact Details",
             classis: "active",
             sref: "#!/contactus",
@@ -279,6 +279,46 @@ myApp.factory('NavigationService', function ($http, $state) {
                 method: 'POST'
 
             }).then(callback);
+        },
+        generateExcelWithoutData: function (url, data, callback) {
+            $http.post(adminurl + url, data, {
+                responseType: 'arraybuffer'
+            }).then(function (response) {
+                var header = response.headers('Content-Disposition')
+                var fileName = data.file + "-" + moment().format("MMM-DD-YYYY-hh-mm-ss-a") + ".xlsx";
+                console.log(fileName);
+
+                var blob = new Blob([response.data], {
+                    type: 'application/vnd.openxmlformats-officedocument.presentationml.presentation;charset=UTF-8'
+                });
+                var objectUrl = (window.URL || window.webkitURL).createObjectURL(blob);
+                var link = angular.element('<a/>');
+                link.attr({
+                    href: objectUrl,
+                    download: fileName
+                })[0].click();
+                callback(null, fileName);
+            })
+        },
+        generateCommonExcelWithData: function (url, data, filename, callback) {
+            console.log('from Controller', data);
+            $http.post(adminurl + url, data, {
+                responseType: 'arraybuffer'
+            }).then(function (response) {
+                var header = response.headers('Content-Disposition')
+                var fileName = filename + "-" + moment().format("MMM-DD-YYYY-hh-mm-ss-a") + ".xlsx";
+                console.log(fileName);
+                var blob = new Blob([response.data], {
+                    type: 'application/vnd.openxmlformats-officedocument.presentationml.presentation;charset=UTF-8'
+                });
+                var objectUrl = (window.URL || window.webkitURL).createObjectURL(blob);
+                var link = angular.element('<a/>');
+                link.attr({
+                    href: objectUrl,
+                    download: fileName
+                })[0].click();
+                callback(null, fileName);
+            })
         }
 
     };

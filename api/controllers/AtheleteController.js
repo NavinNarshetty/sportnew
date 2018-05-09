@@ -40,6 +40,19 @@ var controller = {
                 data: "Invalid Request"
             });
         }
+    },
+    generateExcel: function (req, res) {
+        res.connection.setTimeout(200000000);
+        req.connection.setTimeout(200000000);
+        if (req.body) {
+            console.log(req.body);
+            Athelete.generateExcel(req.body, res);
+        } else {
+            res.json({
+                value: false,
+                data: "Invalid Request"
+            });
+        }
     }
 };
 module.exports = _.assign(module.exports, controller);

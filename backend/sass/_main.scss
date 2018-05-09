@@ -1263,5 +1263,20 @@
      }
  }
 
+ .btn-green-outline {
+     border: 1px solid #0a1a72;
+     background: transparent;
+     color: #0a1a72;
+     outline: none;
+     &:hover,
+     &:active,
+     &:focus {
+         border: 1px solid #0a1a72;
+         background: transparent;
+         color: #0a1a72;
+         outline: none;
+     }
+ }
+
  @import "fancybox-override";
  @import "other/mobile";

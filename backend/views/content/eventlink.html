@@ -19,7 +19,7 @@
               <div class="col-md-12">
                 <div class="form-group">
                   <div class="pull-right">
-                    <button type="submit" class="btn btn-primary" ng-click="enquiryNew('', 'new')">Add</button>
+                    <button type="submit" class="btn btn-primary" ng-click="createEntry('', 'new')">Add</button>
                   </div>
                   <!-- <label>CONTACT DETAILS</label> -->
                 </div>
@@ -30,35 +30,37 @@
                   <table class="table table-striped">
                     <thead>
                       <th>
-                        <th>
-                          <div>
-                            City
-                          </div>
-                        </th>
-                        <th>
-                          <div>
-                            Link
-                          </div>
-                        </th>
-                        <th>
-                          <div>
-                            Action
-                          </div>
-                        </th>
+                        <div>
+                          City
+                        </div>
+                      </th>
+                      <th>
+                        <div>
+                          Link
+                        </div>
+                      </th>
+                      <th>
+                        <div>
+                          Action
+                        </div>
                       </th>
                     </thead>
                     <tbody>
-                      <tr class="hide" hidden ng-repeat = "" >
+                      <tr ng-repeat = "entry in table track by $index" >
                         <td>
-                          <div class=""></div>
+                          <div class="">
+                            <input type="text" name="city" ng-model="entry.city" class="form-control" placeholder="Select City" readonly>
+                          </div>
                         </td>
                         <td>
-                          <div class=""></div>
+                          <div class="">
+                            <input type="text" name="link" ng-model="entry.link" class="form-control" placeholder="Enter Link" readonly>
+                          </div>
                         </td>
                         <td>
                           <div class="text-center">
-                            <button type="submit" class="btn btn-primary" ng-click="enquiryNew(enquiry, 'edit')">Edit</button>
-                            <button type="submit" class="btn btn-danger" ng-click="deleteEnquiryRow(formData,$index)">Delete</button>
+                            <button type="submit" class="btn btn-primary" ng-click="createEntry(entry, 'edit')">Edit</button>
+                            <button type="submit" class="btn btn-danger" ng-click="deleteEntry(entry._id)">Delete</button>
                           </div>
                         </td>
                       </tr>

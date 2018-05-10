@@ -1,0 +1,31 @@
+<form name="newEventLink">
+    <div class="modal-header">
+        <h4 class="modal-title">New Event Link</h4>
+    </div>
+    <div class="clearfix">
+        <!-- CITY -->
+        <div class="col-md-12">
+            <div class="form-group">
+                <label>City</label>
+                <select name="city" id="city" ng-model="formData.city" class="form-control">
+          <option value="Mumbai">Mumbai</option>
+          <option value="Hyderabad">Hyderabad</option>
+        </select>
+            </div>
+        </div>
+        <!-- CITY END -->
+
+        <!-- NOTEs -->
+        <div class="col-md-12">
+            <div class="form-group">
+                <label>Link</label>
+                <input type="text" name="link" ng-model="formData.link" class="form-control" placeholder="Enter Link">
+            </div>
+        </div>
+        <!-- NOTEs END -->
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary btn-outline btn-small" type="button" ng-click="saveEventLink(formData)" ng-disabled="disable">Save</button>
+        <button class="btn btn-primary btn-outline btn-small" type="button" ng-click="$close(), disable = false" ng-disabled="disable">Cancel</button>
+    </div>
+</form>

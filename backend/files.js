@@ -75,4 +75,5 @@ module.exports = [
     'backend/js/controllers/access.js',
     'backend/js/controllers/sportpage.js',
     'backend/js/controllers/contactus.js',
+    'backend/js/controllers/eventlink.js',
 ];

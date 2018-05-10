@@ -264,13 +264,21 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
         })
         // **************SPORTS END***********************
 
-        // **************CONTACT  US END***********************
+        // **************CONTACT  US START***********************
         .state('contactus', {
             url: "/contactus",
             templateUrl: "views/template.html",
             controller: 'ContactUsCtrl'
         })
         // **************CONTACT  US END***********************
+
+        // **************EVENT LINK START***********************
+        .state('eventlink', {
+            url: "/eventlink",
+            templateUrl: "views/template.html",
+            controller: 'EventLinkCtrl'
+        })
+        // **************EVENT LINK END***********************
 
         // *******************ACCESS Starts**********************************
         .state('noaccess', {

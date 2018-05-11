@@ -20,14 +20,15 @@
               <span class="tableTotal ">(Total : {{totalItems}}) </span>
             </h3>
             <div class="row">
-              <div class="col-md-5">
+              <div class="col-md-7">
                 <div class="form-group">
                   <div class="mtp5">
                     <div class="dropdown">
-                      <button class="btn default btn-md dropdown-toggle" type="button" data-toggle="dropdown">Filter
+                      <button class="btn default btn-md dropdown-toggle hide" type="button" data-toggle="dropdown">Filter
                         <span class="caret"></span>
                       </button>
-                      <ul class="dropdown-menu filter-athlete-dropdown">
+                      <ul class="filter-athlete-dropdown list-inline ">
+
                         <li>
                           <input type="radio" id="radio8" ng-model="formData.type" ng-change="changeAll()" value="">
                           <label for="radio8">All</label>
@@ -100,7 +101,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-md-7">
+              <div class="col-md-5">
                 <div class="pull-right">
                   <form class="search-form mr-form hide">
                     <input type="text" ng-keydown="$event.keyCode === 13 && searchInAthlete(search)" placeholder="Search Here..." ng-model="search"

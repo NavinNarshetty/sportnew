@@ -21,7 +21,8 @@ myApp.controller('AthleteCtrl', function ($scope, TemplateService, excelService,
   };
   $scope.formData = {};
   $scope.formData.page = 1;
-  $scope.formData.type = '';
+  $scope.formData.type = 'Athlete Name';
+  $scope.formData.input = '';
   $scope.formData.keyword = '';
   // $scope.selectedStatus = 'All';
   $scope.searchInAthlete = function (data) {

@@ -348,6 +348,23 @@ var model = {
                         preserveNullAndEmptyArrays: false // optional
                     }
                 },
+                {
+                    $lookup: {
+                        "from": "sportslistsubcategories",
+                        "localField": "sportslistData.sportsListSubCategory",
+                        "foreignField": "_id",
+                        "as": "sportListSubCat"
+                    }
+                },
+
+                // Stage 10
+                {
+                    $unwind: {
+                        path: "$sportListSubCat",
+                        includeArrayIndex: "arrayIndex", // optional
+                        preserveNullAndEmptyArrays: false // optional
+                    }
+                },
 
                 // Stage 10
                 {
@@ -544,9 +561,9 @@ var model = {
                                 if (value.value[0].weightData && value.value[0].weightData.length > 0) {
                                     dataObj.weightName = value.value[0].weightData[0].name;
                                 }
-                                if (!isTeam) {
-                                    dataObj.sportListSubCat = value.value[0].sportListSubCat.name;
-                                }
+
+                                dataObj.sportListSubCat = value.value[0].sportListSubCat.name;
+
                                 finalDataArr.push(dataObj);
                                 callback(null, dataObj);
 
@@ -611,9 +628,9 @@ var model = {
                                 dataObj.weightName = value.value[0].weightData[0].name;
                             }
                             dataObj.schoolName = value.value[0].school.schoolName;
-                            // if (!isTeam) {
-                            //     dataObj.sportListSubCat = value.value[0].sportListSubCat.name;
-                            // }
+
+                            dataObj.sportListSubCat = value.value[0].sportListSubCat.name;
+
                             dataObj.gold = obj.gold;
                             dataObj.silver = obj.silver;
                             dataObj.bronze = obj.bronze;

@@ -366,7 +366,7 @@ var model = {
                     }
                 },
 
-                // Stage 10
+                // Stage 11
                 {
                     $lookup: {
                         "from": "agegroups",
@@ -376,7 +376,7 @@ var model = {
                     }
                 },
 
-                // Stage 11
+                // Stage 12
                 {
                     $unwind: {
                         path: "$ageGroup",
@@ -385,7 +385,7 @@ var model = {
                     }
                 },
 
-                // Stage 12
+                // Stage 13
                 {
                     $lookup: {
                         "from": "weights",
@@ -395,7 +395,7 @@ var model = {
                     }
                 },
 
-                // Stage 13
+                // Stage 14
                 {
                     $lookup: {
                         "from": "atheletes",
@@ -405,7 +405,7 @@ var model = {
                     }
                 },
 
-                // Stage 14
+                // Stage 15
                 {
                     $unwind: {
                         path: "$player",
@@ -414,7 +414,7 @@ var model = {
                     }
                 },
 
-                // Stage 15
+                // Stage 16
                 {
                     $unwind: {
                         path: "$school",
@@ -619,6 +619,7 @@ var model = {
                             dataObj.firstName = value.value[0].player.firstName;
                             dataObj.middleName = value.value[0].player.middleName;
                             dataObj.surname = value.value[0].player.surname;
+                            dataObj.sfaId = value.value[0].player.sfaId;
                             dataObj.profilePic = value.value[0].player.photograph;
                             dataObj.sportName = value.value[0].sportslistData.name;
                             dataObj.ageGroup = value.value[0].ageGroup.name;

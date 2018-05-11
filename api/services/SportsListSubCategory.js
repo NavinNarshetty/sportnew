@@ -639,6 +639,7 @@ var model = {
                         } else {
                             files = _.filter(files, function (o) { return o.gold >= 1; });
                             files = _.orderBy(files, ['gold', 'age'], ['desc', 'desc']);
+                            files = _.takeRight(files, 5);
                             callback(null, files);
                         }
                     });

@@ -300,11 +300,11 @@ var model = {
             //     // "Authorization": "Basic" + base64.encode(CLIENT_ID + ":" + CLIENT_SECRET),
             //     "WWW-Authenticate": "Basic" + base64.encode(CLIENT_ID + ":" + CLIENT_SECRET)
             // }
-          }
+          };
           request(formData, function (err, res) {
             if (err) {
-              console.log('Error :', err)
-              return
+              console.log('Error :', err);
+              return;
             }
             // console.log(' Body :', body)
             callback(null, res);

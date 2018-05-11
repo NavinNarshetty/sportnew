@@ -9,6 +9,7 @@ var objectid = require("mongodb").ObjectID;
 var moment = require('moment');
 var request = require("request");
 // autoIncrement.initialize(mongoose);
+var vimeo = require('../../vimeoLibrary/vimeo').Vimeo;
 
 var schema = new Schema({
   incrementalId: Number,
@@ -107,141 +108,172 @@ var model = {
   getMatchVideos: function (data, callback) {
     async.waterfall([
       function (callback) {
-        Match.aggregate(
+        Vimeo.findOne().lean().exec(function (err, client) {
+          if (err || _.isEmpty(client)) {
+            callback(null, {
+              error: "No Data"
+            });
+          } else {
+            callback(null, client);
+          }
+        });
+      },
+      function (client, callback) {
+        if (client.error) {
+          callback(null, client);
+        } else {
+          CLIENT_ID = client.clientId;
+          CLIENT_SECRET = client.clientSecret;
+          var lib = new vimeo(CLIENT_ID, CLIENT_SECRET);
+          Match.aggregate(
 
-          // Pipeline
-          [
-            // Stage 1
-            {
-              $lookup: {
-                "from": "sports",
-                "localField": "sport",
-                "foreignField": "_id",
-                "as": "sportInfo"
-              }
-            },
-
-            // Stage 2
-            {
-              $match: {
-                round: "Final"
-              }
-            },
-
-            // Stage 3
-            {
-              $unwind: {
-                path: "$sportInfo",
-                includeArrayIndex: "arrayIndex", // optional
-                preserveNullAndEmptyArrays: false // optional
-              }
-            },
-
-            // Stage 4
-            {
-              $lookup: {
-                "from": "sportslists",
-                "localField": "sportInfo.sportslist",
-                "foreignField": "_id",
-                "as": "sportslistInfo"
-              }
-            },
-
-            // Stage 5
-            {
-              $unwind: {
-                path: "$sportslistInfo",
-                includeArrayIndex: "arrayIndex", // optional
-                preserveNullAndEmptyArrays: false // optional
-              }
-            },
-
-            // Stage 6
-            {
-              $lookup: {
-                "from": "sportslistsubcategories",
-                "localField": "sportslistInfo.sportsListSubCategory",
-                "foreignField": "_id",
-                "as": "sportlistsubcatInfo"
-              }
-            },
-
-            // Stage 7
-            {
-              $unwind: {
-                path: "$sportlistsubcatInfo",
-                includeArrayIndex: "arrayIndex", // optional
-                preserveNullAndEmptyArrays: false // optional
-              }
-            },
-            // Stage 8
-            {
-              $match: {
-
-                "sportlistsubcatInfo.name": { $regex: data.sportName, $options: "i" }
-              }
-            },
-            // Stage 9
-            {
-
-
-              $match: {
-                "video": { "$exists": true, "$ne": null },
-                "videoType": { "$exists": true, "$ne": null }
-              }
-
-            },
-            // Stage 10
-            {
-              $project: {
-                "video": 1,
-                "videoType": 1,
-                // "sportlistsubcatInfo": 1
-              }
-            }
-
-          ], function (err, found) {
-            if (err) {
-              callback(err, null);
-            } else if (_.isEmpty(found)) {
-              callback(null, []);
-            } else {
-              var finalData = [];
-              found = _.shuffle(found);
-              finalData = _.take(found, 5);
-              async.eachSeries(finalData, function (n, callback) {
-                console.log("n in video", n);
-                var urlData = {};
-                urlData.videoId = n.video;
-                Vimeo.getThumnailsFromVimeo(urlData, function (err, pictures) {
-                  console.log("pictures", pictures);
-                  if (err || _.isEmpty(pictures)) {
-                    err = "Sport,Event,AgeGroup,Gender may have wrong values";
-                    callback(null, {
-                      error: err,
-                      success: pictures
-                    });
-                  } else {
-                    var obj = {
-                      $set: {
-                        thumbnails: pictures.sizes
-                      }
-                    };
-
-                  }
-                });
-              }, function (err) {
-                if (err) {
-                  callback(err, null);
-                } else {
-                  callback(null, complete);
+            // Pipeline
+            [
+              // Stage 1
+              {
+                $lookup: {
+                  "from": "sports",
+                  "localField": "sport",
+                  "foreignField": "_id",
+                  "as": "sportInfo"
                 }
-              });
+              },
 
-              // callback(null, finalData);
-            }
+              // Stage 2
+              {
+                $match: {
+                  round: "Final"
+                }
+              },
 
-          });
+              // Stage 3
+              {
+                $unwind: {
+                  path: "$sportInfo",
+                  includeArrayIndex: "arrayIndex", // optional
+                  preserveNullAndEmptyArrays: false // optional
+                }
+              },
+
+              // Stage 4
+              {
+                $lookup: {
+                  "from": "sportslists",
+                  "localField": "sportInfo.sportslist",
+                  "foreignField": "_id",
+                  "as": "sportslistInfo"
+                }
+              },
+
+              // Stage 5
+              {
+                $unwind: {
+                  path: "$sportslistInfo",
+                  includeArrayIndex: "arrayIndex", // optional
+                  preserveNullAndEmptyArrays: false // optional
+                }
+              },
+
+              // Stage 6
+              {
+                $lookup: {
+                  "from": "sportslistsubcategories",
+                  "localField": "sportslistInfo.sportsListSubCategory",
+                  "foreignField": "_id",
+                  "as": "sportlistsubcatInfo"
+                }
+              },
+
+              // Stage 7
+              {
+                $unwind: {
+                  path: "$sportlistsubcatInfo",
+                  includeArrayIndex: "arrayIndex", // optional
+                  preserveNullAndEmptyArrays: false // optional
+                }
+              },
+              // Stage 8
+              {
+                $match: {
+
+                  "sportlistsubcatInfo.name": { $regex: data.sportName, $options: "i" }
+                }
+              },
+              // Stage 9
+              {
+
+
+                $match: {
+                  "video": { "$exists": true, "$ne": null },
+                  "videoType": { "$exists": true, "$ne": null }
+                }
+
+              },
+              // Stage 10
+              {
+                $project: {
+                  "video": 1,
+                  "videoType": 1,
+                  // "sportlistsubcatInfo": 1
+                }
+              }
+
+            ], function (err, found) {
+              if (err) {
+                callback(err, null);
+              } else if (_.isEmpty(found)) {
+                callback(null, []);
+              } else {
+                if (client.accessToken) {
+                  console.log("access token-----", client.accessToken);
+                  lib.access_token = client.accessToken;
+                  var finalData = [];
+                  found = _.shuffle(found);
+                  finalData = _.take(found, 5);
+                  async.eachSeries(finalData, function (n, callback) {
+                    // console.log("n in video", n);
+                    var urlData = {};
+                    urlData.videoId = n.video;
+                    console.log('client.accessToken ', client.accessToken);
+                    var formData = {
+                      method: 'get',
+                      // body: data, // Javascript object
+                      // json: true, // Use,If you are sending JSON data
+                      url: "https://api.vimeo.com/videos/" + '262611853',
+                      beforeSend: function (xhr) {
+                        xhr.setRequestHeader('Authorization', 'bearer[' + client.accessToken + ']');
+                        xhr.setRequestHeader('consumer_key', '[' + CLIENT_ID + ']');
+                        xhr.setRequestHeader('consumer_secret', '[' + CLIENT_SECRET + ']');
+                        xhr.setRequestHeader('Accept', 'application/vnd.vimeo.*+json;version=3.0');
+                        xhr.setRequestHeader('client_id', '[69338819]');
+                      },
+
+                    };
+                    request(formData, function (err, res) {
+                      if (err) {
+                        console.log('Error :', err);
+                        return;
+                      }
+                      console.log("****************************");
+                      console.log("res", res.body);
+                      console.log("****************************");
+                      callback(null, res);
+                    });
+
+
+                  }, function (err) {
+                    if (err) {
+                      callback(err, null);
+                    } else {
+                      callback(null, finalData);
+                    }
+                  });
+                } else {
+                  callback(null, "Access Token Not Found");
+                }
+              }
+            });
+        }
       }], function (err, result) {
         if (err) {
           callback(err, null);
@@ -252,11 +284,12 @@ var model = {
         }
 
       });
-
-
-
-
   }
+
+
+
+
+
 
 };
 module.exports = _.assign(module.exports, exports, model);

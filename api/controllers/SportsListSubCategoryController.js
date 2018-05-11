@@ -12,7 +12,20 @@ var controller = {
         value: false
       });
     }
-  }
+  },
+
+  getSportWiseMedalWinners: function (req, res) {
+    if (req.body.sportName && req.body.eventYear) {
+      SportsListSubCategory.getSportWiseMedalWinners(req.body, res.callback);
+    } else {
+      res.json({
+        data: "Please provide parameters",
+        value: false
+      });
+    }
+
+  },
+
 
 };
 module.exports = _.assign(module.exports, controller);

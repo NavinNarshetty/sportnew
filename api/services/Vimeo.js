@@ -879,6 +879,63 @@ var model = {
     if (data) {
       // https://api.vimeo.com/videos/262611853
     }
+  },
+  getVideoDataFromVimeo: function (data, callback) {
+    console.log("data", data);
+    async.waterfall([
+      function (callback) {
+        Vimeo.findOne().lean().exec(function (err, client) {
+          if (err || _.isEmpty(client)) {
+            callback(null, {
+              error: "No Data"
+            });
+          } else {
+            callback(null, client);
+          }
+        });
+      },
+      function (client, callback) {
+        console.log("client", client);
+        if (client.error) {
+          callback(null, client);
+        } else {
+          CLIENT_ID = client.clientId;
+          CLIENT_SECRET = client.clientSecret;
+          console.log('1');
+          var lib = new vimeo(CLIENT_ID, CLIENT_SECRET);
+          console.log('2');
+          if (client.accessToken) {
+            lib.access_token = client.accessToken;
+            var urlData = {};
+            urlData.videoId = data.videoId;
+            lib.thumbnails(urlData,
+              function (err, body, status, headers) {
+                if (err) {
+                  return console.log(err);
+                  callback(err, null);
+                } else {
+                  callback(null, body);
+                }
+              }
+            );
+          } else {
+            callback(null, "Access Token Not Found");
+          }
+        }
+      },
+    ],
+      function (err, data2) {
+
+        if (err) {
+          callback(null, []);
+        } else if (data2) {
+          if (_.isEmpty(data2)) {
+            callback(null, data2);
+          } else {
+            callback(null, data2);
+          }
+        }
+      });
   }
 
 

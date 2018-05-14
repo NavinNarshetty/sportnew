@@ -225,47 +225,49 @@ var model = {
                 callback(null, []);
               } else {
                 if (client.accessToken) {
-                  console.log("access token-----", client.accessToken);
                   lib.access_token = client.accessToken;
                   var finalData = [];
-                  found = _.shuffle(found);
-                  finalData = _.take(found, 5);
-                  async.eachSeries(finalData, function (n, callback) {
-                    // console.log("n in video", n);
-                    var urlData = {};
-                    urlData.videoId = n.video;
-                    console.log('client.accessToken ', client.accessToken);
-                    var formData = {
-                      method: 'get',
-                      // body: data, // Javascript object
-                      // json: true, // Use,If you are sending JSON data
-                      url: "https://api.vimeo.com/videos/" + '262611853',
-                      beforeSend: function (xhr) {
-                        xhr.setRequestHeader('Authorization', 'bearer[' + client.accessToken + ']');
-                        xhr.setRequestHeader('consumer_key', '[' + CLIENT_ID + ']');
-                        xhr.setRequestHeader('consumer_secret', '[' + CLIENT_SECRET + ']');
-                        xhr.setRequestHeader('Accept', 'application/vnd.vimeo.*+json;version=3.0');
-                        xhr.setRequestHeader('client_id', '[69338819]');
-                      },
+                  var finalArr = [];
+                  found = found.filter(o => Object.keys(o.video).length);
+                  async.concatLimit(found, 4, function (n, callback) {
+                    if (client.accessToken) {
+                      lib.access_token = client.accessToken;
+                      var urlData = {};
+                      var tempObj = {};
+                      // console.log("n.video", n.video);
+                      urlData.videoId = n.video;
+                      lib.thumbnails(urlData,
+                        function (err, body, status, headers) {
+                          console.log(err);
+                          if (err) {
+                            // return console.log(err);
+                            callback(null, "");
+                          } else {
+                            tempObj.uri = body.uri;
+                            tempObj.video = n.video;
+                            tempObj.name = body.name;
+                            tempObj.link = body.link;
+                            tempObj.description = body.description;
+                            if (tempObj.name != undefined) {
+                              finalArr.push(tempObj);
+                            }
 
-                    };
-                    request(formData, function (err, res) {
-                      if (err) {
-                        console.log('Error :', err);
-                        return;
-                      }
-                      console.log("****************************");
-                      console.log("res", res.body);
-                      console.log("****************************");
-                      callback(null, res);
-                    });
+                            callback(null, body);
+                          }
+                        });
+                    } else {
+                      callback(null, "Access Token Not Found");
+                    }
 
 
-                  }, function (err) {
+                  }, function (err, files) {
                     if (err) {
                       callback(err, null);
                     } else {
-                      callback(null, finalData);
+                      finalArr = _.shuffle(finalArr);
+                      finalArr = _.take(finalArr, 5);
+                      console.log("file.length", files.length);
+                      callback(null, finalArr);
                     }
                   });
                 } else {

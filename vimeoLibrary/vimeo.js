@@ -57,7 +57,7 @@ var Vimeo = module.exports.Vimeo = function Vimeo(client_id, client_secret, acce
 };
 
 Vimeo.prototype._client_id = null;
-Vimeo.prototype._client_secret = null;
+
 Vimeo.prototype.access_token = null;
 
 /**
@@ -160,8 +160,8 @@ Vimeo.prototype._handleRequest = function (callback) {
       // failed api calls should wait for the response to end and then call the callback with an error.
       res.on('end', function () {
         var err = new Error(buffer);
-        console.log("buf", buffer, "statusCode", res.statusCode, "header", res.headers);
-        // callback(err, buffer, res.statusCode, res.headers);
+        console.log("buf***", buffer, "statusCode", res.statusCode, "header", res.headers);
+        callback(null, "", "", "");
       });
     } else {
       // successful api calls should wait for the response to end and then call the callback with the response body
@@ -464,7 +464,7 @@ Vimeo.prototype.thumbnails = function (formData, video_uri, callback, progress_c
   };
   this.request(options, function (err, ticket, status, headers) {
     if (err) {
-      console.log("err", err);
+      // console.log("err", err);
       return callback(err);
     } else {
       return callback(null, ticket, status, headers);

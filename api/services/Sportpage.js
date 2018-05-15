@@ -65,6 +65,8 @@ var model = {
                 } else if (_.isEmpty(found)) {
                     callback(null, []);
                 } else {
+                    found = _.shuffle(found);
+                    found = _.take(found, 18);
                     callback(null, found);
                 }
             });

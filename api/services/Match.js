@@ -248,7 +248,9 @@ var model = {
                             tempObj.name = body.name;
                             tempObj.link = body.link;
                             tempObj.description = body.description;
+
                             if (tempObj.name != undefined) {
+                              tempObj.thumbnail = body.pictures.sizes[3].link;
                               finalArr.push(tempObj);
                             }
 

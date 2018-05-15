@@ -35,7 +35,7 @@
                     <label>Sport Name</label>
                     <ui-select name="selectsprttype" id="selectsprttype" theme="bootstrap" ng-model="formData.sportName" ng-change="searchsSportListCategory($select.selected._id)"
                       required>
-                      <ui-select-match placeholder="Enter SportsListCategory" allow-clear="true">
+                      <ui-select-match placeholder="Enter Sports Please select City First" allow-clear="true">
                         {{$select.selected.name}}
                       </ui-select-match>
                       <ui-select-choices repeat="item.name as item in sportlistcatitems | filter:$select.search" refresh="getAllSportListCategory($select.search)">

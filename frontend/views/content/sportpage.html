@@ -45,7 +45,7 @@
 
         </p>
       </div>
-      <div class="sportpage-readmore text-right">
+      <div class="sportpage-readmore text-right" ng-if="showRead">
         <a ng-click="readMore()">
           Read
           <span ng-if="!readvariable">More</span>
@@ -55,11 +55,11 @@
       </div>
     </section>
     <!-- CONTENT END -->
-
+    <!-- <pre>{{sportPageData.pdfData.pdf.length | json}}</pre> -->
     <!-- PDF / LINK -->
     <section class="sportpage-pdf-link-holder">
       <div class="row">
-        <div class="col-md-6 col-sm-6 col-xs-12">
+        <div class="col-md-6 col-sm-6 col-xs-12" ng-if="sportPageData.pdfData.pdf.length >= 1">
           <!-- PDF -->
           <div class="sportpage-pdfholder">
             <!-- HEADER -->
@@ -208,35 +208,44 @@
     <section class="sportpage-topperforming-athlete ">
       <!-- HEADER -->
       <div class="sportpage-topperforming-header fjalla-one text-uppercase color-primary ">
-        Top athletes from sfa championships
+        Top
+        <span ng-if="!athleteMedalData[0].isTeam">athletes</span>
+        <span ng-if="athleteMedalData[0].isTeam">schools</span> from sfa championships
       </div>
       <!-- HEADER END -->
 
       <!-- INSITUTE  -->
       <div class="sportpage-topperforming-institute ">
-        <h4 class="opensans-regular text-uppercase ">School</h4>
+        <h4 class="opensans-regular text-uppercase" ng-if="!athleteMedalData[0].isTeam">School</h4>
+        <h4 class="opensans-regular text-uppercase" ng-if="athleteMedalData[0].isTeam">Teams</h4>
       </div>
       <!-- INSITUTE  END -->
 
       <!-- ATHLETE CARD -->
-      <div class="sportpage-topperforming-atheleteholder ">
-        <div class="profileathlete-card relate " ng-init="school.type='school' " ng-class="{ 'card-school':school.type=='school'
-                , 'card-college':school.type=='college' } " ng-repeat="data in dummydata track by $index ">
+      <!-- <pre>
+        {{athleteMedalData | json}}
+      </pre> -->
+      <div class="sportpage-topperforming-atheleteholder" ng-if="athleteMedalData">
+        <div class="profileathlete-card relate " ng-repeat="athlete in athleteMedalData | limitTo:3 track by $index ">
           <!-- IMAGE -->
           <div class="inline-block v-top profileathlete-cardimgholder ">
             <div class="profileathleteimage-holder ">
-              <img src="img/dishapatani1.jpg " class="img-responsive ">
+              <img src="{{athlete.profilePic | serverimage}}" class="img-responsive ">
             </div>
           </div>
           <!-- IMAGE END -->
           <!-- CONTENT -->
           <div class="inline-block v-top profileathlete-cardcontent relate ">
-            <p class="profileathlete-athletename m-clear ">Sudarshan Anandkumar</p>
-            <p class="profileathlete-athleteschool ">Dr. Sarvepalli Radhakrishnan Hindi Secondary School ( Andheri )</p>
+            <p class="profileathlete-athletename m-clear" title="{{athlete.fullName}}" ng-if="!athlete.teamName">
+              {{athlete.fullName | truncate:28}}
+            </p>
+            <p class="profileathlete-athletename m-clear" title="{{athlete.teamName}}" ng-if="athlete.teamName">
+              {{athlete.teamName | truncate:28}}
+            </p>
+            <p class="profileathlete-athleteschool "> {{athlete.schoolName}} </p>
             <p class="text-uppercase profileathlete-athletesports ">
               <span>sports</span> :
-              <span>Tennis</span> |
-              <span>Judo</span>
+              <span>{{athlete.sportListSubCat}}</span>
             </p>
             <!-- MEDALS -->
             <div class="profileathletecard-medallist ">
@@ -248,7 +257,7 @@
                     </div>
                   </div>
                   <div class="inline-block text-center sportpage-athletecard-medaldetailholder lh1 ">
-                    <p class="m-clear color-primary ">999</p>
+                    <p class="m-clear color-primary ">{{athlete.gold}}</p>
                     <p class="m-clear ">Gold</p>
                   </div>
                 </li>
@@ -259,7 +268,7 @@
                     </div>
                   </div>
                   <div class="inline-block text-center sportpage-athletecard-medaldetailholder  lh1 ">
-                    <p class="m-clear color-primary ">999</p>
+                    <p class="m-clear color-primary ">{{athlete.silver}}</p>
                     <p class="m-clear ">Silver</p>
                   </div>
                 </li>
@@ -270,7 +279,7 @@
                     </div>
                   </div>
                   <div class="inline-block text-center sportpage-athletecard-medaldetailholder  lh1 ">
-                    <p class="m-clear color-primary ">999</p>
+                    <p class="m-clear color-primary ">{{athlete.bronze}}</p>
                     <p class="m-clear ">Bronze</p>
                   </div>
                 </li>
@@ -289,7 +298,8 @@
     <!-- TOP PERFORMING ATHLETE END -->
 
     <!-- MATCH VIDEOS -->
-    <section class="sportpage-matchvideos ">
+    <!-- <pre>{{matchVideoData  | json}}</pre> -->
+    <section class="sportpage-matchvideos" ng-if="matchVideoData.length >= 1">
       <!-- HEADER -->
       <div class="sportpage-matchvideos-header fjalla-one text-uppercase color-primary ">
         Match videos from sfa championships
@@ -298,10 +308,10 @@
 
       <!-- VIDEO CARD -->
       <div class="sportpage-matchvideos-videoholder ">
-        <div class="sportpage-matchvideo-videocard " ng-repeat="sportvideoCard in videoCard | limitTo:5 track by $index ">
-          <a data-fancybox="group " href="https://www.youtube.com/embed/Gfhf2uWIg98 " rel="video ">
+        <div class="sportpage-matchvideo-videocard " ng-repeat="sportvideoCard in matchVideoData | limitTo:5 track by $index ">
+          <a data-fancybox="group " href="{{sportvideoCard.link}}" rel="video ">
             <div class="sportpage-matchvideo-videocardimage relate " style="background-image: url(
-                '{{sportvideoCard.videoImage}}') ">
+                '{{sportvideoCard.thumbnail}}') ">
               <div class="sportpage-matchvideo-videocardplay absolute ">
                 <div class="vide-customplay ">
                   <i class="fa fa-play "></i>
@@ -309,8 +319,8 @@
               </div>
             </div>
             <div class="sportpage-matchvideo-videocardcontent ">
-              <p class="sportpage-matchvideo-videotitle fjalla-one m-clear " title="{{sportvideoCard.title}} ">{{sportvideoCard.title | truncate:'25'}}</p>
-              <p class="sportpage-matchvideo-videodescription m-clear " title="{{sportvideoCard.description}} ">{{sportvideoCard.description | truncate:'25'}}</p>
+              <p class="sportpage-matchvideo-videotitle fjalla-one m-clear " title="{{sportvideoCard.name}}" ng-if="sportvideoCard.name">{{sportvideoCard.name | truncate:'25'}}</p>
+              <p class="sportpage-matchvideo-videodescription m-clear " title="{{sportvideoCard.description}}" ng-if="sportvideoCard.description">{{sportvideoCard.description | truncate:'25'}}</p>
             </div>
           </a>
 
@@ -322,22 +332,22 @@
     <!-- MATCH VIDEOS END -->
 
     <!-- RANKING TABLE / AD SPACE -->
-    <section class="sportpage-rankingtable ">
+    <section class="sportpage-rankingtable" ng-if="sportRankingTable.length >= 1">
       <!-- HEADER -->
-      <div class="sportpage-rankingtable-header fjalla-one color-primary text-uppercase ">
+      <div class="sportpage-rankingtable-header fjalla-one color-primary text-uppercase">
         {{sportPageData.sportName}} ranking table
       </div>
       <!-- HEADER END -->
 
       <!-- SUBHEADER -->
-      <div class="sportpage-rankingtable-championshipevent ">
+      <div class="sportpage-rankingtable-championshipevent">
         <h4 class="text-uppercase opensans-regular ">Sfa championship {{eventYear}}</h4>
       </div>
       <!-- SUBHEADER END -->
 
       <div class="row ">
         <!-- TABLE -->
-        <div class="col-md-7 col-sm-12 col-xs-12 ">
+        <div class="col-md-7 col-sm-12 col-xs-12">
           <div class="sportpage-rankingtable-tableimage " style="background-image: url(img/backgrounds/bg-ranktable.jpg) ">
             <div class="sportpage-rankingtable-tableholder table-responsive ">
               <table class="table ">
@@ -517,7 +527,7 @@
     <!-- RANKING TABLE END / AD SPACE -->
 
     <!-- EVENTS YOU MAYBE INTRESENT IN -->
-    <section class="sportpage-intresetedevents ">
+    <section class="sportpage-intresetedevents" ng-if="sportPageData.eventCard.length >= 1">
       <div class="sportpage-intresetedevents-header fjalla-one text-uppercase color-primary ">
         EVENTS you maybe intreseted in
       </div>

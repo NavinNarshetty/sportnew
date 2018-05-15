@@ -22,6 +22,7 @@ myApp.controller('SportPageCtrl', function ($scope, TemplateService, NavigationS
 
 
 
+
     // console.log($stateParams.id, "adsa");
     // *************API CALLING ***************
 
@@ -63,6 +64,8 @@ myApp.controller('SportPageCtrl', function ($scope, TemplateService, NavigationS
         });
     }
 
+
+
     $scope.getEventData = function (currentYear) {
         eventService.eventSearch(currentYear, function (data) {
             // console.log(data, "event data");
@@ -70,6 +73,8 @@ myApp.controller('SportPageCtrl', function ($scope, TemplateService, NavigationS
             $scope.eventYear = data.eventYear;
             $scope.eventCity = data.city;
             $scope.yearEvent = data.year;
+
+
 
             // console.log($scope.eventCity, "city");
             // console.log($scope.eventId, "event id");
@@ -84,13 +89,46 @@ myApp.controller('SportPageCtrl', function ($scope, TemplateService, NavigationS
                         // console.log($scope.sportRankingTable, "rankingtable");
                     });
                 }
+                // SPORT AD BANNERS NEED EVENT CITY ie:Mumbai and sportName
                 $scope.sportAdBanner($scope.eventCity, $stateParams.name);
+
+
+                // GET ATHLETES NEED YEAR EVNT ie:2017 also sportName fetched from params
+                $scope.getAthletes($scope.yearEvent);
+
+
+                // console.log("get athlete api");
+
+
             }
 
 
 
         });
     }
+
+    $scope.getAthletes = function (yearEvent) {
+        $scope.athleteConstraints = {};
+        $scope.url = "SportsListSubCategory/getSportWiseMedalWinners"
+        $scope.athleteConstraints.sportName = $stateParams.name;
+        $scope.athleteConstraints.eventYear = yearEvent;
+        NavigationService.getDataApiCall($scope.athleteConstraints, $scope.url, function (data) {
+            // console.log("data in athlete medals", data)
+            $scope.athleteMedalData = data.data.data;
+            _.each($scope.athleteMedalData, function (key) {
+                if (key.teamName) {
+                    key.isTeam = true;
+                }
+                if (key.middleName) {
+                    key.fullName = key.firstName + ' ' + key.middleName + ' ' + key.surname;
+                } else {
+                    key.fullName = key.firstName + ' ' + key.surname;
+                }
+            })
+            // console.log("data in athlete medals", data)
+        });
+    };
+
 
     $scope.sportAdBanner = function (eventCity, sportName) {
         $scope.url = "Sportadbanner/search";
@@ -109,6 +147,19 @@ myApp.controller('SportPageCtrl', function ($scope, TemplateService, NavigationS
         });
 
     }
+
+    $scope.sportpageMatchVideos = function () {
+        $scope.url = 'Match/getMatchVideos';
+        $scope.constraints = {};
+        $scope.constraints.sportName = $stateParams.name;
+        NavigationService.getDataApiCall($scope.constraints, $scope.url, function (data) {
+            if (data) {
+                // console.log(data, "match videos");
+                $scope.matchVideoData = data.data.data;
+            }
+        });
+    }
+    $scope.sportpageMatchVideos();
     // ************API CALLING END ************
 
     $scope.swiperInit = function () {
@@ -256,6 +307,52 @@ myApp.controller('SportPageCtrl', function ($scope, TemplateService, NavigationS
         sports: ['basketball', 'cricket', 'badminton', 'swimming', 'tennis'],
         rating: '3'
     }];
+
+
+    $scope.matchVideoDatas = [{
+            "uri": "/videos/249905542",
+            "video": "249905542",
+            "name": "50 meter Final U-10 Final boys",
+            "link": "https://vimeo.com/249905542",
+            "description": null,
+            "thumbnail": "https://i.vimeocdn.com/video/675852297_640x360.jpg?r=pad"
+        },
+        {
+            "uri": "/videos/250100069",
+            "video": "250100069",
+            "name": "2000 meter final U-16",
+            "link": "https://vimeo.com/250100069",
+            "description": null,
+            "thumbnail": "https://i.vimeocdn.com/video/676098658_640x360.jpg?r=pad"
+        },
+        {
+            "uri": "/videos/250075723",
+            "video": "250075723",
+            "name": "100 meter Final U-18 Final boys",
+            "link": "https://vimeo.com/250075723",
+            "description": null,
+            "thumbnail": "https://i.vimeocdn.com/video/676066974_640x360.jpg?r=pad"
+        },
+        {
+            "uri": "/videos/249915260",
+            "video": "249915260",
+            "name": "U-8 Girls-3049",
+            "link": "https://vimeo.com/249915260",
+            "description": null,
+            "thumbnail": "https://i.vimeocdn.com/video/675864144_640x360.jpg?r=pad"
+        },
+        {
+            "uri": "/videos/250256973",
+            "video": "250256973",
+            "name": "100 meter Final U-10 Girls",
+            "link": "https://vimeo.com/250256973",
+            "description": null,
+            "thumbnail": "https://i.vimeocdn.com/video/676300600_640x360.jpg?r=pad"
+        }
+    ]
+
+
+
 
 
 

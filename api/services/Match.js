@@ -142,7 +142,8 @@ var model = {
               // Stage 2
               {
                 $match: {
-                  round: "Final"
+                  round: { "$in": ["Final", "Time Trial"] },
+
                 }
               },
 
@@ -252,6 +253,9 @@ var model = {
                             if (tempObj.name != undefined) {
                               tempObj.thumbnail = body.pictures.sizes[3].link;
                               finalArr.push(tempObj);
+                              // if (finalArr.length > 0 && finalArr.length <= 10) {
+                              //   callback(null, body);
+                              // }
                             }
 
                             callback(null, body);

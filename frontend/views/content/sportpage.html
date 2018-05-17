@@ -39,7 +39,7 @@
 
   <div class="container">
     <!-- CONTENT -->
-    <section class="sportpage-content">
+    <section class="sportpage-content" ng-if="sportPageData.contentData">
       <div class="sportpage-contentholder" ng-class="{'sportpage-content-hideread ':!readvariable,'sportpage-content-showread':readvariable}">
         <p ng-bind-html="sportPageData.contentData | trustedHtml">
 
@@ -205,7 +205,7 @@
     <!-- AD SPACE -->
 
     <!-- TOP PERFORMING ATHLETE -->
-    <section class="sportpage-topperforming-athlete ">
+    <section class="sportpage-topperforming-athlete " ng-if="athleteMedalData.length > 0">
       <!-- HEADER -->
       <div class="sportpage-topperforming-header fjalla-one text-uppercase color-primary ">
         Top
@@ -225,7 +225,7 @@
       <!-- <pre>
         {{athleteMedalData | json}}
       </pre> -->
-      <div class="sportpage-topperforming-atheleteholder" ng-if="athleteMedalData">
+      <div class="sportpage-topperforming-atheleteholder">
         <div class="profileathlete-card relate " ng-repeat="athlete in athleteMedalData | limitTo:3 track by $index ">
           <!-- IMAGE -->
           <div class="inline-block v-top profileathlete-cardimgholder ">

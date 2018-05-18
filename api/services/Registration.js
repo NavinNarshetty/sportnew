@@ -1,5 +1,6 @@
 var schema = new Schema({
     registerID: Number,
+    eventCity: String,
     institutionType: {
         type: String,
     },
@@ -137,7 +138,6 @@ var model = {
             start: (page - 1) * maxRow,
             count: maxRow
         };
-
 
         var matchObj = {
             $or: [{
@@ -494,7 +494,163 @@ var model = {
                     }
                 });
         }
-    }
+    },
+
+    //pass data as array of strings containing school names
+    // eg:['jamnabai','R N Shah'] 
+    // returns array of matched results
+    getListOfSchools: function (data, callback) {
+        var matchObj = {
+            $or: _.map(data, function (n) {
+                return {
+                    "schoolName": n,
+                    "status":"Verified"
+                }
+            })
+        }
+
+        Registration.find(matchObj).lean().exec(function (err, result) {
+            callback(err,result);
+        });
+    },
+
+    // -----school profile-----
+
+    // data={
+    // "city":"",
+    // "keyboard":""    
+    // }
+
+    searchByCity: function (data, callback) {
+
+        async.waterfall([
+
+            // gatAll Server List
+            function (callback) {
+                var serverList = [{
+                    "city": "Mumbai",
+                    "url": "http://testmumbaischool.sfanow.in/api"
+                }, {
+                    "city": "Hyderabad",
+                    "url": "http://localhost:1338/api"
+                }];
+
+                var server = _.find(serverList, ['city', data.city]);
+                callback(null, server);
+            },
+
+            // search from local DB
+            function (serverDetails, callback) {
+                if (!serverDetails) {
+                    callback(null, []);
+                } else {
+                    var headers = {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    }
+
+                    // Configure the request
+                    var options = {
+                        url: serverDetails.url + "/registration/getSchoolProfile",
+                        method: 'POST',
+                        headers: headers,
+                        form: data
+                    }
+
+                    request(options, function (error, response, body) {
+                        if (!error && response.statusCode == 200) {
+                            callback(null, JSON.parse(body));
+                        } else {
+                            callback("Something Went Wrong", null);
+                        }
+                    })
+                }
+            },
+
+            //search from global DB
+            function (localData, callback) {
+
+                var collectionData = {
+                    "local": localData.data
+                }
+
+                Registration.aggregate([{
+                    $lookup: {
+                        from: "events",
+                        localField: "eventId",
+                        foreignField: "_id",
+                        as: "eventId"
+                    }
+                }, {
+                    $unwind: {
+                        path: "$eventId"
+                    }
+                }, {
+                    $match: {
+                        "status": "Verified",
+                        "eventId.city": data.city,
+                        $or: [{
+                            sfaID: {
+                                $regex: data.keyword,
+                                $options: "i"
+                            }
+                        }, {
+                            schoolName: {
+                                $regex: data.keyword,
+                                $options: "i"
+                            }
+                        }]
+                    }
+                }, {
+                    $project: {
+                        "schoolName": "$schoolName",
+                        "email": "$email",
+                        "mobile": "$mobile",
+                        "sfaID": "$sfaID",
+                        "currentYear": "$currentYear",
+                        "schoolLogo": "$schoolLogo"
+                    }
+                }], function (err, globalData) {
+                    if (err) {
+                        callback(err, null);
+                    } else {
+                        collectionData.global = globalData;
+                        callback(null, collectionData);
+                    }
+                })
+
+            },
+
+            //merging of local & global
+            function (merged, callback) {
+                merged.merged = _.unionBy(merged.local, merged.global, "sfaID");
+                callback(null, merged.merged);
+            }
+
+        ], function (err, final) {
+            if (err) {
+                callback(err, null);
+            } else {
+                // pagination
+                var max = 20;
+                if (!data.page) {
+                    data.page = 1;
+                }
+                var start = (data.page - 1) * 20;
+                final = _.slice(final, start, (start + 20));
+                callback(null, final);
+            }
+        });
+
+
+
+    },
+
+    // -----school profile Ends-----
+
+
+
+
+
 
 };
 module.exports = _.assign(module.exports, exports, model);

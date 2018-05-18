@@ -1,7 +1,6 @@
 module.exports = _.cloneDeep(require("sails-wohlig-controller"));
 var controller = {
 
-
   getRanksBySport: function (req, res) {
     //    **Parameters**
     //  eventId->Event ID
@@ -14,8 +13,7 @@ var controller = {
         value: false
       });
     }
-  }
-
-
+  },
+  
 };
 module.exports = _.assign(module.exports, controller);

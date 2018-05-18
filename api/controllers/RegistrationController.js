@@ -29,6 +29,17 @@ var controller = {
                 data: "Invalid Request"
             });
         }
+    },
+    searchSchoolProfiles:function(req, res){
+        if (req.body && _.has(req.body,'find')) {
+            Registration.filterSchool(req.body, res.callback);
+        } else {
+            res.json({
+                value: false,
+                data: "Invalid Parameters"
+            });
+        }
     }
+
 };
 module.exports = _.assign(module.exports, controller);

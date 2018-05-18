@@ -26,8 +26,8 @@ mongoose = require('mongoose');
 
 // global["database"] = "sportnew";
 // global["database"] = "test-sfa";
-global["database"] = "test-master";
-// global["database"] = "live-master";
+// global["database"] = "test-master";
+global["database"] = "live-master";
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost:27017/' + database, {
     useMongoClient: true

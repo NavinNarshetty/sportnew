@@ -25,10 +25,10 @@ module.exports = {
    * Set the port in the production environment to 80                        *
    ***************************************************************************/
 
-  port: 1337,
-  // port: 878,
-  // realHost: "https://master.sfanow.in",
-  realHost: "http://testmaster.sfanow.in",
+  // port: 1337,
+  port: 878,
+  realHost: "https://master.sfanow.in",
+  // realHost: "http://testmaster.sfanow.in",
   accessLevels: [{
     name: "Super Admin",
     emails: ['pratik.patel@wohlig.com', 'rahi.shah@sfanow.in']

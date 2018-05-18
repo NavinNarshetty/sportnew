@@ -12,7 +12,6 @@ myApp.factory('NavigationService', function ($http, $state) {
         data = $.jStorage.get('accessLevel');
     }
 
-
     var admin = [{
             name: "Events",
             classis: "active",
@@ -161,7 +160,7 @@ myApp.factory('NavigationService', function ($http, $state) {
         classis: "active",
         sref: "#!/users",
         icon: "phone"
-    }], admin)
+    }], admin);
 
     switch (data) {
         case "Super Admin":

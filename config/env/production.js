@@ -26,7 +26,9 @@ module.exports = {
    ***************************************************************************/
 
   port: 1337,
-  realHost: "https://master.sfanow.in",
+  // port: 878,
+  // realHost: "https://master.sfanow.in",
+  realHost: "http://testmaster.sfanow.in",
   accessLevels: [{
     name: "Super Admin",
     emails: ['pratik.patel@wohlig.com', 'rahi.shah@sfanow.in']

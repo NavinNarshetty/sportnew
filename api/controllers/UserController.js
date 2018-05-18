@@ -62,13 +62,13 @@ var controller = {
                 };
             });
             res.json("Files deleted and new has to be created.");
-            jagz.push({
-                "key": "fs.chunks",
-                "name": "fs.chunks"
-            }, {
-                "key": "fs.files",
-                "name": "fs.files"
-            });
+            // jagz.push({
+            //     "key": "fs.chunks",
+            //     "name": "fs.chunks"
+            // }, {
+            //     "key": "fs.files",
+            //     "name": "fs.files"
+            // });
             var isBackup = fs.existsSync("./backup");
             if (!isBackup) {
                 fs.mkdirSync("./backup");
@@ -89,18 +89,18 @@ var controller = {
             res.callback("Access Denied for Database Backup");
         }
     },
-    
-    getAllUsers:function(req, res){
+
+    getAllUsers: function (req, res) {
         User.getAllUsers(res.callback);
     },
 
-    getOneUser:function(req, res){
-        if(req.body && req.body._id){
-            User.getOneUser(req.body,res.callback);
-        }else{
+    getOneUser: function (req, res) {
+        if (req.body && req.body._id) {
+            User.getOneUser(req.body, res.callback);
+        } else {
             res.json({
-                value:false,
-                data:"Invalid Data"
+                value: false,
+                data: "Invalid Data"
             })
         }
     },

@@ -242,54 +242,54 @@ var model = {
                     var finalData = [];
                     var finalArr = [];
                     found = found.filter(o => Object.keys(o.video).length);
-                    for (var i = 0; finalArr.length <= 10; i++) {
-                      // async.concatLimit(found, 4, function (n, callback) {
-                      if (client.accessToken) {
-                        lib.access_token = client.accessToken;
-                        var urlData = {};
-                        var tempObj = {};
-                        // console.log("n.video", n.video);
-                        urlData.videoId = found[i].video;
-                        lib.thumbnails(urlData,
-                          function (err, body, status, headers) {
+                    // for (var i = 0; finalArr.length <= 10; i++) {
+                    async.concatLimit(found, 4, function (n, callback) {
+                        if (client.accessToken) {
+                          lib.access_token = client.accessToken;
+                          var urlData = {};
+                          var tempObj = {};
+                          // console.log("n.video", n.video);
+                          urlData.videoId = n.video;
+                          lib.thumbnails(urlData,
+                            function (err, body, status, headers) {
 
-                            console.log(err);
-                            // if (err) {
-                            //   // return console.log(err);
-                            //   callback(null, "");
-                            // } else {
-                            tempObj.uri = body.uri;
-                            tempObj.video = found[i].video;
-                            tempObj.name = body.name;
-                            tempObj.link = body.link;
-                            tempObj.description = body.description;
+                              console.log(err);
+                              if (err) {
+                                // return console.log(err);
+                                callback(null, "");
+                              } else {
+                                tempObj.uri = body.uri;
+                                tempObj.video = n.video;
+                                tempObj.name = body.name;
+                                tempObj.link = body.link;
+                                tempObj.description = body.description;
 
-                            if (tempObj.name != undefined) {
-                              tempObj.thumbnail = body.pictures.sizes[3].link;
-                              finalArr.push(tempObj);
-                              // if (finalArr.length > 0 && finalArr.length <= 10) {
-                              //   callback(null, body);
-                              // }
-                            }
-                            // callback(null, body);
-                            // }
-                          });
-                      } else {
-                        callback(null, "Access Token Not Found");
-                      }
-                      i++;
-                    }
-                    // function (err, files) {
-                    //   if (err) {
-                    //     callback(err, null);
-                    //   } else {
-                    //     finalArr = _.shuffle(finalArr);
-                    //     finalArr = _.take(finalArr, 5);
-                    //     console.log("file.length", files.length);
-                    //     callback(null, finalArr);
-                    //   }
-                    // });
-                    callback(null, finalArr);
+                                if (tempObj.name != undefined) {
+                                  tempObj.thumbnail = body.pictures.sizes[3].link;
+                                  finalArr.push(tempObj);
+                                  // if (finalArr.length > 0 && finalArr.length <= 10) {
+                                  //   callback(null, body);
+                                  // }
+                                }
+                                callback(null, body);
+                              }
+                            });
+                        } else {
+                          callback(null, "Access Token Not Found");
+                        }
+                        // i++;
+                      },
+                      function (err, files) {
+                        if (err) {
+                          callback(err, null);
+                        } else {
+                          finalArr = _.shuffle(finalArr);
+                          finalArr = _.take(finalArr, 5);
+                          console.log("file.length", files.length);
+                          callback(null, finalArr);
+                        }
+                      });
+                    // callback(null, finalArr);
                   } else {
                     callback(null, "Access Token Not Found");
                   }

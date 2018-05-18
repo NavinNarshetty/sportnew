@@ -53,6 +53,7 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label>Desktop Banner</label>
+                    <label class="label label-primary">1920 x 600</label>
                     <div class="form-group banner-imageresize">
                       <upload-image ng-model="formData.banner.desktop"></upload-image>
                     </div>
@@ -64,6 +65,7 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label>Mobile Banner</label>
+                    <label class="label label-primary">768 x 400</label>
                     <div class="form-group banner-imageresize">
                       <upload-image ng-model="formData.banner.mobile"></upload-image>
                     </div>
@@ -185,6 +187,7 @@
                 <!-- BANNER IMAGE -->
                 <div class="col-md-12">
                   <label for="">Image</label>
+                  <label class="label label-primary">768 x 400</label>
                   <div class="form-group">
                     <upload-image ng-model="formData.registrationData.image"></upload-image>
                   </div>
@@ -239,6 +242,9 @@
                   <div class="form-group text-center">
                     EVENTS YOU MAYBE INTERESTED CARD
                   </div>
+                  <div class="pull-left">
+                    <label for="" class="label label-primary">Images Size 768 x 400 </label>
+                  </div>
                   <div class="form-group text-right">
                     <button type="submit" class="btn btn-primary " ng-click="addEventRow(formData)">Add</button>
                   </div>
@@ -273,7 +279,7 @@
                           </th>
                           <th>
                             <div>
-                              title
+                              Link Status
                             </div>
                           </th>
                           <th>

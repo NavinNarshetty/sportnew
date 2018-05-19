@@ -1,51 +1,54 @@
-<div class="schoolprofile-card" ng-init="school.type='school'" ng-class="{'card-school':school.type=='school','card-college':school.type=='college'}">
+<!-- <pre>{{school|json}}</pre> ng-init="school.type='school'"-->
+<div class="schoolprofile-card"  ng-class="{'card-school':school.type=='school','card-college':school.type=='college'}">
 
   <!--CARD-IMAGE-->
   <div class="inline-block v-top schoolprofile-cardimgholder">
-    <div class="schoolprofileimage-holder">
-      <img src="img/dishapatani1.jpg" class="img-responsive">
+    <div class="schoolprofileimage-holder " ng-class="{'bg-school-icon': !school.schoolLogo}">
+      <img ng-src="{{school.schoolLogo|serverimage}}" class="img-responsive m-auto" ng-if="school.schoolLogo">
+      <!-- <img src="img/gendericon/school-icon.png" class="img-responsive m-auto" ng-if="!school.schoolLogo"> -->
     </div>
   </div>
   <!--END-CARD-IMAGE-->
   <!--CARD CONTENT-->
   <div class="inline-block v-top schoolprofile-cardcontent">
-    <p class="schoolprofile-schoolname">Dr. Sarvepalli Radhakrishnan Hindi Secondary School ( Andheri )</p>
-    <p class="schoolprofile-schoolid text-uppercase" ng-if="!trophy">SFA Rank <span>20</span></p>
+    <p class="schoolprofile-schoolname m-clear" title="{{school.schoolName}}">{{school.schoolName|truncate:24}}</p>
+    <p class="schoolprofile-sfaid">{{school.sfaID}}</p>
+    <p class="schoolprofile-schoolid text-uppercase" ng-if="!trophy">SFA Rank <span>{{school.rank}}</span></p>
     <!--STATISTICS-->
     <div class="schoolprofilecard-statistics" ng-if="stats">
       <!--MEDALS-->
-      <div class="schoolprofilecard-medallist">
+      <div class="schoolprofilecard-medallist" ng-if="!noMedal">
         <ul class="list-inline">
           <li>
             <div class="inline-block">
               <div class="profile-bluemedals">
-                <img ng-src="{{'gold' | medalicon:'blue'}}" alt="" class="img-responsive">
+                <img ng-src="{{'gold' | medalicon:'blue'}}" alt="Gold Medal | Sports For All" class="img-responsive">
               </div>
             </div>
             <div class="inline-block text-center lh1">
-              <p class="m-clear color-primary">999</p>
+              <p class="m-clear color-primary">{{school.medal.gold.count}}</p>
               <p class="m-clear">Gold</p>
             </div>
           </li>
           <li>
             <div class="inline-block">
               <div class="profile-bluemedals">
-                <img ng-src="{{'silver' | medalicon:'blue'}}" alt="" class="img-responsive">
+                <img ng-src="{{'silver' | medalicon:'blue'}}" alt="Silver Medal | Sports For All" class="img-responsive">
               </div>
             </div>
             <div class="inline-block text-center lh1">
-              <p class="m-clear color-primary">999</p>
+              <p class="m-clear color-primary">{{school.medal.silver.count}}</p>
               <p class="m-clear">Silver</p>
             </div>
           </li>
           <li>
             <div class="inline-block">
               <div class="profile-bluemedals">
-                <img ng-src="{{'bronze' | medalicon:'blue'}}" alt="" class="img-responsive">
+                <img ng-src="{{'bronze' | medalicon:'blue'}}" alt="Bronze Medal | Sports For All" class="img-responsive">
               </div>
             </div>
             <div class="inline-block text-center lh1">
-              <p class="m-clear color-primary">999</p>
+              <p class="m-clear color-primary">{{school.medal.bronze.count}}</p>
               <p class="m-clear">Bronze</p>
             </div>
           </li>
@@ -54,17 +57,17 @@
       <!--END MEDALS-->
 
       <!--PROGRESS BAR-->
-      <div class="progressbar-holder" hidden>
+      <div class="progressbar-holder" ng-if="noMedal && !noWinPercent">
         <div class="progress">
-          <div class="progress-bar stats-noshowbar" role="progressbar" style="width:60%">
-            <span class="progress-hovertip">Won <span>60%</span></span>
+          <div class="progress-bar stats-noshowbar" role="progressbar" style="width:{{school.winPercent}}%">
+            <span class="progress-hovertip">Won <span>{{school.winPercent}}%</span></span>
           </div>
         </div>
       </div>
       <!--END PROGRESS BAR-->
       <!--SPORTS PLAYED-->
-      <div class="text-uppercase" hidden>
-        <p class="m-clear">sports played : <span>11</span> </p>
+      <div class="text-uppercase" ng-if="noMedal && noWinPercent">
+        <p class="m-clear">sports played : <span>{{school.totalParticipatedSport}}</span> </p>
       </div>
       <!--END SPORTS PLAYED-->
 
@@ -72,7 +75,7 @@
     <!--STATISTICS END-->
     <!--CONTIGENT-->
     <div class="schoolprofilecard-contigent" ng-if="contigent">
-      <p class="m-clear">Contigent: <span>250</span> Athletes <span>(M <span>250</span> F <span>250)</span></span>
+      <p class="m-clear">Contigent: <span>{{school.totalStrength}}</span> Athletes <span>(M <span>{{school.maleCount}}</span> F <span>{{school.femaleCount}})</span></span>
       </p>
     </div>
     <!--END CONTIGENT-->
@@ -87,7 +90,7 @@
       <div class="inline-block v-top">
         <div class="schoolprofilecard-ranktotal">
           <p class="m-clear schoolchampions-rankhead text-uppercase">School Rank</p>
-          <p class="m-clear schoolchampions-schoolrank"> <span class="yourrank">19</span> <span class="slashtotal">/652</span></p>
+          <p class="m-clear schoolchampions-schoolrank"> <span class="yourrank">{{school.rank}}</span> <span class="slashtotal">/{{school.totalSchools}}</span></p>
         </div>
       </div>
     </div>

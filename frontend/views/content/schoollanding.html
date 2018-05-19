@@ -3,21 +3,44 @@
   <div class="athletelanding-header schoollanding-header">
     <div class="athletelanding-headeroverlay schoollanding-headeroverlay">
       <div class="container">
-        <div class="landing-search">
-          <div class="input-group landingsearch-inputgroup">
-            <input type="text" class="form-control" placeholder="Enter School Name or School SFA ID">
-            <span class="input-group-btn">
-            <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
-            </span>
+        <form name="searchschool" ng-submit="searchSchool(searchForm)">
+          <div class="landing-search">
+            <div class="input-group landingsearch-inputgroup">
+              <input type="text" class="form-control" placeholder="Enter School Name or School SFA ID" ng-model="searchForm.keyword">
+              <span class="input-group-btn"><button class="btn btn-default" type="submit" ><i class="fa fa-search"></i></button></span>
+            </div>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   </div>
   <!--END BACKGROUND IMAGE-->
-  <div class="schoollanding-fullcontent">
+  <!-- SEARCH RESULT SECTION -->
+  <div class="schoollanding-fullcontent" ng-if="results.length != 0" infinite-scroll="searchSchoolMore()" infinite-scroll-disabled="scroll.busy">
+    <div class="container">
+      <!-- TITLE -->
+      <div class="schoollanding-topperformschool titledescription-holder ">
+        <h3 class="fjalla-one  text-uppercase">Search Results</h3>
+      </div>
+      <!-- TITLE END -->
+      <!-- RESULTS -->
+      <div class="row">
+        <div class="col-md-4 col-sm-6 col-xs-12" ng-repeat= "school in results track by $index">
+          <div class="schoollanding-schoolcard">
+            <school-profile-card school="school"></school-profile-card>
+            <!-- <pre>{{school|json}}</pre> -->
+          </div>
+        </div>
+      </div>
+      <!-- RESULTS END -->
+    </div>
+  </div>
+  <!-- SEARCH RESULT SECTION END -->
+  <!-- NO SEARCH SECTION -->
+  <div class="schoollanding-fullcontent" ng-if="results.length == 0">
     <div class="container">
       <!--TOP PERFORMING SCHOOL-->
+      <!-- TOP PERFORMING TITLE DESCRIPTION -->
       <div class="schoollanding-topperformschool titledescription-holder ">
         <h3 class="fjalla-one  text-uppercase">TOP PERFORMING SCHOOLS
           <span class="landingschool-citytitle">
@@ -25,7 +48,7 @@
           <div class="landingschool-schoolfilter" ng-show="showCityFilter">
             <ul class="list-unstyled">
               <li ng-click="selectCity('all');">all</li>
-              <li ng-repeat="city in cityList track by $index" ng-click="selectCity(city);"> {{city}}</li>
+              <li ng-click="selectCity(currentCity);"> {{currentCity}}</li>
             </ul>
           </div>
           </span>
@@ -35,95 +58,109 @@
           <p>Check out the competitive pool of talent SFA Championships bring together each year.</p>
         </div>
       </div>
+      <!--SFA CHAMPIONS-->
+      <section class="schoolland-champions-section">
+        <!--SFA CITY-->
+        <div class="schoollanding-sfacity" ng-repeat="city in rankList track by $index" ng-init="city.viewSchool=3" id="school{{$index}}" ng-if="selectcity == '' || selectcity == city.city">
+          <h3 class="fjalla-one  text-uppercase">sfa championship {{city.year}}</h3>
+          <h4 class="fjalla-one text-uppercase">{{city.city}}</h4>
+          <div class="row" >
+            <div class="col-md-4 col-sm-6 col-xs-12 " ng-repeat="school in city.ranks  | limitTo:city.viewSchool track by $index">
+              <div class="schoollanding-schoolcard">
+                <school-profile-card trophy="true" school=school></school-profile-card>
+              </div>
+            </div>
+
+          </div>
+          <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <div class="schoollanding-viewall">
+                <a ng-click="viewMoreSchools(city, $index)">View <span ng-if="city.viewSchool==3">All</span> <span ng-if="city.viewSchool==10">Less</span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--END SFA CITY-->
+      </section>
+      <!--SFA CHAMPIONS END-->
+      <!-- TOP PERFORMING TITLE DESCRIPTION END -->
       <!--END TOP PERFORMING SCHOOL-->
       <!-- CITY SELECTED SECTION -->
-      <section class="schoolland-citysection">
-        <!--SFA CHAMPIONS-->
-        <section class="schoolland-champions-section">
-          <!--SFA CHAMPIONS HEAD-->
-          <div class="schoollanding-sfachampions titledescription-holder ">
-            <h3 class="fjalla-one  text-uppercase">sfa championship 2016</h3>
-            <div class="schoollanding-sfachampionscontent hide">
-              <p class="m-clear">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla ratione, quidem aliquam nesciunt asperiores sunt
-                nam quasi accusamus omnis aliquid vero possimus quam provident quis maiores sapiente assumenda libero voluptates?</p>
-            </div>
-          </div>
-          <!--SFA CHAMPIONS HEAD END-->
-          <!--SFA CITY-->
-          <div class="schoollanding-sfacity" ng-repeat="school in sfachampions track by $index" ng-init="city.viewSchool=3" id="school{{$index}}">
-            <h4 class="fjalla-one text-uppercase">{{school.city}}</h4>
-            <div class="row">
-              <div class="col-md-4 col-sm-6 col-xs-12" ng-repeat="topschool in school.topschool  | limitTo:city.viewSchool track by $index">
-                <div class="schoollanding-schoolcard">
-                  <school-profile-card trophy="true"></school-profile-card>
-                </div>
-              </div>
-              <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="schoollanding-viewall">
-                  <a ng-click="viewMoreSchools(city, $index)">View <span ng-if="city.viewSchool==3">All</span> <span ng-if="city.viewSchool==10">Less</span></a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!--END SFA CITY-->
-        </section>
-        <!--SFA CHAMPIONS END-->
+      <section class="schoolland-citysection" ng-if="selectcity == currentCity">
         <!--MEDAL CARDS HOLDER-->
-        <section class="schoolland-medal-section">
-          <!--MEDAL CARD HEAD-->
-          <div class="schoollanding-maxmedalswon titledescription-holder">
-            <h3 class="fjalla-one text-uppercase">maximum medals won</h3>
-            <div class="schoollanding-maxmedalscontent hide">
-              <p class="m-clear">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi molestias, aspernatur quibusdam quasi quia iure
-                quos magnam dolorem earum autem ratione omnis repudiandae nam neque rem commodi dolorum aliquam possimus!</p>
-            </div>
-          </div>
-          <!--END MEDAL CARD HEAD-->
-          <!--TOTAL MEDAL CARD-->
-          <div class="row">
-            <!-- <div class="schoollanding-totalmedalcard"> -->
-              <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="schoollanding-totalmedalcardholder">
-                  <p class="m-clear text-uppercase">total medals</p>
-                  <school-profile-card stats="true"></school-profile-card>
-                </div>
+        <section class="schoolland-medal-section" >
+          <div class="" ng-if="maxMedalsWon.maxTotal">
+            <!--MEDAL CARD HEAD-->
+            <div class="schoollanding-maxmedalswon titledescription-holder" >
+              <h3 class="fjalla-one text-uppercase">maximum medals won</h3>
+              <div class="schoollanding-maxmedalscontent hide">
+                <p class="m-clear">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi molestias, aspernatur quibusdam quasi quia iure
+                  quos magnam dolorem earum autem ratione omnis repudiandae nam neque rem commodi dolorum aliquam possimus!</p>
               </div>
-            <!-- </div> -->
+            </div>
+            <!--END MEDAL CARD HEAD-->
+            <!--TOTAL MEDAL CARD-->
+            <div class="row" >
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                  <div class="schoollanding-totalmedalcardholder" >
+                    <p class="m-clear text-uppercase">total medals</p>
+                    <school-profile-card school="maxMedalsWon.maxTotal" stats="true" ></school-profile-card>
+                  </div>
+                </div>
+            </div>
+            <!--END TOTAL MEDAL CARD-->
           </div>
-          <!--END TOTAL MEDAL CARD-->
           <!--ALL MEDAL CARD TYPE-->
           <div class="row">
             <div class="medal-goldsilverbronzecard">
-              <div class="col-md-4 col-sm-6 col-xs-12" ng-repeat="medals in maxmedals track by $index">
+              <!-- GOLD CARD -->
+              <div class="col-md-4 col-sm-6 col-xs-12" ng-if="maxMedalsWon.maxGold">
                 <div class="medal-goldsilverbronzecard-holder">
-                  <p class="text-uppercase m-clear"> maximum <span>{{medals.medal}}</span></p>
-                  <school-profile-card stats="true"></school-profile-card>
+                  <p class="text-uppercase m-clear"> maximum <span>Golds</span></p>
+                  <school-profile-card stats="true" school="maxMedalsWon.maxGold"></school-profile-card>
                 </div>
               </div>
+              <!-- GOLD CARD -->
+              <!-- SILVEr CARD -->
+              <div class="col-md-4 col-sm-6 col-xs-12" ng-if="maxMedalsWon.maxSilver">
+                <div class="medal-goldsilverbronzecard-holder">
+                  <p class="text-uppercase m-clear"> maximum <span>Silver</span></p>
+                  <school-profile-card stats="true" school="maxMedalsWon.maxSilver"></school-profile-card>
+                </div>
+              </div>
+              <!-- SILVEr CARD -->
+              <!-- BRONZE CARD -->
+              <div class="col-md-4 col-sm-6 col-xs-12" ng-if="maxMedalsWon.maxBronze">
+                <div class="medal-goldsilverbronzecard-holder">
+                  <p class="text-uppercase m-clear"> maximum <span>Bronze</span></p>
+                  <school-profile-card stats="true" school="maxMedalsWon.maxBronze"></school-profile-card>
+                </div>
+              </div>
+              <!-- BRONZE CARD -->
             </div>
 
           </div>
           <!--END ALL TYPE MEDAL CARDS-->
         </section>
         <!--END MEDALS CARDS HOLDER-->
-        <!--PARTICIPATION HEAD-->
-        <section class="schoolland-participation-section">
+        <!--MAX SPORT PARTICIPATION HEAD-->
+        <section class="schoolland-participation-section" ng-if="maxParticipatedSport">
           <div class="schoollanding-participation titledescription-holder ">
             <h3 class="fjalla-one text-uppercase">participation in maximum sports </h3>
             <p class="m-clear hide">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos ullam consectetur, corrupti labore ratione reprehenderit
               iure rem maiores itaque laborum nam. Provident debitis suscipit quidem praesentium obcaecati eum. Magnam, voluptatum.</p>
           </div>
           <div class="row">
-            <div class="col-md-4 col-sm-6 col-xs-12" ng-repeat="maxsport in dummy track by $index">
+            <div class="col-md-4 col-sm-6 col-xs-12" ng-repeat="school in maxParticipatedSport track by $index">
               <div class="schoollanding-participation-holder">
-                <school-profile-card stats="true"></school-profile-card>
+                <school-profile-card stats="true" school="school"></school-profile-card>
               </div>
             </div>
           </div>
         </section>
-        <!--END PARTICIPATION HEAD-->
+        <!--END MAX SPORT PARTICIPATION HEAD-->
         <!--HIGHEST WIN PERCENTAGE -->
-        <section class="schoolland-highwin-section">
+        <section class="schoolland-highwin-section" ng-if="maxWinPercentage">
           <div class="schoollanding-winpercentage titledescription-holder">
             <h3 class="fjalla-one text-uppercase">highest win percentage</h3>
             <div class="schoollanding-winpercentagecontent">
@@ -132,16 +169,16 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-md-4 col-sm-6 col-xs-12" ng-repeat=" winperc in dummy track by $index">
+            <div class="col-md-4 col-sm-6 col-xs-12" ng-repeat="school in maxWinPercentage track by $index">
               <div class="schoollanding-winpercentageholder">
-                <school-profile-card stats="true"></school-profile-card>
+                <school-profile-card stats="true" school="school"></school-profile-card>
               </div>
             </div>
           </div>
         </section>
         <!--END HIGEST WIN PERCENTAGE END-->
         <!--LARGEST CONTIGENT-->
-        <section class="schoolland-largecontigent-section">
+        <section class="schoolland-largecontigent-section" ng-if="maxContingent">
           <div class="schoollanding-contigent titledescription-holder">
             <h3 class="fjalla-one text-uppercase">largest contigent </h3>
             <div class="schoollanding-contigentcontent">
@@ -152,9 +189,9 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="col-md-4 col-sm-6 col-xs-12" ng-repeat="school in maxContingent track by $index">
               <div class="schoollanding-contigentholder">
-                <school-profile-card stats="true"></school-profile-card>
+                <school-profile-card school="school" contigent="true"></school-profile-card>
               </div>
             </div>
           </div>
@@ -164,4 +201,5 @@
       <!-- CITY SELECTED SECTION END -->
     </div>
   </div>
+  <!-- NO SEARCH SECTION -->
 </div>

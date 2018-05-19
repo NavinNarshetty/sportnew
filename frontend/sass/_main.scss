@@ -450,21 +450,24 @@ a {
     padding: 5px;
     border-radius: 5px;
     position: absolute;
-    right: 0;
-    bottom: -30px;
+    right: -28px;
+    bottom: -23px;
     background-color: $green-graph;
     color: #fff;
-    font-size: 12px;
+    font-size: 10px;
     line-height: 1;
     @extend .text-uppercase;
     &:after {
       content: '';
-      border-left: 5px solid transparent;
-      border-bottom: 5px solid $green-graph;
-      border-right: 5px solid transparent;
+      width: 2px;
+      height: 3px;
+      // border-left: 5px solid transparent;
+      // border-bottom: 5px solid $green-graph;
+      // border-right: 5px solid transparent;
       position: absolute;
-      top: -5px;
+      top: -3px;
       left: 50%;
+      background-color: $green-graph;
       @include transform(translateX(-50%));
     }
   }
@@ -519,7 +522,21 @@ a {
     border: none;
   }
 }
-
+.bg-team-male{
+  background-image: url('../img/gendericon/male-team.png');
+}
+.bg-team-female{
+  background-image: url('../img/gendericon/female-team.png');
+}
+.bg-athlete-male{
+  background-image: url('../img/gendericon/male-athlete.png');
+}
+.bg-athlete-female{
+  background-image: url('../img/gendericon/male-athlete.png');
+}
+.bg-school-icon{
+  background-image: url('../img/gendericon/school-icon.png');
+}
 // COMMON CLASSES END
 // PHOTO VIDEO POPUP
 .photovideo-modal{

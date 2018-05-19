@@ -21,7 +21,13 @@ myApp.service('TemplateService', function () {
     };
 
     // SCROLL TO FUNCTION
-    this.scrollTo = function (destination, type) {
+    this.scrollTo = function (destination, type, offset) {
+      var off;
+      if (offset != undefined) {
+        off = offset;
+      } else {
+        off = 0;
+      }
       if (type == 'id') {
         var destination = '#' + destination;
       } else if (type == 'class') {
@@ -29,7 +35,7 @@ myApp.service('TemplateService', function () {
       }
       // console.log(destination, type, 'in dir')
       $('html,body').animate({
-        scrollTop: $(destination).offset().top
+        scrollTop: $(destination).offset().top - off
       },
         'slow');
     };

@@ -16,7 +16,7 @@ myApp.directive('img', function ($compile, $parse) {
                 }
                 if(!attrs.alt || attrs.alt == ''){
                   $($element).attr("alt", "Sports For All Photos");
-                  console.log("attrs added");
+                  // console.log("attrs added");
                 }
                 // if(!attrs.title || attrs.title == ''){
                 //   $($element).attr("title", "Sports For All");
@@ -156,12 +156,43 @@ myApp.directive('img', function ($compile, $parse) {
         return {
             restrict: 'E',
             scope: {
+                'school': '=',
                 'stats': '=stats',
                 'contigent': '=contigent',
                 'trophy': '=trophy'
             },
             templateUrl: 'views/directive/schoolprofile-card.html',
-            link: function ($scope) {}
+            link: function (scope) {
+            //   console.log('sdcop sp', scope.school);
+              scope.noMedal = false;
+              scope.school.type='school';
+              scope.noWinPercent = false;
+              // console.log("school in card", scope.school);
+              if (scope.medal) {
+                if(!scope.school.medal.gold || !scope.school.medal.silver || !scope.school.medal.bronze){
+                  scope.noMedal = true;
+                } else{
+                  if (!scope.school.medal.gold) {
+                    scope.school.medal.gold = {};
+                    scope.school.medal.gold.count = 0;
+                  }
+                  if (!scope.school.medal.silver) {
+                    scope.school.medal.silver = {};
+                    scope.school.medal.silver.count = 0;
+                  }
+                  if (!scope.school.medal.bronze) {
+                    scope.school.medal.bronze = {};
+                    scope.school.medal.bronze.count = 0;
+                  }
+                }
+              } else {
+                scope.noMedal = true;
+              }
+
+              if (!scope.school.winPercent) {
+                scope.noWinPercent = true;
+              }
+            }
         }
     })
     // end schoolprofile-card

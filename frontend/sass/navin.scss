@@ -331,7 +331,7 @@ $sport-primary: #0a1a72 !default;
     // padding: 10px 15px;
     // border: 1px solid #ddd;
     box-shadow: 0px 0px 5px $light-grey; // border-left: 3px solid #ffb026;
-    min-height: 155px;
+    // min-height: 155px;
 }
 
 .schoolprofile-cardimgholder {
@@ -342,10 +342,14 @@ $sport-primary: #0a1a72 !default;
 .schoolprofileimage-holder {
     width: 90px;
     height: 90px;
+    // border: 5px solid #ddd;
     border-radius: 100%;
-    overflow: hidden;
-    border: 5px solid #ddd;
     margin: 0 auto;
+    background-color: #ddd;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    // background-size: contain;
+    overflow: hidden;
 }
 
 .schoolprofile-cardcontent {
@@ -1872,7 +1876,7 @@ $sport-primary: #0a1a72 !default;
 }
 
 // MEDIA PRESS RELEASE END
-// COMMON PRESS HEADER 
+// COMMON PRESS HEADER
 .pressmedia-header,
 .newsfilter-holder {
     margin: 40px 0px;

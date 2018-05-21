@@ -111,6 +111,7 @@ myApp.controller('SchoolLandingCtrl', function ($scope, $state, $stateParams, Te
         _.each(n.ranks, function(m){
           m.totalSchools = n.totalSchools;
         })
+        n.cityLow = n.city.toLowerCase();
       })
       console.log("schoolRank", $scope.rankList);
     } else {

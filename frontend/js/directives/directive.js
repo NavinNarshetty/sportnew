@@ -163,12 +163,11 @@ myApp.directive('img', function ($compile, $parse) {
             },
             templateUrl: 'views/directive/schoolprofile-card.html',
             link: function (scope) {
-            //   console.log('sdcop sp', scope.school);
               scope.noMedal = false;
               scope.school.type='school';
               scope.noWinPercent = false;
               // console.log("school in card", scope.school);
-              if (scope.medal) {
+              if (scope.school.medal) {
                 if(!scope.school.medal.gold || !scope.school.medal.silver || !scope.school.medal.bronze){
                   scope.noMedal = true;
                 } else{

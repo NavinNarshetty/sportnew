@@ -61,7 +61,7 @@
       <!--SFA CHAMPIONS-->
       <section class="schoolland-champions-section">
         <!--SFA CITY-->
-        <div class="schoollanding-sfacity" ng-repeat="city in rankList track by $index" ng-init="city.viewSchool=3" id="school{{$index}}" ng-if="selectcity == '' || selectcity == city.city">
+        <div class="schoollanding-sfacity" ng-repeat="city in rankList track by $index" ng-init="city.viewSchool=3" id="school{{$index}}" ng-if="selectcity == '' || selectcity == city.cityLow">
           <h3 class="fjalla-one  text-uppercase">sfa championship {{city.year}}</h3>
           <h4 class="fjalla-one text-uppercase">{{city.city}}</h4>
           <div class="row" >

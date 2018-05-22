@@ -107,197 +107,197 @@ var model = {
 
   getMatchVideos: function (data, callback) {
     async.waterfall([
-        function (callback) {
-          Vimeo.findOne().lean().exec(function (err, client) {
-            if (err || _.isEmpty(client)) {
-              callback(null, {
-                error: "No Data"
-              });
-            } else {
-              callback(null, client);
-            }
-          });
-        },
-        function (client, callback) {
-          if (client.error) {
-            callback(null, client);
+      function (callback) {
+        Vimeo.findOne().lean().exec(function (err, client) {
+          if (err || _.isEmpty(client)) {
+            callback(null, {
+              error: "No Data"
+            });
           } else {
-            CLIENT_ID = client.clientId;
-            CLIENT_SECRET = client.clientSecret;
-            var lib = new vimeo(CLIENT_ID, CLIENT_SECRET);
-            Match.aggregate(
-
-              // Pipeline
-              [
-                // Stage 1
-                {
-                  $lookup: {
-                    "from": "sports",
-                    "localField": "sport",
-                    "foreignField": "_id",
-                    "as": "sportInfo"
-                  }
-                },
-
-                // Stage 2
-                {
-                  $match: {
-                    round: {
-                      "$in": ["Final", "Time Trial"]
-                    },
-
-                  }
-                },
-
-                // Stage 3
-                {
-                  $unwind: {
-                    path: "$sportInfo",
-                    includeArrayIndex: "arrayIndex", // optional
-                    preserveNullAndEmptyArrays: false // optional
-                  }
-                },
-
-                // Stage 4
-                {
-                  $lookup: {
-                    "from": "sportslists",
-                    "localField": "sportInfo.sportslist",
-                    "foreignField": "_id",
-                    "as": "sportslistInfo"
-                  }
-                },
-
-                // Stage 5
-                {
-                  $unwind: {
-                    path: "$sportslistInfo",
-                    includeArrayIndex: "arrayIndex", // optional
-                    preserveNullAndEmptyArrays: false // optional
-                  }
-                },
-
-                // Stage 6
-                {
-                  $lookup: {
-                    "from": "sportslistsubcategories",
-                    "localField": "sportslistInfo.sportsListSubCategory",
-                    "foreignField": "_id",
-                    "as": "sportlistsubcatInfo"
-                  }
-                },
-
-                // Stage 7
-                {
-                  $unwind: {
-                    path: "$sportlistsubcatInfo",
-                    includeArrayIndex: "arrayIndex", // optional
-                    preserveNullAndEmptyArrays: false // optional
-                  }
-                },
-                // Stage 8
-                {
-                  $match: {
-
-                    "sportlistsubcatInfo.name": {
-                      $regex: data.sportName,
-                      $options: "i"
-                    }
-                  }
-                },
-                // Stage 9
-                {
-
-
-                  $match: {
-                    "video": {
-                      "$exists": true,
-                      "$ne": null
-                    },
-                    "videoType": {
-                      "$exists": true,
-                      "$ne": null
-                    }
-                  }
-
-                },
-                // Stage 10
-                {
-                  $project: {
-                    "video": 1,
-                    "videoType": 1,
-                    // "sportlistsubcatInfo": 1
-                  }
-                }
-
-              ],
-              function (err, found) {
-                if (err) {
-                  callback(err, null);
-                } else if (_.isEmpty(found)) {
-                  callback(null, []);
-                } else {
-                  if (client.accessToken) {
-                    lib.access_token = client.accessToken;
-                    var finalData = [];
-                    var finalArr = [];
-                    found = found.filter(o => Object.keys(o.video).length);
-                    // for (var i = 0; finalArr.length <= 10; i++) {
-                    async.concatLimit(found, 4, function (n, callback) {
-                        if (client.accessToken) {
-                          lib.access_token = client.accessToken;
-                          var urlData = {};
-                          var tempObj = {};
-                          // console.log("n.video", n.video);
-                          urlData.videoId = n.video;
-                          lib.thumbnails(urlData,
-                            function (err, body, status, headers) {
-
-                              console.log(err);
-                              if (err) {
-                                // return console.log(err);
-                                callback(null, "");
-                              } else {
-                                tempObj.uri = body.uri;
-                                tempObj.video = n.video;
-                                tempObj.name = body.name;
-                                tempObj.link = body.link;
-                                tempObj.description = body.description;
-
-                                if (tempObj.name != undefined) {
-                                  tempObj.thumbnail = body.pictures.sizes[3].link;
-                                  finalArr.push(tempObj);
-                                  // if (finalArr.length > 0 && finalArr.length <= 10) {
-                                  //   callback(null, body);
-                                  // }
-                                }
-                                callback(null, body);
-                              }
-                            });
-                        } else {
-                          callback(null, "Access Token Not Found");
-                        }
-                        // i++;
-                      },
-                      function (err, files) {
-                        if (err) {
-                          callback(err, null);
-                        } else {
-                          finalArr = _.shuffle(finalArr);
-                          finalArr = _.take(finalArr, 5);
-                          console.log("file.length", files.length);
-                          callback(null, finalArr);
-                        }
-                      });
-                    // callback(null, finalArr);
-                  } else {
-                    callback(null, "Access Token Not Found");
-                  }
-                }
-              });
+            callback(null, client);
           }
+        });
+      },
+      function (client, callback) {
+        if (client.error) {
+          callback(null, client);
+        } else {
+          CLIENT_ID = client.clientId;
+          CLIENT_SECRET = client.clientSecret;
+          var lib = new vimeo(CLIENT_ID, CLIENT_SECRET);
+          Match.aggregate(
+
+            // Pipeline
+            [
+              // Stage 1
+              {
+                $lookup: {
+                  "from": "sports",
+                  "localField": "sport",
+                  "foreignField": "_id",
+                  "as": "sportInfo"
+                }
+              },
+
+              // Stage 2
+              {
+                $match: {
+                  round: {
+                    "$in": ["Final", "Time Trial"]
+                  },
+
+                }
+              },
+
+              // Stage 3
+              {
+                $unwind: {
+                  path: "$sportInfo",
+                  includeArrayIndex: "arrayIndex", // optional
+                  preserveNullAndEmptyArrays: false // optional
+                }
+              },
+
+              // Stage 4
+              {
+                $lookup: {
+                  "from": "sportslists",
+                  "localField": "sportInfo.sportslist",
+                  "foreignField": "_id",
+                  "as": "sportslistInfo"
+                }
+              },
+
+              // Stage 5
+              {
+                $unwind: {
+                  path: "$sportslistInfo",
+                  includeArrayIndex: "arrayIndex", // optional
+                  preserveNullAndEmptyArrays: false // optional
+                }
+              },
+
+              // Stage 6
+              {
+                $lookup: {
+                  "from": "sportslistsubcategories",
+                  "localField": "sportslistInfo.sportsListSubCategory",
+                  "foreignField": "_id",
+                  "as": "sportlistsubcatInfo"
+                }
+              },
+
+              // Stage 7
+              {
+                $unwind: {
+                  path: "$sportlistsubcatInfo",
+                  includeArrayIndex: "arrayIndex", // optional
+                  preserveNullAndEmptyArrays: false // optional
+                }
+              },
+              // Stage 8
+              {
+                $match: {
+
+                  "sportlistsubcatInfo.name": {
+                    $regex: data.sportName,
+                    $options: "i"
+                  }
+                }
+              },
+              // Stage 9
+              {
+
+
+                $match: {
+                  "video": {
+                    "$exists": true,
+                    "$ne": null
+                  },
+                  "videoType": {
+                    "$exists": true,
+                    "$ne": null
+                  }
+                }
+
+              },
+              // Stage 10
+              {
+                $project: {
+                  "video": 1,
+                  "videoType": 1,
+                  // "sportlistsubcatInfo": 1
+                }
+              }
+
+            ],
+            function (err, found) {
+              if (err) {
+                callback(err, null);
+              } else if (_.isEmpty(found)) {
+                callback(null, []);
+              } else {
+                if (client.accessToken) {
+                  lib.access_token = client.accessToken;
+                  var finalData = [];
+                  var finalArr = [];
+                  found = found.filter(o => Object.keys(o.video).length);
+                  async.concatLimit(found, 1, function (n, callback) {
+                    if (client.accessToken) {
+                      lib.access_token = client.accessToken;
+                      var urlData = {};
+                      var tempObj = {};
+                      urlData.videoId = n.video;
+                      if (finalArr.length < 10) {
+                        lib.thumbnails(urlData,
+                          function (err, body, status, headers) {
+                            console.log(err);
+                            if (err) {
+                              // return console.log(err);
+                              callback(null, "");
+                            } else {
+                              tempObj.uri = body.uri;
+                              tempObj.video = n.video;
+                              tempObj.name = body.name;
+                              tempObj.link = body.link;
+                              tempObj.description = body.description;
+                              if (tempObj.name && tempObj.name != undefined && tempObj.uri && tempObj.uri != undefined) {
+                                tempObj.thumbnail = body.pictures.sizes[3].link;
+                                finalArr.push(tempObj);
+
+                              }
+                              callback(null, body);
+                            }
+                          });
+                      } else {
+                        callback(null, "");
+                      }
+
+                    } else {
+                      callback(null, "Access Token Not Found");
+                    }
+
+                  },
+                    function (err, files) {
+                      if (err) {
+                        callback(err, null);
+                      } else {
+                        console.log("finalArr", finalArr.length);
+                        finalArr = _.shuffle(finalArr);
+                        finalArr = _.take(finalArr, 5);
+                        console.log("file.length", files.length);
+                        callback(null, finalArr);
+                      }
+                    });
+                  // callback(null, finalArr);
+                } else {
+                  callback(null, "Access Token Not Found");
+                }
+              }
+            });
         }
-      ],
+      }
+    ],
       function (err, result) {
         if (err) {
           callback(err, null);

@@ -192,18 +192,24 @@ var model = {
         };
 
         var matchObj = {
-            $or: [{
-                sfaID: {
-                    $ne: "",
-                    $regex: data.keyword,
-                    $options: "i"
+            $and: [{
+                    $or: [{
+                        sfaID: {
+                            $ne: "",
+                            $regex: data.keyword,
+                            $options: "i"
+                        }
+                    }, {
+                        schoolName: {
+                            $regex: data.keyword,
+                            $options: "i"
+                        }
+                    }]
+                },
+                {
+                    eventCity: data.sfaCity
                 }
-            }, {
-                schoolName: {
-                    $regex: data.keyword,
-                    $options: "i"
-                }
-            }]
+            ],
         };
 
         var Search = Model.find(matchObj, '_id sfaID schoolName mobile email')
@@ -504,13 +510,13 @@ var model = {
             $or: _.map(data, function (n) {
                 return {
                     "schoolName": n,
-                    "status":"Verified"
+                    "status": "Verified"
                 }
             })
         }
 
         Registration.find(matchObj).lean().exec(function (err, result) {
-            callback(err,result);
+            callback(err, result);
         });
     },
 

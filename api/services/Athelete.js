@@ -275,7 +275,8 @@ var model = {
             Athelete.find({
                     sfaId: {
                         $ne: ""
-                    }
+                    },
+                    eventCity: data.sfaCity
                 }, 'sfaId firstName middleName surname mobile email _id')
                 .order(options)
                 .keyword(options)
@@ -772,21 +773,24 @@ var model = {
             // Stage 2
             {
                 $match: {
-                    $or: [{
-                        sfaId: {
-                            $ne: "",
-                            $regex: data.keyword,
-                            $options: "i"
-                        }
+                    $and: [{
+                        $or: [{
+                            sfaId: {
+                                $ne: "",
+                                $regex: data.keyword,
+                                $options: "i"
+                            }
+                        }, {
+                            fullName: {
+                                $regex: data.keyword,
+                                $options: "i"
+                            }
+                        }]
                     }, {
-                        fullName: {
-                            $regex: data.keyword,
-                            $options: "i"
-                        }
+                        eventCity: data.sfaCity,
                     }]
                 }
             },
-
             {
                 $sort: {
                     "createdAt": -1

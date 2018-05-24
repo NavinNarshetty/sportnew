@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "future-oasis-145313",
+  "private_key_id": "27ea17ebb4ee4c4365b77e5f4faefed9f5bf4752",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC8klg+lTG6TBoA\nY6ssWQTWJW2eBnoD0dD1psX677I07ASl63H8No1TC8ZyS2KilP7LDxk1LFZAmCkR\nnuxhhJBH74Tpr3lJ+raG0pM5Q/I+Qmx5FDa5mA00wqCf87az8tTlt/8Diw1uPrTb\nj0tHneHWo5iLl4hrWXIDJobtFEVxpRtT2PX39yDBfkhUnu2S3mLZafmXw8uujDFT\ntWZ1tPVcU3scGxpNc7UuWKvx9A7mjBsFvj4RWZk/eeu32uqwxBe+p8ddwE5DXC5F\ndz64eB0/TtKUo8CTVtKcIVvoweE8dsJMjE4WoIYHDD0NNnWORjZYAnMXg34pc8+0\n65nRJ+y5AgMBAAECggEAEDRj80N/PvsBia1cTSwnL2nkUMijXUb/YHog7aQB2ey6\n/NvN80u9evik6Ix+4Ol8jcxHMRvAG76Xr4/LJhmDYT3S26wRzbWG+vCx6Ha6JKHb\npXoDC+bmTPWOt8AfSrkgP3oU0Y6hAat6KkYBmkQV32E2n4RO8P6s6Vq7DI40kNk7\ntEh4maPYW/HCbB+daRrFcZAYDgpQ8qwkqbmSqa+9sBPy0q7dpOaLAZkwssaWfb95\nreLnMSx1V03c0z7tvi0iDKsG/swlBZaS9WFWl/7DEpTJMyaGaODXjPHPGiV1Euf+\nJIAJezgMavdUNGfsD1JqqSe3r5oD6Hwovqkcu2QGewKBgQD/SL0EJ0id1J/QmwTo\noIjPDVLjXaPSKvy2A/Qj/1ZC9lbeG2wRRi9fB27hTtYULGzv6h/hOlnpZJXu0XJc\nizkMCV/NNhH9JCOY+Ec321Fp2MDhN9D3dvWcB0gB4v9rFvawbXZe7Fc4LvdJGyCX\na3y4je0qYjPIXTGBED8AtdN/YwKBgQC9GbcbIxh/2+an4h3FjGQkzS3uPhPt7FUI\na5IekCul5g9kHcBz5fJkMQK7vJzIGL1do23y1U1wReZOzn6h1uUbN7ad8MdsoJlq\n0zdJKUntD5qRGPSA6JgS+fjXxzt6UclTzEYgOxLH9e11iYvXq4jciAavS5ZDy2Rt\nMqOzgFgEMwKBgQC6jFnrthU/mMfsdcuhfuZaf78JfT0gcN9Y1wzKXWWY61DRX7KZ\n8PLe+5yQMr8H4Or+atU/Dhf0ENfru8xZSje2zwbd+9wrYwRMXWoVrEQTGBzit5oR\nrDGRAlUhY9MIW7CLfoIYnZai7Ncx6gvn+tkaOESOS1LR4SAy0z9m8ngKRwKBgQCy\nX15cJ7fFa61gMSd6H5qbKDuqHj54UFRJdAbJ855oh+F+w5209XO2VJDKe/i7urJt\ncGqXA+NfA2Bid9/1UxqbmOsWgnfqnHb60C+3QE4uYmifc5W3Py+rvsWe7JzLHfi1\npduELZTir7UFCPCzSGf59gmwMrGUU3fwlTLbcDYWBwKBgDr8AhHDghXdWoX9TAUC\nMosihZQVm/wICGsUXmzrHJUbmojkxRA/7JK4rZwt25Pv5gOYPCLrMoUuoamEDeFk\nVL6Liy8yh0eBpCR7KWiE8JgJCRCyNXYOXqGOyonGBXb3X7ZmRpLZyrAw4mKAom23\nekGCRT2VJ1M5HVwUKWCzsPzs\n-----END PRIVATE KEY-----\n",
+  "client_email": "sfa-293@future-oasis-145313.iam.gserviceaccount.com",
+  "client_id": "113088968800302532303",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/sfa-293%40future-oasis-145313.iam.gserviceaccount.com"
+}

@@ -88,7 +88,7 @@ global["async"] = require('async');
 global.storageBucket = "test-chunks";
 
 global.skipper = require('skipper-gclouds');
-global.gCloudKey = './config/googleKey/SFA New-f0fd1402dc91.json';
+global.gCloudKey = './config/googleKey/code.json';
 global.Storage = require('@google-cloud/storage');
 global.storage = Storage({
     keyFilename: gCloudKey

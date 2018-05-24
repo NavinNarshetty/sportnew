@@ -323,6 +323,53 @@ var model = {
         }
     },
 
+    getAggregatePipeline: function (data) {
+        var pipeline = [ // Stage 1
+            {
+                $project: {
+                    fullName: {
+                        $concat: ["$firstName", " ", "$middleName", " ", "$surname"]
+                    },
+                    sfaId: "$sfaId",
+                    firstName: "$firstName",
+                    middleName: "$middleName",
+                    surname: "$surname",
+                    mobile: "$mobile",
+                    email: "$email",
+                    eventCity: "$eventCity"
+                }
+            },
+
+            // Stage 2
+            {
+                $match: {
+                    $and: [{
+                        $or: [{
+                            sfaId: {
+                                $ne: "",
+                                $regex: data.keyword,
+                                $options: "i"
+                            }
+                        }, {
+                            fullName: {
+                                $regex: data.keyword,
+                                $options: "i"
+                            }
+                        }]
+                    }, {
+                        eventCity: data.sfaCity,
+                    }]
+                }
+            },
+            {
+                $sort: {
+                    "createdAt": -1
+                }
+            },
+        ];
+        return pipeline;
+    },
+
     getAthlete: function (data, callback) {
         async.waterfall([
             function (err) {
@@ -754,51 +801,7 @@ var model = {
         }
     },
 
-    getAggregatePipeline: function (data) {
-        var pipeline = [ // Stage 1
-            {
-                $project: {
-                    fullName: {
-                        $concat: ["$firstName", " ", "$middleName", " ", "$surname"]
-                    },
-                    sfaId: "$sfaId",
-                    firstName: "$firstName",
-                    middleName: "$middleName",
-                    surname: "$surname",
-                    mobile: "$mobile",
-                    email: "$email",
-                }
-            },
 
-            // Stage 2
-            {
-                $match: {
-                    $and: [{
-                        $or: [{
-                            sfaId: {
-                                $ne: "",
-                                $regex: data.keyword,
-                                $options: "i"
-                            }
-                        }, {
-                            fullName: {
-                                $regex: data.keyword,
-                                $options: "i"
-                            }
-                        }]
-                    }, {
-                        eventCity: data.sfaCity,
-                    }]
-                }
-            },
-            {
-                $sort: {
-                    "createdAt": -1
-                }
-            },
-        ];
-        return pipeline;
-    },
 
 
     excelFilterAthlete: function (data, callback) {

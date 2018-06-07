@@ -90,7 +90,7 @@ myApp.filter('truncate', function () {
 // FILTER FOR SPORT ICON AND HEADER IMG
 myApp.filter('sporticon', function () {
   return function (input, type) {
-    console.log(input, type, "filter inputs");
+    // console.log(input, type, "filter inputs");
     var input = input.toLowerCase();
     var type = type.toLowerCase();
     var iconImg = "";
@@ -292,6 +292,16 @@ myApp.filter('mediapathtwo', function () {
   };
 })
 // MEDIA PATH TWO END
+// PERCENT FILTER
+myApp.filter('getpercent', function(){
+  return function(input, total){
+    var ratio = input / total;
+    var percent = ratio * 100;
+    var percent = _.round(percent);
+    return percent;
+  }
+})
+// PERCENT FILTER END
 
 myApp.filter('englishNumeralCustomDate', function () {
   return function (value) {

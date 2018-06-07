@@ -1,4 +1,4 @@
-myApp.controller('SchoolProfileCtrl', function ($scope, $state, $stateParams, TemplateService, NavigationService, $timeout, toastr, $http) {
+myApp.controller('SchoolProfileCtrl', function ($scope, $state, $stateParams, TemplateService, NavigationService, $timeout, toastr, $http, $filter) {
     $scope.template = TemplateService.getHTML("content/schoolprofile.html");
     TemplateService.title = "School Profile"; //This is the Title of the Website
     $scope.navigation = NavigationService.getNavigation();
@@ -11,7 +11,72 @@ myApp.controller('SchoolProfileCtrl', function ($scope, $state, $stateParams, Te
     //         minItems: 2
     //     });
     // });
+    // COMMMON VARIABLES
+    $scope.years = ["2017-18", "2016-17", "2015-16"];
+    $scope.formHeader = {
+      // "schoolName": "Niraj Public School (Ameerpet)",
+      "schoolName": "The Hyderabad Public School (Begumpet)",
+      "city": "Hyderabad",
+      "year": $scope.years[0]
+    };
+    $scope.donutColors=  [{
+      backgroundColor:"#0edb87",
+      pointBackgroundColor:"#0edb87",
+      pointBorderColor: "#fff",
+      pointHoverBorderColor: "#fff"
+    }, {
+      backgroundColor:"#0edb87",
+      pointBackgroundColor:"#0edb87",
+      pointBorderColor: "#fff",
+      pointHoverBorderColor: "#fff"
+    }, {
+      backgroundColor:"#0edb87",
+      pointBackgroundColor:"#0edb87",
+      pointBorderColor: "#fff",
+      pointHoverBorderColor: "#fff"
+    }, {
+      backgroundColor:"#0edb87",
+      pointBackgroundColor:"#0edb87",
+      pointBorderColor: "#fff",
+      pointHoverBorderColor: "#fff"
+    }, {
+      backgroundColor:"#0edb87",
+      pointBackgroundColor:"#0edb87",
+      pointBorderColor: "#fff",
+      pointHoverBorderColor: "#fff"
+    }, {
+      backgroundColor:"#0edb87",
+      pointBackgroundColor:"#0edb87",
+      pointBorderColor: "#fff",
+      pointHoverBorderColor: "#fff"
+    }, {
+      backgroundColor:"#0edb87",
+      pointBackgroundColor:"#0edb87",
+      pointBorderColor: "#fff",
+      pointHoverBorderColor: "#fff"
+    }, {
+      backgroundColor:"#0edb87",
+      pointBackgroundColor:"#0edb87",
+      pointBorderColor: "#fff",
+      pointHoverBorderColor: "#fff"
+    },{
+      backgroundColor:"#0edb87",
+      pointBackgroundColor:"#0edb87",
+      pointBorderColor: "#fff",
+      pointHoverBorderColor: "#fff"
+    },{
+      backgroundColor:"#0edb87",
+      pointBackgroundColor:"#0edb87",
+      pointBorderColor: "#fff",
+      pointHoverBorderColor: "#fff"
+    },{
+      backgroundColor:"#0edb87",
+      pointBackgroundColor:"#0edb87",
+      pointBorderColor: "#fff",
+      pointHoverBorderColor: "#fff"
+    }];
 
+    // COMMMON VARIABLES END
     // *********************************************************
     // *********************************************************
     // HIGHLIGHTS PAGE
@@ -50,6 +115,91 @@ myApp.controller('SchoolProfileCtrl', function ($scope, $state, $stateParams, Te
     // FUNCTIONS
     // FUNCTIONS END
     // API CALLS
+    $scope.getStatsSchool = function(){
+      var statsUrl = "schoolProfile/getStatistics";
+      NavigationService.getDataApiCall($scope.formHeader, statsUrl, function(data){
+        data = data.data;
+        if (data.value == true) {
+          $scope.schoolStats = data.data;
+          $scope.schoolStats.medalsTally.noMedal = false;
+          // SET MEDAL COUNTS
+          if ($scope.schoolStats.medalsTally.medal) {
+            if(!$scope.schoolStats.medalsTally.medal.gold || !$scope.schoolStats.medalsTally.medal.silver || !$scope.schoolStats.medalsTally.medal.bronze){
+              $scope.schoolStats.medalsTally.noMedal = true;
+            } else{
+              if (!$scope.schoolStats.medalsTally.medal.gold || !$scope.schoolStats.medalsTally.medal.gold.count) {
+                $scope.schoolStats.medalsTally.medal.gold.count = 0;
+              }
+              if (!$scope.schoolStats.medalsTally.medal.silver || !$scope.schoolStats.medalsTally.medal.silver.count) {
+                $scope.schoolStats.medalsTally.medal.silver.count = 0;
+              }
+              if (!$scope.schoolStats.medalsTally.medal.bronze || !$scope.schoolStats.medalsTally.medal.bronze.count) {
+                $scope.schoolStats.medalsTally.medal.bronze.count = 0;
+              }
+            }
+          } else {
+            $scope.schoolStats.medalsTally.noMedal = true;
+          }
+          // SET MEDAL COUNTS END
+          // SET CONTINGENT PERCENTAGE
+          if($scope.schoolStats.contingent.maleCount == $scope.schoolStats.contingent.femaleCount){
+            $scope.schoolStats.contingent.malePercent = 50;
+            $scope.schoolStats.contingent.femalePercent = 50;
+          } else {
+            var ratio = $scope.schoolStats.contingent.maleCount / $scope.schoolStats.contingent.totalStrength;
+            var percent = ratio * 100;
+            var percent = _.round(percent);
+            $scope.schoolStats.contingent.malePercent = percent;
+            $scope.schoolStats.contingent.femalePercent = 100 - $scope.schoolStats.contingent.malePercent;
+          }
+          // SET CONTINGENT PERCENTAGE END
+          // MEDAL DONUT
+          $scope.medalDonut = {
+            labels: [],
+            data: [],
+            options: {
+              cutoutPercentage: 75,
+            }
+          }
+          $scope.medalList = $filter('orderBy')($scope.schoolStats.medalsTally.sportData, "name");
+          _.each($scope.medalList, function(n){
+            $scope.medalDonut.labels.push(n.name);
+            $scope.medalDonut.data.push(n.totalCount);
+          });
+          console.log("ml", $scope.medalDonut);
+          // MEDAL DONUT END
+          // SET SPORT STATS
+          $scope.schoolStats.sports = $scope.schoolStats.contingent.sport;
+          _.each($scope.schoolStats.sports, function(n){
+            n.winPercent = $filter('getpercent')(n.winCount, n.played);
+            if (!n.noShowCount || n.noShowCount == undefined || n.noShowCount == undefined) {
+              n.noShowCount = 0;
+            }
+            n.noShowPercent = $filter('getpercent')(n.noShowCount, n.played);
+            if(n.maleCount == n.femaleCount){
+              n.malePercent = 50;
+              n.femalePercent = 50;
+            } else {
+              var ratio = n.maleCount / n.totalStrength;
+              var percent = ratio * 100;
+              var percent = _.round(percent);
+              if(percent < 20){
+                n.malePercent = 20;
+              } else if(percent > 80){
+                n.malePercent = 80;
+              } else {
+                n.malePercent = percent;
+              }
+              n.femalePercent = 100 - n.malePercent;
+            }
+          })
+          // SET SPORT STATS
+          console.log("Get Stats School", $scope.schoolStats);
+        } else {
+          console.log("Get Stats School Error", data);
+        }
+      });
+    }
     // API CALLS END
     // STATISTICS PAGE END
     // *********************************************************
@@ -78,11 +228,9 @@ myApp.controller('SchoolProfileCtrl', function ($scope, $state, $stateParams, Te
     // FUNCTIONS
     // SWIPER
     $scope.initSwiper = function () {
-        console.log('yoyoyoyo');
         // $scope.$on('$viewContentLoaded', function (event) {
         // HIGHLIGHT-PAGE-TEAM-SWIPER
         $timeout(function () {
-            console.log('in ');
             mySwiper = new Swiper('.performteam-slider .swiper-container', {
                 slidesPerView: 3,
                 paginationClickable: true,
@@ -114,7 +262,6 @@ myApp.controller('SchoolProfileCtrl', function ($scope, $state, $stateParams, Te
 
         // HIGHLIGHT-PAGE-ATHLETE-SWIPER
         $timeout(function () {
-            console.log('in ');
             mySwiper2 = new Swiper('.performanceathlete-slider  .swiper-container', {
                 slidesPerView: 3,
                 paginationClickable: true,
@@ -147,7 +294,6 @@ myApp.controller('SchoolProfileCtrl', function ($scope, $state, $stateParams, Te
         // HIGHLIGHT-PAGE-ATHLETE-SWIPER-END
         // TEAM TABLE SWIPER
         $timeout(function () {
-            console.log('in ');
             mySwiper3 = new Swiper('.schoolprofile-tablelist  .swiper-container', {
                 slidesPerView: 3,
                 paginationClickable: true,
@@ -182,18 +328,60 @@ myApp.controller('SchoolProfileCtrl', function ($scope, $state, $stateParams, Te
     $scope.swiperInitialise = function (type) {
         if (type == 0) {
             $scope.$on('$viewContentLoaded', function (event) {
-                console.log("000");
                 $scope.initSwiper();
             })
         } else {
             $scope.initSwiper();
-            console.log("111");
         }
     }
     $scope.swiperInitialise(0);
     // END-SWIPER
     // FUNCTIONS END
+    // API CALLS
+    $scope.getHeader = function(){
+      // $scope.formHeader = {
+      //   "schoolName": "Niraj Public School (Ameerpet)",
+      //   "city": "Hyderabad"
+      // };
+      var headerLink = "schoolProfile/getHeader";
+      NavigationService.getDataApiCall($scope.formHeader, headerLink, function(data){
+        data = data.data;
+        if (data.value == true) {
+          $scope.profile = data.data;
+          $scope.noMedal = false;
+          // CHECK FOR MEDALS
+          if ($scope.profile.medal) {
+            if(!$scope.profile.medal.gold || !$scope.profile.medal.silver || !$scope.profile.medal.bronze){
+              $scope.noMedal = true;
+            } else{
+              if (!$scope.profile.medal.gold) {
+                $scope.profile.medal.gold = {};
+                $scope.profile.medal.gold.count = 0;
+              }
+              if (!$scope.profile.medal.silver) {
+                $scope.profile.medal.silver = {};
+                $scope.profile.medal.silver.count = 0;
+              }
+              if (!$scope.profile.medal.bronze) {
+                $scope.profile.medal.bronze = {};
+                $scope.profile.medal.bronze.count = 0;
+              }
+            }
+          } else {
+            $scope.noMedal = true;
+          }
+          // CHECK FOR MEDALS END
+          console.log("header",$scope.profile);
+        } else {
+          console.log("Header Error", data);
+        }
+      });
+    }
+    $scope.getHeader();
+    // API CALLS END
     // COMMON SECTION END
+    // *********************************************************
+    // *********************************************************
     // flex-slider
     setTimeout(function () {
         $('.performanceathlete-slider .flexslider').flexslider({
@@ -664,10 +852,8 @@ myApp.controller('SchoolProfileCtrl', function ($scope, $state, $stateParams, Te
         strength: '300',
         male: '30',
         female: '70'
-
     }, {
         name: 'basketball',
-
         played: '123',
         won: '456',
         lost: '789',
@@ -675,10 +861,8 @@ myApp.controller('SchoolProfileCtrl', function ($scope, $state, $stateParams, Te
         strength: '400',
         male: '70',
         female: '30'
-
     }, {
         name: 'fencing',
-
         played: '123',
         won: '456',
         lost: '789',
@@ -686,7 +870,6 @@ myApp.controller('SchoolProfileCtrl', function ($scope, $state, $stateParams, Te
         strength: '500',
         male: '60',
         female: '40'
-
     }, {
         name: 'carrom',
 
@@ -697,8 +880,6 @@ myApp.controller('SchoolProfileCtrl', function ($scope, $state, $stateParams, Te
         strength: '600',
         male: '20',
         female: '80'
-
-
     }, {
         name: 'karate',
         played: '123',
@@ -765,7 +946,7 @@ myApp.controller('SchoolProfileCtrl', function ($scope, $state, $stateParams, Te
     };
     $scope.viewTab = 1;
     // DIRECT LINK
-    switch ($state.params.name) {
+    switch ($state.params.tab) {
         case "highlights":
             $scope.schoolprofile.innerView = allSchoolProfile[0];
             $scope.schoolprofile.active = 'highlights';
@@ -783,6 +964,7 @@ myApp.controller('SchoolProfileCtrl', function ($scope, $state, $stateParams, Te
         case "statistics":
             $scope.schoolprofile.innerView = allSchoolProfile[3];
             $scope.schoolprofile.active = 'statistics';
+            $scope.getStatsSchool();
             break;
         case "achievements":
             $scope.schoolprofile.innerView = allSchoolProfile[4];
@@ -823,6 +1005,7 @@ myApp.controller('SchoolProfileCtrl', function ($scope, $state, $stateParams, Te
             case 3:
                 url = "statistics";
                 $scope.schoolprofile.active = 'statistics';
+                $scope.getStatsSchool();
                 break;
             case 4:
                 url = "achievements";
@@ -838,14 +1021,10 @@ myApp.controller('SchoolProfileCtrl', function ($scope, $state, $stateParams, Te
                 break;
         }
         $state.go("schoolprofile", {
-            name: url
+            tab: url
         }, {
             notify: false
         })
     }
     // ON CLICK END
-
-
-
-
 })

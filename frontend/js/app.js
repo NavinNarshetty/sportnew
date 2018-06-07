@@ -42,7 +42,8 @@ var myApp = angular.module('myApp', [
     'athleteprofile',
     'wu.masonry',
     'angular-marquee',
-    'angular-svg-round-progressbar'
+    'angular-svg-round-progressbar',
+    'chart.js'
 ]);
 
 // Define all the routes below
@@ -68,47 +69,47 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
             controller: 'GridCtrl'
         })
         .state('athleteprofile-without', {
-            url: "/athleteprofile",
+            url: "/profile/player",
             templateUrl: tempateURL,
             controller: 'AthleteProfileCtrl'
         })
         .state('athleteprofile', {
-            url: "/athleteprofile/:name",
+            url: "/profile/player/:tab",
             templateUrl: tempateURL,
             controller: 'AthleteProfileCtrl',
             reloadOnSearch: false
         })
         .state('schoolprofile-without', {
-            url: "/schoolprofile",
+            url: "/profile/school",
             templateUrl: tempateURL,
             controller: 'SchoolProfileCtrl'
         })
         .state('schoolprofile', {
-            url: "/schoolprofile/:name",
+            url: "/profile/school/:tab",
             templateUrl: tempateURL,
             controller: 'SchoolProfileCtrl',
             reloadOnSearch: false
         })
         .state('schoollanding', {
-            url: "/schoollanding",
+            url: "/search/school",
             templateUrl: tempateURL,
             controller: 'SchoolLandingCtrl',
             reloadOnSearch: false
         })
         .state('athletelanding-without', {
-            url: "/athletelanding",
+            url: "/search/player",
             templateUrl: tempateURL,
             controller: 'AthleteLandingCtrl',
             reloadOnSearch: false
         })
         .state('athletelanding', {
-            url: "/athletelanding/:name",
+            url: "/search/player/:name",
             templateUrl: tempateURL,
             controller: 'AthleteLandingCtrl',
             reloadOnSearch: false
         })
         .state('teamlanding', {
-            url: "/teamlanding",
+            url: "/search/team",
             templateUrl: tempateURL,
             controller: 'TeamLandingCtrl',
             reloadOnSearch: false
@@ -176,3 +177,17 @@ myApp.config(function ($translateProvider) {
     $translateProvider.translations('hi', LanguageHindi);
     $translateProvider.preferredLanguage('en');
 });
+
+// FOR Chart.js
+myApp.config(['ChartJsProvider', function (ChartJsProvider) {
+  // Configure all charts
+  ChartJsProvider.setOptions({
+    responsive: true
+  });
+  // Configure all doughnut charts
+  ChartJsProvider.setOptions('doughnut', {
+    chartColors: ['#0edb87', '#0edb87', '#0edb87', '#0edb87', '#0edb87', '#0edb87', '#0edb87'],
+    hoverBackgroundColor: ['#0edb87', '#0edb87', '#0edb87', '#0edb87', '#0edb87', '#0edb87', '#0edb87'],
+    showLines: false
+  });
+}])

@@ -40,6 +40,8 @@ module.exports = [
   'bower_components/angular-marquee/src/marquee.js',
   'bower_components/angular-svg-round-progressbar/build/roundProgress.min.js',
   'bower_components/ngInfiniteScroll/build/ng-infinite-scroll.min.js',
+  'bower_components/chart.js/dist/Chart.min.js',
+  'bower_components/angular-chart.js/dist/angular-chart.min.js',
 
   //App.js
   'frontend/js/app.js',

@@ -31,7 +31,15 @@
   .school-navigation ul li {
     padding: 5px 5px;
     font-size: 12px;
-  } // **************END NAVIGATION*****************
+  }
+  .schoolnav-mobscroll{
+    width: 100%;
+    overflow-y: auto;
+    .list-inline{
+      white-space: nowrap;
+    }
+  }
+  // **************END NAVIGATION*****************
   // **************SCHOOL PROFILE CARD******************
   .schoolprofilecard-medallist {
     .list-inline>li {
@@ -98,7 +106,57 @@
   // SUMMARY TABLE
   .school-yearsummaryimg {
     margin-left: 72px;
-  } // END SUMMARY TABLE
+  }
+  .statistics-filter{
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
+  .statistics-performance-graph {
+    width: 60%;
+    margin: 0 auto 20px;
+    display: block;
+  }
+  .statistics-performancecard{
+    width: auto;
+    max-width: initial;
+    display: block;
+    .trophyholder{
+      width: 36px;
+    }
+  }
+  .statistics-medalwon{
+    text-align: left;
+  }
+  .statistics-performancemedal{
+    padding: 0px 10px;
+  }
+  .profile-bigmedals{
+    width: 20px;
+  }
+  .statistics-medalno{
+    font-size: 48px;
+    letter-spacing: 1px;
+  }
+  .statistics-medalcontent{
+    font-size: 12px;
+    .statistics-medalno-total{
+      font-size: 21px;
+    }
+  }
+  .sportreport-rankcardcontent {
+    .statistics-school{
+      font-size: 12px;
+    }
+    .statistics-schoolrank{
+      font-size: 36px;
+      letter-spacing: 1px;
+    }
+    .statistics-schooltotal {
+      font-size: 24px;
+      letter-spacing: 1px;
+    }
+  }
+  // END SUMMARY TABLE
   // SPORT TABLE SECTION
   .schoolprofile-teamsportlistcard {
     text-align: center;

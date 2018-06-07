@@ -168,7 +168,7 @@ myApp.controller('AthleteProfileCtrl', function ($scope, $state, $stateParams, T
     };
     $scope.viewTab = 1;
     // DIRECT LINK
-    switch($state.params.name){
+    switch($state.params.tab){
       case "highlights":
         $scope.athleteprofile.innerView = allAthleteProfile[0];
         $scope.athleteprofile.active = "highlights";
@@ -234,7 +234,7 @@ myApp.controller('AthleteProfileCtrl', function ($scope, $state, $stateParams, T
         break;
       }
       $state.go("athleteprofile",{
-        name: url
+        tab: url
       },{
         notify: false
       })

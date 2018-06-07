@@ -14,7 +14,7 @@ myApp.controller('EventLinkCtrl', function ($scope, TemplateService, NavigationS
   $scope.form.type = '';
   $scope.form.keyword = '';
   $scope.crudService = crudService;
-  var url = 'EventLink';
+  var url = 'LiveEvent';
   var state = 'eventlink';
   // VARIABLES END
   // VARIABLES END
@@ -52,7 +52,7 @@ myApp.controller('EventLinkCtrl', function ($scope, TemplateService, NavigationS
   // SAVE EVENT LINK END
   // DELETE EVENT LINK END
   $scope.deleteEntry = function(data){
-    var delUrl = "EventLink/delete";
+    var delUrl = "LiveEvent/delete";
     crudService.confirmDelete(data, delUrl, $scope);
   }
   // DELETE EVENT LINK END
@@ -60,7 +60,7 @@ myApp.controller('EventLinkCtrl', function ($scope, TemplateService, NavigationS
   // API
   // GET DATA
   $scope.search = function(){
-    $scope.url = 'EventLink/search';
+    $scope.url = 'LiveEvent/search';
     $scope.form.page = $scope.form.page++;
     $scope.form.filter = {}
     NavigationService.apiCall($scope.url, $scope.form, function(data){

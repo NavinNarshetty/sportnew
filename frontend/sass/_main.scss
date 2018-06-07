@@ -397,6 +397,47 @@ a {
 }
 
 // END SWIPER
+// SELECT FILTER
+.sfa-filter-select {
+    position: relative;
+    background-color: transparent;
+    color: $dark-grey;
+    font-size: 24px;
+    &:after {
+        content: '\f0d7';
+        height: 100%;
+        padding: 0 5px;
+        border-left: 2px solid $grey;
+        color: $grey;
+        font: normal normal normal 14px/1 FontAwesome;
+        display: -webkit-flex;
+        display: -ms-flex;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        position: absolute;
+        top: 50%;
+        right: 0px;
+        z-index: -1;
+        @include transform(translateY(-50%));
+    }
+    .select {
+        height: initial;
+        padding: 5px 10px;
+        padding-right: 30px;
+        border: 2px solid $grey;
+        background-color: transparent;
+        line-height: 1;
+        text-transform: uppercase;
+        @include appearance(none);
+        option {
+            font-size: 14px;
+            color: #000;
+        }
+    }
+}
+// SELECT FILTER END
 .cardheader-green {
   padding: 10px;
   background-color: $green-graph;
@@ -444,6 +485,7 @@ a {
   }
   .progress-bar {
     position: relative;
+    box-shadow: none;
     background-color: $green-graph;
   }
   .progress-hovertip {
@@ -470,6 +512,12 @@ a {
       background-color: $green-graph;
       @include transform(translateX(-50%));
     }
+  }
+}
+
+.point-list{
+  .list-inline{
+    margin: 0;
   }
 }
 
@@ -818,7 +866,7 @@ a {
 
 .athletepic-check {
   position: absolute;
-  left: 35px;
+  left: 30px;
   bottom: 5px;
   width: 25px;
   height: 25px;
@@ -1061,6 +1109,7 @@ a {
       vertical-align: middle;
       background-color: $brand-primary;
     }
+
     >tbody>tr>td {
       padding: 10px 8px;
       border-top: none;
@@ -1071,6 +1120,11 @@ a {
 .highlight-sportranking-tableoverlay {
   padding: 15px 10px;
   background-color: rgba(0, 0, 0, 0.5);
+}
+
+.table-medalimage{
+  width: 20px;
+  margin: 5px auto;
 }
 
 .atheletehighlight-sportgallery {

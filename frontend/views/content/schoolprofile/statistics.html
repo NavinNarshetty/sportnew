@@ -1,6 +1,5 @@
 <div class="schoolprofile-statistics">
   <div class="container">
-
     <!--SPORT REPORT SECTION-->
     <div class="schoolsport-reportsection">
       <!--Report head-->
@@ -8,35 +7,39 @@
         <div class="statistics-introhead">
           <div class="inline-block v-bottom">
             <div class="schoolstatistics-reporthead text-uppercase pull-left">
-              <h2 class="m-clear color-primary fjalla-one">sport report</h2>
+              <h2 class="m-clear color-primary fjalla-one">Sports Report</h2>
             </div>
           </div>
           <div class="inline-block">
-            <div class="schoolstatistics-reportyear">
-              <p class="m-clear">2017</p>
+            <div class="sfa-filter-select statistics-filter">
+              <select name="statsFilter" id="statsFilter" class="select form-control" ng-model="formHeader.year" ng-change="getStatsSchool();">
+                <option value="{{year}}" ng-repeat="year in years track by $index">{{year}}</option>
+              </select>
             </div>
           </div>
         </div>
         <div class="statistics-intro">
-          <p>At Sports For All, we monitor the overall sporting culture of every school that participates with us. Thi statistical report is a tool you can use to leverage your school's strengths and address its weaknesses in the various aspects of sport.</p>
+          <p>At Sports For All, we monitor the overall sporting culture of every school that participates with us. This statistical report is a tool you can use to leverage your school's strengths and address its weaknesses in the various aspects of sport.</p>
         </div>
       </div>
       <!--end Report Head-->
-
+      <div class="schoolstatistics-reportyear">
+        {{schoolStats.year}}
+      </div>
       <!--Statistics-Card-->
       <div class="row">
         <!--RankCard-->
-        <div class="col-md-3 col-sm-3 col-xs-12">
+        <div class="col-md-4 col-sm-4 col-xs-12">
           <div class="sportreport-schoolrankcard">
             <div class="inline-block v-mid">
               <div class="sportreport-imagetrophy">
-                <img src="img/trophy-small.png" class="img-responsive">
+                <img src="img/trophy-small.png" alt="Ranks | Sports For All" class="img-responsive">
               </div>
             </div>
             <div class="inline-block v-mid">
               <div class="sportreport-rankcardcontent text-uppercase">
                 <p class="m-clear statistics-school">School Rank</p>
-                <p class="m-clear color-primary lh1"> <span class="statistics-schoolrank">19</span><span class="statistics-schooltotal">/652</span></p>
+                <p class="m-clear color-primary lh1"> <span class="statistics-schoolrank">{{schoolStats.schoolRank}}</span><span class="statistics-schooltotal">/{{schoolStats.totalSchoolCount}}</span></p>
               </div>
             </div>
           </div>
@@ -46,10 +49,12 @@
         <div class="col-md-4 col-sm-4 col-xs-12">
           <div class="sportreport-totalathletescard">
             <div class="sportreport-totalathletecircle inline-block v-mid">
+              <round-progress max="100" current="schoolStats.contingent.malePercent" color="#00aaff" bgcolor="#ffad25" radius="20" stroke="5" semi="false" rounded="false" clockwise="false" responsive="true" duration="1000" animation="easeInOutQuart" animation-delay="0"></round-progress>
+              <!-- {{schoolStats.contingent.malePercent}} - {{schoolStats.contingent.femalePercent}} -->
               <div class="sportreport-totalathletecirclecontent text-uppercase">
-                <p class="m-clear">Total</p>
-                <p class="m-clear">Athletes</p>
-                <p class="m-clear report-circleno">321</p>
+                <p class="m-clear lh1">Total</p>
+                <p class="m-clear lh1">Athletes</p>
+                <p class="m-clear report-circleno teko-semibold">{{schoolStats.contingent.totalStrength}}</p>
               </div>
             </div>
             <div class="inline-block v-mid">
@@ -57,51 +62,46 @@
                 <ul class="list-inline m-clear">
                   <li class="v-mid">
                     <div class="sportreport-gendermale ">
-                      <img ng-src="{{'male' | gendericon:'small'}}" alt="" class="img-responsive">
+                      <img ng-src="{{'male' | gendericon:'small'}}" alt="Male Contingent | Sports For All" class="img-responsive">
                     </div>
                   </li>
                   <li class="sportreport-gendermaleno v-mid">
-                    <span>991</span>
+                    <span>{{schoolStats.contingent.maleCount}}</span>
                   </li>
                   <li class="v-mid">
                     <div class="sportreport-genderfemale">
-                      <img ng-src="{{'female' | gendericon:'small'}}" alt="" class="img-responsive">
+                      <img ng-src="{{'female' | gendericon:'small'}}" alt="Female Contingent | Sports For All" class="img-responsive">
                     </div>
                   </li>
                   <li class="sportreport-genderfemaleno v-mid">
-                    <span>992</span>
+                    <span>{{schoolStats.contingent.femaleCount}}</span>
                   </li>
                 </ul>
                 <div class="text-uppercase genderratio-values">
-                  <p class="m-clear"> <span>Gender Ratio</span> <span class="color-primary">3</span> : <span class="color-primary">2</span></p>
+                  <p class="m-clear"> <span>Gender Ratio</span> <span class="color-primary opensans-semibold">{{schoolStats.contingent.genderRatio}}</span></p>
                 </div>
               </div>
             </div>
-
           </div>
         </div>
         <!--End GenderRatio-->
-
         <!--25sport circle-->
-        <div class="col-md-5 col-sm-5 col-xs-12">
+        <div class="col-md-4 col-sm-4 col-xs-12">
           <div class="sportcicle25">
+            <canvas id="doughnut" class="chart chart-doughnut" chart-data="medalDonut.data" chart-labels="medalDonut.labels" chart-options="medalDonut.options" chart-colors="donutColors"></canvas>
             <div class="high25">
-              <p class="m-clear">Medals Won</p>
-              <p class="m-clear">300</p>
+              <p class="m-clear text-uppercase">Medals Won</p>
+              <p class="m-clear color-primary teko-semibold count">{{schoolStats.medalsTally.totalCount}}</p>
             </div>
-
           </div>
         </div>
         <!--end 25sportcircle-->
-
       </div>
       <!--Statistics-Card-End-->
     </div>
     <!--END SPORT REPORT SECTION-->
-
     <!--SPORT WISE SECTION-->
     <div class="sportwise-statisticssection">
-
       <!--Sport Wise head-->
       <div class="sportstatistics-sportwisehead">
         <h3 class="text-uppercase color-primary fjalla-one">
@@ -109,21 +109,19 @@
         </h3>
       </div>
       <!--Sport Wise head end-->
-
       <!--Sport wise card-->
       <div class="row">
-        <div class="col-md-4 col-sm-6 col-xs-12" ng-repeat="s in Sumsportstable track by $index">
-
+        <div class="col-md-4 col-sm-6 col-xs-12" ng-repeat="sport in schoolStats.sports | orderBy:'sportName' track by $index">
           <div class="sportwise-statisticscard relate">
             <div class="statistics-cardhead clearfix ">
               <div class="statisticscard-sporttitle inline-block">
-                <p class="m-clear text-uppercase">{{s.name}}</p>
+                <p class="m-clear text-uppercase">{{sport.sportName}}</p>
               </div>
               <div class="statisticscard-sportrank inline-block pull-right lh1">
                 <p class="m-clear"><span class="stats-yourrank">30</span><span class="stats-outofrank">/300</span></p>
               </div>
               <div class="statisticscard-sportimg absolute">
-                <img ng-src="{{s.name | sporticon:'icon'}}" alt="s.name" class="img-responsive">
+                <img ng-src="{{sport.sportName | sporticon:'icon'}}" alt="{{sport.sportName}} | Sports For All" class="img-responsive">
               </div>
             </div>
             <div class="statistics-cardcontent">
@@ -133,25 +131,25 @@
                     <tr class="sportstatistics-br">
                       <td>
                         <div class="sportwise-statisticstype">
-                          <p class="m-clear">{{s.played}}</p>
+                          <p class="m-clear">{{sport.played}}</p>
                           <span>Played</span>
                         </div>
                       </td>
                       <td>
                         <div class="sportwise-statisticstype">
-                          <p class="m-clear">{{s.won}}</p>
+                          <p class="m-clear">{{sport.winCount}}</p>
                           <span>Won</span>
                         </div>
                       </td>
                       <td>
                         <div class="sportwise-statisticstype">
-                          <p class="m-clear">{{s.lost}}</p>
-                          <span>LOst</span>
+                          <p class="m-clear">{{sport.looseCount}}</p>
+                          <span>Lost</span>
                         </div>
                       </td>
-                      <td>
+                      <td ng-if="sport.drawCount && sport.drawCount>0">
                         <div class="sportwise-statisticstype">
-                          <p class="m-clear">{{s.draw}}</p>
+                          <p class="m-clear">{{sport.drawCount}}</p>
                           <span>Draw</span>
                         </div>
                       </td>
@@ -160,39 +158,29 @@
                 </table>
               </div>
               <div class="statistics-contingentstrength">
-                <p class="m-clear text-uppercase">Contingent Strength : {{s.strength}}</p>
+                <p class="m-clear text-uppercase">Contingent Strength : {{sport.totalStrength}}</p>
                 <div class="progress progress-statistics">
-                  <div class="progress-bar male-statistics" role="progressbar" style="width:{{s.male}}%">
-                    <!--<span class="statistics-progresgendermale">
-                    <span class="male-statisticsimg"><img ng-src="{{'male' | gendericon:'progress'}}" alt="" class="img-responsive"></span>
-                  <span class="male-statisticsnumber">200</span>
-                  </span>-->
+                  <div class="progress-bar male-statistics" role="progressbar" style="width:{{sport.malePercent}}%" title="Male Count: {{sport.maleCount}}">
                     <ul class="list-inline pull-right m-clear">
                       <li class="v-mid p-clear male-statisticsimg">
-                        <img ng-src="{{'male' | gendericon:'progress'}}" alt="" class="img-responsive" width="12px">
+                        <img ng-src="{{'male' | gendericon:'progress'}}" alt="Male Strength" class="img-responsive" width="12px">
                       </li>
                       <li class="p-clear male-statisticsnumber v-mid">
-                        <span>200</span>
+                        <span>{{sport.maleCount}}</span>
                       </li>
                     </ul>
                   </div>
-                  <div class="progress-bar female-statistics" role="progressbar" style="width:{{s.female}}%">
-                    <!--<span class="statistics-progresgenderfemale">
-                    <span class="female-statisticsimg"><img src="img/sf-girl-blue.png" alt=""></span>
-                  <span class="female-statisticsnumber">200</span>
-                  </span>-->
+                  <div class="progress-bar female-statistics" role="progressbar" style="width:{{sport.femalePercent}}%" title="Female Count: {{sport.femaleCount}}">
                     <ul class="list-inline pull-left m-clear">
                       <li class="v-mid female-statisticsimg">
-                        <img ng-src="{{'female' | gendericon:'progress'}}" alt="" class="img-responsive" width="12px">
+                        <img ng-src="{{'female' | gendericon:'progress'}}" alt="Female Strength" class="img-responsive" width="12px">
                       </li>
                       <li class="p-clear female-statisticsnumber v-mid">
-                        <span>200</span>
+                        <span>{{sport.femaleCount}}</span>
                       </li>
                     </ul>
                   </div>
                 </div>
-
-
               </div>
               <div class="statistics-medalwon">
                 <p class="m-clear text-uppercase">Medal Won</p>
@@ -200,9 +188,8 @@
                   <ul class="list-inline">
                     <li>
                       <div class="inline-block">
-
                         <div class="profile-bluemedals">
-                          <img ng-src="{{'gold' | medalicon:'blue'}}" alt="" class="img-responsive">
+                          <img ng-src="{{'gold' | medalicon:'blue'}}" alt="Gold Medals" class="img-responsive">
                         </div>
                       </div>
                       <div class="inline-block text-center">
@@ -212,9 +199,8 @@
                     </li>
                     <li>
                       <div class="inline-block">
-
                         <div class="profile-bluemedals">
-                          <img ng-src="{{'silver' | medalicon:'blue'}}" alt="" class="img-responsive">
+                          <img ng-src="{{'silver' | medalicon:'blue'}}" alt="Silver Medals" class="img-responsive">
                         </div>
                       </div>
                       <div class="inline-block text-center">
@@ -224,9 +210,8 @@
                     </li>
                     <li>
                       <div class="inline-block">
-
                         <div class="profile-bluemedals">
-                          <img ng-src="{{'bronze' | medalicon:'blue'}}" alt="" class="img-responsive">
+                          <img ng-src="{{'bronze' | medalicon:'blue'}}" alt="Bronze Medals" class="img-responsive">
                         </div>
                       </div>
                       <div class="inline-block text-center">
@@ -235,25 +220,22 @@
                       </div>
                     </li>
                   </ul>
-                  <!--<div class="statistics-noshow">
-                    <p class="m-clear text-uppercase">no show</p>
-                  </div>-->
-                  <div class="progressbar-holder">
-
+                  <div class="progressbar-holder" >
+                    <div class="statistics-noshow">
+                      <p class="m-clear text-uppercase">no show</p>
+                    </div>
                     <div class="progress">
-                      <div class="progress-bar stats-noshowbar" role="progressbar" style="width:60%">
-
-                        <span class="progress-hovertip">60%</span>
+                      <div class="progress-bar stats-noshowbar" role="progressbar" style="width:{{sport.noShowPercent}}%">
+                        <span class="progress-hovertip">{{sport.noShowPercent}} %</span>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="inline-block statistics-winpercentagewidth v-top">
-                  <round-progress max="100" current="60" color="#0eda85" bgcolor="#f5f5f5" radius="20" stroke="5" semi="false" rounded="false" clockwise="false" responsive="true" duration="1000" animation="easeInOutQuart" animation-delay="0"></round-progress>
+                <div class="inline-block statistics-winpercentagewidth v-top" ng-if="sport.winPercent && sport.winPercent > 30">
+                  <round-progress max="100" current="sport.winPercent" color="#0eda85" bgcolor="#f5f5f5" radius="20" stroke="5" semi="false" rounded="false" clockwise="false" responsive="true" duration="1000" animation="easeInOutQuart" animation-delay="0"></round-progress>
                   <div class="statistics-winpercentage">
-                    <p class="m-clear">win</p>
-                    <p class="m-clear">27%</p>
-
+                    <p class="m-clear text-uppercase">win</p>
+                    <p class="m-clear no">{{sport.winPercent}}<span class="small-p">%</span></p>
                   </div>
                 </div>
               </div>
@@ -262,121 +244,119 @@
         </div>
       </div>
       <!--End sport wise card-->
-
-
-
       <!--DID NOT PARTICIPATE-->
       <div class="statistics-didnotparticipate">
         <div class="statistics-notparticipatehead">
           <h4 class="text-uppercase color-primary">Did not participate in</h4>
-          <p class="m-clear">Throwball, Hockey, Kho Kho, Kabaddi, Football, Badminton, Squash, Boxing, Sport MMA, Archery, Swimming, Waterpolo,
-            Carrom
-          </p>
+          <p class="m-clear"> <span class="statistics-nosport" ng-repeat="sport in schoolStats.contingent.nonParticipatedSport track by $index">{{sport}}<span class="seperator">, </span></span></p>
         </div>
       </div>
       <!--END PARTICIPATE-->
-
     </div>
     <!--END SPORT WISE SECTION-->
-
-
-
     <!--PERFORMANCE SUMMARY SECTION-->
     <div class="statistics-performancesummary">
       <div class="statistics-performancesummaryhead">
         <h3 class="m-clear text-uppercase color-primary fjalla-one">PERFORMANCE SUMMARY</h3>
       </div>
-      <div class="statistics-performancemedal">
-        <ul class="list-inline m-clear">
-          <li class="v-mid">
-            <div class="inline-block profile-bigmedals">
-              <img ng-src="{{'gold' | medalicon:'big'}}" alt="" class="img-responsive">
+      <div class="statistics-performancecard-holder">
+        <!-- PERFORMANCE GRAPHS -->
+        <div class="statistics-performance-graph">
+            <round-progress max="100" current="schoolStats.contingent.winPercent" color="#0eda85" bgcolor="#f5f5f5" radius="20" stroke="5" semi="false" rounded="false" clockwise="false" responsive="true" duration="1000" animation="easeInOutQuart" animation-delay="0"></round-progress>
+            <div class="statistics-performance-graphtext">
+              <p class="m-clear lh1 text-uppercase">Win</p>
+              <p class="m-clear lh1 color-primary teko-semibold statistics-performance-graphno">{{schoolStats.contingent.winPercent}} %</p>
             </div>
-            <div class="inline-block">
-              <p class="m-clear statistics-medalno">1234</p>
-            </div>
-            <div class="inline-block">
-              <div class="statistics-medalcontent text-uppercase">
-                <p class="m-clear">GOLD</p>
-                <p class="m-clear">OUT OF</p>
-                <p class="m-clear">1528</p>
-              </div>
-
-            </div>
-
-          </li>
-          <li class="v-mid">
-            <div class="inline-block profile-bigmedals">
-              <img ng-src="{{'silver' | medalicon:'big'}}" alt="" class="img-responsive">
-            </div>
-            <div class="inline-block">
-              <p class="m-clear statistics-medalno">5678</p>
-            </div>
-            <div class="inline-block">
-              <div class="statistics-medalcontent text-uppercase">
-                <p class="m-clear ">Silver</p>
-                <p class="m-clear">OUT OF</p>
-                <p class="m-clear">1528</p>
-              </div>
-
-            </div>
-
-          </li>
-          <li class="v-mid">
-            <div class="inline-block profile-bigmedals">
-              <img ng-src="{{'bronze' | medalicon:'big'}}" alt="" class="img-responsive">
-            </div>
-            <div class="inline-block">
-              <p class="m-clear statistics-medalno">9012</p>
-            </div>
-            <div class="inline-block">
-              <div class="statistics-medalcontent text-uppercase">
-                <p class="m-clear">Bronze</p>
-                <p class="m-clear">OUT OF</p>
-                <p class="m-clear">1528</p>
-              </div>
-
-            </div>
-
-          </li>
-          <li class="v-mid">
-            <div class="inline-block v-mid">
-              <img src="img/trophy-small.png" class="img-responsive">
-            </div>
-            <div class="sportreport-rankcardcontent inline-block lh1">
-              <p class="m-clear statistics-school">School Rank</p>
-              <p class="m-clear color-primary"> <span class="statistics-schoolrank">19</span> <span class="statistics-schoolslash">/</span> <span class="statistics-schooltotal">652</span></p>
-            </div>
-          </li>
-
-
-        </ul>
-      </div>
-      <div class="statistics-performancemedalpoints">
-        <ul class="list-inline text-uppercase">
-          <li>
-            <span>Gold</span><span>:</span> <span>5</span> <span>Points</span>
-          </li>
-          <li>
-            <span>Gold</span><span>:</span> <span>5</span> <span>Points</span>
-          </li>
-          <li>
-            <span>Gold</span><span>:</span> <span>5</span> <span>Points</span>
-          </li>
-          <li>
-            <span>Total</span><span>:</span> <span>5</span> <span>Points</span>
-          </li>
-          <li>
-            <span>No show</span><span>:</span> <span>5%</span>
-          </li>
-        </ul>
+        </div>
+        <!-- PERFORMANCE GRAPHS END -->
+        <!-- PERFORMANCE MEDAL STATS -->
+        <div class="statistics-performancecard">
+          <!-- MEDALS COUNT -->
+          <div class="statistics-performancemedal">
+            <ul class="list-inline m-clear">
+              <li class="v-mid">
+                <div class="inline-block profile-bigmedals">
+                  <img ng-src="{{'gold' | medalicon:'big'}}" alt="Gold Medals | Sports For All" class="img-responsive">
+                </div>
+                <div class="inline-block">
+                  <p class="m-clear statistics-medalno">{{schoolStats.medalsTally.medal.gold.count}}</p>
+                </div>
+                <div class="inline-block">
+                  <div class="statistics-medalcontent text-uppercase">
+                    <p class="m-clear">GOLD</p>
+                    <p class="m-clear">OUT OF</p>
+                    <p class="m-clear statistics-medalno-total">{{schoolStats.medalsTally.medal.gold.totalGold}}</p>
+                  </div>
+                </div>
+              </li>
+              <li class="v-mid">
+                <div class="inline-block profile-bigmedals">
+                  <img ng-src="{{'silver' | medalicon:'big'}}" alt="Silver Medals | Sports For All" class="img-responsive">
+                </div>
+                <div class="inline-block">
+                  <p class="m-clear statistics-medalno">{{schoolStats.medalsTally.medal.silver.count}}</p>
+                </div>
+                <div class="inline-block">
+                  <div class="statistics-medalcontent text-uppercase">
+                    <p class="m-clear ">Silver</p>
+                    <p class="m-clear">OUT OF</p>
+                    <p class="m-clear statistics-medalno-total">{{schoolStats.medalsTally.medal.silver.totalSilver}}</p>
+                  </div>
+                </div>
+              </li>
+              <li class="v-mid">
+                <div class="inline-block profile-bigmedals">
+                  <img ng-src="{{'bronze' | medalicon:'big'}}" alt="Bronze Medals | Sports For All" class="img-responsive">
+                </div>
+                <div class="inline-block">
+                  <p class="m-clear statistics-medalno">{{schoolStats.medalsTally.medal.bronze.count}}</p>
+                </div>
+                <div class="inline-block">
+                  <div class="statistics-medalcontent text-uppercase">
+                    <p class="m-clear">Bronze</p>
+                    <p class="m-clear">OUT OF</p>
+                    <p class="m-clear statistics-medalno-total">{{schoolStats.medalsTally.medal.bronze.totalBronze}}</p>
+                  </div>
+                </div>
+              </li>
+              <li class="v-mid">
+                <div class="inline-block v-mid trophyholder">
+                  <img src="img/trophy-small.png" class="img-responsive" alt="School Rank | Sports For All">
+                </div>
+                <div class="sportreport-rankcardcontent inline-block lh1 v-mid">
+                  <p class="m-clear statistics-school">School Rank</p>
+                  <p class="m-clear color-primary"> <span class="statistics-schoolrank">{{schoolStats.schoolRank}}</span> <span class="statistics-schoolslash">/</span> <span class="statistics-schooltotal">{{schoolStats.totalSchoolCount}}</span></p>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <!-- MEDALS COUNT END -->
+          <!-- MEDAL POINTS -->
+          <div class="statistics-performancemedalpoints ">
+            <ul class="list-inline text-uppercase">
+              <li>
+                <span>Gold</span><span>:</span> <span>{{schoolStats.medalsTally.perMedalPoints.gold}}</span> <span>Points</span>
+              </li>
+              <li>
+                <span>Silver</span><span>:</span> <span>{{schoolStats.medalsTally.perMedalPoints.silver}}</span> <span>Points</span>
+              </li>
+              <li>
+                <span>Bronze</span><span>:</span> <span>{{schoolStats.medalsTally.perMedalPoints.bronze}}</span> <span>Points</span>
+              </li>
+              <li>
+                <span>Total</span><span>:</span> <span>{{schoolStats.medalsTally.totalPoints}}</span> <span>Points</span>
+              </li>
+              <li>
+                <span>No show</span><span>:</span> <span>10%</span>
+              </li>
+            </ul>
+          </div>
+          <!-- MEDAL POINTS END -->
+        </div>
+        <!-- PERFORMANCE MEDAL STATS END -->
       </div>
     </div>
     <!--END PERFORMANCE SUMMARY SECTION-->
-
-
-
-
     <!--PERFORMANCE SECTION-->
     <div class="schooltop-performancesection">
       <div class="statistics-topperformance">
@@ -393,11 +373,11 @@
             </tr>
           </thead>
           <tbody>
-            <tr ng-repeat="s in topTable track by $index">
-              <td>{{s.schoolName}} </td>
-              <td> {{s.criteria}}</td>
-              <td> {{s.tperf}} </td>
-              <td> {{s.yperf}} </td>
+            <tr ng-repeat="school in schoolStats.performance track by $index">
+              <td>{{school.topSchoolName}} </td>
+              <td> {{school.criteria}}</td>
+              <td> {{school.topPerformance}} </td>
+              <td> {{school.myPerformance}} </td>
             </tr>
           </tbody>
         </table>

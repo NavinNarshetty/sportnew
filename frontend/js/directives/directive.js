@@ -156,7 +156,7 @@ myApp.directive('img', function ($compile, $parse) {
         return {
             restrict: 'E',
             scope: {
-                'school': '=',
+                'school': '=school',
                 'stats': '=stats',
                 'contigent': '=contigent',
                 'trophy': '=trophy'
@@ -167,6 +167,7 @@ myApp.directive('img', function ($compile, $parse) {
               scope.school.type='school';
               scope.noWinPercent = false;
               // console.log("school in card", scope.school);
+              // CHECK FOR MEDALS
               if (scope.school.medal) {
                 if(!scope.school.medal.gold || !scope.school.medal.silver || !scope.school.medal.bronze){
                   scope.noMedal = true;
@@ -187,10 +188,12 @@ myApp.directive('img', function ($compile, $parse) {
               } else {
                 scope.noMedal = true;
               }
-
+              // CHECK FOR MEDALS END
+              // CHECK FOR WIN PERCENT
               if (!scope.school.winPercent) {
                 scope.noWinPercent = true;
               }
+              // CHECK FOR WIN PERCENT END
             }
         }
     })

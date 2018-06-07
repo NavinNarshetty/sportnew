@@ -1,143 +1,131 @@
 <div class="schoolprofile-page">
     <!--School-head-->
     <div class="school-head">
-        <div class="container">
-
-            <div class="schoolprofilecard-holder">
-                <div class="schoolprofilecard schoolprofile-school">
-                    <div class="inline-block v-top schoolpicholder relate">
-                        <span class="schoolpic-check"><i class="fa fa-check"></i></span>
-                        <div class="school-image profile-imgholder">
-                            <img src="img/dishapatani1.jpg" class="img-responsive">
-                        </div>
-                    </div>
-                    <div class="inline-block schooldetail-holder">
-                        <div class="schoolprofilecard-head">
-                            <h3 class="color-primary">Dr. Sarvepalli Radhakrishnan Hindi Secondary School ( Andheri )</h3>
-                        </div>
-                        <div class="scoolprofilecard-details ">
-                            <p><span>SFA ID</span>:<span>23450</span> | <span>SFA Championship</span> : <span>2017</span></p>
-                            <p><span>SFA Rank</span>:<span>23450</span> | <span>Contigent</span> : <span>250 Athletes</span>                                <span>(<span class="mr5">M 150</span><span>F 150</span>)</span>
-                            </p>
-
-                        </div>
-                        <div class="schoolsports-played ">
-                            <p class="m-clear">Sports Played :11</p>
-                        </div>
-                        <div class="school-achievments ">
-                            <div class=" inline-block v-top mobileschoolheader-progressbar">
-                                <div class="school-total">
-                                    <div class="hidden-xs">
-                                        <p><span>Total Matches</span>: <span>11</span> | <span>Won</span> : <span>80</span>                                            |
-                                            <span>Lost</span>:
-                                            <span>80</span></p>
-                                    </div>
-
-                                    <div class="progressbar-holder">
-                                        <div class="progress">
-                                            <div class="progress-bar stats-noshowbar" role="progressbar" style="width:60%">
-                                                <span class="progress-hovertip">Won <span>60%</span></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="inline-block v-top">
-                                <div class=" school-medals">
-                                    <ul class="list-inline">
-                                        <li>
-                                            <div class="inline-block">
-                                                <div class="profile-bluemedals ">
-                                                    <img ng-src="{{'gold' | medalicon:'blue'}}" alt="" class="img-responsive">
-                                                </div>
-                                            </div>
-                                            <div class="inline-block text-center lh1">
-                                                <p class="m-clear color-primary">999</p>
-                                                <p class="m-clear">Gold</p>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="inline-block">
-                                                <div class="profile-bluemedals ">
-                                                    <img ng-src="{{'silver' | medalicon:'blue'}}" alt="" class="img-responsive">
-                                                </div>
-                                            </div>
-                                            <div class="inline-block text-center lh1">
-                                                <p class="m-clear color-primary">999</p>
-                                                <p class="m-clear">Silver</p>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="inline-block">
-                                                <div class="profile-bluemedals ">
-                                                    <img ng-src="{{'bronze' | medalicon:'blue'}}" alt="" class="img-responsive">
-                                                </div>
-                                            </div>
-                                            <div class="inline-block text-center lh1">
-                                                <p class="m-clear color-primary">999</p>
-                                                <p class="m-clear">Bronze</p>
-                                            </div>
-                                        </li>
-
-
-
-
-                                    </ul>
-                                </div>
-
-                            </div>
-
-
-
-
-                        </div>
-
-                    </div>
-
-
-
-                </div>
-
+      <div class="container">
+        <div class="schoolprofilecard-holder">
+          <div class="schoolprofilecard schoolprofile-school">
+            <div class="inline-block v-top schoolpicholder relate">
+              <span class="schoolpic-check" ng-class="{'active': profile.flag == '1'}"><i class="fa fa-check"></i></span>
+              <div class="school-image profile-imgholder" ng-class="{'bg-school-icon': !school.schoolLogo}">
+                <img ng-src="{{school.schoolLogo|serverimage}}" class="img-responsive m-auto" ng-if="school.schoolLogo">
+              </div>
             </div>
-
+            <div class="inline-block schooldetail-holder">
+              <div class="schoolprofilecard-head">
+                <h3 class="color-primary">{{profile.schoolName}}</h3>
+              </div>
+              <div class="scoolprofilecard-details ">
+                <p class="m-clear">
+                  <span ng-if="profile.sfaID"><span>SFA ID</span>:<span> {{profile.sfaID}}</span></span>
+                  <span ng-if="profile.eventYear && profile.sfaID">|</span>
+                  <span ng-if="profile.eventYear"><span>SFA Championship</span> : <span>{{profile.eventYear}}</span></span>
+                </p>
+                <p>
+                  <span ng-if="profile.rank"><span>SFA Rank</span>: <span>{{profile.rank}}</span></span>
+                  <span ng-if="profile.rank && profile.totalStrength">|</span>
+                  <span>Contigent</span>: <span>{{profile.totalStrength}} Athletes</span>
+                  <span>(
+                    <span class="mr5" ng-if="profile.maleCount">M {{profile.maleCount}}</span>
+                    <span ng-if="profile.femaleCount">F {{profile.femaleCount}}</span>
+                  )</span>
+                </p>
+              </div>
+              <div class="schoolsports-played ">
+                <p class="m-clear">Sports Played: {{profile.sportParticipationCount}}</p>
+              </div>
+              <div class="school-achievments ">
+                <!-- MATCH COUNTS -->
+                <div class=" inline-block v-top mobileschoolheader-progressbar">
+                  <div class="school-total">
+                    <div class="hidden-xs">
+                      <p ng-if="profile.totalMatches > 0">
+                        <span>Total Matches</span>: <span>{{profile.totalMatches}}</span>
+                        |
+                        <span>Won</span>: <span>{{profile.winCount}}</span>
+                        |
+                        <span>Lost</span>: <span>{{profile.looseCount}}</span>
+                      </p>
+                    </div>
+                    <div class="progressbar-holder" ng-if="profile.winPercent && profile.winPercent > 30">
+                      <div class="progress">
+                        <div class="progress-bar stats-noshowbar" role="progressbar" style="width: {{profile.winPercent}}%">
+                          <span class="progress-hovertip">Won <span>{{profile.winPercent}}%</span></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- MATCH COUNTS END -->
+                <!-- MEDAL HOLDER -->
+                <div class="inline-block v-top" ng-if="!noMedal">
+                  <div class=" school-medals">
+                    <ul class="list-inline">
+                      <li>
+                        <div class="inline-block">
+                          <div class="profile-bluemedals ">
+                            <img ng-src="{{'gold' | medalicon:'blue'}}" alt="Gold Medals" class="img-responsive">
+                          </div>
+                        </div>
+                        <div class="inline-block text-center lh1">
+                          <p class="m-clear color-primary">{{profile.medal.gold.count}}</p>                            <p class="m-clear">Gold</p>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="inline-block">
+                          <div class="profile-bluemedals ">
+                            <img ng-src="{{'silver' | medalicon:'blue'}}" alt="Silver Medals" class="img-responsive">
+                          </div>
+                        </div>
+                        <div class="inline-block text-center lh1">
+                          <p class="m-clear color-primary">{{profile.medal.silver.count}}</p>
+                          <p class="m-clear">Silver</p>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="inline-block">
+                          <div class="profile-bluemedals ">
+                            <img ng-src="{{'bronze' | medalicon:'blue'}}" alt="Bronze  Medals" class="img-responsive">
+                          </div>
+                        </div>
+                        <div class="inline-block text-center lh1">
+                          <p class="m-clear color-primary">{{profile.medal.bronze.count}}</p>
+                          <p class="m-clear">Bronze</p>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <!-- MEDAL HOLDER END -->
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
     <!--End School-head-->
 
     <!--School-nav-->
     <div class="school-navigation">
-        <div class="container-fluid">
-            <div class="">
-                <div class="row">
-                    <div class="col-md-12 col-sm-12 col-xs-12">
-                        <div class="text-uppercase">
-                            <ul class="list-inline">
-
-                                <li ng-click="getTab(0)" ng-class="{'active':schoolprofile.active=='highlights'}">
-                                    HIGHLIGHTS
-                                </li>
-                                <li ng-click="getTab(1)" ng-class="{'active':schoolprofile.active=='trackrecord'}">track record</li>
-                                <li ng-click="getTab(2)" ng-class="{'active':schoolprofile.active=='team'}">team</li>
-                                <li ng-click="getTab(3)" ng-class="{'active':schoolprofile.active=='statistics'}">statistics</li>
-                                <li ng-click="getTab(4)" ng-class="{'active':schoolprofile.active=='achievements'}">achievements</li>
-                                <li ng-click="getTab(5)" ng-class="{'active':schoolprofile.active=='video'}">video</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-
+      <div class="container-fluid">
+        <div class="schoolprofile-navcity">
+          <p class="m-clear">Ahmedabad</p>
         </div>
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="text-uppercase schoolnav-mobscroll ">
+              <ul class="list-inline">
+                <li ng-click="getTab(0)" ng-class="{'active':schoolprofile.active=='highlights'}"> Highlights </li>
+                <li ng-click="getTab(1)" ng-class="{'active':schoolprofile.active=='trackrecord'}"> Track Record </li>
+                <li ng-click="getTab(2)" ng-class="{'active':schoolprofile.active=='team'}"> Team </li>
+                <li ng-click="getTab(3)" ng-class="{'active':schoolprofile.active=='statistics'}"> Statistics </li>
+                <li ng-click="getTab(4)" ng-class="{'active':schoolprofile.active=='achievements'}"> Achievements </li>
+                <li ng-click="getTab(5)" ng-class="{'active':schoolprofile.active=='video'}"> Video </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <!--End School-nav-->
-
-    <div class="schoolprofile-content" ng-include="schoolprofile.innerView">
-
-    </div>
-
-
+    <div class="schoolprofile-content" ng-include="schoolprofile.innerView"></div>
 </div>

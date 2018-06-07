@@ -85,4 +85,6 @@ module.exports = [
   'frontend/js/controllers/pressarticle-controller.js',
   'frontend/js/controllers/aboutchampionship.js',
   'frontend/js/controllers/contactus.js',
+  'frontend/js/controllers/traininglanding.js',
+  'frontend/js/controllers/academyprofile.js',
 ];

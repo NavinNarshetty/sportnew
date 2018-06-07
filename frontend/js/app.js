@@ -166,6 +166,25 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
             url: "/results",
             templateUrl: tempateURL,
             controller: 'ResultsCtrl'
+        })
+        // ACADEMY PROFILE
+        .state('academyprofile-without', {
+            url: "/profile/academy",
+            templateUrl: tempateURL,
+            controller: 'AcademyProfileCtrl',
+            reloadOnSearch: false
+        })
+        .state('academyprofile', {
+            url: "/profile/academy/:tab",
+            templateUrl: tempateURL,
+            controller: 'AcademyProfileCtrl',
+            reloadOnSearch: false
+        })
+        // ACADEMY PROFILE END
+        .state('traininglanding',{
+          url: "/traininglanding",
+          templateUrl: tempateURL,
+          controller: "TrainingLandingCtrl"
         });
     $urlRouterProvider.otherwise("/");
     $locationProvider.html5Mode(isproduction);

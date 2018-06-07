@@ -2232,6 +2232,23 @@ $tickerDuration: 60s;
 }
 
 // CONTACT US PAGE END
+// ACADEMY PROFILE PAGE
+.academyprofile-nav {
+  border-top: 2px solid #b7b7b7;
+  position: relative;
+    text-align: center;
+  .academynav-option {
+    padding: 5px 10px;
+    margin: 5px;
+    font-size: 15px;
+    @extend .pointer;
+    &.active {
+      border-bottom: 3px solid $brand-success;
+      font-weight: 700;
+    }
+  }
+}
+// ACADEMY PROFILE PAGE END
 // ANIMATIONS
 // **************************************************************************
 // TICKER ANIMATION

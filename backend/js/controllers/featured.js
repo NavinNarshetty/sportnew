@@ -206,9 +206,25 @@ myApp.controller('detailFeaturedVideoCtrl', function ($scope, TemplateService, N
 
 
   // SAVE FUNCTION
-  var state = 'featuredvideo'
   $scope.saveData = function (data) {
-    crudService.saveData(data, url, state);
+    console.log("data in save", data);
+    $scope.url = "FeatureContent/saveVideoArchive";
+    NavigationService.apiCall($scope.url, data, function (data) {
+      console.log(data, "save data archive")
+      if (data.value) {
+        if (data.data.nModified === 1) {
+          toastr.success("Successfully Updated", 'Updated');
+          $state.go('featuredvideo')
+        } else {
+          toastr.success("Successfully Created", 'Saved');
+          $state.go('featuredvideo')
+        }
+
+      } else {
+        toastr.error("Something went Wrong", "Error");
+      }
+
+    })
   }
   // SAVE FUNCTION END
 

@@ -1,25 +1,25 @@
 myApp.factory('NavigationService', function ($http) {
     var navigation = [{
-        name: "Home",
-        classis: "active",
-        anchor: "home",
-        subnav: [{
-            name: "Subnav1",
+            name: "Home",
             classis: "active",
-            anchor: "home"
-        }]
-    }, {
-        name: "Form",
-        classis: "active",
-        anchor: "form",
-        subnav: []
-    },
-    {
-        name: "Grid",
-        classis: "active",
-        anchor: "grid",
-        subnav: []
-    }
+            anchor: "home",
+            subnav: [{
+                name: "Subnav1",
+                classis: "active",
+                anchor: "home"
+            }]
+        }, {
+            name: "Form",
+            classis: "active",
+            anchor: "form",
+            subnav: []
+        },
+        {
+            name: "Grid",
+            classis: "active",
+            anchor: "grid",
+            subnav: []
+        }
     ];
 
     return {
@@ -60,6 +60,37 @@ myApp.factory('NavigationService', function ($http) {
                 url: adminurl + url,
                 data: filter,
                 method: 'POST'
+            }).then(callback);
+        },
+        getSchoolByRanks: function (callback) {
+            $http({
+                url: adminurl + 'rank/getSchoolByRanks',
+                method: 'POST',
+            }).success(callback);
+        },
+        getAgeGroupsAndEvents: function (request, callback) {
+            $http({
+                url: adminurl + 'rank/getAgeGroupsAndEvents',
+                method: 'POST',
+                data: request
+            }).then(function (data) {
+                callback(data.data);
+            });
+        },
+        getMedalWinners: function (request, callback) {
+            $http({
+                url: adminurl + 'rank/getMedalWinners',
+                method: 'POST',
+                data: request
+            }).then(function (data) {
+                callback(data.data);
+            });
+        },
+        getSchoolBySport: function (formData, callback) {
+            $http({
+                url: adminurl + 'rank/getSchoolBySport',
+                method: 'POST',
+                data: formData
             }).then(callback);
         }
     };

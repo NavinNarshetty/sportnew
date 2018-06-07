@@ -341,14 +341,12 @@ $sport-primary: #0a1a72 !default;
 
 .schoolprofileimage-holder {
     width: 90px;
-    height: 90px;
-    // border: 5px solid #ddd;
+    height: 90px; // border: 5px solid #ddd;
     border-radius: 100%;
     margin: 0 auto;
     background-color: #ddd;
     background-position: 50% 50%;
-    background-repeat: no-repeat;
-    // background-size: contain;
+    background-repeat: no-repeat; // background-size: contain;
     overflow: hidden;
 }
 
@@ -1790,11 +1788,11 @@ $sport-primary: #0a1a72 !default;
 
 .featurevideo-sportplay {
     @extend .featurevideo-play;
-    width: 25px;
-    height: 25px;
+    width: 30px;
+    height: 30px;
     .fa-play {
         font-size: 14px;
-        line-height: 25px;
+        line-height: 30px;
     }
 }
 

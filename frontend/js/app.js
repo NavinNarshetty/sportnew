@@ -160,6 +160,11 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
             url: "/contactus",
             templateUrl: tempateURL,
             controller: 'ContactUsCtrl'
+        })
+        .state('results', {
+            url: "/results",
+            templateUrl: tempateURL,
+            controller: 'ResultsCtrl'
         });
     $urlRouterProvider.otherwise("/");
     $locationProvider.html5Mode(isproduction);

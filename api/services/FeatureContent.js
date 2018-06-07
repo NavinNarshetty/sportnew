@@ -9,7 +9,9 @@ var schema = new Schema({
     featuredContentVideo: [{
         source: 'String',
         link: 'String',
-        description: 'String'
+        description: 'String',
+        videoThumbnail: []
+
     }]
 });
 

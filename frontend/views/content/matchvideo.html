@@ -17,18 +17,19 @@
       <!-- FEATURED HEADER END -->
       <!-- FEATURED CARD -->
       <div class="row">
-        <div class="col-md-6 col-sm-6 col-xs-12" ng-repeat="feature in featured track by $index">
-          <div class="featurevideo-card" ng-repeat="card in feature .featuredCard track by $index">
+        <div class="col-md-6 col-sm-6 col-xs-12" ng-repeat="feature in finalFeature track by $index">
+          <div class="featurevideo-card" ng-repeat="card in feature track by $index">
+            <!-- <pre>{{card | json}}</pre> -->
             <div class="featurevideo-cardimage relate">
-              <a data-fancybox="group" href="{{card.link | linkvideo:card.type}}">
-                    <img ng-src="{{card.thumbnail}}" alt="video" class="img-responsive">
+              <a data-fancybox="group" href="{{card.link | linkvideo:card.source}}">
+                <img ng-src="{{card.videoThumbnail[4].link }}" alt="video" class="img-responsive">
               </a>
-              <div class="featurevideo-play">
+              <div class="featurevideo-sportplay">
                 <span class="fa fa-play"></span>
               </div>
             </div>
             <div class="featurevideo-subheader">
-              {{card.content}}
+              {{card.description}}
             </div>
           </div>
         </div>
@@ -65,7 +66,7 @@
             <div class="featurevideo-sportvideoholder">
               <div class="featurevideo-sportvideocard relate">
                 <a data-fancybox="group" href="{{sportcard.link | linkvideo:sportcard.type}}">
-                          <img ng-src="{{sportcard.thumbnail}}" alt="video" class="img-responsive">
+                  <img ng-src="{{sportcard.thumbnail}}" alt="video" class="img-responsive">
                 </a>
                 <div class="featurevideo-sportplay">
                   <span class="fa fa-play"></span>

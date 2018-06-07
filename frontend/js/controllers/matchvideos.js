@@ -3,6 +3,30 @@ myApp.controller('MatchVideoCtrl', function ($scope, $state, $stateParams, Templ
   TemplateService.title = "Match Video"; //This is the Title of the Website
   $scope.navigation = NavigationService.getNavigation();
 
+  // VARIABLES
+  $scope.formData = {};
+  $scope.formData.mediaType = {};
+  $scope.formData.mediaType.filter = 'video';
+  // VARIABLES END
+
+
+  $scope.getfeatureContent = function () {
+    $scope.url = 'FeatureContent/search';
+    NavigationService.search($scope.formData, $scope.url, function (data) {
+      console.log(data, "video data");
+      if (data.data.value) {
+        $scope.featureVideosData = data.data.data.results;
+        $scope.featureVideos = _.shuffle($scope.featureVideosData[0].featuredContentVideo);
+        $scope.featureVideos = _.take($scope.featureVideos, 6);
+        // console.log($scope.featureVideos, "after take")
+
+        $scope.finalFeature = _.chunk($scope.featureVideos, 3);
+        console.log($scope.finalFeature, "final array");
+      }
+    })
+  }
+
+  $scope.getfeatureContent();
 
   // FEATURED VIDEO JSON
   $scope.featured = [{

@@ -111,7 +111,7 @@
       <!--Sport Wise head end-->
       <!--Sport wise card-->
       <div class="row">
-        <div class="col-md-4 col-sm-6 col-xs-12" ng-repeat="sport in schoolStats.sports | orderBy:'sportName' track by $index">
+        <div class="col-md-4 col-sm-6 col-xs-12" ng-repeat="sport in schoolStats.sports | orderBy:'sportName'| limitTo:viewStatsSport track by $index">
           <div class="sportwise-statisticscard relate">
             <div class="statistics-cardhead clearfix ">
               <div class="statisticscard-sporttitle inline-block">
@@ -240,6 +240,13 @@
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+      <div class="row" ng-if="schoolStats.sports.length >= 6">
+        <div class="col-md-12">
+          <div class="schoollanding-viewall">
+            <a ng-click="viewMoreStats()">View <span ng-if="viewStatsSport==6">All Sports</span> <span ng-if="viewStatsSport != 6">Less</span></a>
           </div>
         </div>
       </div>

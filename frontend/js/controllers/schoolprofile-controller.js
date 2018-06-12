@@ -111,8 +111,17 @@ myApp.controller('SchoolProfileCtrl', function ($scope, $state, $stateParams, Te
     // *********************************************************
     // STATISTICS PAGE
     // VARIABLES
+    $scope.viewStatsSport = 6;
     // VARIABLES END
     // FUNCTIONS
+    $scope.viewMoreStats = function(){
+      if ($scope.viewStatsSport == 6) {
+        $scope.viewStatsSport = $scope.schoolStats.sports.length;
+      } else {
+        $scope.viewStatsSport = 6;
+        TemplateService.scrollTo('sportwise-statisticssection', 'class', 80);
+      }
+    }
     // FUNCTIONS END
     // API CALLS
     $scope.getStatsSchool = function(){

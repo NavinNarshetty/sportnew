@@ -17,6 +17,7 @@ var schema = new Schema({
         },
         sportName: String,
         totalStrength: Number,
+        played:Number,
         maleCount: Number,
         femaleCount: Number,
         noShowCount: Number
@@ -76,7 +77,7 @@ var model = {
         }else{
             callback("Invalid Params",null);
         }
-    } 
+    }
 
 };
 module.exports = _.assign(module.exports, exports, model);

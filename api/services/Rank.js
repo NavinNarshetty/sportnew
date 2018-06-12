@@ -65,12 +65,29 @@ module.exports = mongoose.model('Rank', schema);
 
 var exports = _.cloneDeep(require("sails-wohlig-service")(schema));
 var model = {
+
     sortingPriority: {
         "totalPoints": -1,
         "medal.gold.points": -1,
         "medal.silver.points": -1,
         "medal.bronze.points": -1,
         "totalMatches": -1
+    },
+
+    getOneRank: function (data,callback) {
+        var index = "NA";
+        Rank.find({
+            "eventId": data.eventId
+        }).sort(Rank.sortingPriority).exec(function (err, result) {
+            if (err || _.isEmpty(result)) {
+                index = "NA";
+            } else {
+                index = _.findIndex(result, data);
+                index = ((index == -1) ? "NA" : index + 1);
+            }
+            callback(null,index);
+        });
+        
     },
 
     // schoolList includes school name and its eventId
@@ -221,6 +238,7 @@ var model = {
     },
 
     getCityLanding: function (data, callback) {
+        console.log("sendObj",data);
         var sendObj = {};
         var schoolRanks = [];
         var landingCity = {};
@@ -418,7 +436,7 @@ var model = {
                             }
                         }
                         // console.log("matched school with total medals count--", lastIndex + 1);
-                        console.log("lastIndex",lastIndex);
+                        console.log("lastIndex", lastIndex);
                         if (lastIndex == 0) {
                             sendObj.maxMedalsWon = {
                                 "maxTotal": totalCountArr[0]
@@ -435,7 +453,7 @@ var model = {
                                 if (err) {
                                     callback(err, null);
                                 } else if (!_.isEmpty(reports)) {
-                                    console.log("reports",reports.length);
+                                    console.log("reports", reports.length);
                                     if (reports.length == 1) {
                                         var school = _.find(schoolsTotalCountSame, ['name', reports[0].schoolName])
                                         school.contingent = reports[0].totalStrength;
@@ -514,18 +532,18 @@ var model = {
             },
 
             // now Get sfaID of all schools medal won
-            function(callback){
-                _.each(sendObj.maxMedalsWon,function(n,i){
-                    if(n && n.name){
-                        n.schoolName=n.name;
+            function (callback) {
+                _.each(sendObj.maxMedalsWon, function (n, i) {
+                    if (n && n.name) {
+                        n.schoolName = n.name;
                         delete n.name;
                         delete n.sportData;
                         Registration.findOne({
-                            "schoolName":n.schoolName
-                        }).exec(function(err,result){
-                            if(err){
-                                callback(err,null);
-                            }else{
+                            "schoolName": n.schoolName
+                        }).exec(function (err, result) {
+                            if (err) {
+                                callback(err, null);
+                            } else if(!_.isEmpty(result)){
                                 n.sfaID = result.sfaID;
                                 n.schoolLogo = result.schoolLogo;
                             }
@@ -627,14 +645,14 @@ var model = {
                                     result = _.map(result, function (n) {
                                         // n.rank = _.find(schoolRanks, ['name', n.name]).rank;
                                         temp = _.find(_.cloneDeep(schoolRanks), ['name', n.name]);
-                                        
-                                        if(temp){
+
+                                        if (temp) {
                                             n.rank = temp.rank;
                                             n.schoolName = n.name;
-                                            n=_.omit(n,['sportData','medal','createdAt','createdAt','name']);
+                                            n = _.omit(n, ['sportData', 'medal', 'createdAt', 'createdAt', 'name']);
                                             return n;
-                                        }else{
-                                            console.log("n.name",n.name);
+                                        } else {
+                                            console.log("n.name", n.name);
                                         }
                                     });
                                     result = _.orderBy(result, ['totalParticipatedSport', 'contingent', 'rank'], ['desc', 'desc', 'desc']);
@@ -667,10 +685,10 @@ var model = {
                             var rank = _.find(_.cloneDeep(schoolRanks), ['name', n.schoolName]);
                             if (rank) {
                                 rank.winPercent = n.winPercent,
-                                rank.sfaID = n.sfaId,
-                                rank.schoolName = rank.name
+                                    rank.sfaID = n.sfaId,
+                                    rank.schoolName = rank.name
                             }
-                            rank = _.omit(rank,['sportData','medal','createdAt','createdAt','name']);
+                            rank = _.omit(rank, ['sportData', 'medal', 'createdAt', 'createdAt', 'name']);
                             return rank;
                         });
                         sendObj.maxWinPercentage = result;
@@ -686,9 +704,9 @@ var model = {
                 }).sort({
                     "totalStrength": -1
                 }).skip(0).limit(3).lean().exec(function (err, result) {
-                    if(err){
-                        callback(err,null);
-                    }else{
+                    if (err) {
+                        callback(err, null);
+                    } else {
                         result = _.map(result, function (n) {
                             var contingent = _.find(_.cloneDeep(schoolRanks), ['name', n.schoolName]);
                             if (contingent) {
@@ -698,10 +716,10 @@ var model = {
                                 contingent.schoolName = contingent.name;
                                 contingent.sfaID = n.sfaId;
                             }
-                            contingent = _.omit(contingent,['sportData','medal','createdAt','createdAt','name']);
+                            contingent = _.omit(contingent, ['sportData', 'medal', 'createdAt', 'createdAt', 'name']);
                             return contingent;
                         });
-                        sendObj.maxContingent = _.orderBy(result,['totalStrength','rank'],['desc','desc']);
+                        sendObj.maxContingent = _.orderBy(result, ['totalStrength', 'rank'], ['desc', 'desc']);
                         callback();
                     }
                 });
@@ -834,6 +852,66 @@ var model = {
 
 
 
+    },
+
+    // accepts schoolDetails and EventId
+    getProfile: function (data, callback) {
+        // console.log("pastGetProfile",data.event);
+        async.waterfall([
+
+            function (callback) {
+                var matchObj = {
+                    "name": data.school.schoolName,
+                    "eventId": ObjectId(data.event._id)
+                };
+                Rank.findOne(matchObj).exec(function (err, rank) {
+                    if (err) {
+                        callback(err, null);
+                    } else if (!_.isEmpty(rank)) {
+                        callback(null, rank);
+                    } else {
+                        callback("No School Found By This Name", null);
+                    }
+                });
+            },
+
+            function (rank, callback) {
+                var matchObj = {
+                    "schoolName": data.school.schoolName,
+                    "eventId": ObjectId(data.event._id)
+                };
+                Reportcard.findOne(matchObj).exec(function (err, report) {
+                    if (err) {
+                        callback(err, null);
+                    } else if (!_.isEmpty(rank)) {
+                        var sendObj = {
+                            "schoolName": data.school.schoolName,
+                            "sfaID": data.school.sfaID,
+                            "eventYear": data.event.year,
+                            "totalStrength": report.totalStrength,
+                            "maleCount": report.maleCount,
+                            "femaleCount": report.femaleCount,
+                            "totalMatches": report.totalMatches,
+                            "winCount": report.winCount,
+                            "looseCount": report.looseCount,
+                            "medal": rank.medal
+                        }
+
+                        Rank.getOneRank({
+                            "name": data.school.schoolName,
+                            "eventId": ObjectId(data.event._id)
+                        },function(err,rank){
+                            sendObj.rank=rank;
+                            callback(null,sendObj);
+                        });
+
+                    } else {
+                        callback("No School Found By This Name", null);
+                    }
+                });
+            }
+
+        ], callback);
     },
 
 

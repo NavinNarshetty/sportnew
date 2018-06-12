@@ -521,12 +521,10 @@ var model = {
     },
 
     // -----school profile-----
-
     // data={
     // "city":"",
-    // "keyboard":""    
+    // "keyboard":""
     // }
-
     searchByCity: function (data, callback) {
 
         async.waterfall([
@@ -650,7 +648,6 @@ var model = {
 
 
     },
-
     // -----school profile Ends-----
 
 

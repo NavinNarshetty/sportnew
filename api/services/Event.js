@@ -12,9 +12,6 @@ var schema = new Schema({
     fromMonth: String,
     eventYear: String,
     isExected: Boolean
-
-
-
 });
 
 
@@ -50,5 +47,6 @@ var model = {
             }
         }], callback);
     }
+    
 };
 module.exports = _.assign(module.exports, exports, model);

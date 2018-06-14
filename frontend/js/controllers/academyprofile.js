@@ -87,4 +87,10 @@ myApp.controller('AcademyProfileCtrl', function ($scope, TemplateService, Naviga
   // COMMON FUNCTIONS END
   // COMMON API CALLS
   // COMMON API CALLS END
+  // JSON
+  $scope.academy = {
+    rating: 3.5
+  }
+  $scope.sportList = [1,2,3,4,5];
+  // JSON END
 });

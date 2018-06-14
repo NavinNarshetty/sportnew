@@ -1,8 +1,51 @@
-<div class="academyprofile">
+<div class="academyprofile-page">
   <!-- ACADEMY HEADER -->
   <div class="academyprofile-header">
     <div class="container">
-      <h1>Academy Profile</h1>
+      <div class="academyprofile-headercard">
+        <div class="academyprofile-picture">
+          <img src="img/dishapatani1.jpg" alt="| Sports For All" class="img-responsive">
+        </div>
+        <div class="academyprofile-details">
+          <h3 class="academyprofile-name">South United School</h3>
+          <p class="academyprofile-address">
+            Mumbai, Worli
+            <a href="#" class="academydetail-link"><i class="fa fa-map-marker"></i> Get Directions</a>
+          </p>
+          <p class="academyprofile-sports">
+            <span class="opensans-semibold color-base">Sports:</span> <span class="academyprofile-sport" ng-repeat="sport in sportList track by $index">Badminton<span class="seperator">, </span></span>
+          </p>
+          <div class="academyprofile-rating">
+            <span class="opensans-semibold color-base">SFA Rating:</span>
+            <span uib-rating ng-model="academy.rating " max="5" read-only="true " on-hover=false on-leave="overStar=null " titles="[ 'one', 'two', 'three'] " aria-labelledby="default-rating "></span>
+          </div>
+          <p class="academyprofile-experience">
+            <span class="opensans-semibold color-base">Total Experience:</span> 10 Years
+          </p>
+        </div>
+      </div>
+      <div class="academy-actionholder">
+        <div class="row">
+          <div class="col-md-4">
+            <a href="" class="">
+              <img src="img/sfa-star-small.png" alt="" width="25px">
+              Enquire About This Academy
+            </a>
+          </div>
+          <div class="col-md-4">
+            <a href="" class="">
+              <img src="img/sfa-star-small.png" alt="" width="25px">
+              Request a Free Trial
+            </a>
+          </div>
+          <div class="col-md-4">
+            <a href="" class="">
+              <img src="img/sfa-star-small.png" alt="" width="25px">
+              View Sample Progress Report
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <!-- ACADEMY HEADER END -->

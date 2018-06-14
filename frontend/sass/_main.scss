@@ -238,6 +238,9 @@ a {
   background-color: $brand-danger;
 }
 
+.color-base{
+  color: $base;
+}
 .color-primary {
   color: $brand-primary;
 }
@@ -2233,6 +2236,74 @@ $tickerDuration: 60s;
 
 // CONTACT US PAGE END
 // ACADEMY PROFILE PAGE
+.academyprofile-page{
+  @extend .opensans-regular;
+}
+// ACADEMY HEADER
+.academyprofile-headercard{
+  width: 70%;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  padding: 20px;
+}
+.academyprofile-picture{
+  width: 190px;
+  height: 190px;
+  border-radius: 100%;
+  margin: 0 auto;
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+}
+.academyprofile-details{
+  width: calc(100% - 200px);
+  padding: 0 0 0 10px;
+  color: $dark-grey;
+  display: inline-block;
+  vertical-align: top;
+}
+.academyprofile-name{
+  margin-bottom: 10px;
+  color: $brand-primary;
+  @extend .opensans-semibold;
+}
+.academyprofile-address{
+  color: $dark-grey;
+  @extend .opensans-semibold;
+}
+.academyprofile-sport{
+  color: $dark-grey;
+  &:last-child{
+    .seperator{
+      display: none;
+    }
+  }
+}
+.academydetail-link{
+  margin-left: 5px;
+  color: $brand-warning;
+  i{
+    font-size: 21px;
+  }
+  @extend .opensans-regular;
+  &:active, &:focus, &:hover{
+    color: $brand-warning;
+  }
+}
+.academyprofile-rating{
+  .glyphicon-star:before {
+      content: "\f005";
+      color: $green-graph;
+      font: normal normal normal 14px/1 FontAwesome;
+  }
+  .glyphicon-star-empty:before {
+      content: "\f006";
+      color: $green-graph;
+      font: normal normal normal 14px/1 FontAwesome;
+  }
+}
+// ACADEMY HEADER END
+// ACADEMY NAV
 .academyprofile-nav {
   border-top: 2px solid #b7b7b7;
   position: relative;
@@ -2248,6 +2319,7 @@ $tickerDuration: 60s;
     }
   }
 }
+// ACADEMY NAV END
 // ACADEMY PROFILE PAGE END
 // ANIMATIONS
 // **************************************************************************

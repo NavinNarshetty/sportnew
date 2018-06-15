@@ -13,146 +13,151 @@ myApp.factory('NavigationService', function ($http, $state) {
     }
 
     var admin = [{
-            name: "Events",
-            classis: "active",
-            sref: "#!/page/viewEvent//",
-            icon: "phone"
-        }, {
-            name: "Registration",
+        name: "Events",
+        classis: "active",
+        sref: "#!/page/viewEvent//",
+        icon: "phone"
+    }, {
+        name: "Match Videos",
+        classis: "active",
+        sref: "#!/matchvideos",
+        icon: "phone"
+    }, {
+        name: "Registration",
+        classis: "activeColor",
+        sref: "",
+        icon: "phone",
+        subnav: [{
+            name: "Athlete",
             classis: "activeColor",
-            sref: "",
+            sref: "#!/tableathlete",
             icon: "phone",
-            subnav: [{
-                name: "Athlete",
-                classis: "activeColor",
-                sref: "#!/tableathlete",
-                icon: "phone",
-            }, {
-                name: "School",
-                classis: "activeColor",
-                sref: "#!/tableschool",
-                icon: "phone",
-            }]
+        }, {
+            name: "School",
+            classis: "activeColor",
+            sref: "#!/tableschool",
+            icon: "phone",
+        }]
+    },
+    {
+        name: "Ad Banners",
+        classis: "activeColor",
+        sref: "",
+        icon: "phone",
+        subnav: [{
+            name: "Gallery",
+            classis: "activeColor",
+            sref: "#!/adgallery",
+            icon: "phone",
+        }, {
+            name: "MtachVideo",
+            classis: "activeColor",
+            sref: "#!/advideo",
+            icon: "phone",
+        }, {
+            name: "Sport Page",
+            classis: "activeColor",
+            sref: "#!/adsportpage",
+            icon: "phone",
+        }]
+    }, {
+        name: "Featured",
+        classis: "activeColor",
+        sref: "",
+        icon: "phone",
+        subnav: [{
+            name: "FeaturedGallery",
+            classis: "activeColor",
+            sref: "#!/featuredgallery",
+            icon: "phone",
+        }, {
+            name: "FeatureVideo",
+            classis: "activeColor",
+            sref: "#!/featuredvideo",
+            icon: "phone",
+        }]
+    }, {
+        name: "City Rule",
+        classis: "activeColor",
+        sref: "",
+        icon: "phone",
+        subnav: [{
+            name: "Mumbai School",
+            classis: "activeColor",
+            sref: "#!/cityrule/mumbai/school",
+            icon: "phone",
+        }, {
+            name: "Mumbai College",
+            classis: "activeColor",
+            sref: "#!/cityrule/mumbai/college",
+            icon: "phone",
         },
         {
-            name: "Ad Banners",
+            name: "Hyderabad School",
             classis: "activeColor",
-            sref: "",
+            sref: "#!/cityrule/hyderabad/school",
             icon: "phone",
-            subnav: [{
-                name: "Gallery",
-                classis: "activeColor",
-                sref: "#!/adgallery",
-                icon: "phone",
-            }, {
-                name: "MtachVideo",
-                classis: "activeColor",
-                sref: "#!/advideo",
-                icon: "phone",
-            }, {
-                name: "Sport Page",
-                classis: "activeColor",
-                sref: "#!/adsportpage",
-                icon: "phone",
-            }]
-        }, {
-            name: "Featured",
+        },
+        {
+            name: "Hyderabad College",
             classis: "activeColor",
-            sref: "",
+            sref: "#!/cityrule/hyderabad/college",
             icon: "phone",
-            subnav: [{
-                name: "FeaturedGallery",
-                classis: "activeColor",
-                sref: "#!/featuredgallery",
-                icon: "phone",
-            }, {
-                name: "FeatureVideo",
-                classis: "activeColor",
-                sref: "#!/featuredvideo",
-                icon: "phone",
-            }]
-        }, {
-            name: "City Rule",
-            classis: "activeColor",
-            sref: "",
-            icon: "phone",
-            subnav: [{
-                    name: "Mumbai School",
-                    classis: "activeColor",
-                    sref: "#!/cityrule/mumbai/school",
-                    icon: "phone",
-                }, {
-                    name: "Mumbai College",
-                    classis: "activeColor",
-                    sref: "#!/cityrule/mumbai/college",
-                    icon: "phone",
-                },
-                {
-                    name: "Hyderabad School",
-                    classis: "activeColor",
-                    sref: "#!/cityrule/hyderabad/school",
-                    icon: "phone",
-                },
-                {
-                    name: "Hyderabad College",
-                    classis: "activeColor",
-                    sref: "#!/cityrule/hyderabad/college",
-                    icon: "phone",
-                }
-            ]
-        }, {
-            name: "You May Like",
-            classis: "active",
-            sref: "#!/like",
-            icon: "phone"
-        }, {
-            name: "Press Media",
-            classis: "activeColor",
-            sref: "",
-            icon: "phone",
-            subnav: [{
-                name: "Press News",
-                classis: "activeColor",
-                sref: "#!/pressnews",
-                icon: "phone",
-            }, {
-                name: "Press Releases",
-                classis: "activeColor",
-                sref: "#!/pressreleases",
-                icon: "phone",
-            }, {
-                name: "Media Contact",
-                classis: "activeColor",
-                sref: "#!/mediacontact",
-                icon: "phone",
-            }]
-        }, {
-            name: "About Championship",
-            classis: "active",
-            sref: "#!/tableaboutchampionship",
-            icon: "phone"
-        }, {
-            name: "Contact Details",
-            classis: "active",
-            sref: "#!/contactus",
-            icon: "phone"
-        }, {
-            name: "Event Link",
-            classis: "active",
-            sref: "#!/eventlink",
-            icon: "phone"
-        }, {
-            name: "Sports",
-            classis: "activeColor",
-            sref: "",
-            icon: "phone",
-            subnav: [{
-                name: "Sport Page",
-                classis: "activeColor",
-                sref: "#!/tablesportpage",
-                icon: "phone",
-            }]
         }
+        ]
+    }, {
+        name: "You May Like",
+        classis: "active",
+        sref: "#!/like",
+        icon: "phone"
+    }, {
+        name: "Press Media",
+        classis: "activeColor",
+        sref: "",
+        icon: "phone",
+        subnav: [{
+            name: "Press News",
+            classis: "activeColor",
+            sref: "#!/pressnews",
+            icon: "phone",
+        }, {
+            name: "Press Releases",
+            classis: "activeColor",
+            sref: "#!/pressreleases",
+            icon: "phone",
+        }, {
+            name: "Media Contact",
+            classis: "activeColor",
+            sref: "#!/mediacontact",
+            icon: "phone",
+        }]
+    }, {
+        name: "About Championship",
+        classis: "active",
+        sref: "#!/tableaboutchampionship",
+        icon: "phone"
+    }, {
+        name: "Contact Details",
+        classis: "active",
+        sref: "#!/contactus",
+        icon: "phone"
+    }, {
+        name: "Event Link",
+        classis: "active",
+        sref: "#!/eventlink",
+        icon: "phone"
+    }, {
+        name: "Sports",
+        classis: "activeColor",
+        sref: "",
+        icon: "phone",
+        subnav: [{
+            name: "Sport Page",
+            classis: "activeColor",
+            sref: "#!/tablesportpage",
+            icon: "phone",
+        }]
+    }
     ];
 
     var superAdmin = _.concat([{

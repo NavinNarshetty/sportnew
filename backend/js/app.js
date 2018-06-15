@@ -280,6 +280,21 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
         })
         // **************EVENT LINK END***********************
 
+        //****************MATCH VIDEOS START************************
+        .state('matchvideos', {
+            url: "/matchvideos",
+            templateUrl: "views/template.html",
+            controller: 'MatchvideosCtrl'
+        })
+
+        .state('detailmatchvideos', {
+            url: "/detailmatchvideos/:id",
+            templateUrl: "views/template.html",
+            controller: 'DetailmatchvideosCtrl'
+        })
+
+        //****************MATCH VIDEOS END*************************
+
         // *******************ACCESS Starts**********************************
         .state('noaccess', {
             url: "/no-access",

@@ -76,4 +76,5 @@ module.exports = [
     'backend/js/controllers/sportpage.js',
     'backend/js/controllers/contactus.js',
     'backend/js/controllers/eventlink.js',
+    'backend/js/controllers/matchvideo.js',
 ];

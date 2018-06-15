@@ -308,7 +308,291 @@ var model = {
         }
 
       });
+  },
+
+  sortSportwiseMatchVideos: function (data, callback) {
+    Allmatchvideos.remove({}).exec(function (err, deleted) {
+      if (err) {
+        console.log("Error", err);
+      } else {
+        console.log("All documents removed");
+      }
+
+    });
+    Topmatchvideos.remove({}).exec(function (err, deleted) {
+      if (err) {
+        console.log("Error", err);
+      } else {
+        console.log("All documents removed");
+      }
+
+    });
+    var tempObj = {};
+    var tempObj1 = {};
+    tempObj.matchVideos = [];
+    tempObj.allmatchvideos = [];
+    async.waterfall([
+      function (callback) {
+        Match.aggregate(
+          // Pipeline
+          [
+            // Stage 1
+            {
+              $match: {
+                'round': {
+                  $in: ['Final', 'Time Trial']
+                },
+                $and: [{ video: { $ne: "" } }, { video: { $ne: null } }]
+              }
+            },
+
+            // Stage 2
+            {
+              $project: {
+                "sport": 1,
+                "round": 1,
+                "video": 1
+
+              }
+            },
+
+            // Stage 3
+            {
+              $lookup: {
+                "from": "sports",
+                "localField": "sport",
+                "foreignField": "_id",
+                "as": "sport"
+              }
+            },
+
+            // Stage 4
+            {
+              $unwind: {
+                path: "$sport",
+                includeArrayIndex: "arrayIndex", // optional
+                preserveNullAndEmptyArrays: true // optional
+              }
+            },
+
+            // Stage 5
+            {
+              $lookup: {
+                "from": "sportslists",
+                "localField": "sport.sportslist",
+                "foreignField": "_id",
+                "as": "sportslistsData"
+              }
+            },
+
+            // Stage 6
+            {
+              $unwind: {
+                path: "$sportslistsData",
+                includeArrayIndex: "arrayIndex", // optional
+                preserveNullAndEmptyArrays: true // optional
+              }
+            },
+
+            // Stage 7
+            {
+              $lookup: {
+                "from": "sportslistsubcategories",
+                "localField": "sportslistsData.sportsListSubCategory",
+                "foreignField": "_id",
+                "as": "sportslistsubcataData"
+              }
+            },
+
+            // Stage 8
+            {
+              $unwind: {
+                path: "$sportslistsubcataData",
+                includeArrayIndex: "arrayIndex", // optional
+                preserveNullAndEmptyArrays: true // optional
+              }
+            },
+
+            // Stage 9
+            {
+              $lookup: {
+                "from": "matchvideos",
+                "localField": "sportslistsubcataData._id",
+                "foreignField": "sportsListSubCategory",
+                "as": "matchvideosData"
+              }
+            },
+
+            // Stage 10
+            {
+              $unwind: {
+                path: "$matchvideosData",
+                includeArrayIndex: "arrayIndex", // optional
+                preserveNullAndEmptyArrays: true // optional
+              }
+            },
+
+            // Stage 11
+            {
+              $group: {
+                _id: "$sportslistsubcataData.name",
+                sportListSubCat: { $addToSet: '$sportslistsubcataData' },
+                round: { $addToSet: '$round' },
+                video: { $addToSet: '$video' },
+                matchvideosData: { $addToSet: '$matchvideosData' }
+
+
+
+
+              }
+            },
+
+            // Stage 12
+            {
+              $unwind: {
+                path: "$matchvideosData",
+                includeArrayIndex: "arrayIndex", // optional
+                preserveNullAndEmptyArrays: true // optional
+              }
+            },
+
+            // Stage 13
+            {
+              $unwind: {
+                path: "$sportListSubCat",
+                includeArrayIndex: "arrayIndex", // optional
+                preserveNullAndEmptyArrays: true // optional
+              }
+            },
+
+            // Stage 14
+            {
+              $unwind: {
+                path: "$round",
+                includeArrayIndex: "arrayIndex", // optional
+                preserveNullAndEmptyArrays: true // optional
+              }
+            },
+
+          ], function (err, found) {
+            if (err) {
+              callback(err, null);
+            } else if (_.isEmpty(found)) {
+              callback(null, []);
+            } else {
+              _.each(found, function (file) {
+                var sportsToMerge = ['Tennis', 'Badminton', 'Table Tennis', 'Athletics', 'Swimming', 'Karate'];
+                _.each(sportsToMerge, function (sportName) {
+                  if (file._id != null && file._id.indexOf(sportName) != -1 && !file._id.indexOf(sportName) > 0 && file._id.indexOf(sportName) != null) {
+                    file.sportName = sportName;
+                  }
+                });
+                if (!file.sportName) {
+                  file.sportName = file._id;
+                }
+              });
+              var finalData = _(found)
+                .groupBy('sportName')
+                .map(function (items, name) {
+                  // console.log("items", items);
+                  console.log("name", name);
+                  return {
+                    sportName: name,
+                    dataArr: items,
+                  };
+                }).value();
+              callback(null, finalData);
+            }
+          });
+
+
+      },
+      function (data, callback) {
+        var dataTosend = [];
+        async.eachSeries(data, function (file, callback1) { //Loop through data array
+          //process file
+          file.videoArr = _.map(file.dataArr, 'video');
+          file.videoArr = _.flattenDeep(file.videoArr);
+          file.videoArr = _.uniq(file.videoArr);
+          file.videoArr = _.compact(file.videoArr);
+          file.allmatchvideosArr = file.videoArr;
+          if (file.videoArr.length > 4) {
+            file.viwemore = true;
+          } else {
+            file.viwemore = false;
+          }
+          file.matchVideoArr = _.map(file.dataArr, 'matchvideosData.matchVideos');
+          file.matchVideoArr = _.flattenDeep(file.matchVideoArr);
+          file.matchVideoArr = _.uniq(file.matchVideoArr);
+          file.matchVideoArr = _.compact(file.matchVideoArr);
+          file.matchVideoArr = _.map(file.matchVideoArr, 'videoId');
+          if (file.matchVideoArr.length > 0) {
+            file.matchVideoArr = _.shuffle(file.matchVideoArr);
+            file.allmatchvideosArr = _.concat(file.matchVideoArr, file.allmatchvideosArr);
+            if (file.matchVideoArr.length >= 2) {
+              file.matchVideoArr = _.take(file.matchVideoArr, 2);
+              file.videoArr = _.shuffle(file.videoArr);
+              file.videoArr = _.take(file.videoArr, 2);
+
+            } else {
+              file.matchVideoArr = _.take(file.matchVideoArr, 1);
+              file.videoArr = _.shuffle(file.videoArr);
+              file.videoArr = _.take(file.videoArr, 3);
+            }
+          } else {
+
+            file.videoArr = _.shuffle(file.videoArr);
+            file.videoArr = _.take(file.videoArr, 4);
+          }
+
+          if (file.sportName != null) {
+            tempObj.sportName = file.sportName;
+            tempObj.viwemore = file.viwemore;
+          }
+          file.matchVideoArr = _.concat(file.videoArr, file.matchVideoArr);
+          file.matchVideoArr = _.shuffle(file.matchVideoArr);
+          _.each(file.matchVideoArr, function (obj) {
+            tempObj1.video = obj;
+            tempObj.matchVideos.push(tempObj1);
+            tempObj1 = {};
+          });
+          _.each(file.allmatchvideosArr, function (obj) {
+            tempObj1.video = obj;
+            tempObj.allmatchvideos.push(tempObj1);
+            tempObj1 = {};
+          });
+
+          //****Fucntion for saving all match videos from matches as well MatchVideos
+          Allmatchvideos.saveData(tempObj, function (err, saved) {
+
+          });
+          //****Function for saving only topmatch match videos from Match.js as well as from MatchVideos.js */
+          Topmatchvideos.saveData(tempObj, function (err, saved) {
+            dataTosend.push(tempObj);
+            tempObj = {};
+            tempObj.matchVideos = [];
+            tempObj.allmatchvideos = [];
+            callback1();
+          });
+
+        }, function () {
+          callback(null, dataTosend);
+        });
+      }
+    ], function (err, result) {
+      if (err) {
+        callback(err, null);
+      } else if (_.isEmpty(result)) {
+        callback(null, []);
+      } else {
+        callback(null, result);
+      }
+    });
+
+
   }
+
+
 
 
 

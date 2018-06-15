@@ -10,16 +10,6 @@ var controller = {
         value: false
       });
     }
-  },
-  sortSportwiseMatchVideos: function (req, res) {
-    if (req.body) {
-      Match.sortSportwiseMatchVideos(req.body, res.callback);
-    } else {
-      res.json({
-        data: "Body not found",
-        value: false
-      });
-    }
   }
 
 
